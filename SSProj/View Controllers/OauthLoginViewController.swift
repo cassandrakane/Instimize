@@ -16,7 +16,7 @@ import SwiftyJSON
 class OauthLoginViewController: UIViewController {
     
     @IBOutlet weak var webView: UIWebView!
-    let realm = Realm()
+    //let realm = Realm()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,8 +49,12 @@ class OauthLoginViewController: UIViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
-        
-        //FIGURE OUT L8TER M8
+        if segue.identifier == "unwindToMenu" && segue.destinationViewController.isKindOfClass(MenuViewController.classForCoder()) {
+            let menuViewController = segue.destinationViewController as! MenuViewController
+            if let user = sender?.valueForKey("user") as? User {
+               //MenuViewController.user = user
+            }
+        }
     }
 
 }
@@ -87,12 +91,13 @@ extension OauthLoginViewController: UIWebViewDelegate {
                         user.accessToken = accessToken
                         println("USER ID:" + user.userID)
                         println("ACCESS TOKEN:" + user.accessToken)
-                        /*
-                        FIGURE OUT ERROR LATER
+                      
+                        let realm = Realm()
                         realm.write() {
-                            realm.add(user)
+                            //realm.add(user)
+                            return
                         }
-                        */
+                        
                         
                         self.performSegueWithIdentifier("unwindToMenu", sender: ["user": user])
                     }

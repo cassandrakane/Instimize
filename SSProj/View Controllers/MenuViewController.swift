@@ -9,7 +9,7 @@
 import UIKit
 
 class MenuViewController: UIViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -21,6 +21,10 @@ class MenuViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func unwindToMenu (segue : UIStoryboardSegue) {
+        
+    }
+
 
     /*
     // MARK: - Navigation

@@ -34,10 +34,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Menu" id="SwT-CX-yoF">
-                        <barButtonItem key="rightBarButtonItem" title="Logout" id="zjT-Ql-uty">
+                    <navigationItem key="navigationItem" title="Menu" id="N3b-tG-wVW">
+                        <barButtonItem key="rightBarButtonItem" title="Logout" id="0iA-fY-SKA">
                             <connections>
-                                <segue destination="lCE-aj-GVf" kind="presentation" id="Dou-Co-4ns"/>
+                                <segue destination="lCE-aj-GVf" kind="presentation" id="CTc-BO-AZm"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -101,9 +101,11 @@
                     <navigationItem key="navigationItem" title="Login" id="gM7-I7-g7x"/>
                     <connections>
                         <outlet property="webView" destination="sTU-A6-XgS" id="BFG-yC-bzP"/>
+                        <segue destination="QTy-Oz-hIF" kind="unwind" identifier="unwindToMenu" unwindAction="unwindToMenu:" id="nko-Wm-aVU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aDi-mE-h4t" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="QTy-Oz-hIF" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="972" y="1077"/>
         </scene>
