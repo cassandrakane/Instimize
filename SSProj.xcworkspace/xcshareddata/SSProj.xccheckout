@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>1DB6420F-844D-4F27-B3CA-B961FE197E9D</string>
+	<key>IDESourceControlProjectName</key>
+	<string>SSProj</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>BD43D28E60A2A80F4A0EC5A244D96112F8FFEC7E</key>
+		<string>https://github.com/cassandrakane/SociaStats.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>SSProj.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>BD43D28E60A2A80F4A0EC5A244D96112F8FFEC7E</key>
+		<string>..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/cassandrakane/SociaStats.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>BD43D28E60A2A80F4A0EC5A244D96112F8FFEC7E</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>BD43D28E60A2A80F4A0EC5A244D96112F8FFEC7E</string>
+			<key>IDESourceControlWCCName</key>
+			<string>SSProj</string>
+		</dict>
+	</array>
+</dict>
+</plist>
