@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import CoreData
 import RealmSwift
 import Realm
 
@@ -15,6 +14,8 @@ class User : Object {
     
     dynamic var userID: String = ""
     dynamic var accessToken: String = ""
-    dynamic var mediaIDs: [String] = []
+    dynamic var posts: [Post] = []
+    dynamic var followers: [Follower] = []
+    dynamic var followings: [Following] = []
     
 }

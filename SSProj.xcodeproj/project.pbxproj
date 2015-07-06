@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7401D1151B4AC8310035C0C1 /* Like.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7401D1141B4AC8310035C0C1 /* Like.swift */; };
+		7401D1171B4AC8400035C0C1 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7401D1161B4AC8400035C0C1 /* Comment.swift */; };
+		7401D1191B4AC8530035C0C1 /* Follower.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7401D1181B4AC8530035C0C1 /* Follower.swift */; };
+		7401D11B1B4AC85E0035C0C1 /* Following.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7401D11A1B4AC85E0035C0C1 /* Following.swift */; };
+		7401D11D1B4AC8680035C0C1 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7401D11C1B4AC8680035C0C1 /* Post.swift */; };
 		740FA4C91B459292000E88B7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 740FA4C81B459292000E88B7 /* AppDelegate.swift */; };
 		740FA4CB1B459292000E88B7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 740FA4CA1B459292000E88B7 /* ViewController.swift */; };
 		740FA4CE1B459292000E88B7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 740FA4CC1B459292000E88B7 /* Main.storyboard */; };
@@ -33,6 +38,11 @@
 /* Begin PBXFileReference section */
 		0D948DF58668113D13E30771 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D4EC54B8F8A3F6470629856 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		7401D1141B4AC8310035C0C1 /* Like.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Like.swift; sourceTree = "<group>"; };
+		7401D1161B4AC8400035C0C1 /* Comment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
+		7401D1181B4AC8530035C0C1 /* Follower.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Follower.swift; sourceTree = "<group>"; };
+		7401D11A1B4AC85E0035C0C1 /* Following.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Following.swift; sourceTree = "<group>"; };
+		7401D11C1B4AC8680035C0C1 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		740FA4C31B459292000E88B7 /* SSProj.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SSProj.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		740FA4C71B459292000E88B7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		740FA4C81B459292000E88B7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -78,6 +88,19 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		7401D1131B4AC8140035C0C1 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				741E1D201B45B7F0001C9B27 /* User.swift */,
+				7401D11C1B4AC8680035C0C1 /* Post.swift */,
+				7401D1141B4AC8310035C0C1 /* Like.swift */,
+				7401D1161B4AC8400035C0C1 /* Comment.swift */,
+				7401D1181B4AC8530035C0C1 /* Follower.swift */,
+				7401D11A1B4AC85E0035C0C1 /* Following.swift */,
+			);
+			name = Entities;
+			sourceTree = "<group>";
+		};
 		740FA4BA1B459291000E88B7 = {
 			isa = PBXGroup;
 			children = (
@@ -101,6 +124,7 @@
 		740FA4C51B459292000E88B7 /* SSProj */ = {
 			isa = PBXGroup;
 			children = (
+				7401D1131B4AC8140035C0C1 /* Entities */,
 				741E1D191B45A726001C9B27 /* View Controllers */,
 				740FA4C81B459292000E88B7 /* AppDelegate.swift */,
 				740FA4CC1B459292000E88B7 /* Main.storyboard */,
@@ -108,7 +132,6 @@
 				740FA4D11B459292000E88B7 /* LaunchScreen.xib */,
 				740FA4C61B459292000E88B7 /* Supporting Files */,
 				741E1D1C1B45AA0D001C9B27 /* Instagram.swift */,
-				741E1D201B45B7F0001C9B27 /* User.swift */,
 			);
 			path = SSProj;
 			sourceTree = "<group>";
@@ -308,9 +331,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				741E1D1D1B45AA0D001C9B27 /* Instagram.swift in Sources */,
+				7401D11D1B4AC8680035C0C1 /* Post.swift in Sources */,
+				7401D1191B4AC8530035C0C1 /* Follower.swift in Sources */,
+				7401D1151B4AC8310035C0C1 /* Like.swift in Sources */,
 				741E1D1F1B45B34D001C9B27 /* MenuViewController.swift in Sources */,
+				7401D1171B4AC8400035C0C1 /* Comment.swift in Sources */,
 				741E1D211B45B7F0001C9B27 /* User.swift in Sources */,
 				741E1D1B1B45A78D001C9B27 /* OauthLoginViewController.swift in Sources */,
+				7401D11B1B4AC85E0035C0C1 /* Following.swift in Sources */,
 				740FA4CB1B459292000E88B7 /* ViewController.swift in Sources */,
 				740FA4C91B459292000E88B7 /* AppDelegate.swift in Sources */,
 			);
