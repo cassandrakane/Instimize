@@ -9,11 +9,12 @@
 import Foundation
 import CoreData
 import RealmSwift
+import Realm
 
-class User {
+class User : Object {
     
     dynamic var userID: String = ""
     dynamic var accessToken: String = ""
     dynamic var mediaIDs: [String] = []
-
+    
 }

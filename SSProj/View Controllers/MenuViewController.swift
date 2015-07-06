@@ -7,8 +7,31 @@
 //
 
 import UIKit
+import Foundation
+import Realm
+import RealmSwift
+import Alamofire
+import SwiftyJSON
 
-class MenuViewController: UIViewController {
+class MenuViewController: UITabBarController {
+    
+    @IBOutlet weak var logoutButtonItem: UIBarButtonItem!
+    
+    var shouldLogin = false
+
+    var user: User? {
+        didSet {
+            if user != nil {
+                //handleRefresh()
+                hideLogoutButtonItem(false)
+                
+            } else {
+                shouldLogin = true
+                hideLogoutButtonItem(true)
+            }
+        }
+    }
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +46,30 @@ class MenuViewController: UIViewController {
     
     @IBAction func unwindToMenu (segue : UIStoryboardSegue) {
         
+    }
+
+    /*
+    func handleRefresh() {
+        nextURLRequest = nil
+        refreshControl.beginRefreshing()
+        self.photos.removeAll(keepCapacity: false)
+        self.collectionView!.reloadData()
+        refreshControl.endRefreshing()
+        if user != nil {
+            let urlString = Instagram.Router.PopularPhotos(user!.userID, user!.accessToken)
+            populatePhotos(urlString)
+        }
+    }
+*/
+    
+    func hideLogoutButtonItem(hide: Bool) {
+        if hide {
+            logoutButtonItem.title = ""
+            logoutButtonItem.enabled = false
+        } else {
+            logoutButtonItem.title = "Logout"
+            logoutButtonItem.enabled = true
+        }
     }
 
 

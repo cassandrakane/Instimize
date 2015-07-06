@@ -14,35 +14,75 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="AqX-lv-BwQ" kind="relationship" relationship="rootViewController" id="lRj-dQ-KaC"/>
+                        <segue destination="o7u-bv-SFF" kind="relationship" relationship="rootViewController" id="PC5-N6-117"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4PX-Yo-FVP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="266" y="339"/>
         </scene>
-        <!--Menu-->
-        <scene sceneID="jjw-9Y-mjc">
+        <!--Item 2-->
+        <scene sceneID="7sH-PH-cCy">
             <objects>
-                <viewController title="Menu" id="AqX-lv-BwQ" customClass="MenuViewController" customModule="SSProj" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="W1W-D1-FYg" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="cLf-7g-8gS"/>
-                        <viewControllerLayoutGuide type="bottom" id="CQp-d9-9ir"/>
+                        <viewControllerLayoutGuide type="top" id="JsG-bO-eEK"/>
+                        <viewControllerLayoutGuide type="bottom" id="cgN-Nd-OMi"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="2mi-h6-YxO">
+                    <view key="view" contentMode="scaleToFill" id="arY-qI-6L2">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Menu" id="N3b-tG-wVW">
-                        <barButtonItem key="rightBarButtonItem" title="Logout" id="0iA-fY-SKA">
+                    <tabBarItem key="tabBarItem" title="Item 2" id="SpJ-k0-aUZ"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0tq-Gd-wUi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1800" y="5"/>
+        </scene>
+        <!--Item 1-->
+        <scene sceneID="kTz-vT-DLF">
+            <objects>
+                <viewController id="6yO-Kp-GiH" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ZG2-rr-tRf"/>
+                        <viewControllerLayoutGuide type="bottom" id="5PN-KU-odg"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Rqo-eg-po5">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item 1" id="6HQ-62-2gz"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6Ox-Eo-Fdw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1800" y="-657"/>
+        </scene>
+        <!--Menu View Controller-->
+        <scene sceneID="QMG-RW-hJN">
+            <objects>
+                <tabBarController id="o7u-bv-SFF" customClass="MenuViewController" customModule="SSProj" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="t3N-da-eQ4">
+                        <barButtonItem key="rightBarButtonItem" title="Logout" id="yLR-sz-YhJ">
                             <connections>
-                                <segue destination="lCE-aj-GVf" kind="presentation" id="CTc-BO-AZm"/>
+                                <segue destination="lCE-aj-GVf" kind="presentation" id="URm-gy-vQT"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="zBF-YX-G2u" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="x53-Mb-LGW">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <outlet property="logoutButtonItem" destination="yLR-sz-YhJ" id="SBS-kn-uUA"/>
+                        <segue destination="6yO-Kp-GiH" kind="relationship" relationship="viewControllers" id="3ci-fJ-LKg"/>
+                        <segue destination="W1W-D1-FYg" kind="relationship" relationship="viewControllers" id="uk3-Oj-M6l"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vKz-Su-7Sp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="972" y="339"/>
         </scene>
@@ -102,6 +142,7 @@
                     <connections>
                         <outlet property="webView" destination="sTU-A6-XgS" id="BFG-yC-bzP"/>
                         <segue destination="QTy-Oz-hIF" kind="unwind" identifier="unwindToMenu" unwindAction="unwindToMenu:" id="nko-Wm-aVU"/>
+                        <segue destination="QTy-Oz-hIF" kind="unwind" unwindAction="unwindToMenu:" id="FmR-RI-5Qz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aDi-mE-h4t" userLabel="First Responder" sceneMemberID="firstResponder"/>
