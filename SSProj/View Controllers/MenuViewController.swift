@@ -18,14 +18,18 @@ class MenuViewController: UITabBarController {
     @IBOutlet weak var logoutButtonItem: UIBarButtonItem!
     
     var shouldLogin = false
+    var nextURLRequest: NSURLRequest?
+    let refreshControl = UIRefreshControl()
 
     var user: User? {
         didSet {
             if user != nil {
-                //handleRefresh()
+                println("test")
+                let urlString = Instagram.Router.LoggedIn(user!.userID, user!.accessToken)
+                getPosts(urlString)
                 hideLogoutButtonItem(false)
-                
             } else {
+                println("other test")
                 shouldLogin = true
                 hideLogoutButtonItem(true)
             }
@@ -48,20 +52,6 @@ class MenuViewController: UITabBarController {
         
     }
 
-    /*
-    func handleRefresh() {
-        nextURLRequest = nil
-        refreshControl.beginRefreshing()
-        self.photos.removeAll(keepCapacity: false)
-        self.collectionView!.reloadData()
-        refreshControl.endRefreshing()
-        if user != nil {
-            let urlString = Instagram.Router.PopularPhotos(user!.userID, user!.accessToken)
-            populatePhotos(urlString)
-        }
-    }
-*/
-    
     func hideLogoutButtonItem(hide: Bool) {
         if hide {
             logoutButtonItem.title = ""
@@ -72,7 +62,87 @@ class MenuViewController: UITabBarController {
         }
     }
 
+    func requestAccessToken(code: String) {
+        let request = Instagram.Router.requestAccessTokenURLStringAndParms(code)
+        
+        Alamofire.request(.POST, request.URLString, parameters: request.Params)
+            .responseJSON {
+                (_, _, jsonObject, error) in
+                
+                if (error == nil) {
+                    //println(jsonObject)
+                    let json = JSON(jsonObject!)
+                    
+                    if let accessToken = json["access_token"].string, userID = json["user"]["id"].string {
+                        let user = User()
+                        user.userID = userID
+                        user.accessToken = accessToken
+                        println("USER ID:" + user.userID)
+                        println("ACCESS TOKEN:" + user.accessToken)
+                        
+                        /*
+                        let realm = Realm()
+                        realm.write() {
+                        //FIGURE OUT L8TER
+                        realm.add(user, update: true)
+                        return
+                        }
+                        */
+                        
+                        self.performSegueWithIdentifier("unwindToMenu", sender: ["user": user])
+                    }
+                }
+                
+        }
+    }
+    
+    func getPosts(request:URLRequestConvertible) {
+        println("test1")
+        Alamofire.request(request).responseJSON() {
+            (_ , _, jsonObject, error) in
+            
+            if (error == nil) {
+                //println(jsonObject)
+                let json = JSON(jsonObject!)
+                
+                if (json["meta"]["code"].intValue  == 200) {
+                    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0)) {
+                        if let urlString = json["pagination"]["next_url"].URL {
+                            self.nextURLRequest = NSURLRequest(URL: urlString)
+                        } else {
+                            self.nextURLRequest = nil
+                        }
+                        let posts = json["data"].arrayValue
+                        //user.posts = posts
+                        println(posts)
+                            /*
+                            .filter {
+                                $0["type"].stringValue == "image"
+                            }.map({
+                                PhotoInfo(sourceImageURL: $0["images"]["standard_resolution"]["url"].URL!)
+                            })
+                        
+                        let lastItem = self.photos.count
+                        self.photos.extend(photoInfos)
+                        
+                        let indexPaths = (lastItem..<self.photos.count).map { NSIndexPath(forItem: $0, inSection: 0) }
+                        
+                        dispatch_async(dispatch_get_main_queue()) {
+                            self.collectionView!.insertItemsAtIndexPaths(indexPaths)
+                        }
+                         */
+                        
+                    }
+                    
+                }
+                
+            }
+            //self.populatingPhotos = false
+            
+        }
+    }
 
+    
     /*
     // MARK: - Navigation
 

@@ -52,7 +52,7 @@ class OauthLoginViewController: UIViewController {
         if segue.identifier == "unwindToMenu" && segue.destinationViewController.isKindOfClass(MenuViewController.classForCoder()) {
             let menuViewController = segue.destinationViewController as! MenuViewController
             if let user = sender?.valueForKey("user") as? User {
-               //MenuViewController.user = user
+               menuViewController.user = user
             }
         }
     }
@@ -60,6 +60,7 @@ class OauthLoginViewController: UIViewController {
 }
 
 extension OauthLoginViewController: UIWebViewDelegate {
+    
     func webView(webView: UIWebView, shouldStartLoadWithRequest request: NSURLRequest, navigationType: UIWebViewNavigationType) -> Bool {
         println("REQUEST URL: " + request.URLString)
         let urlString = request.URLString

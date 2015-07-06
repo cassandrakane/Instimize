@@ -29,13 +29,23 @@ struct Instagram {
             return (urlString, params)
         }
         
+        /*
+        static func requestRecentMediaURLStringAndParms(userID: String, accessToken: String) -> (URLString: String, Params: [String: AnyObject]) {
+            let params = ["count": , "max_timestamp": , "access_token": accessToken, "min_timestamp": , "min_id": , "max_id": ]
+            let pathString = "/v1/users/" + userID + "/media/recent"
+            let urlString = Instagram.Router.baseURLString + pathString
+            return (urlSTring, params)
+        }
+        */
+
+        
         var URLRequest: NSURLRequest {
             let (path: String, parameters: [String: AnyObject]) = {
                 switch self {
                 case .LoggedIn (let userID, let accessToken):
                     let params = ["access_token": accessToken]
                     let pathString = "/v1/users/" + userID + "/media/recent"
-                    //FIGURE OUT LATER
+                    println("CASE LOGGED IN")
                     return (pathString, params)
                 case .requestOauthCode:
                     let pathString = "/oauth/authorize/?client_id=" + Router.clientID + "&redirect_uri=" + Router.redirectURI + "&response_type=code"
