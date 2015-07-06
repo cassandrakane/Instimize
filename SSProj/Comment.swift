@@ -12,6 +12,8 @@ import Realm
 
 class Comment : Object {
     
-    dynamic var commenterID = ""
+    dynamic var commenterID: String = ""
+    dynamic var commenterUsername: String = ""
+    dynamic var commenterFullName: String = ""
     
 }

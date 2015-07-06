@@ -13,5 +13,7 @@ import Realm
 class Following : Object {
     
     dynamic var followingID: String = ""
+    dynamic var followingUsername: String = ""
+    dynamic var followingFullName: String = ""
     
 }

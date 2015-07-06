@@ -13,5 +13,7 @@ import Realm
 class Like : Object {
     
     dynamic var likerID: String = ""
+    dynamic var likerUsername: String = ""
+    dynamic var likerFullName: String = ""
     
 }

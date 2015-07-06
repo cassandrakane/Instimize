@@ -13,5 +13,7 @@ import Realm
 class Follower : Object {
     
     dynamic var followerID: String = ""
+    dynamic var followerUsername: String = ""
+    dynamic var followerFullName: String = ""
     
 }
