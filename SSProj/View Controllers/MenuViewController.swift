@@ -25,7 +25,7 @@ class MenuViewController: UITabBarController {
         didSet {
             if user != nil {
                 println("test")
-                let urlString = Instagram.Router.LoggedIn(user!.userID, user!.accessToken)
+                let urlString = Instagram.Router.getRecent(user!.userID, user!.accessToken)
                 getPosts(urlString)
                 hideLogoutButtonItem(false)
             } else {
@@ -96,8 +96,7 @@ class MenuViewController: UITabBarController {
         }
     }
     
-    func getPosts(request:URLRequestConvertible) {
-        println("test1")
+    func getPosts(request: URLRequestConvertible) {
         Alamofire.request(request).responseJSON() {
             (_ , _, jsonObject, error) in
             
@@ -107,20 +106,36 @@ class MenuViewController: UITabBarController {
                 
                 if (json["meta"]["code"].intValue  == 200) {
                     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0)) {
+                        
+                        /*
                         if let urlString = json["pagination"]["next_url"].URL {
                             self.nextURLRequest = NSURLRequest(URL: urlString)
                         } else {
                             self.nextURLRequest = nil
                         }
+                        */
+                        
                         let posts = json["data"].arrayValue
-                        //user.posts = posts
-                        println(posts)
-                            /*
-                            .filter {
-                                $0["type"].stringValue == "image"
-                            }.map({
-                                PhotoInfo(sourceImageURL: $0["images"]["standard_resolution"]["url"].URL!)
-                            })
+                        
+                        var mediaIDs: [String] = []
+                        var i: Int
+                        for (i = 0; i < posts.count; i++) {
+                            let mediaID = posts[i]["id"].string
+                            mediaIDs.append(mediaID!)
+                        }
+                        
+                        let allLikes: [[String]] = []
+                        for (i = 0; i < mediaIDs.count; i++) {
+                            let urlString = Instagram.Router.getLikes(mediaIDs[i], self.user!.accessToken)
+                            let likes = self.getLikes(urlString)
+                        }
+                        
+                        let allComments: [[String]] = []
+                        for (i = 0; i < mediaIDs.count; i++) {
+                            let urlString = Instagram.Router.getComments(mediaIDs[i], self.user!.accessToken)
+                            let likes = self.getComments(urlString)
+                        }
+                        /*
                         
                         let lastItem = self.photos.count
                         self.photos.extend(photoInfos)
@@ -142,7 +157,59 @@ class MenuViewController: UITabBarController {
         }
     }
 
+    func getLikes(request: URLRequestConvertible) -> [String]{
+        Alamofire.request(request).responseJSON() {
+            (_ , _, jsonObject, error) in
+            
+            if (error == nil) {
+                //println(jsonObject)
+                let json = JSON(jsonObject!)
+                
+                if (json["meta"]["code"].intValue  == 200) {
+                    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0)) {
+                        
+                        let likes = json["data"]
+                        //NSLog("LIKES")
+                        //NSLog("\(likes)")
+                        
+                    }
+                    
+                }
+                
+            }
+            
+        }
+        
+        return []
+
+    }
     
+    func getComments(request: URLRequestConvertible) -> [String] {
+        Alamofire.request(request).responseJSON() {
+            (_ , _, jsonObject, error) in
+            
+            if (error == nil) {
+                //println(jsonObject)
+                let json = JSON(jsonObject!)
+                
+                if (json["meta"]["code"].intValue  == 200) {
+                    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0)) {
+                        
+                        let comments = json["data"]
+                        NSLog("COM")
+                        NSLog("\(comments)")
+                        
+                    }
+                    
+                }
+                
+            }
+            
+        }
+        
+        return []
+
+    }
     /*
     // MARK: - Navigation
 

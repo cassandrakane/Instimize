@@ -18,7 +18,9 @@ struct Instagram {
         static let clientSecret = "ba7368a3061445749c7c36126ad757f4"
         static let authorizationURL = NSURL(string: Router.baseURLString + "/oauth/authorize/?client_id=" + Router.clientID + "&redirect_uri=" + Router.redirectURI + "&response_type=code")!
         
-        case LoggedIn(String, String)
+        case getRecent(String, String)
+        case getLikes(String, String)
+        case getComments(String, String)
         case requestOauthCode
         
         static func requestAccessTokenURLStringAndParms(code: String) -> (URLString: String, Params: [String: AnyObject]) {
@@ -42,10 +44,18 @@ struct Instagram {
         var URLRequest: NSURLRequest {
             let (path: String, parameters: [String: AnyObject]) = {
                 switch self {
-                case .LoggedIn (let userID, let accessToken):
+                case .getRecent (let userID, let accessToken):
                     let params = ["access_token": accessToken]
                     let pathString = "/v1/users/" + userID + "/media/recent"
                     println("CASE LOGGED IN")
+                    return (pathString, params)
+                case .getLikes (let mediaID, let accessToken):
+                    let params = ["access_token": accessToken]
+                    let pathString = "/v1/media/" + mediaID + "/likes"
+                    return (pathString, params)
+                case .getComments (let mediaID, let accessToken):
+                    let params = ["access_token": accessToken]
+                    let pathString = "/v1/media/" + mediaID + "/comments"
                     return (pathString, params)
                 case .requestOauthCode:
                     let pathString = "/oauth/authorize/?client_id=" + Router.clientID + "&redirect_uri=" + Router.redirectURI + "&response_type=code"
