@@ -162,7 +162,6 @@
                     <connections>
                         <outlet property="webView" destination="sTU-A6-XgS" id="BFG-yC-bzP"/>
                         <segue destination="QTy-Oz-hIF" kind="unwind" identifier="unwindToMenu" unwindAction="unwindToMenu:" id="nko-Wm-aVU"/>
-                        <segue destination="QTy-Oz-hIF" kind="unwind" unwindAction="unwindToMenu:" id="FmR-RI-5Qz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aDi-mE-h4t" userLabel="First Responder" sceneMemberID="firstResponder"/>

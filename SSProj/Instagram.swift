@@ -21,6 +21,8 @@ struct Instagram {
         case getRecent(String, String)
         case getLikes(String, String)
         case getComments(String, String)
+        case getFollowers(String, String)
+        case getFollowings(String, String)
         case requestOauthCode
         
         static func requestAccessTokenURLStringAndParms(code: String) -> (URLString: String, Params: [String: AnyObject]) {
@@ -56,6 +58,14 @@ struct Instagram {
                 case .getComments (let mediaID, let accessToken):
                     let params = ["access_token": accessToken]
                     let pathString = "/v1/media/" + mediaID + "/comments"
+                    return (pathString, params)
+                case .getFollowers (let userID, let accessToken):
+                    let params = ["access_token": accessToken]
+                    let pathString = "/v1/users/" + userID + "/followed-by"
+                    return (pathString, params)
+                case .getFollowings (let userID, let accessToken):
+                    let params = ["access_token": accessToken]
+                    let pathString = "/v1/users/" + userID + "/follows"
                     return (pathString, params)
                 case .requestOauthCode:
                     let pathString = "/oauth/authorize/?client_id=" + Router.clientID + "&redirect_uri=" + Router.redirectURI + "&response_type=code"

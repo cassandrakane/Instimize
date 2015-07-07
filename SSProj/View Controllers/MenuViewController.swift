@@ -26,7 +26,7 @@ class MenuViewController: UITabBarController {
             if user != nil {
                 println("test")
                 let urlString = Instagram.Router.getRecent(user!.userID, user!.accessToken)
-                getPosts(urlString)
+                getInfo(user!)
                 hideLogoutButtonItem(false)
             } else {
                 println("other test")
@@ -52,6 +52,7 @@ class MenuViewController: UITabBarController {
         
     }
 
+    
     func hideLogoutButtonItem(hide: Bool) {
         if hide {
             logoutButtonItem.title = ""
@@ -96,7 +97,60 @@ class MenuViewController: UITabBarController {
         }
     }
     
-    func getPosts(request: URLRequestConvertible) {
+    
+    
+    func getInfo(user: User) {
+                        
+        //GET ALL MEDIA IDS
+        var urlString = Instagram.Router.getRecent(user.userID, user.accessToken)
+        var mediaIDs: [String] = getMediaIDs(urlString)
+        
+        var i: Int
+        //GET ALL LIKES
+        var allLikes: [[String]] = []
+        for (i = 0; i < mediaIDs.count; i++) {
+            urlString = Instagram.Router.getLikes(mediaIDs[i], user.accessToken)
+            let likes = getLikes(urlString)
+            allLikes.append(likes)
+        }
+                        
+        //GET ALL COMMENTS
+        var allComments: [[String]] = []
+        for (i = 0; i < mediaIDs.count; i++) {
+            urlString = Instagram.Router.getComments(mediaIDs[i], user.accessToken)
+            let comments = getComments(urlString)
+            allComments.append(comments)
+        }
+                        
+        //GET ALL FOLLOWERS
+        urlString = Instagram.Router.getFollowers(user.userID, user.accessToken)
+        var followersUN: [String]
+        var followersFN: [String]
+        (followersUN, followersFN) = getFollowers(urlString)
+        
+        
+        //GET ALL FOLLOWINGS
+        urlString = Instagram.Router.getFollowings(user.userID, user.accessToken)
+        var followingsUN: [String]
+        var followingsFN: [String]
+        (followingsUN, followingsFN) = getFollowers(urlString)
+        
+        /*
+                        
+        let lastItem = self.photos.count
+        self.photos.extend(photoInfos)
+                        
+        let indexPaths = (lastItem..<self.photos.count).map { NSIndexPath(forItem: $0, inSection: 0) }
+                        
+        dispatch_async(dispatch_get_main_queue()) {
+        self.collectionView!.insertItemsAtIndexPaths(indexPaths)
+        }
+        */
+                        
+    }
+    
+    
+    func getMediaIDs(request: URLRequestConvertible) -> [String] {
         Alamofire.request(request).responseJSON() {
             (_ , _, jsonObject, error) in
             
@@ -107,14 +161,6 @@ class MenuViewController: UITabBarController {
                 if (json["meta"]["code"].intValue  == 200) {
                     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0)) {
                         
-                        /*
-                        if let urlString = json["pagination"]["next_url"].URL {
-                            self.nextURLRequest = NSURLRequest(URL: urlString)
-                        } else {
-                            self.nextURLRequest = nil
-                        }
-                        */
-                        
                         let posts = json["data"].arrayValue
                         
                         var mediaIDs: [String] = []
@@ -124,37 +170,18 @@ class MenuViewController: UITabBarController {
                             mediaIDs.append(mediaID!)
                         }
                         
-                        let allLikes: [[String]] = []
-                        for (i = 0; i < mediaIDs.count; i++) {
-                            let urlString = Instagram.Router.getLikes(mediaIDs[i], self.user!.accessToken)
-                            let likes = self.getLikes(urlString)
-                        }
-                        
-                        let allComments: [[String]] = []
-                        for (i = 0; i < mediaIDs.count; i++) {
-                            let urlString = Instagram.Router.getComments(mediaIDs[i], self.user!.accessToken)
-                            let likes = self.getComments(urlString)
-                        }
-                        /*
-                        
-                        let lastItem = self.photos.count
-                        self.photos.extend(photoInfos)
-                        
-                        let indexPaths = (lastItem..<self.photos.count).map { NSIndexPath(forItem: $0, inSection: 0) }
-                        
-                        dispatch_async(dispatch_get_main_queue()) {
-                            self.collectionView!.insertItemsAtIndexPaths(indexPaths)
-                        }
-                         */
+                        //return mediaIDs
                         
                     }
                     
                 }
                 
             }
-            //self.populatingPhotos = false
             
         }
+        
+        return []
+
     }
 
     func getLikes(request: URLRequestConvertible) -> [String]{
@@ -168,9 +195,9 @@ class MenuViewController: UITabBarController {
                 if (json["meta"]["code"].intValue  == 200) {
                     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0)) {
                         
-                        let likes = json["data"]
-                        //NSLog("LIKES")
-                        //NSLog("\(likes)")
+                        let likes = json["data"].arrayValue
+                        //LIKES
+                        NSLog("\(likes)")
                         
                     }
                     
@@ -195,9 +222,9 @@ class MenuViewController: UITabBarController {
                 if (json["meta"]["code"].intValue  == 200) {
                     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0)) {
                         
-                        let comments = json["data"]
-                        NSLog("COM")
-                        NSLog("\(comments)")
+                        let comments = json["data"].arrayValue
+                        //NSLog("COM")
+                        //NSLog("\(comments)")
                         
                     }
                     
@@ -210,6 +237,79 @@ class MenuViewController: UITabBarController {
         return []
 
     }
+    
+    func getFollowers(request: URLRequestConvertible) -> ([String], [String]){
+        Alamofire.request(request).responseJSON() {
+            (_ , _, jsonObject, error) in
+            
+            if (error == nil) {
+                //println(jsonObject)
+                let json = JSON(jsonObject!)
+                
+                if (json["meta"]["code"].intValue  == 200) {
+                    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0)) {
+                        
+                        let followers = json["data"].arrayValue
+                        
+                        var followersUsername: [String] = []
+                        var followersFullName: [String] = []
+                        var i: Int
+                        for (i = 0; i < followers.count; i++) {
+                            let followerUN = followers[i]["username"].string
+                            let followerFN = followers[i]["full_name"].string
+                            followersUsername.append(followerUN!)
+                            followersFullName.append(followerFN!)
+                        }
+                        
+                        //return (followersUsername, followersFullName)
+                    }
+                    
+                }
+                
+            }
+            
+        }
+        
+        return ([], [])
+
+    }
+    
+    func getFollowings(request: URLRequestConvertible) -> ([String], [String]){
+        Alamofire.request(request).responseJSON() {
+            (_ , _, jsonObject, error) in
+            
+            if (error == nil) {
+                //println(jsonObject)
+                let json = JSON(jsonObject!)
+                
+                if (json["meta"]["code"].intValue  == 200) {
+                    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0)) {
+                        
+                        let followings = json["data"].arrayValue
+                        
+                        var followingsUsername: [String] = []
+                        var followingsFullName: [String] = []
+                        var i: Int
+                        for (i = 0; i < followings.count; i++) {
+                            let followingUN = followings[i]["username"].string
+                            let followingFN = followings[i]["full_name"].string
+                            followingsUsername.append(followingUN!)
+                            followingsFullName.append(followingFN!)
+                        }
+                        
+                        //return (followersUsername, followersFullName)
+                    }
+                    
+                }
+                
+            }
+            
+        }
+        
+        return ([], [])
+
+    }
+    
     /*
     // MARK: - Navigation
 
