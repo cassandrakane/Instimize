@@ -14,6 +14,15 @@ class Comment : Object {
     
     dynamic var commenterID: String = ""
     dynamic var commenterUsername: String = ""
-    dynamic var commenterFullName: String = ""
+    
+    required init() {
+        super.init()
+    }
+    
+    required init(id: String, un: String) {
+        super.init()
+        commenterID = id
+        commenterUsername = un
+    }
     
 }

@@ -14,6 +14,15 @@ class Like : Object {
     
     dynamic var likerID: String = ""
     dynamic var likerUsername: String = ""
-    dynamic var likerFullName: String = ""
+    
+    required init() {
+        super.init()
+    }
+    
+    required init(id: String, un: String) {
+        super.init()
+        likerID = id
+        likerUsername = un
+    }
     
 }

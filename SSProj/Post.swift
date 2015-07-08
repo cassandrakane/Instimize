@@ -12,7 +12,19 @@ import Realm
 
 class Post : Object {
     
+    dynamic var mediaID: String = ""
     dynamic var likes: [Like] = []
     dynamic var comments: [Comment] = []
+    
+    required init() {
+        super.init()
+    }
+    
+    required init(id: String, l: [Like], c: [Comment]) {
+        super.init()
+        mediaID = id
+        likes = l
+        comments = c
+    }
     
 }

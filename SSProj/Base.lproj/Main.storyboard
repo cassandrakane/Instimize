@@ -40,10 +40,10 @@
             </objects>
             <point key="canvasLocation" x="1800" y="5"/>
         </scene>
-        <!--Followers-->
+        <!--Relations-->
         <scene sceneID="51X-Ve-sdc">
             <objects>
-                <viewController title="Followers" id="CtE-Bq-OTP" sceneMemberID="viewController">
+                <viewController title="Relations" id="CtE-Bq-OTP" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="MHO-Mf-tUz"/>
                         <viewControllerLayoutGuide type="bottom" id="zAH-3r-Ru0"/>
@@ -53,7 +53,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Followers" id="xle-9I-755"/>
+                    <tabBarItem key="tabBarItem" title="Relations" id="xle-9I-755"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="roQ-ZO-eLp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
