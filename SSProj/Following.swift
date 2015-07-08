@@ -16,4 +16,14 @@ class Following : Object {
     dynamic var followingUsername: String = ""
     dynamic var followingFullName: String = ""
     
+    required init() {
+        super.init()
+    }
+    
+    required init(id: String, un: String, fn: String) {
+        super.init()
+        followingID = id
+        followingUsername = un
+        followingFullName = fn
+    }
 }

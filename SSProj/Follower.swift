@@ -16,4 +16,15 @@ class Follower : Object {
     dynamic var followerUsername: String = ""
     dynamic var followerFullName: String = ""
     
+    required init() {
+        super.init()
+    }
+    
+    required init(id: String, un: String, fn: String) {
+        super.init()
+        followerID = id
+        followerUsername = un
+        followerFullName = fn
+    }
+    
 }

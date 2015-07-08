@@ -17,8 +17,11 @@ struct Instagram {
         static let redirectURI = "http://localhost/"
         static let clientSecret = "ba7368a3061445749c7c36126ad757f4"
         static let authorizationURL = NSURL(string: Router.baseURLString + "/oauth/authorize/?client_id=" + Router.clientID + "&redirect_uri=" + Router.redirectURI + "&response_type=code")!
+        static let count = -1
         
+        case getCounts(String, String)
         case getRecent(String, String)
+        case getMoreRecent(String, String, String)
         case getLikes(String, String)
         case getComments(String, String)
         case getFollowers(String, String)
@@ -46,10 +49,17 @@ struct Instagram {
         var URLRequest: NSURLRequest {
             let (path: String, parameters: [String: AnyObject]) = {
                 switch self {
+                case .getCounts (let userID, let accessToken):
+                    let params: [String: AnyObject] = ["access_token": accessToken]
+                    let pathString = "/v1/users/" + userID
+                    return (pathString, params)
                 case .getRecent (let userID, let accessToken):
-                    let params = ["access_token": accessToken]
+                    let params: [String: AnyObject] = ["access_token": accessToken]
                     let pathString = "/v1/users/" + userID + "/media/recent"
-                    println("CASE LOGGED IN")
+                    return (pathString, params)
+                case .getMoreRecent (let userID, let maxID, let accessToken):
+                    let params: [String: AnyObject] = ["access_token": accessToken]
+                    let pathString = "/v1/users/" + userID + "/media/recent?max_id=" + maxID
                     return (pathString, params)
                 case .getLikes (let mediaID, let accessToken):
                     let params = ["access_token": accessToken]
