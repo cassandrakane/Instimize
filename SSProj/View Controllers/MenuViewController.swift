@@ -203,10 +203,11 @@ class MenuViewController: UITabBarController {
                 self.addComments(user, mediaID: mediaID, post: newPost, request: urlString) {
                     user.posts.append(newPost)
                     NSLog("Finsihed Post #\(i+1)")
+                    callback()
                 }
             }
         }
-        callback()
+        //callback()
     }
     
     func addLikes(user: User, mediaID: String, post: Post, request: URLRequestConvertible, callback: () -> Void) {
