@@ -23,7 +23,6 @@ class MenuViewController: UITabBarController {
     var doneWithDownload: Bool = false
     var mediaIDs: [String] = []
     var followers: [Follower] = []
-    var uniqFollowers = Set<Follower>()
     var followings: [Following] = []
     var count: Int = 0;
     
@@ -96,7 +95,7 @@ class MenuViewController: UITabBarController {
                 (_, _, jsonObject, error) in
                 
                 if (error == nil) {
-                    //println(jsonObject)
+                  
                     let json = JSON(jsonObject!)
                     
                     if let accessToken = json["access_token"].string, userID = json["user"]["id"].string {
@@ -130,7 +129,7 @@ class MenuViewController: UITabBarController {
             (_ , _, jsonObject, error) in
             
             if (error == nil) {
-                //println(jsonObject)
+                
                 let json = JSON(jsonObject!)
                 
                 if (json["meta"]["code"].intValue  == 200) {
@@ -146,7 +145,7 @@ class MenuViewController: UITabBarController {
     
     func getInfo(user: User, request: URLRequestConvertible, callback: () -> Void) {
         //GETS INFO FROM INSTAGRAM
-        //println(request.URLRequest)
+        
         Alamofire.request(request).responseJSON() {
             (_ , _, jsonObject, error) in
             
@@ -155,7 +154,6 @@ class MenuViewController: UITabBarController {
                 let json = JSON(jsonObject!)
                 if (json["meta"]["code"].intValue  == 200) {
                     
-                    println("Test 4")
                     //GET ALL MEDIA IDS
                 
                     let posts = json["data"].arrayValue
@@ -166,14 +164,9 @@ class MenuViewController: UITabBarController {
                         self.mediaIDs.append(mediaID)
                     }
                     
-                    println(self.mediaIDs)
-                    
                     if let urlString = json["pagination"]["next_url"].URL {
-                        println("NEXT PAG")
                         var nextURLRequest = NSURLRequest(URL: urlString)
-                        println(nextURLRequest.URL)
                         self.getInfo(user, request: nextURLRequest) {
-                            NSLog("Got More Posts")
                             callback()
                         }
                     } else {
@@ -192,7 +185,6 @@ class MenuViewController: UITabBarController {
                                 }
                             }
                             */
-                            NSLog("Done With All Posts")
                             callback()
                         }
                     }
@@ -202,9 +194,7 @@ class MenuViewController: UITabBarController {
     }
 
     func getFollowers(user: User, request: URLRequestConvertible, callback: () -> Void) {
-        
         //GETS INFO FROM INSTAGRAM
-        //println(request.URLRequest)
         Alamofire.request(request).responseJSON() {
             (_ , _, jsonObject, error) in
             
@@ -216,7 +206,6 @@ class MenuViewController: UITabBarController {
                     //GET ALL FOLlOWERS
                     
                     let followersInfo = json["data"].arrayValue
-                    println(followersInfo)
                     
                     var i: Int
                     for (i = 0; i < followersInfo.count; i++) {
@@ -228,13 +217,9 @@ class MenuViewController: UITabBarController {
                         NSLog("DONE WITH FOLLOWER")
                     }
                     
-                    //println(self.followers)
-                    
                
                     if let urlString = json["pagination"]["next_url"].URL {
-                        println("NEXT PAG")
                         var nextURLRequest = NSURLRequest(URL: urlString)
-                        println(nextURLRequest.URL)
                         self.getFollowers(user, request: nextURLRequest) {
                             NSLog("Got More Followers")
                             callback()
@@ -252,7 +237,7 @@ class MenuViewController: UITabBarController {
     
     func getFollowings(user: User, request: URLRequestConvertible, callback: () -> Void) {
         //GETS INFO FROM INSTAGRAM
-        //println(request.URLRequest)
+       
         Alamofire.request(request).responseJSON() {
             (_ , _, jsonObject, error) in
             
@@ -275,13 +260,9 @@ class MenuViewController: UITabBarController {
                         NSLog("DONE WITH FOLLOWING")
                     }
                     
-                    println(self.followings)
-                    
                     
                     if let urlString = json["pagination"]["next_url"].URL {
-                        println("NEXT PAG")
                         var nextURLRequest = NSURLRequest(URL: urlString)
-                        println(nextURLRequest.URL)
                         self.getFollowings(user, request: nextURLRequest) {
                             NSLog("Got More Followings")
                             callback()
@@ -327,7 +308,6 @@ class MenuViewController: UITabBarController {
             (_ , _, jsonObject, error) in
             
             if (error == nil) {
-                //println(jsonObject)
                 let json = JSON(jsonObject!)
                 
                 if (json["meta"]["code"].intValue  == 200) {
@@ -360,7 +340,6 @@ class MenuViewController: UITabBarController {
             (_ , _, jsonObject, error) in
             
             if (error == nil) {
-                //println(jsonObject)
                 let json = JSON(jsonObject!)
                 
                 if (json["meta"]["code"].intValue  == 200) {
@@ -397,7 +376,7 @@ class MenuViewController: UITabBarController {
             (_ , _, jsonObject, error) in
             
             if (error == nil) {
-                //println(jsonObject)
+         
                 let json = JSON(jsonObject!)
                 
                 if (json["meta"]["code"].intValue  == 200) {
@@ -430,7 +409,7 @@ class MenuViewController: UITabBarController {
             (_ , _, jsonObject, error) in
             
             if (error == nil) {
-                //println(jsonObject)
+                
                 let json = JSON(jsonObject!)
                 if (json["meta"]["code"].intValue  == 200) {
                         
