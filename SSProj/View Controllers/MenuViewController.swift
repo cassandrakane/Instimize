@@ -38,15 +38,13 @@ class MenuViewController: UITabBarController {
             if user != nil {
                 //var urlString = Instagram.Router.getCounts(self.user!.userID, self.user!.accessToken)
                 //getCounts(self.user!, request: urlString)
+                hideLogoutButtonItem(false)
                 var urlString = Instagram.Router.getRecent(self.user!.userID, self.user!.accessToken)
                 getInfo(self.user!, request: urlString) {
                     
                     NSLog("NUM OF POSTS \(self.user!.posts.count)")
                     
                 }
-                
-                NSLog("1NUM OF POSTS \(self.user!.posts.count)")
-                hideLogoutButtonItem(false)
                 
             } else {
                 shouldLogin = true

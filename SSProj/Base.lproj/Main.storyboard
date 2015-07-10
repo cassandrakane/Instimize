@@ -21,63 +21,6 @@
             </objects>
             <point key="canvasLocation" x="266" y="339"/>
         </scene>
-        <!--Comments-->
-        <scene sceneID="7sH-PH-cCy">
-            <objects>
-                <viewController title="Comments" id="W1W-D1-FYg" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="JsG-bO-eEK"/>
-                        <viewControllerLayoutGuide type="bottom" id="cgN-Nd-OMi"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="arY-qI-6L2">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Comments" id="SpJ-k0-aUZ"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="0tq-Gd-wUi" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1800" y="5"/>
-        </scene>
-        <!--Relations-->
-        <scene sceneID="51X-Ve-sdc">
-            <objects>
-                <viewController title="Relations" id="CtE-Bq-OTP" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="MHO-Mf-tUz"/>
-                        <viewControllerLayoutGuide type="bottom" id="zAH-3r-Ru0"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="jFT-vF-CO3">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Relations" id="xle-9I-755"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="roQ-ZO-eLp" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1800" y="697"/>
-        </scene>
-        <!--Likes-->
-        <scene sceneID="kTz-vT-DLF">
-            <objects>
-                <viewController title="Likes" id="6yO-Kp-GiH" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="ZG2-rr-tRf"/>
-                        <viewControllerLayoutGuide type="bottom" id="5PN-KU-odg"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Rqo-eg-po5">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Likes" id="6HQ-62-2gz"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="6Ox-Eo-Fdw" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1800" y="-657"/>
-        </scene>
         <!--Menu View Controller-->
         <scene sceneID="QMG-RW-hJN">
             <objects>
@@ -97,9 +40,6 @@
                     </tabBar>
                     <connections>
                         <outlet property="logoutButtonItem" destination="yLR-sz-YhJ" id="SBS-kn-uUA"/>
-                        <segue destination="6yO-Kp-GiH" kind="relationship" relationship="viewControllers" id="3ci-fJ-LKg"/>
-                        <segue destination="W1W-D1-FYg" kind="relationship" relationship="viewControllers" id="uk3-Oj-M6l"/>
-                        <segue destination="CtE-Bq-OTP" kind="relationship" relationship="viewControllers" id="Rif-p1-fDB"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vKz-Su-7Sp" userLabel="First Responder" sceneMemberID="firstResponder"/>

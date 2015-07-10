@@ -31,4 +31,12 @@ class Post : Object {
         filter = f
     }
     
+    func convertToDate() -> NSDate {
+        
+        var timeinterval : NSTimeInterval = (createdTime as NSString).doubleValue
+        var createdDate = NSDate(timeIntervalSince1970: timeinterval)
+
+        return createdDate
+    }
+    
 }
