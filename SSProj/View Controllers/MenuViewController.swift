@@ -38,19 +38,11 @@ class MenuViewController: UITabBarController {
                 //getCounts(self.user!, request: urlString)
                 var urlString = Instagram.Router.getRecent(self.user!.userID, self.user!.accessToken)
                 getInfo(self.user!, request: urlString) {
-                    urlString = Instagram.Router.getFollowers(self.user!.userID, self.user!.accessToken)
-                    self.getFollowers(self.user!, request: urlString) {
-                        urlString = Instagram.Router.getFollowings(self.user!.userID, self.user!.accessToken)
-                        self.getFollowings(self.user!, request: urlString) {
-                            NSLog("NUM OF POSTS \(self.user!.posts.count)")
-                            //NSLog("TEST POST: \(self.user!.posts[0].likes.count)")
-                            NSLog("NUM OF FOLLOWERS \(self.user!.followers.count)")
-                            //NSLog("TEST FOLLOWERS: \(self.user!.followers[0])")
-                            NSLog("NUM OF FOLLOWINGS \(self.user!.followings.count)")
-                            //NSLog("TEST FOLLOWINGS: \(self.user!.followings[0])")
-                        }
-                    }
+                    
+                    NSLog("NUM OF POSTS \(self.user!.posts.count)")
+                    
                 }
+                NSLog("1NUM OF POSTS \(self.user!.posts.count)")
                 hideLogoutButtonItem(false)
                 
             } else {
@@ -172,19 +164,6 @@ class MenuViewController: UITabBarController {
                     } else {
                         //GETS ALL LIKES/COMMENTS
                         self.makeAllPosts(user, mediaIDs: self.mediaIDs) {
-                            /*
-                            //GETS ALL FOLLOWERS
-                            NSLog("Done With All Posts")
-                            var urlString = Instagram.Router.getFollowers(user.userID, user.accessToken)
-                            self.makeFollowers(user, request: urlString) {
-                                //GETS ALL FOLLOWINGS
-                                urlString = Instagram.Router.getFollowings(user.userID, user.accessToken)
-                                self.makeFollowings(user, request: urlString) {
-                                    NSLog("done")
-                                    callback()
-                                }
-                            }
-                            */
                             callback()
                         }
                     }
@@ -192,6 +171,8 @@ class MenuViewController: UITabBarController {
             }
         }
     }
+    
+    /*
 
     func getFollowers(user: User, request: URLRequestConvertible, callback: () -> Void) {
         //GETS INFO FROM INSTAGRAM
@@ -278,6 +259,8 @@ class MenuViewController: UITabBarController {
         
     }
     
+    */
+    
     func makeAllPosts(user: User, mediaIDs: [String], callback: () -> Void) {
         //GETS ALL LIKES/COMMENTS
         var i: Int
@@ -287,7 +270,8 @@ class MenuViewController: UITabBarController {
             var newPost: Post = Post(id: "", l: [], c: [])
             let mediaID: String = self.mediaIDs[i]
             var urlString = Instagram.Router.getLikes(mediaID, user.accessToken)
-            addLikes(user, mediaID: mediaID, post: newPost, request: urlString) {
+            self.addLikes(user, mediaID: mediaID, post: newPost, request: urlString) {
+                println("test")
                 urlString = Instagram.Router.getComments(mediaID, user.accessToken)
                 self.addComments(user, mediaID: mediaID, post: newPost, request: urlString) {
                     user.posts.append(newPost)
@@ -299,7 +283,8 @@ class MenuViewController: UITabBarController {
                 }
             }
         }
-        //callback()
+        
+        callback()
     }
     
     func addLikes(user: User, mediaID: String, post: Post, request: URLRequestConvertible, callback: () -> Void) {
@@ -312,18 +297,16 @@ class MenuViewController: UITabBarController {
                 
                 if (json["meta"]["code"].intValue  == 200) {
                     
-                    var likesOnPost: [Like] = []
                     var i: Int
+                    println(json["data"].count)
                     for (i = 0; i < json["data"].count; i++) {
                         NSLog("test Like")
                         //GOES THROUGH EACH LIKE ON POST
                         let likeID = json["data"][i]["id"].string
                         let likeUN = json["data"][i]["username"].string
                         var newLike: Like = Like(id: likeID!, un: likeUN!)
-                        likesOnPost.append(newLike)
+                        post.likes.append(newLike)
                     }
-                    
-                    post.likes = likesOnPost
                     
                     callback()
                 }
@@ -336,16 +319,15 @@ class MenuViewController: UITabBarController {
     
     func addComments(user: User, mediaID: String, post: Post, request: URLRequestConvertible, callback: () -> Void) {
         //GETS COMMENTS
+        println("Com test 1")
         Alamofire.request(request).responseJSON() {
             (_ , _, jsonObject, error) in
-            
+             println("Com test 2")
             if (error == nil) {
                 let json = JSON(jsonObject!)
                 
                 if (json["meta"]["code"].intValue  == 200) {
-                    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0)) {
-                        
-                        var commentsOnPost: [Comment] = []
+                     println("Com test 3")
                         var i: Int
                         for (i = 0; i < json["data"].count; i++) {
                             NSLog("test Com")
@@ -353,83 +335,18 @@ class MenuViewController: UITabBarController {
                             let comID = json["data"][i]["from"]["id"].string
                             let comUN = json["data"][i]["from"]["username"].string
                             var newComment: Comment = Comment(id: comID!, un: comUN!)
-                            commentsOnPost.append(newComment)
+                            post.comments.append(newComment)
                         }
-                        
-                        post.comments = commentsOnPost
-                        
+                    
                         callback()
                         
                     }
-                    
-                }
+                
                 
             }
             
         }
    
-    }
-    
-    func makeFollowers(user: User, request: URLRequestConvertible, callback: () -> Void) {
-        
-        Alamofire.request(request).responseJSON() {
-            (_ , _, jsonObject, error) in
-            
-            if (error == nil) {
-         
-                let json = JSON(jsonObject!)
-                
-                if (json["meta"]["code"].intValue  == 200) {
-                        
-                    let followers = json["data"].arrayValue
-                        
-                    var i: Int
-                    for (i = 0; i < followers.count; i++) {
-                        let followerID = followers[i]["id"].string
-                        let followerUN = followers[i]["username"].string
-                        let followerFN = followers[i]["full_name"].string
-                        var newFollower: Follower = Follower(id: followerID!, un: followerUN!, fn: followerFN!)
-                        user.followers.append(newFollower)
-                        NSLog("DONE WITH FOLLOWER")
-                    }
-                    
-                    callback()
-                        
-                }
-                    
-            }
-            
-        }
-            
-    }
-    
-    func makeFollowings(user: User, request: URLRequestConvertible, callback: () -> Void) {
-        
-        Alamofire.request(request).responseJSON() {
-            (_ , _, jsonObject, error) in
-            
-            if (error == nil) {
-                
-                let json = JSON(jsonObject!)
-                if (json["meta"]["code"].intValue  == 200) {
-                        
-                    let followings = json["data"].arrayValue
-                    var i: Int
-                    for (i = 0; i < followings.count; i++) {
-                        let followingID = followings[i]["id"].string
-                        let followingUN = followings[i]["username"].string
-                        let followingFN = followings[i]["full_name"].string
-                        var newFollowing: Following = Following(id: followingID!, un: followingUN!, fn: followingFN!)
-                        user.followings.append(newFollowing)
-                        NSLog("DONE WITH FOLLOWING")
-                    }
-                    
-                    callback()
-                }
-            
-            }
-
-        }
     }
     
     
