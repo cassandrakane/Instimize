@@ -22,8 +22,10 @@ class MenuViewController: UITabBarController {
     let refreshControl = UIRefreshControl()
     var doneWithDownload: Bool = false
     var mediaIDs: [String] = []
-    var followers: [Follower] = []
-    var followings: [Following] = []
+    var createdTimes: [String] = []
+    var filters: [String] = []
+    //var followers: [Follower] = []
+    //var followings: [Following] = []
     var count: Int = 0;
     
     
@@ -42,6 +44,7 @@ class MenuViewController: UITabBarController {
                     NSLog("NUM OF POSTS \(self.user!.posts.count)")
                     
                 }
+                
                 NSLog("1NUM OF POSTS \(self.user!.posts.count)")
                 hideLogoutButtonItem(false)
                 
@@ -153,7 +156,11 @@ class MenuViewController: UITabBarController {
                     var i: Int
                     for (i = 0; i < posts.count; i++) {
                         let mediaID = posts[i]["id"].string!
+                        let createdTime = posts[i]["created_time"].string!
+                        let filter = posts[i]["filter"].string!
                         self.mediaIDs.append(mediaID)
+                        self.createdTimes.append(createdTime)
+                        self.filters.append(filter)
                     }
                     
                     if let urlString = json["pagination"]["next_url"].URL {
@@ -163,7 +170,7 @@ class MenuViewController: UITabBarController {
                         }
                     } else {
                         //GETS ALL LIKES/COMMENTS
-                        self.makeAllPosts(user, mediaIDs: self.mediaIDs) {
+                        self.makeAllPosts(user) {
                             callback()
                         }
                     }
@@ -261,14 +268,16 @@ class MenuViewController: UITabBarController {
     
     */
     
-    func makeAllPosts(user: User, mediaIDs: [String], callback: () -> Void) {
+    func makeAllPosts(user: User, callback: () -> Void) {
         //GETS ALL LIKES/COMMENTS
         var i: Int
         self.count = self.mediaIDs.count
         for (i = 0; i < self.mediaIDs.count; i++) {
             //GOES THROUGH EACH POST
-            var newPost: Post = Post(id: "", l: [], c: [])
             let mediaID: String = self.mediaIDs[i]
+            let createdTime: String = self.createdTimes[i]
+            let filter: String = self.filters[i]
+            var newPost: Post = Post(id: mediaID, l: [], c: [], ct: createdTime, f: filter)
             var urlString = Instagram.Router.getLikes(mediaID, user.accessToken)
             self.addLikes(user, mediaID: mediaID, post: newPost, request: urlString) {
                 println("test")
