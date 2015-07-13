@@ -18,20 +18,21 @@ class MenuViewController: UITabBarController {
     @IBOutlet weak var logoutButtonItem: UIBarButtonItem!
     
     var shouldLogin = false
-    var nextURLRequest: NSURLRequest?
-    let refreshControl = UIRefreshControl()
-    var doneWithDownload: Bool = false
+    //var nextURLRequest: NSURLRequest?
+    //let refreshControl = UIRefreshControl()
+    //var doneWithDownload: Bool = false
     var mediaIDs: [String] = []
+    var allLikes: [Int] = []
     var createdTimes: [String] = []
     var filters: [String] = []
     //var followers: [Follower] = []
     //var followings: [Following] = []
-    var count: Int = 0;
+    //var count: Int = 0;
     
     
-    var numOfMedia: Int = 0
-    var numOfFollowers: Int = 0
-    var numOfFollowings: Int = 0
+    //var numOfMedia: Int = 0
+    //var numOfFollowers: Int = 0
+    //var numOfFollowings: Int = 0
 
     var user: User? {
         didSet {
@@ -117,6 +118,7 @@ class MenuViewController: UITabBarController {
     
     //ACCESSING AND CREATING INFORMATION
     
+    /*
     func getCounts(user: User, request: URLRequestConvertible) {
         Alamofire.request(request).responseJSON() {
             (_ , _, jsonObject, error) in
@@ -135,6 +137,7 @@ class MenuViewController: UITabBarController {
         }
 
     }
+    */
     
     func getInfo(user: User, request: URLRequestConvertible, callback: () -> Void) {
         //GETS INFO FROM INSTAGRAM
@@ -154,9 +157,11 @@ class MenuViewController: UITabBarController {
                     var i: Int
                     for (i = 0; i < posts.count; i++) {
                         let mediaID = posts[i]["id"].string!
+                        let likes = String(stringInterpolationSegment: posts[i]["likes"]["count"]).toInt()!
                         let createdTime = posts[i]["created_time"].string!
                         let filter = posts[i]["filter"].string!
                         self.mediaIDs.append(mediaID)
+                        self.allLikes.append(likes)
                         self.createdTimes.append(createdTime)
                         self.filters.append(filter)
                     }
@@ -167,7 +172,6 @@ class MenuViewController: UITabBarController {
                             callback()
                         }
                     } else {
-                        //GETS ALL LIKES/COMMENTS
                         self.makeAllPosts(user) {
                             callback()
                         }
@@ -269,13 +273,15 @@ class MenuViewController: UITabBarController {
     func makeAllPosts(user: User, callback: () -> Void) {
         //GETS ALL LIKES/COMMENTS
         var i: Int
-        self.count = self.mediaIDs.count
         for (i = 0; i < self.mediaIDs.count; i++) {
             //GOES THROUGH EACH POST
             let mediaID: String = self.mediaIDs[i]
+            let likes: Int = self.allLikes[i]
             let createdTime: String = self.createdTimes[i]
             let filter: String = self.filters[i]
-            var newPost: Post = Post(id: mediaID, l: [], c: [], ct: createdTime, f: filter)
+            var newPost: Post = Post(id: mediaID, nol: likes, ct: createdTime, f: filter)
+            user.posts.append(newPost)
+            /*
             var urlString = Instagram.Router.getLikes(mediaID, user.accessToken)
             self.addLikes(user, mediaID: mediaID, post: newPost, request: urlString) {
                 println("test")
@@ -289,11 +295,14 @@ class MenuViewController: UITabBarController {
                     }
                 }
             }
+            */
         }
         
         callback()
     }
     
+    
+    /*
     func addLikes(user: User, mediaID: String, post: Post, request: URLRequestConvertible, callback: () -> Void) {
         //GETS LIKES
         Alamofire.request(request).responseJSON() {
@@ -355,7 +364,7 @@ class MenuViewController: UITabBarController {
         }
    
     }
-    
+    */
     
     /*
     // MARK: - Navigation
