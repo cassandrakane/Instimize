@@ -33,7 +33,7 @@ class Post : RLMObject {
         filter = f
     }
     
-    func convertToDate() -> NSDate {
+    func getDate() -> NSDate {
         
         var timeinterval : NSTimeInterval = (createdTime as NSString).doubleValue
         var createdDate = NSDate(timeIntervalSince1970: timeinterval)

@@ -9,10 +9,13 @@
 import UIKit
 
 class TimeViewController: MenuViewController {
+    
+    var times: [String : [Int]] = [ : ]
+    var dates: [NSDate] = []
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
     }
 
@@ -21,6 +24,14 @@ class TimeViewController: MenuViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    func createDates() {
+        var i: UInt = 0
+        for (i = 0; i < user!.posts.count; i++) {
+            let post = user!.posts.objectAtIndex(i) as! Post
+            let date = post.getDate()
+            dates.append(date)
+        }
+    }
 
     /*
     // MARK: - Navigation
