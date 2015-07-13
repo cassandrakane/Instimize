@@ -17,7 +17,7 @@ class MenuViewController: UITabBarController {
     
     @IBOutlet weak var logoutButtonItem: UIBarButtonItem!
     
-    var shouldLogin = false
+    var shouldLogin = true
     //var nextURLRequest: NSURLRequest?
     //let refreshControl = UIRefreshControl()
     //var doneWithDownload: Bool = false
@@ -40,14 +40,9 @@ class MenuViewController: UITabBarController {
                 //var urlString = Instagram.Router.getCounts(self.user!.userID, self.user!.accessToken)
                 //getCounts(self.user!, request: urlString)
                 hideLogoutButtonItem(false)
-                var urlString = Instagram.Router.getRecent(self.user!.userID, self.user!.accessToken)
-                getInfo(self.user!, request: urlString) {
-                    
-                    NSLog("NUM OF POSTS \(self.user!.posts.count)")
-                    
-                }
-                
+                handleRefresh()
             } else {
+                println("stuff")
                 shouldLogin = true
                 hideLogoutButtonItem(true)
             }
@@ -57,10 +52,30 @@ class MenuViewController: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        let realm = Realm()
+        if realm.objects(User).first != nil {
+            //IF THERE IS A USER STORED IN REALM LOAD IT
+            println("user found")
+            self.user = realm.objects(User).first
+            shouldLogin = false
+        }
+        
         // Do any additional setup after loading the view.
+        
     }
 
+    override func viewDidAppear(animated: Bool) {
+        println("View Did Appear")
+        super.viewDidAppear(animated)
+        println(shouldLogin)
+        if shouldLogin {
+            println("Logging In")
+            performSegueWithIdentifier("Login", sender: self)
+            shouldLogin = false
+        }
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -99,15 +114,6 @@ class MenuViewController: UITabBarController {
                         println("USER ID:" + user.userID)
                         println("ACCESS TOKEN:" + user.accessToken)
                         
-                        /*
-                        let realm = Realm()
-                        realm.write() {
-                        //FIGURE OUT L8TER
-                        realm.add(user, update: true)
-                        return
-                        }
-                        */
-                        
                         self.performSegueWithIdentifier("unwindToMenu", sender: ["user": user])
                     }
                 }
@@ -115,6 +121,12 @@ class MenuViewController: UITabBarController {
         }
     }
     
+    func handleRefresh() {
+        let urlString = Instagram.Router.getRecent(self.user!.userID, self.user!.accessToken)
+        getInfo(self.user!, request: urlString) {
+            NSLog("NUM OF POSTS \(self.user!.posts.count)")
+        }
+    }
     
     //ACCESSING AND CREATING INFORMATION
     
@@ -138,6 +150,7 @@ class MenuViewController: UITabBarController {
 
     }
     */
+    
     
     func getInfo(user: User, request: URLRequestConvertible, callback: () -> Void) {
         //GETS INFO FROM INSTAGRAM
@@ -181,8 +194,8 @@ class MenuViewController: UITabBarController {
         }
     }
     
+    
     /*
-
     func getFollowers(user: User, request: URLRequestConvertible, callback: () -> Void) {
         //GETS INFO FROM INSTAGRAM
         Alamofire.request(request).responseJSON() {
@@ -267,8 +280,8 @@ class MenuViewController: UITabBarController {
         }
         
     }
-    
     */
+    
     
     func makeAllPosts(user: User, callback: () -> Void) {
         //GETS ALL LIKES/COMMENTS
@@ -280,7 +293,8 @@ class MenuViewController: UITabBarController {
             let createdTime: String = self.createdTimes[i]
             let filter: String = self.filters[i]
             var newPost: Post = Post(id: mediaID, nol: likes, ct: createdTime, f: filter)
-            user.posts.append(newPost)
+            user.posts.addObject(newPost)
+            
             /*
             var urlString = Instagram.Router.getLikes(mediaID, user.accessToken)
             self.addLikes(user, mediaID: mediaID, post: newPost, request: urlString) {
@@ -365,6 +379,7 @@ class MenuViewController: UITabBarController {
    
     }
     */
+    
     
     /*
     // MARK: - Navigation

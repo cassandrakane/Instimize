@@ -93,14 +93,11 @@ extension OauthLoginViewController: UIWebViewDelegate {
                         println("USER ID:" + user.userID)
                         println("ACCESS TOKEN:" + user.accessToken)
                       
-                        /*
                         let realm = Realm()
                         realm.write() {
-                            //FIGURE OUT L8TER
                             realm.add(user, update: true)
                             return
                         }
-                        */
                         
                         self.performSegueWithIdentifier("unwindToMenu", sender: ["user": user])
                     }

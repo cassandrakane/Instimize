@@ -28,7 +28,7 @@
                     <navigationItem key="navigationItem" id="t3N-da-eQ4">
                         <barButtonItem key="rightBarButtonItem" title="Logout" id="yLR-sz-YhJ">
                             <connections>
-                                <segue destination="lCE-aj-GVf" kind="presentation" id="URm-gy-vQT"/>
+                                <segue destination="lCE-aj-GVf" kind="presentation" identifier="Login" id="URm-gy-vQT"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

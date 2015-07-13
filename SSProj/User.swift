@@ -14,8 +14,14 @@ class User : Object {
     
     dynamic var userID: String = ""
     dynamic var accessToken: String = ""
-    dynamic var posts: [Post] = []
-    dynamic var followers: [Follower] = []
-    dynamic var followings: [Following] = []
+    dynamic var posts = RLMArray(objectClassName: Post.className())
+    //dynamic var followers: [Follower] = []
+    //dynamic var followings: [Following] = []
+ 
+    
+    override class func primaryKey() -> String {
+        return "userID"
+    }
+
     
 }

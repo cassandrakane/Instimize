@@ -10,7 +10,7 @@ import Foundation
 import RealmSwift
 import Realm
 
-class Post : Object {
+class Post : RLMObject {
     
     dynamic var mediaID: String = ""
     //dynamic var likes: [Like] = []
@@ -19,7 +19,7 @@ class Post : Object {
     dynamic var createdTime: String = ""
     dynamic var filter: String = ""
     
-    required init() {
+    required override init() {
         super.init()
     }
     
