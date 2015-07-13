@@ -54,6 +54,7 @@ class MenuViewController: UITabBarController {
         super.viewDidLoad()
         
         let realm = Realm()
+        println("View Did Load")
         if realm.objects(User).first != nil {
             //IF THERE IS A USER STORED IN REALM LOAD IT
             println("user found")

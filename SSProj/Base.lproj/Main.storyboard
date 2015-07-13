@@ -40,11 +40,71 @@
                     </tabBar>
                     <connections>
                         <outlet property="logoutButtonItem" destination="yLR-sz-YhJ" id="SBS-kn-uUA"/>
+                        <segue destination="xtf-J2-Cak" kind="relationship" relationship="viewControllers" id="uJd-OV-hDS"/>
+                        <segue destination="v7D-Nw-hRf" kind="relationship" relationship="viewControllers" id="cCh-Ml-rls"/>
+                        <segue destination="LBo-cF-cnu" kind="relationship" relationship="viewControllers" id="PUA-qq-4k5"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vKz-Su-7Sp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="972" y="339"/>
+        </scene>
+        <!--Time-->
+        <scene sceneID="L0K-Na-xtA">
+            <objects>
+                <viewController id="xtf-J2-Cak" customClass="TimeViewController" customModule="SSProj" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Hg8-Vd-LeA"/>
+                        <viewControllerLayoutGuide type="bottom" id="vCV-Hv-z5b"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Zey-Gb-EbV">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Time" id="Bhj-mZ-BYD"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="k6o-vy-MPL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1776" y="-393"/>
+        </scene>
+        <!--Day-->
+        <scene sceneID="hkE-oV-pg7">
+            <objects>
+                <viewController id="v7D-Nw-hRf" customClass="DayViewController" customModule="SSProj" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="iNu-TS-9s4"/>
+                        <viewControllerLayoutGuide type="bottom" id="nsh-68-zYH"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Hfl-Ki-VBV">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Day" id="dQ0-9E-kUs"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Z28-pn-HSd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1776" y="339"/>
+        </scene>
+        <!--Month-->
+        <scene sceneID="im1-xQ-gYX">
+            <objects>
+                <viewController id="LBo-cF-cnu" customClass="MonthViewController" customModule="SSProj" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="o2B-Z0-crp"/>
+                        <viewControllerLayoutGuide type="bottom" id="imC-vt-mEo"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ETJ-Hd-s0e">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Month" id="Zip-dc-Tlc"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6lM-Kg-nzs" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1776" y="1082"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Rfz-Bf-2Mf">
