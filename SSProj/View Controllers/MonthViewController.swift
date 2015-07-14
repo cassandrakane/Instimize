@@ -13,13 +13,20 @@ import RealmSwift
 class MonthViewController: UIViewController {
 
     var user: User = User()
-    var times: [String : [Int]] = [ : ]
     var dates: [String] = []
+    var totLikesPerMonth: [String : [Int]] = [ : ]
+    var aveLikesPerMonth: [String: Double] = [ : ]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setUser()
-        doStuff()
+        for index in 1...12 {
+            if (index < 10) {
+                totLikesPerMonth["0\(index)"] = []
+            } else {
+                totLikesPerMonth["\(index)"] = []
+            }
+        }
         // Do any additional setup after loading the view.
         
     }
@@ -27,6 +34,9 @@ class MonthViewController: UIViewController {
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         
+        createDates()
+        createMonthsWithLikes()
+        createAverages()
     }
 
     override func didReceiveMemoryWarning() {
@@ -39,14 +49,6 @@ class MonthViewController: UIViewController {
         user = realm.objects(User).first!
     }
     
-    func doStuff() {
-        createDates()
-        var i: Int
-        for(i = 0; i < dates.count; i++) {
-            println(dates[i])
-        }
-    }
-    
     
     func createDates() {
         var i: Int = 0
@@ -57,7 +59,39 @@ class MonthViewController: UIViewController {
         }
     }
 
+    func createMonthsWithLikes() {
+        var i: Int = 0
+        for (i = 0; i < user.posts.count; i++) {
+            let post = user.posts[i]
+            let date = dates[i]
+            let rangeOfMonth = Range(start: (advance(date.startIndex, 5)), end: (advance(date.startIndex, 7)))
+            let month = date.substringWithRange(rangeOfMonth)
+            let numOfLikes = post.numOfLikes
+            totLikesPerMonth[month]!.append(numOfLikes)
+        }
+    }
     
+    func createAverages() {
+        for i in 1...12 {
+            let likes: [Int]
+            if (i < 10) {
+                likes = totLikesPerMonth["0\(i)"]!
+            } else {
+                likes = totLikesPerMonth["\(i)"]!
+            }
+            var sum: Int = 0
+            var j: Int
+            for (j = 0; j < likes.count; j++) {
+                sum += likes[j]
+            }
+            let average: Double = Double(sum)/Double(likes.count)
+            if (i < 10) {
+                aveLikesPerMonth["0\(i)"] = average
+            } else {
+                aveLikesPerMonth["\(i)"] = average
+            }
+        }
+    }
     
     /*
     // MARK: - Navigation
