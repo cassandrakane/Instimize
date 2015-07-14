@@ -7,19 +7,56 @@
 //
 
 import UIKit
+import Realm
+import RealmSwift
 
-class MonthViewController: MenuViewController {
+class MonthViewController: UIViewController {
 
+    var user: User = User()
+    var times: [String : [Int]] = [ : ]
+    var dates: [String] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        setUser()
+        doStuff()
         // Do any additional setup after loading the view.
+        
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    func setUser() {
+        let realm = Realm()
+        user = realm.objects(User).first!
+    }
+    
+    func doStuff() {
+        createDates()
+        var i: Int
+        for(i = 0; i < dates.count; i++) {
+            println(dates[i])
+        }
+    }
+    
+    func createDates() {
+        var i: UInt = 0
+        
+        for (i = 0; i < self.user.posts._rlmArray.count; i++) {
+            let post = self.user.posts._rlmArray.objectAtIndex(i) as! Post
+            let date = post.getDate()
+            dates.append(date.description)
+        }
+    }
+
     
     
     /*

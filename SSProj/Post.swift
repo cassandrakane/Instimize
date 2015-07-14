@@ -10,28 +10,30 @@ import Foundation
 import RealmSwift
 import Realm
 
-class Post : RLMObject {
+class Post : Object {
     
     dynamic var mediaID: String = ""
     //dynamic var likes: [Like] = []
     //dynamic var comments: [Comment] = []
     dynamic var numOfLikes: Int = 0
     dynamic var createdTime: String = ""
-    dynamic var filter: String = ""
     
-    required override init() {
+
+    required init() {
         super.init()
     }
+
     
-    required init(id: String, nol: Int, ct: String, f: String) {
+    required init(id: String, nol: Int, ct: String) {
         super.init()
         mediaID = id
         //likes = l
         //comments = c
         numOfLikes = nol
         createdTime = ct
-        filter = f
+        //filter = f
     }
+
     
     func getDate() -> NSDate {
         

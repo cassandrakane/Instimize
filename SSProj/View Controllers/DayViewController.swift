@@ -7,13 +7,23 @@
 //
 
 import UIKit
+import Realm
+import RealmSwift
 
-class DayViewController: MenuViewController {
+class DayViewController: UIViewController {
 
+    var user: User = User()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        setUser()
         // Do any additional setup after loading the view.
+        
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -21,7 +31,12 @@ class DayViewController: MenuViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
+    func setUser() {
+        let realm = Realm()
+        user = realm.objects(User).first!
+    }
+    
+    
     /*
     // MARK: - Navigation
 

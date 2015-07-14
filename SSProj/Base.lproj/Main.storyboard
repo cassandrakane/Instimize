@@ -63,6 +63,12 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Time" id="Bhj-mZ-BYD"/>
+                    <navigationItem key="navigationItem" id="Zza-SF-t80">
+                        <barButtonItem key="rightBarButtonItem" title="Logout" id="CBB-a8-uon"/>
+                    </navigationItem>
+                    <connections>
+                        <segue destination="lCE-aj-GVf" kind="presentation" identifier="Login" id="deu-Gt-YWZ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="k6o-vy-MPL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -82,6 +88,12 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Day" id="dQ0-9E-kUs"/>
+                    <navigationItem key="navigationItem" id="aQt-Hb-lZh">
+                        <barButtonItem key="rightBarButtonItem" title="Logout" id="ZTA-aD-6KF"/>
+                    </navigationItem>
+                    <connections>
+                        <segue destination="lCE-aj-GVf" kind="presentation" identifier="Login" id="xUY-Jo-5WV"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Z28-pn-HSd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -101,6 +113,12 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Month" id="Zip-dc-Tlc"/>
+                    <navigationItem key="navigationItem" id="ciE-EV-SnH">
+                        <barButtonItem key="rightBarButtonItem" title="Logout" id="aen-CO-VG2"/>
+                    </navigationItem>
+                    <connections>
+                        <segue destination="lCE-aj-GVf" kind="presentation" identifier="Login" id="VXo-pm-3Dk"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6lM-Kg-nzs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -170,4 +188,7 @@
             <point key="canvasLocation" x="972" y="1077"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="VXo-pm-3Dk"/>
+    </inferredMetricsTieBreakers>
 </document>

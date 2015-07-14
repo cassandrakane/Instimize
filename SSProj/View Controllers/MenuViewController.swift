@@ -18,33 +18,21 @@ class MenuViewController: UITabBarController {
     @IBOutlet weak var logoutButtonItem: UIBarButtonItem!
     
     var shouldLogin = true
-    //var nextURLRequest: NSURLRequest?
-    //let refreshControl = UIRefreshControl()
-    //var doneWithDownload: Bool = false
+    var testing: Bool = true
     var mediaIDs: [String] = []
     var allLikes: [Int] = []
     var createdTimes: [String] = []
-    var filters: [String] = []
-    //var followers: [Follower] = []
-    //var followings: [Following] = []
-    //var count: Int = 0;
-    
-    
-    //var numOfMedia: Int = 0
-    //var numOfFollowers: Int = 0
-    //var numOfFollowings: Int = 0
 
     var user: User? {
         didSet {
             if user != nil {
-                //var urlString = Instagram.Router.getCounts(self.user!.userID, self.user!.accessToken)
-                //getCounts(self.user!, request: urlString)
-                hideLogoutButtonItem(false)
+                //hideLogoutButtonItem(false)
+                println("user isn't nil")
                 handleRefresh()
             } else {
-                println("stuff")
+                println("user is nil")
                 shouldLogin = true
-                hideLogoutButtonItem(true)
+                //hideLogoutButtonItem(true)
             }
         }
     }
@@ -76,7 +64,7 @@ class MenuViewController: UITabBarController {
             shouldLogin = false
         }
     }
-    
+ 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -126,31 +114,11 @@ class MenuViewController: UITabBarController {
         let urlString = Instagram.Router.getRecent(self.user!.userID, self.user!.accessToken)
         getInfo(self.user!, request: urlString) {
             NSLog("NUM OF POSTS \(self.user!.posts.count)")
+            
         }
     }
     
     //ACCESSING AND CREATING INFORMATION
-    
-    /*
-    func getCounts(user: User, request: URLRequestConvertible) {
-        Alamofire.request(request).responseJSON() {
-            (_ , _, jsonObject, error) in
-            
-            if (error == nil) {
-                
-                let json = JSON(jsonObject!)
-                
-                if (json["meta"]["code"].intValue  == 200) {
-            
-                    self.numOfMedia = String(stringInterpolationSegment: json["data"]["counts"]["media"]).toInt()!
-                    self.numOfFollowers = String(stringInterpolationSegment: json["data"]["counts"]["followed_by"]).toInt()!
-                    self.numOfFollowings = String(stringInterpolationSegment: json["data"]["counts"]["follows"]).toInt()!
-                }
-            }
-        }
-
-    }
-    */
     
     
     func getInfo(user: User, request: URLRequestConvertible, callback: () -> Void) {
@@ -173,11 +141,11 @@ class MenuViewController: UITabBarController {
                         let mediaID = posts[i]["id"].string!
                         let likes = String(stringInterpolationSegment: posts[i]["likes"]["count"]).toInt()!
                         let createdTime = posts[i]["created_time"].string!
-                        let filter = posts[i]["filter"].string!
+                        //let filter = posts[i]["filter"].string!
                         self.mediaIDs.append(mediaID)
                         self.allLikes.append(likes)
                         self.createdTimes.append(createdTime)
-                        self.filters.append(filter)
+                        //self.filters.append(filter)
                     }
                     
                     if let urlString = json["pagination"]["next_url"].URL {
@@ -195,95 +163,6 @@ class MenuViewController: UITabBarController {
         }
     }
     
-    
-    /*
-    func getFollowers(user: User, request: URLRequestConvertible, callback: () -> Void) {
-        //GETS INFO FROM INSTAGRAM
-        Alamofire.request(request).responseJSON() {
-            (_ , _, jsonObject, error) in
-            
-            if (error == nil) {
-                
-                let json = JSON(jsonObject!)
-                if (json["meta"]["code"].intValue  == 200) {
-                    
-                    //GET ALL FOLlOWERS
-                    
-                    let followersInfo = json["data"].arrayValue
-                    
-                    var i: Int
-                    for (i = 0; i < followersInfo.count; i++) {
-                        let followerID = followersInfo[i]["id"].string
-                        let followerUN = followersInfo[i]["username"].string
-                        let followerFN = followersInfo[i]["full_name"].string
-                        var newFollower: Follower = Follower(id: followerID!, un: followerUN!, fn: followerFN!)
-                        self.followers.append(newFollower)
-                        NSLog("DONE WITH FOLLOWER")
-                    }
-                    
-               
-                    if let urlString = json["pagination"]["next_url"].URL {
-                        var nextURLRequest = NSURLRequest(URL: urlString)
-                        self.getFollowers(user, request: nextURLRequest) {
-                            NSLog("Got More Followers")
-                            callback()
-                        }
-                    } else {
-                        user.followers = self.followers
-                        callback()
-                    }
-                    
-                }
-            }
-        }
-
-    }
-    
-    func getFollowings(user: User, request: URLRequestConvertible, callback: () -> Void) {
-        //GETS INFO FROM INSTAGRAM
-       
-        Alamofire.request(request).responseJSON() {
-            (_ , _, jsonObject, error) in
-            
-            if (error == nil) {
-                
-                let json = JSON(jsonObject!)
-                if (json["meta"]["code"].intValue  == 200) {
-                    
-                    //GET ALL FOLLOWINGS
-                    
-                    let followingsInfo = json["data"].arrayValue
-                    
-                    var i: Int
-                    for (i = 0; i < followingsInfo.count; i++) {
-                        let followingID = followingsInfo[i]["id"].string
-                        let followingUN = followingsInfo[i]["username"].string
-                        let followingFN = followingsInfo[i]["full_name"].string
-                        var newFollowing: Following = Following(id: followingID!, un: followingUN!, fn: followingFN!)
-                        self.followings.append(newFollowing)
-                        NSLog("DONE WITH FOLLOWING")
-                    }
-                    
-                    
-                    if let urlString = json["pagination"]["next_url"].URL {
-                        var nextURLRequest = NSURLRequest(URL: urlString)
-                        self.getFollowings(user, request: nextURLRequest) {
-                            NSLog("Got More Followings")
-                            callback()
-                        }
-                    } else {
-                        user.followings = self.followings
-                        callback()
-                    }
-
-                }
-            }
-        }
-        
-    }
-    */
-    
-    
     func makeAllPosts(user: User, callback: () -> Void) {
         //GETS ALL LIKES/COMMENTS
         var i: Int
@@ -292,9 +171,12 @@ class MenuViewController: UITabBarController {
             let mediaID: String = self.mediaIDs[i]
             let likes: Int = self.allLikes[i]
             let createdTime: String = self.createdTimes[i]
-            let filter: String = self.filters[i]
-            var newPost: Post = Post(id: mediaID, nol: likes, ct: createdTime, f: filter)
-            user.posts.addObject(newPost)
+            //let filter: String = self.filters[i]
+            var newPost: Post = Post(id: mediaID, nol: likes, ct: createdTime)
+            let realm = Realm()
+            realm.write() {
+                user.posts.append(newPost)
+            }
             
             /*
             var urlString = Instagram.Router.getLikes(mediaID, user.accessToken)
@@ -316,72 +198,7 @@ class MenuViewController: UITabBarController {
         callback()
     }
     
-    
-    /*
-    func addLikes(user: User, mediaID: String, post: Post, request: URLRequestConvertible, callback: () -> Void) {
-        //GETS LIKES
-        Alamofire.request(request).responseJSON() {
-            (_ , _, jsonObject, error) in
-            
-            if (error == nil) {
-                let json = JSON(jsonObject!)
-                
-                if (json["meta"]["code"].intValue  == 200) {
-                    
-                    var i: Int
-                    println(json["data"].count)
-                    for (i = 0; i < json["data"].count; i++) {
-                        NSLog("test Like")
-                        //GOES THROUGH EACH LIKE ON POST
-                        let likeID = json["data"][i]["id"].string
-                        let likeUN = json["data"][i]["username"].string
-                        var newLike: Like = Like(id: likeID!, un: likeUN!)
-                        post.likes.append(newLike)
-                    }
-                    
-                    callback()
-                }
-                
-            }
-            
-        }
-
-    }
-    
-    func addComments(user: User, mediaID: String, post: Post, request: URLRequestConvertible, callback: () -> Void) {
-        //GETS COMMENTS
-        println("Com test 1")
-        Alamofire.request(request).responseJSON() {
-            (_ , _, jsonObject, error) in
-             println("Com test 2")
-            if (error == nil) {
-                let json = JSON(jsonObject!)
-                
-                if (json["meta"]["code"].intValue  == 200) {
-                     println("Com test 3")
-                        var i: Int
-                        for (i = 0; i < json["data"].count; i++) {
-                            NSLog("test Com")
-                            //GOES THROUGH EACH LIKE ON POST
-                            let comID = json["data"][i]["from"]["id"].string
-                            let comUN = json["data"][i]["from"]["username"].string
-                            var newComment: Comment = Comment(id: comID!, un: comUN!)
-                            post.comments.append(newComment)
-                        }
-                    
-                        callback()
-                        
-                    }
-                
-                
-            }
-            
-        }
-   
-    }
-    */
-    
-    
+        
     /*
     // MARK: - Navigation
 

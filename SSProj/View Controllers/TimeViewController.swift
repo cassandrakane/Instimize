@@ -7,31 +7,40 @@
 //
 
 import UIKit
+import Realm
+import RealmSwift
 
-class TimeViewController: MenuViewController {
+class TimeViewController: UIViewController {
     
+    var user: User = User()
     var times: [String : [Int]] = [ : ]
     var dates: [NSDate] = []
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        //setUser()
         // Do any additional setup after loading the view.
+        
     }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        
+    }
+
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-    func createDates() {
-        var i: UInt = 0
-        for (i = 0; i < user!.posts.count; i++) {
-            let post = user!.posts.objectAtIndex(i) as! Post
-            let date = post.getDate()
-            dates.append(date)
-        }
+    
+    func setUser() {
+        let realm = Realm()
+        user = realm.objects(User).first!
     }
+    
 
     /*
     // MARK: - Navigation
