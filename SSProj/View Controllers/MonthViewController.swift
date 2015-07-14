@@ -50,7 +50,7 @@ class MonthViewController: UIViewController {
     func createDates() {
         var i: Int = 0
         for (i = 0; i < user.posts.count; i++) {
-            let post = user.posts.accessibilityElementAtIndex(i) as! Post
+            let post = user.posts[i]
             let date = post.getDate()
             dates.append(date.description)
         }
