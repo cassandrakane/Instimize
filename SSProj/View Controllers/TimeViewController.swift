@@ -23,6 +23,7 @@ class TimeViewController: UIViewController {
     var mediaIDs: [String] = []
     var allLikes: [Int] = []
     var createdTimes: [String] = []
+    var setUp: Bool = false
     
     //STUFF FOR TIME OPT
     var dates: [String] = []
@@ -75,15 +76,25 @@ class TimeViewController: UIViewController {
             performSegueWithIdentifier("Login", sender: self)
             shouldLogin = false
         } else {
-            let urlString = Instagram.Router.getRecent(user!.userID, user!.accessToken)
-            getInfo(user!, request: urlString) {
-                NSLog("NUM OF POSTS \(self.user!.posts.count)")
-                
-                //TIME OPT STUFF
+            if setUp {
                 self.createDates()
                 self.createHoursWithLikes()
                 self.createAverages()
+                println("Time Opted")
+            } else {
+                let urlString = Instagram.Router.getRecent(user!.userID, user!.accessToken)
+                getInfo(user!, request: urlString) {
+                    NSLog("NUM OF POSTS \(self.user!.posts.count)")
+                    self.setUp = true
+                    //TIME OPT STUFF
+                    self.createDates()
+                    self.createHoursWithLikes()
+                    self.createAverages()
+                    println("Time Opted")
+                }
+
             }
+            
         }
     }
     

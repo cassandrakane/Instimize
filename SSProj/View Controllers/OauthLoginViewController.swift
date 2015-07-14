@@ -49,9 +49,9 @@ class OauthLoginViewController: UIViewController {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
         if segue.identifier == "unwindToMenu" && segue.destinationViewController.isKindOfClass(MenuViewController.classForCoder()) {
-            let menuViewController = segue.destinationViewController as! MenuViewController
+            let timeViewController = segue.destinationViewController as! TimeViewController
             if let user = sender?.valueForKey("user") as? User {
-               menuViewController.user = user
+               timeViewController.user = user
             }
         }
     }

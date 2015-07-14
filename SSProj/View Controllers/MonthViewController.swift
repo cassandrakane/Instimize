@@ -37,6 +37,8 @@ class MonthViewController: UIViewController {
         createDates()
         createMonthsWithLikes()
         createAverages()
+        
+        println("Date Opted")
     }
 
     override func didReceiveMemoryWarning() {
@@ -56,7 +58,6 @@ class MonthViewController: UIViewController {
             let post = user.posts[i]
             let date = post.getDate()
             dates.append(date.description)
-            println(date.description)
         }
     }
 

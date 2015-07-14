@@ -39,7 +39,6 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <outlet property="logoutButtonItem" destination="yLR-sz-YhJ" id="SBS-kn-uUA"/>
                         <segue destination="xtf-J2-Cak" kind="relationship" relationship="viewControllers" id="uJd-OV-hDS"/>
                         <segue destination="v7D-Nw-hRf" kind="relationship" relationship="viewControllers" id="cCh-Ml-rls"/>
                         <segue destination="LBo-cF-cnu" kind="relationship" relationship="viewControllers" id="PUA-qq-4k5"/>
@@ -64,10 +63,14 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Time" id="Bhj-mZ-BYD"/>
                     <navigationItem key="navigationItem" id="Zza-SF-t80">
-                        <barButtonItem key="rightBarButtonItem" title="Logout" id="CBB-a8-uon"/>
+                        <barButtonItem key="rightBarButtonItem" title="Logout" id="CBB-a8-uon">
+                            <connections>
+                                <segue destination="lCE-aj-GVf" kind="presentation" id="gZU-Qm-tfL"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <segue destination="lCE-aj-GVf" kind="presentation" identifier="Login" id="deu-Gt-YWZ"/>
+                        <outlet property="logoutButtonItem" destination="CBB-a8-uon" id="dGJ-Ja-o6L"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="k6o-vy-MPL" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -89,11 +92,12 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Day" id="dQ0-9E-kUs"/>
                     <navigationItem key="navigationItem" id="aQt-Hb-lZh">
-                        <barButtonItem key="rightBarButtonItem" title="Logout" id="ZTA-aD-6KF"/>
+                        <barButtonItem key="rightBarButtonItem" title="Logout" id="ZTA-aD-6KF">
+                            <connections>
+                                <segue destination="lCE-aj-GVf" kind="presentation" id="c5Q-Tc-RTG"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
-                    <connections>
-                        <segue destination="lCE-aj-GVf" kind="presentation" identifier="Login" id="xUY-Jo-5WV"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Z28-pn-HSd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -114,11 +118,12 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Month" id="Zip-dc-Tlc"/>
                     <navigationItem key="navigationItem" id="ciE-EV-SnH">
-                        <barButtonItem key="rightBarButtonItem" title="Logout" id="aen-CO-VG2"/>
+                        <barButtonItem key="rightBarButtonItem" title="Logout" id="aen-CO-VG2">
+                            <connections>
+                                <segue destination="lCE-aj-GVf" kind="presentation" id="Nbu-EF-erB"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
-                    <connections>
-                        <segue destination="lCE-aj-GVf" kind="presentation" identifier="Login" id="VXo-pm-3Dk"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6lM-Kg-nzs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -189,6 +194,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="VXo-pm-3Dk"/>
+        <segue reference="URm-gy-vQT"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -15,6 +15,7 @@ import SwiftyJSON
 
 class MenuViewController: UITabBarController {
     
+    /*
     @IBOutlet weak var logoutButtonItem: UIBarButtonItem!
     
     var shouldLogin = true
@@ -164,7 +165,7 @@ class MenuViewController: UITabBarController {
         callback()
     }
     
-    
+    */
     
     /*
     // MARK: - Navigation
