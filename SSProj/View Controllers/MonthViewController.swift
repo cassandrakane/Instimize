@@ -47,6 +47,7 @@ class MonthViewController: UIViewController {
         }
     }
     
+    
     func createDates() {
         var i: Int = 0
         for (i = 0; i < user.posts.count; i++) {
