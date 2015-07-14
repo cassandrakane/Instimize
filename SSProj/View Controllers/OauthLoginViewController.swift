@@ -16,7 +16,6 @@ import SwiftyJSON
 class OauthLoginViewController: UIViewController {
     
     @IBOutlet weak var webView: UIWebView!
-    //let realm = Realm()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -92,11 +91,10 @@ extension OauthLoginViewController: UIWebViewDelegate {
                         user.accessToken = accessToken
                         println("USER ID:" + user.userID)
                         println("ACCESS TOKEN:" + user.accessToken)
-                      
+                        
                         let realm = Realm()
                         realm.write() {
-                            realm.add(user, update: true)
-                            return
+                            realm.add(user)
                         }
                         
                         self.performSegueWithIdentifier("unwindToMenu", sender: ["user": user])
@@ -105,6 +103,7 @@ extension OauthLoginViewController: UIWebViewDelegate {
                 
         }
     }
+    
     
     func webViewDidFinishLoad(webView: UIWebView) {
         webView.hidden = false

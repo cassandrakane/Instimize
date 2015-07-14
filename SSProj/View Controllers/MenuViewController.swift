@@ -32,6 +32,7 @@ class MenuViewController: UITabBarController {
             } else {
                 println("user is nil")
                 shouldLogin = true
+                
                 //hideLogoutButtonItem(true)
             }
         }
@@ -62,6 +63,18 @@ class MenuViewController: UITabBarController {
             println("Logging In")
             performSegueWithIdentifier("Login", sender: self)
             shouldLogin = false
+        } else {
+            let urlString = Instagram.Router.getRecent(user!.userID, user!.accessToken)
+            getInfo(user!, request: urlString) {
+                NSLog("NUM OF POSTS \(self.user!.posts.count)")
+                /*
+                let realm = Realm()
+                realm.write() {
+                    realm.deleteAll()
+                    realm.add(self.user!)
+                }
+*/
+            }
         }
     }
  
@@ -85,6 +98,7 @@ class MenuViewController: UITabBarController {
         }
     }
 
+    /*
     func requestAccessToken(code: String) {
         let request = Instagram.Router.requestAccessTokenURLStringAndParms(code)
         
@@ -109,16 +123,14 @@ class MenuViewController: UITabBarController {
                 
         }
     }
+    */
     
     func handleRefresh() {
-        let urlString = Instagram.Router.getRecent(self.user!.userID, self.user!.accessToken)
-        getInfo(self.user!, request: urlString) {
-            NSLog("NUM OF POSTS \(self.user!.posts.count)")
-            
-        }
+        
     }
     
     //ACCESSING AND CREATING INFORMATION
+    
     
     
     func getInfo(user: User, request: URLRequestConvertible, callback: () -> Void) {
@@ -134,6 +146,10 @@ class MenuViewController: UITabBarController {
                     
                     //GET ALL MEDIA IDS
                 
+                    //clear out previous posts
+                    user.posts = List<Post> ()
+                    
+                    
                     let posts = json["data"].arrayValue
                     
                     var i: Int
@@ -166,6 +182,11 @@ class MenuViewController: UITabBarController {
     func makeAllPosts(user: User, callback: () -> Void) {
         //GETS ALL LIKES/COMMENTS
         var i: Int
+        let realm = Realm()
+        //clear posts
+        realm.write() {
+            realm.objects(User).first!.posts.removeAll()
+        }
         for (i = 0; i < self.mediaIDs.count; i++) {
             //GOES THROUGH EACH POST
             let mediaID: String = self.mediaIDs[i]
@@ -173,32 +194,18 @@ class MenuViewController: UITabBarController {
             let createdTime: String = self.createdTimes[i]
             //let filter: String = self.filters[i]
             var newPost: Post = Post(id: mediaID, nol: likes, ct: createdTime)
-            let realm = Realm()
-            realm.write() {
-                user.posts.append(newPost)
+            user.posts.append(newPost)
+            realm.write(){
+                realm.objects(User).first!.posts.append(newPost)
             }
-            
-            /*
-            var urlString = Instagram.Router.getLikes(mediaID, user.accessToken)
-            self.addLikes(user, mediaID: mediaID, post: newPost, request: urlString) {
-                println("test")
-                urlString = Instagram.Router.getComments(mediaID, user.accessToken)
-                self.addComments(user, mediaID: mediaID, post: newPost, request: urlString) {
-                    user.posts.append(newPost)
-                    NSLog("Finsihed Post #\(i+1)")
-                    self.count--;
-                    if self.count == 0 {
-                        callback()
-                    }
-                }
-            }
-            */
+         
         }
         
         callback()
     }
     
-        
+    
+    
     /*
     // MARK: - Navigation
 

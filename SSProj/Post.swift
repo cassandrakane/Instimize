@@ -18,14 +18,9 @@ class Post : Object {
     dynamic var numOfLikes: Int = 0
     dynamic var createdTime: String = ""
     
-
-    required init() {
-        super.init()
-    }
-
     
-    required init(id: String, nol: Int, ct: String) {
-        super.init()
+    convenience required init(id: String, nol: Int, ct: String) {
+        self.init()
         mediaID = id
         //likes = l
         //comments = c
