@@ -28,7 +28,6 @@ class MenuViewController: UITabBarController {
             if user != nil {
                 //hideLogoutButtonItem(false)
                 println("user isn't nil")
-                handleRefresh()
             } else {
                 println("user is nil")
                 shouldLogin = true
@@ -67,13 +66,6 @@ class MenuViewController: UITabBarController {
             let urlString = Instagram.Router.getRecent(user!.userID, user!.accessToken)
             getInfo(user!, request: urlString) {
                 NSLog("NUM OF POSTS \(self.user!.posts.count)")
-                /*
-                let realm = Realm()
-                realm.write() {
-                    realm.deleteAll()
-                    realm.add(self.user!)
-                }
-*/
             }
         }
     }
@@ -98,40 +90,8 @@ class MenuViewController: UITabBarController {
         }
     }
 
-    /*
-    func requestAccessToken(code: String) {
-        let request = Instagram.Router.requestAccessTokenURLStringAndParms(code)
-        
-        Alamofire.request(.POST, request.URLString, parameters: request.Params)
-            .responseJSON {
-                (_, _, jsonObject, error) in
-                
-                if (error == nil) {
-                  
-                    let json = JSON(jsonObject!)
-                    
-                    if let accessToken = json["access_token"].string, userID = json["user"]["id"].string {
-                        let user = User()
-                        user.userID = userID
-                        user.accessToken = accessToken
-                        println("USER ID:" + user.userID)
-                        println("ACCESS TOKEN:" + user.accessToken)
-                        
-                        self.performSegueWithIdentifier("unwindToMenu", sender: ["user": user])
-                    }
-                }
-                
-        }
-    }
-    */
-    
-    func handleRefresh() {
-        
-    }
     
     //ACCESSING AND CREATING INFORMATION
-    
-    
     
     func getInfo(user: User, request: URLRequestConvertible, callback: () -> Void) {
         //GETS INFO FROM INSTAGRAM

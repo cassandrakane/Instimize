@@ -56,6 +56,7 @@ class MonthViewController: UIViewController {
             let post = user.posts[i]
             let date = post.getDate()
             dates.append(date.description)
+            println(date.description)
         }
     }
 
