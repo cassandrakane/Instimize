@@ -65,12 +65,13 @@
                     <navigationItem key="navigationItem" id="Zza-SF-t80">
                         <barButtonItem key="rightBarButtonItem" title="Logout" id="CBB-a8-uon">
                             <connections>
-                                <segue destination="lCE-aj-GVf" kind="presentation" id="gZU-Qm-tfL"/>
+                                <segue destination="lCE-aj-GVf" kind="presentation" identifier="TimeLogout" id="gZU-Qm-tfL"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="logoutButtonItem" destination="CBB-a8-uon" id="dGJ-Ja-o6L"/>
+                        <segue destination="lCE-aj-GVf" kind="presentation" identifier="Login" id="GTI-ZR-8AJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="k6o-vy-MPL" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -94,7 +95,7 @@
                     <navigationItem key="navigationItem" id="aQt-Hb-lZh">
                         <barButtonItem key="rightBarButtonItem" title="Logout" id="ZTA-aD-6KF">
                             <connections>
-                                <segue destination="lCE-aj-GVf" kind="presentation" id="c5Q-Tc-RTG"/>
+                                <segue destination="lCE-aj-GVf" kind="presentation" identifier="DayLogout" id="c5Q-Tc-RTG"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -120,7 +121,7 @@
                     <navigationItem key="navigationItem" id="ciE-EV-SnH">
                         <barButtonItem key="rightBarButtonItem" title="Logout" id="aen-CO-VG2">
                             <connections>
-                                <segue destination="lCE-aj-GVf" kind="presentation" id="Nbu-EF-erB"/>
+                                <segue destination="lCE-aj-GVf" kind="presentation" identifier="MonthLogout" id="Nbu-EF-erB"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -194,6 +195,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="URm-gy-vQT"/>
+        <segue reference="GTI-ZR-8AJ"/>
     </inferredMetricsTieBreakers>
 </document>

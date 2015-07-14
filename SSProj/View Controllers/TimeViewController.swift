@@ -208,10 +208,10 @@ class TimeViewController: UIViewController {
         for (i = 0; i < user!.posts.count; i++) {
             let post = user!.posts[i]
             let date = dates[i]
-            let rangeOfMonth = Range(start: (advance(date.startIndex, 11)), end: (advance(date.startIndex, 13)))
-            let month = date.substringWithRange(rangeOfMonth)
+            let rangeOfHour = Range(start: (advance(date.startIndex, 11)), end: (advance(date.startIndex, 13)))
+            let hour = date.substringWithRange(rangeOfHour)
             let numOfLikes = post.numOfLikes
-            totLikesPerHour[month]!.append(numOfLikes)
+            totLikesPerHour[hour]!.append(numOfLikes)
         }
     }
     

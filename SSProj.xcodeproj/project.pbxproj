@@ -16,7 +16,6 @@
 		740FA4DF1B459292000E88B7 /* SSProjTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 740FA4DE1B459292000E88B7 /* SSProjTests.swift */; };
 		741E1D1B1B45A78D001C9B27 /* OauthLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741E1D1A1B45A78D001C9B27 /* OauthLoginViewController.swift */; };
 		741E1D1D1B45AA0D001C9B27 /* Instagram.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741E1D1C1B45AA0D001C9B27 /* Instagram.swift */; };
-		741E1D1F1B45B34D001C9B27 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741E1D1E1B45B34D001C9B27 /* MenuViewController.swift */; };
 		741E1D211B45B7F0001C9B27 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741E1D201B45B7F0001C9B27 /* User.swift */; };
 		744003D71B54434C00778626 /* TimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 744003D61B54434C00778626 /* TimeViewController.swift */; };
 		744003D91B54436600778626 /* DayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 744003D81B54436600778626 /* DayViewController.swift */; };
@@ -50,7 +49,6 @@
 		740FA4DE1B459292000E88B7 /* SSProjTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSProjTests.swift; sourceTree = "<group>"; };
 		741E1D1A1B45A78D001C9B27 /* OauthLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OauthLoginViewController.swift; path = "View Controllers/OauthLoginViewController.swift"; sourceTree = "<group>"; };
 		741E1D1C1B45AA0D001C9B27 /* Instagram.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Instagram.swift; sourceTree = "<group>"; };
-		741E1D1E1B45B34D001C9B27 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MenuViewController.swift; path = "View Controllers/MenuViewController.swift"; sourceTree = "<group>"; };
 		741E1D201B45B7F0001C9B27 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		744003D61B54434C00778626 /* TimeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TimeViewController.swift; path = "View Controllers/TimeViewController.swift"; sourceTree = "<group>"; };
 		744003D81B54436600778626 /* DayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DayViewController.swift; path = "View Controllers/DayViewController.swift"; sourceTree = "<group>"; };
@@ -160,7 +158,6 @@
 			children = (
 				740FA4CA1B459292000E88B7 /* ViewController.swift */,
 				741E1D1A1B45A78D001C9B27 /* OauthLoginViewController.swift */,
-				741E1D1E1B45B34D001C9B27 /* MenuViewController.swift */,
 				744003D61B54434C00778626 /* TimeViewController.swift */,
 				744003D81B54436600778626 /* DayViewController.swift */,
 				744003DA1B54438500778626 /* MonthViewController.swift */,
@@ -330,7 +327,6 @@
 				741E1D1D1B45AA0D001C9B27 /* Instagram.swift in Sources */,
 				744003D71B54434C00778626 /* TimeViewController.swift in Sources */,
 				7401D11D1B4AC8680035C0C1 /* Post.swift in Sources */,
-				741E1D1F1B45B34D001C9B27 /* MenuViewController.swift in Sources */,
 				744003DB1B54438500778626 /* MonthViewController.swift in Sources */,
 				741E1D211B45B7F0001C9B27 /* User.swift in Sources */,
 				744003D91B54436600778626 /* DayViewController.swift in Sources */,
