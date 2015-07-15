@@ -86,9 +86,7 @@ class TimeViewController: UIViewController {
                 setUp = false
             }
             if setUp {
-                self.createDates()
-                self.createHoursWithLikes()
-                self.createAverages()
+                self.optimizeTime()
                 println("Time Opted")
             } else {
                 let urlString = Instagram.Router.getRecent(user!.userID, user!.accessToken)
@@ -103,10 +101,7 @@ class TimeViewController: UIViewController {
                             self.totLikesPerHour["\(index)"] = []
                         }
                     }
-                    
-                    self.createDates()
-                    self.createHoursWithLikes()
-                    self.createAverages()
+                    self.optimizeTime()
                     println("Time Opted")
                 }
 
@@ -210,12 +205,34 @@ class TimeViewController: UIViewController {
     
 
     //TIME OPTI
+    func optimizeTime() {
+        self.createDates()
+        self.changeNanToZero()
+        self.createHoursWithLikes()
+        self.createAverages()
+        self.sortTimes()
+    }
+    
     func createDates() {
         var i: Int = 0
         for (i = 0; i < user!.posts.count; i++) {
             let post = user!.posts[i]
             let date = post.getDate()
             dates.append(date.description)
+        }
+    }
+    
+    func changeNanToZero() {
+        for index in 0...23 {
+            if (index < 10) {
+                if (totLikesPerHour["0\(index)"]! == []) {
+                    totLikesPerHour["0\(index)"]!.append(0)
+                }
+            } else {
+                if (totLikesPerHour["\(index)"]! == []) {
+                    totLikesPerHour["\(index)"]!.append(0)
+                }
+            }
         }
     }
     
@@ -252,7 +269,22 @@ class TimeViewController: UIViewController {
             }
         }
     }
-
+    
+    func sortTimes() {
+        var averageLikesSorted : [Double] = aveLikesPerHour.values.array
+        averageLikesSorted.sort({ $0 > $1 })
+        //quickSort(averageLikesSorted, start: 0, end: aveLikesPerHour.count)
+        var i: Int
+        for (i = 0; i < aveLikesPerHour.count; i++) {
+            var likes: Double = averageLikesSorted[i]
+            var times = (aveLikesPerHour as NSDictionary).allKeysForObject(likes) as! [String]
+            for time in times {
+                println("HOUR: \(time) - AVERAGE LIKES: \(likes)")
+            }
+            i += times.count - 1
+        }
+    
+    }
 
     /*
     // MARK: - Navigation
