@@ -19,11 +19,5 @@ class User : Object {
     //dynamic var posts = RLMArray(objectClassName: Post.className())
     //dynamic var followers: [Follower] = []
     //dynamic var followings: [Following] = []
- 
-    
-    override class func primaryKey() -> String {
-        return "userID"
-    }
 
-    
 }

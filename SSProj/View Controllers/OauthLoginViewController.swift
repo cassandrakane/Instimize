@@ -93,8 +93,16 @@ extension OauthLoginViewController: UIWebViewDelegate {
                         println("ACCESS TOKEN:" + user.accessToken)
                         
                         let realm = Realm()
+                        
                         realm.write() {
-                            realm.add(user)
+                            if (realm.objects(User).first == nil) {
+                                println("FIRST TIME, ADDING NEW USER TO REALM")
+                                realm.add(user)
+                            } else {
+                                println("REWRITING USER")
+                                realm.objects(User).first!.userID = userID
+                                realm.objects(User).first!.accessToken = accessToken
+                            }
                         }
                         
                         self.performSegueWithIdentifier("unwindToMenu", sender: ["user": user])

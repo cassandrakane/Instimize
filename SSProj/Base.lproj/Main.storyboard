@@ -28,7 +28,7 @@
                     <navigationItem key="navigationItem" id="t3N-da-eQ4">
                         <barButtonItem key="rightBarButtonItem" title="Logout" id="yLR-sz-YhJ">
                             <connections>
-                                <segue destination="lCE-aj-GVf" kind="presentation" identifier="Login" id="URm-gy-vQT"/>
+                                <segue destination="lCE-aj-GVf" kind="presentation" identifier="Logout" id="rk2-Xp-wBj"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -62,15 +62,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Time" id="Bhj-mZ-BYD"/>
-                    <navigationItem key="navigationItem" id="Zza-SF-t80">
-                        <barButtonItem key="rightBarButtonItem" title="Logout" id="CBB-a8-uon">
-                            <connections>
-                                <segue destination="lCE-aj-GVf" kind="presentation" identifier="TimeLogout" id="gZU-Qm-tfL"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
                     <connections>
-                        <outlet property="logoutButtonItem" destination="CBB-a8-uon" id="dGJ-Ja-o6L"/>
                         <segue destination="lCE-aj-GVf" kind="presentation" identifier="Login" id="GTI-ZR-8AJ"/>
                     </connections>
                 </viewController>
@@ -92,13 +84,6 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Day" id="dQ0-9E-kUs"/>
-                    <navigationItem key="navigationItem" id="aQt-Hb-lZh">
-                        <barButtonItem key="rightBarButtonItem" title="Logout" id="ZTA-aD-6KF">
-                            <connections>
-                                <segue destination="lCE-aj-GVf" kind="presentation" identifier="DayLogout" id="c5Q-Tc-RTG"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Z28-pn-HSd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -118,13 +103,6 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Month" id="Zip-dc-Tlc"/>
-                    <navigationItem key="navigationItem" id="ciE-EV-SnH">
-                        <barButtonItem key="rightBarButtonItem" title="Logout" id="aen-CO-VG2">
-                            <connections>
-                                <segue destination="lCE-aj-GVf" kind="presentation" identifier="MonthLogout" id="Nbu-EF-erB"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6lM-Kg-nzs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -195,6 +173,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="GTI-ZR-8AJ"/>
+        <segue reference="rk2-Xp-wBj"/>
     </inferredMetricsTieBreakers>
 </document>

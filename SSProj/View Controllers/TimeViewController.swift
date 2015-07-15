@@ -49,6 +49,7 @@ class TimeViewController: UIViewController {
         
         let realm = Realm()
         println("View Did Load")
+        
         if realm.objects(User).first != nil {
             //IF THERE IS A USER STORED IN REALM LOAD IT
             println("user found")
@@ -76,6 +77,14 @@ class TimeViewController: UIViewController {
             performSegueWithIdentifier("Login", sender: self)
             shouldLogin = false
         } else {
+            let realm = Realm()
+            if realm.objects(User).first != nil && realm.objects(User).first!.posts.description != user!.posts.description {
+                println("RESET POSTS")
+                self.mediaIDs = []
+                self.allLikes = []
+                self.createdTimes = []
+                setUp = false
+            }
             if setUp {
                 self.createDates()
                 self.createHoursWithLikes()
@@ -87,6 +96,14 @@ class TimeViewController: UIViewController {
                     NSLog("NUM OF POSTS \(self.user!.posts.count)")
                     self.setUp = true
                     //TIME OPT STUFF
+                    for index in 0...23 {
+                        if (index < 10) {
+                            self.totLikesPerHour["0\(index)"] = []
+                        } else {
+                            self.totLikesPerHour["\(index)"] = []
+                        }
+                    }
+                    
                     self.createDates()
                     self.createHoursWithLikes()
                     self.createAverages()
@@ -136,7 +153,6 @@ class TimeViewController: UIViewController {
                     
                     //clear out previous posts
                     user.posts = List<Post> ()
-                    
                     
                     let posts = json["data"].arrayValue
                     
@@ -237,7 +253,7 @@ class TimeViewController: UIViewController {
         }
     }
 
-    
+
     /*
     // MARK: - Navigation
 

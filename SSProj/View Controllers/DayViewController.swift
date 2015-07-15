@@ -12,6 +12,8 @@ import RealmSwift
 
 class DayViewController: UIViewController {
 
+    @IBOutlet weak var logoutButtonItem: UIBarButtonItem!
+    
     var user: User = User()
     var dates: [String] = []
     var totLikesPerDay: [String : [Int]] = [ : ]

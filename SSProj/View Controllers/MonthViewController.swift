@@ -12,6 +12,8 @@ import RealmSwift
 
 class MonthViewController: UIViewController {
 
+    @IBOutlet weak var logoutButtonItem: UIBarButtonItem!
+    
     var user: User = User()
     var dates: [String] = []
     var totLikesPerMonth: [String : [Int]] = [ : ]
