@@ -10,7 +10,7 @@ import UIKit
 import Realm
 import RealmSwift
 
-class DayViewController: UIViewController {
+class DayViewController: UITabBarController {
 
     @IBOutlet weak var logoutButtonItem: UIBarButtonItem!
     
@@ -22,9 +22,6 @@ class DayViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUser()
-        for index in 1...7 {
-            totLikesPerDay["\(index)"] = []
-        }
         // Do any additional setup after loading the view.
         
     }
@@ -32,10 +29,7 @@ class DayViewController: UIViewController {
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         
-        createDates()
-        createDaysWithLikes()
-        createAverages()
-        
+        optimizeDay()
         println("Day Opted")
     }
     
@@ -50,12 +44,34 @@ class DayViewController: UIViewController {
     }
     
     
+    func optimizeDay() {
+        dates = []
+        totLikesPerDay = [ : ]
+        aveLikesPerDay = [ : ]
+        for index in 1...7 {
+            totLikesPerDay["\(index)"] = []
+        }
+        createDates()
+        changeNanToZero()
+        createDaysWithLikes()
+        createAverages()
+        sortDays()
+    }
+    
     func createDates() {
         var i: Int = 0
         for (i = 0; i < user.posts.count; i++) {
             let post = user.posts[i]
             let date = post.getDate()
             dates.append(date.description)
+        }
+    }
+    
+    func changeNanToZero() {
+        for index in 1...7 {
+            if (totLikesPerDay["\(index)"]! == []) {
+                totLikesPerDay["\(index)"]!.append(0)
+            }
         }
     }
     
@@ -87,6 +103,24 @@ class DayViewController: UIViewController {
         }
     }
     
+    func sortDays() {
+        var averageLikesSorted : [Double] = aveLikesPerDay.values.array
+        averageLikesSorted.sort({ $0 > $1 })
+        //quickSort(averageLikesSorted, start: 0, end: aveLikesPerHour.count)
+        var i: Int
+        println("SORTED DAYS")
+        for (i = 0; i < aveLikesPerDay.count; i++) {
+            var likes: Double = averageLikesSorted[i]
+            var days = (aveLikesPerDay as NSDictionary).allKeysForObject(likes) as! [String]
+            for day in days {
+                println("DAY: \(day) - AVERAGE LIKES: \(likes)")
+            }
+            i += days.count - 1
+        }
+        
+    }
+    
+
     
     func getDayOfWeek(date:String) -> Int {
         

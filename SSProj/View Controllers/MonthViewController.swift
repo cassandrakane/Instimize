@@ -10,7 +10,7 @@ import UIKit
 import Realm
 import RealmSwift
 
-class MonthViewController: UIViewController {
+class MonthViewController: UITabBarController {
 
     @IBOutlet weak var logoutButtonItem: UIBarButtonItem!
     
@@ -22,13 +22,6 @@ class MonthViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUser()
-        for index in 1...12 {
-            if (index < 10) {
-                totLikesPerMonth["0\(index)"] = []
-            } else {
-                totLikesPerMonth["\(index)"] = []
-            }
-        }
         // Do any additional setup after loading the view.
         
     }
@@ -36,10 +29,7 @@ class MonthViewController: UIViewController {
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         
-        createDates()
-        createMonthsWithLikes()
-        createAverages()
-        
+        optimizeMonth()
         println("Date Opted")
     }
 
@@ -54,6 +44,24 @@ class MonthViewController: UIViewController {
     }
     
     
+    func optimizeMonth() {
+        dates = []
+        totLikesPerMonth = [ : ]
+        aveLikesPerMonth = [ : ]
+        for index in 1...12 {
+            if (index < 10) {
+                totLikesPerMonth["0\(index)"] = []
+            } else {
+                totLikesPerMonth["\(index)"] = []
+            }
+        }
+        createDates()
+        changeNanToZero()
+        createMonthsWithLikes()
+        createAverages()
+        sortMonths()
+    }
+    
     func createDates() {
         var i: Int = 0
         for (i = 0; i < user.posts.count; i++) {
@@ -63,6 +71,20 @@ class MonthViewController: UIViewController {
         }
     }
 
+    func changeNanToZero() {
+        for index in 1...12 {
+            if (index < 10) {
+                if (totLikesPerMonth["0\(index)"]! == []) {
+                    totLikesPerMonth["0\(index)"]!.append(0)
+                }
+            } else {
+                if (totLikesPerMonth["\(index)"]! == []) {
+                    totLikesPerMonth["\(index)"]!.append(0)
+                }
+            }
+        }
+    }
+    
     func createMonthsWithLikes() {
         var i: Int = 0
         for (i = 0; i < user.posts.count; i++) {
@@ -97,6 +119,24 @@ class MonthViewController: UIViewController {
         }
     }
     
+    func sortMonths() {
+        var averageLikesSorted : [Double] = aveLikesPerMonth.values.array
+        averageLikesSorted.sort({ $0 > $1 })
+        
+        println("SORTED MONTHS")
+        var i: Int
+        for (i = 0; i < aveLikesPerMonth.count; i++) {
+            var likes: Double = averageLikesSorted[i]
+            var months = (aveLikesPerMonth as NSDictionary).allKeysForObject(likes) as! [String]
+            for month in months {
+                println("MONTH: \(month) - AVERAGE LIKES: \(likes)")
+            }
+            i += months.count - 1
+        }
+        
+    }
+    
+
     /*
     // MARK: - Navigation
 

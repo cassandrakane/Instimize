@@ -13,7 +13,7 @@ import RealmSwift
 import Alamofire
 import SwiftyJSON
 
-class TimeViewController: UIViewController {
+class TimeViewController: UITabBarController {
     
     @IBOutlet weak var logoutButtonItem: UIBarButtonItem!
     
@@ -94,13 +94,6 @@ class TimeViewController: UIViewController {
                     NSLog("NUM OF POSTS \(self.user!.posts.count)")
                     self.setUp = true
                     //TIME OPT STUFF
-                    for index in 0...23 {
-                        if (index < 10) {
-                            self.totLikesPerHour["0\(index)"] = []
-                        } else {
-                            self.totLikesPerHour["\(index)"] = []
-                        }
-                    }
                     self.optimizeTime()
                     println("Time Opted")
                 }
@@ -114,6 +107,7 @@ class TimeViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
     
     @IBAction func unwindToMenu (segue : UIStoryboardSegue) {
         
@@ -206,6 +200,16 @@ class TimeViewController: UIViewController {
 
     //TIME OPTI
     func optimizeTime() {
+        dates = []
+        totLikesPerHour = [ : ]
+        aveLikesPerHour = [ : ]
+        for index in 0...23 {
+            if (index < 10) {
+                self.totLikesPerHour["0\(index)"] = []
+            } else {
+                self.totLikesPerHour["\(index)"] = []
+            }
+        }
         self.createDates()
         self.changeNanToZero()
         self.createHoursWithLikes()
@@ -273,7 +277,8 @@ class TimeViewController: UIViewController {
     func sortTimes() {
         var averageLikesSorted : [Double] = aveLikesPerHour.values.array
         averageLikesSorted.sort({ $0 > $1 })
-        //quickSort(averageLikesSorted, start: 0, end: aveLikesPerHour.count)
+        
+        println("SORTED TIMES")
         var i: Int
         for (i = 0; i < aveLikesPerHour.count; i++) {
             var likes: Double = averageLikesSorted[i]
