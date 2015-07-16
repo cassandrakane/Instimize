@@ -12,12 +12,13 @@ import RealmSwift
 
 class DayViewController: UIViewController {
 
-    @IBOutlet weak var logoutButtonItem: UIBarButtonItem!
+    @IBOutlet weak var tableView: UITableView!
     
     var user: User = User()
     var dates: [String] = []
     var totLikesPerDay: [String : [Int]] = [ : ]
     var aveLikesPerDay: [String: Double] = [ : ]
+    var days: [Day] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -111,11 +112,13 @@ class DayViewController: UIViewController {
         println("SORTED DAYS")
         for (i = 0; i < aveLikesPerDay.count; i++) {
             var likes: Double = averageLikesSorted[i]
-            var days = (aveLikesPerDay as NSDictionary).allKeysForObject(likes) as! [String]
-            for day in days {
-                println("DAY: \(day) - AVERAGE LIKES: \(likes)")
+            var ds = (aveLikesPerDay as NSDictionary).allKeysForObject(likes) as! [String]
+            for d in ds {
+                var dayName: String = getDayName(d)
+                var likesName: String = "\(likes)"
+                days.append(Day(d: dayName, l: likesName))
             }
-            i += days.count - 1
+            i += ds.count - 1
         }
         
     }
@@ -134,6 +137,27 @@ class DayViewController: UIViewController {
         
     }
     
+    func getDayName(dayNum: String) -> String {
+        var dayName: String = ""
+        
+        if (dayNum == "1") {
+            dayName = "Sunday"
+        } else if (dayNum == "2") {
+            dayName = "Monday"
+        } else if (dayNum == "3") {
+            dayName = "Tuesday"
+        } else if (dayNum == "4") {
+            dayName = "Wednesday"
+        } else if (dayNum == "5") {
+            dayName = "Thursday"
+        } else if (dayNum == "6") {
+            dayName = "Friday"
+        } else if (dayNum == "7") {
+            dayName = "Saturday"
+        }
+        
+        return dayName
+    }
     
     /*
     // MARK: - Navigation
@@ -146,3 +170,5 @@ class DayViewController: UIViewController {
     */
 
 }
+
+

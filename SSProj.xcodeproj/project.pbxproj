@@ -21,6 +21,9 @@
 		744003D91B54436600778626 /* DayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 744003D81B54436600778626 /* DayViewController.swift */; };
 		744003DB1B54438500778626 /* MonthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 744003DA1B54438500778626 /* MonthViewController.swift */; };
 		74A7321D1B57E401000C5889 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74A7321C1B57E401000C5889 /* MenuViewController.swift */; };
+		74A732231B5801F0000C5889 /* Day.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74A732221B5801F0000C5889 /* Day.swift */; };
+		74A732271B58089B000C5889 /* Time.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74A732261B58089B000C5889 /* Time.swift */; };
+		74A732291B580B27000C5889 /* Month.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74A732281B580B27000C5889 /* Month.swift */; };
 		CB21AABF5A0FF8A995627C1D /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D948DF58668113D13E30771 /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
@@ -55,6 +58,9 @@
 		744003D81B54436600778626 /* DayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DayViewController.swift; path = "View Controllers/DayViewController.swift"; sourceTree = "<group>"; };
 		744003DA1B54438500778626 /* MonthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MonthViewController.swift; path = "View Controllers/MonthViewController.swift"; sourceTree = "<group>"; };
 		74A7321C1B57E401000C5889 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MenuViewController.swift; path = "View Controllers/MenuViewController.swift"; sourceTree = "<group>"; };
+		74A732221B5801F0000C5889 /* Day.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Day.swift; sourceTree = "<group>"; };
+		74A732261B58089B000C5889 /* Time.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Time.swift; sourceTree = "<group>"; };
+		74A732281B580B27000C5889 /* Month.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Month.swift; sourceTree = "<group>"; };
 		A49590FA6B898EBC4474AF93 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -91,6 +97,9 @@
 			children = (
 				741E1D201B45B7F0001C9B27 /* User.swift */,
 				7401D11C1B4AC8680035C0C1 /* Post.swift */,
+				74A732221B5801F0000C5889 /* Day.swift */,
+				74A732261B58089B000C5889 /* Time.swift */,
+				74A732281B580B27000C5889 /* Month.swift */,
 			);
 			name = Entities;
 			sourceTree = "<group>";
@@ -118,6 +127,7 @@
 		740FA4C51B459292000E88B7 /* SSProj */ = {
 			isa = PBXGroup;
 			children = (
+				74A7321F1B580146000C5889 /* Views */,
 				7401D1131B4AC8140035C0C1 /* Entities */,
 				741E1D191B45A726001C9B27 /* View Controllers */,
 				740FA4C81B459292000E88B7 /* AppDelegate.swift */,
@@ -166,6 +176,13 @@
 				74A7321C1B57E401000C5889 /* MenuViewController.swift */,
 			);
 			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		74A7321F1B580146000C5889 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 		83E2AD83691FC1DAE21B5E25 /* Frameworks */ = {
@@ -327,8 +344,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				74A732271B58089B000C5889 /* Time.swift in Sources */,
 				741E1D1D1B45AA0D001C9B27 /* Instagram.swift in Sources */,
 				74A7321D1B57E401000C5889 /* MenuViewController.swift in Sources */,
+				74A732231B5801F0000C5889 /* Day.swift in Sources */,
 				744003D71B54434C00778626 /* TimeViewController.swift in Sources */,
 				7401D11D1B4AC8680035C0C1 /* Post.swift in Sources */,
 				744003DB1B54438500778626 /* MonthViewController.swift in Sources */,
@@ -337,6 +356,7 @@
 				741E1D1B1B45A78D001C9B27 /* OauthLoginViewController.swift in Sources */,
 				740FA4CB1B459292000E88B7 /* ViewController.swift in Sources */,
 				740FA4C91B459292000E88B7 /* AppDelegate.swift in Sources */,
+				74A732291B580B27000C5889 /* Month.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

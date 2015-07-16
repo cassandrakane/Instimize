@@ -27,6 +27,7 @@ class TimeViewController: UIViewController {
     var dates: [String] = []
     var totLikesPerHour: [String : [Int]] = [ : ]
     var aveLikesPerHour: [String: Double] = [ : ]
+    var times: [Time] = []
     
     var user: User? {
         didSet {
@@ -62,35 +63,6 @@ class TimeViewController: UIViewController {
             }
 
         }
-        
-        /*
-        if shouldLogin {
-            println("Logging In")
-            performSegueWithIdentifier("Login", sender: self)
-            shouldLogin = false
-        } else {
-            let realm = Realm()
-            if realm.objects(User).first != nil && realm.objects(User).first!.posts.description != user!.posts.description {
-                println("RESET POSTS")
-                self.mediaIDs = []
-                self.allLikes = []
-                self.createdTimes = []
-                setUp = false
-            }
-            if !setUp {
-                let urlString = Instagram.Router.getRecent(user!.userID, user!.accessToken)
-                getInfo(user!, request: urlString) {
-                    NSLog("NUM OF POSTS \(self.user!.posts.count)")
-                    self.setUp = true
-                    //TIME OPT STUFF
-                    self.optimizeTime()
-                    println("Time Opted")
-                }
-                
-            }
-            
-        }
-        */
         
         // Do any additional setup after loading the view.
         
@@ -302,15 +274,72 @@ class TimeViewController: UIViewController {
         var i: Int
         for (i = 0; i < aveLikesPerHour.count; i++) {
             var likes: Double = averageLikesSorted[i]
-            var times = (aveLikesPerHour as NSDictionary).allKeysForObject(likes) as! [String]
-            for time in times {
-                println("HOUR: \(time) - AVERAGE LIKES: \(likes)")
+            var ts = (aveLikesPerHour as NSDictionary).allKeysForObject(likes) as! [String]
+            for t in ts {
+                var timeName: String = getTimeName(t)
+                var likesName: String = "\(likes)"
+                times.append(Time(t: timeName, l: likesName))
             }
-            i += times.count - 1
+            i += ts.count - 1
         }
     
     }
     
+    func getTimeName(timeNum: String) -> String {
+        var timeName: String = ""
+        
+        if (timeNum == "00") {
+            timeName = "12AM to 1AM"
+        } else if (timeNum == "01") {
+            timeName = "1AM to 2AM"
+        } else if (timeNum == "02") {
+            timeName = "2AM to 3AM"
+        } else if (timeNum == "03") {
+            timeName = "3AM to 4AM"
+        } else if (timeNum == "04") {
+            timeName = "4AM to 5AM"
+        } else if (timeNum == "05") {
+            timeName = "5AM to 6AM"
+        } else if (timeNum == "06") {
+            timeName = "6AM to 7AM"
+        } else if (timeNum == "07") {
+            timeName = "7AM to 8AM"
+        } else if (timeNum == "08") {
+            timeName = "8AM to 9AM"
+        } else if (timeNum == "09") {
+            timeName = "9AM to 10AM"
+        } else if (timeNum == "10") {
+            timeName = "10AM to 11AM"
+        } else if (timeNum == "11") {
+            timeName = "11AM to 12PM"
+        } else if (timeNum == "12") {
+            timeName = "12PM to 1PM"
+        } else if (timeNum == "13") {
+            timeName = "1PM to 2PM"
+        } else if (timeNum == "14") {
+            timeName = "2PM to 3PM"
+        } else if (timeNum == "15") {
+            timeName = "3PM to 4PM"
+        } else if (timeNum == "16") {
+            timeName = "4PM to 5PM"
+        } else if (timeNum == "17") {
+            timeName = "5PM to 6PM"
+        } else if (timeNum == "18") {
+            timeName = "6PM to 7PM"
+        } else if (timeNum == "19") {
+            timeName = "7PM to 8PM"
+        } else if (timeNum == "20") {
+            timeName = "8PM to 9PM"
+        } else if (timeNum == "21") {
+            timeName = "9PM to 10PM"
+        } else if (timeNum == "22") {
+            timeName = "10PM to 11PM"
+        } else if (timeNum == "23") {
+            timeName = "11PM to 12AM"
+        }
+        
+        return timeName
+    }
     
     /*
     // MARK: - Navigation

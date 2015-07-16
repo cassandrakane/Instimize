@@ -18,6 +18,7 @@ class MonthViewController: UIViewController {
     var dates: [String] = []
     var totLikesPerMonth: [String : [Int]] = [ : ]
     var aveLikesPerMonth: [String: Double] = [ : ]
+    var months: [Month] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -127,15 +128,51 @@ class MonthViewController: UIViewController {
         var i: Int
         for (i = 0; i < aveLikesPerMonth.count; i++) {
             var likes: Double = averageLikesSorted[i]
-            var months = (aveLikesPerMonth as NSDictionary).allKeysForObject(likes) as! [String]
-            for month in months {
-                println("MONTH: \(month) - AVERAGE LIKES: \(likes)")
+            var ms = (aveLikesPerMonth as NSDictionary).allKeysForObject(likes) as! [String]
+            for m in ms {
+                var monthName: String = getMonthName(m)
+                var likesName: String = "\(likes)"
+                months.append(Month(m: monthName, l: likesName))
             }
-            i += months.count - 1
+            i += ms.count - 1
+
         }
         
     }
     
+    func getMonthName(monthNum: String) -> String {
+        var monthName: String = ""
+        
+        if (monthNum == "01") {
+            monthName = "January"
+        } else if (monthNum == "02") {
+            monthName = "Febuary"
+        } else if (monthNum == "03") {
+            monthName = "March"
+        } else if (monthNum == "04") {
+            monthName = "April"
+        } else if (monthNum == "05") {
+            monthName = "May"
+        } else if (monthNum == "06") {
+            monthName = "June"
+        } else if (monthNum == "07") {
+            monthName = "July"
+        } else if (monthNum == "08") {
+            monthName = "August"
+        } else if (monthNum == "09") {
+            monthName = "September"
+        } else if (monthNum == "10") {
+            monthName = "October"
+        } else if (monthNum == "11") {
+            monthName = "November"
+        } else if (monthNum == "12") {
+            monthName = "December"
+        }
+        
+        return monthName
+    }
+    
+
 
     /*
     // MARK: - Navigation
