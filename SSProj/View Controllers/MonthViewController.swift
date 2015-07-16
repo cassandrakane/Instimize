@@ -10,7 +10,7 @@ import UIKit
 import Realm
 import RealmSwift
 
-class MonthViewController: UITabBarController {
+class MonthViewController: UIViewController {
 
     @IBOutlet weak var logoutButtonItem: UIBarButtonItem!
     

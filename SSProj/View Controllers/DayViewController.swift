@@ -10,7 +10,7 @@ import UIKit
 import Realm
 import RealmSwift
 
-class DayViewController: UITabBarController {
+class DayViewController: UIViewController {
 
     @IBOutlet weak var logoutButtonItem: UIBarButtonItem!
     

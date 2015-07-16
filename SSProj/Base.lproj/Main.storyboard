@@ -24,7 +24,7 @@
         <!--Menu View Controller-->
         <scene sceneID="QMG-RW-hJN">
             <objects>
-                <tabBarController id="o7u-bv-SFF" customClass="MenuViewController" customModule="SSProj" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="tabBarController" id="o7u-bv-SFF" customClass="MenuViewController" customModule="SSProj" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="t3N-da-eQ4">
                         <barButtonItem key="rightBarButtonItem" title="Logout" id="yLR-sz-YhJ">
                             <connections>

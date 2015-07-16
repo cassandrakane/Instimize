@@ -13,9 +13,7 @@ import RealmSwift
 import Alamofire
 import SwiftyJSON
 
-class TimeViewController: UITabBarController {
-    
-    @IBOutlet weak var logoutButtonItem: UIBarButtonItem!
+class TimeViewController: UIViewController {
     
     //STUFF FOR SET UP
     var shouldLogin = true
@@ -48,7 +46,7 @@ class TimeViewController: UITabBarController {
         super.viewDidLoad()
         
         let realm = Realm()
-        println("View Did Load")
+        println("Time View Did Load")
         
         if realm.objects(User).first != nil {
             //IF THERE IS A USER STORED IN REALM LOAD IT
@@ -62,6 +60,7 @@ class TimeViewController: UITabBarController {
                     totLikesPerHour["\(index)"] = []
                 }
             }
+
         }
         
         // Do any additional setup after loading the view.
@@ -69,9 +68,12 @@ class TimeViewController: UITabBarController {
     }
     
     override func viewDidAppear(animated: Bool) {
-        println("View Did Appear")
+        println("Time View Did Appear")
         super.viewDidAppear(animated)
         println(shouldLogin)
+        //TIME OPT STUFF
+        self.optimizeTime()
+        println("Time Opted")
         if shouldLogin {
             println("Logging In")
             performSegueWithIdentifier("Login", sender: self)
@@ -113,16 +115,6 @@ class TimeViewController: UITabBarController {
         
     }
     
-    
-    func hideLogoutButtonItem(hide: Bool) {
-        if hide {
-            logoutButtonItem.title = ""
-            logoutButtonItem.enabled = false
-        } else {
-            logoutButtonItem.title = "Logout"
-            logoutButtonItem.enabled = true
-        }
-    }
     
     
     //ACCESSING AND CREATING INFORMATION
@@ -290,7 +282,8 @@ class TimeViewController: UITabBarController {
         }
     
     }
-
+    
+    
     /*
     // MARK: - Navigation
 
