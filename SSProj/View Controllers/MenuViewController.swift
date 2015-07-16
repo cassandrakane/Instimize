@@ -15,9 +15,11 @@ class MenuViewController: UITabBarController {
         // Do any additional setup after loading the view.
     }
 
+    /*
     override func viewDidAppear(animated: Bool) {
         println("View Did Appear")
     }
+    */
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

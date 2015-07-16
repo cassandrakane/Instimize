@@ -63,6 +63,35 @@ class TimeViewController: UIViewController {
 
         }
         
+        /*
+        if shouldLogin {
+            println("Logging In")
+            performSegueWithIdentifier("Login", sender: self)
+            shouldLogin = false
+        } else {
+            let realm = Realm()
+            if realm.objects(User).first != nil && realm.objects(User).first!.posts.description != user!.posts.description {
+                println("RESET POSTS")
+                self.mediaIDs = []
+                self.allLikes = []
+                self.createdTimes = []
+                setUp = false
+            }
+            if !setUp {
+                let urlString = Instagram.Router.getRecent(user!.userID, user!.accessToken)
+                getInfo(user!, request: urlString) {
+                    NSLog("NUM OF POSTS \(self.user!.posts.count)")
+                    self.setUp = true
+                    //TIME OPT STUFF
+                    self.optimizeTime()
+                    println("Time Opted")
+                }
+                
+            }
+            
+        }
+        */
+        
         // Do any additional setup after loading the view.
         
     }
@@ -71,9 +100,7 @@ class TimeViewController: UIViewController {
         println("Time View Did Appear")
         super.viewDidAppear(animated)
         println(shouldLogin)
-        //TIME OPT STUFF
-        self.optimizeTime()
-        println("Time Opted")
+        
         if shouldLogin {
             println("Logging In")
             performSegueWithIdentifier("Login", sender: self)
@@ -103,6 +130,7 @@ class TimeViewController: UIViewController {
             }
             
         }
+        
     }
     
     override func didReceiveMemoryWarning() {
