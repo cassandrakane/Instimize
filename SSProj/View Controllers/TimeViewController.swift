@@ -15,6 +15,8 @@ import SwiftyJSON
 
 class TimeViewController: UIViewController {
     
+    @IBOutlet weak var fullNameLabel: UILabel!
+    @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var bestTimeLabel: UILabel!
     
     //STUFF FOR SET UP
@@ -91,6 +93,7 @@ class TimeViewController: UIViewController {
             if setUp {
                 self.optimizeTime()
                 println("Time Opted")
+                self.setLabels()
             } else {
                 let urlString = Instagram.Router.getRecent(user!.userID, user!.accessToken)
                 getInfo(user!, request: urlString) {
@@ -99,6 +102,7 @@ class TimeViewController: UIViewController {
                     //TIME OPT STUFF
                     self.optimizeTime()
                     println("Time Opted")
+                    self.setLabels()
                 }
 
             }
@@ -209,7 +213,6 @@ class TimeViewController: UIViewController {
         self.createHoursWithLikes()
         self.createAverages()
         self.sortTimes()
-        self.setBestTimeLabel()
     }
     
     func createDates() {
@@ -344,7 +347,9 @@ class TimeViewController: UIViewController {
         return timeName
     }
     
-    func setBestTimeLabel() {
+    func setLabels() {
+        fullNameLabel.text = "FULL NAME"
+        usernameLabel.text = "username"
         bestTimeLabel.text = times[0].timeName
     }
     
