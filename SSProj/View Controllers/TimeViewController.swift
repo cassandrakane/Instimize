@@ -14,9 +14,7 @@ import Alamofire
 import SwiftyJSON
 
 class TimeViewController: UIViewController {
-    
-    @IBOutlet weak var fullNameLabel: UILabel!
-    @IBOutlet weak var usernameLabel: UILabel!
+
     @IBOutlet weak var bestTimeLabel: UILabel!
     
     //STUFF FOR SET UP
@@ -348,8 +346,6 @@ class TimeViewController: UIViewController {
     }
     
     func setLabels() {
-        fullNameLabel.text = "FULL NAME"
-        usernameLabel.text = "username"
         bestTimeLabel.text = times[0].timeName
     }
     
