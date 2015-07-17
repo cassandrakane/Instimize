@@ -12,7 +12,7 @@ import RealmSwift
 
 class DayViewController: UIViewController {
 
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var bestDayLabel: UILabel!
     
     var user: User = User()
     var dates: [String] = []
@@ -49,6 +49,7 @@ class DayViewController: UIViewController {
         dates = []
         totLikesPerDay = [ : ]
         aveLikesPerDay = [ : ]
+        days = []
         for index in 1...7 {
             totLikesPerDay["\(index)"] = []
         }
@@ -57,6 +58,7 @@ class DayViewController: UIViewController {
         createDaysWithLikes()
         createAverages()
         sortDays()
+        setBestDayLabel()
     }
     
     func createDates() {
@@ -157,6 +159,10 @@ class DayViewController: UIViewController {
         }
         
         return dayName
+    }
+    
+    func setBestDayLabel() {
+        bestDayLabel.text = days[0].dayName
     }
     
     /*

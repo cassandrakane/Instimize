@@ -15,6 +15,8 @@ import SwiftyJSON
 
 class TimeViewController: UIViewController {
     
+    @IBOutlet weak var bestTimeLabel: UILabel!
+    
     //STUFF FOR SET UP
     var shouldLogin = true
     var testing: Bool = true
@@ -102,7 +104,6 @@ class TimeViewController: UIViewController {
             }
             
         }
-        
     }
     
     override func didReceiveMemoryWarning() {
@@ -195,6 +196,7 @@ class TimeViewController: UIViewController {
         dates = []
         totLikesPerHour = [ : ]
         aveLikesPerHour = [ : ]
+        times = []
         for index in 0...23 {
             if (index < 10) {
                 self.totLikesPerHour["0\(index)"] = []
@@ -207,6 +209,7 @@ class TimeViewController: UIViewController {
         self.createHoursWithLikes()
         self.createAverages()
         self.sortTimes()
+        self.setBestTimeLabel()
     }
     
     func createDates() {
@@ -339,6 +342,10 @@ class TimeViewController: UIViewController {
         }
         
         return timeName
+    }
+    
+    func setBestTimeLabel() {
+        bestTimeLabel.text = times[0].timeName
     }
     
     /*

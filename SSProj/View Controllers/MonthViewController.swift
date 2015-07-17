@@ -12,7 +12,7 @@ import RealmSwift
 
 class MonthViewController: UIViewController {
 
-    @IBOutlet weak var logoutButtonItem: UIBarButtonItem!
+    @IBOutlet weak var bestMonthLabel: UILabel!
     
     var user: User = User()
     var dates: [String] = []
@@ -49,6 +49,7 @@ class MonthViewController: UIViewController {
         dates = []
         totLikesPerMonth = [ : ]
         aveLikesPerMonth = [ : ]
+        months = []
         for index in 1...12 {
             if (index < 10) {
                 totLikesPerMonth["0\(index)"] = []
@@ -61,6 +62,7 @@ class MonthViewController: UIViewController {
         createMonthsWithLikes()
         createAverages()
         sortMonths()
+        setBestMonthLabel()
     }
     
     func createDates() {
@@ -172,6 +174,10 @@ class MonthViewController: UIViewController {
         return monthName
     }
     
+    
+    func setBestMonthLabel() {
+        bestMonthLabel.text = months[0].monthName
+    }
 
 
     /*

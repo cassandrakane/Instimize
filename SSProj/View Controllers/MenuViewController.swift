@@ -18,6 +18,11 @@ class MenuViewController: UITabBarController {
     /*
     override func viewDidAppear(animated: Bool) {
         println("View Did Appear")
+        var nav = self.navigationController?.navigationBar
+        nav?.frame=CGRectMake(0, 0, 320, 500)
+        nav?.barStyle = UIBarStyle.Black
+        nav?.tintColor = UIColor.whiteColor()
+
     }
     */
     
