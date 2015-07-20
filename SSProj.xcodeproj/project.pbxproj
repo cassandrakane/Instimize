@@ -75,6 +75,7 @@
 		74A732221B5801F0000C5889 /* Day.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Day.swift; sourceTree = "<group>"; };
 		74A732261B58089B000C5889 /* Time.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Time.swift; sourceTree = "<group>"; };
 		74A732281B580B27000C5889 /* Month.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Month.swift; sourceTree = "<group>"; };
+		74D7F0441B5D98570083C41F /* SSProj-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SSProj-Bridging-Header.h"; sourceTree = "<group>"; };
 		A49590FA6B898EBC4474AF93 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -151,6 +152,7 @@
 				740FA4D11B459292000E88B7 /* LaunchScreen.xib */,
 				740FA4C61B459292000E88B7 /* Supporting Files */,
 				741E1D1C1B45AA0D001C9B27 /* Instagram.swift */,
+				74D7F0441B5D98570083C41F /* SSProj-Bridging-Header.h */,
 			);
 			path = SSProj;
 			sourceTree = "<group>";
