@@ -12,6 +12,8 @@ import Realm
 import RealmSwift
 import Alamofire
 import SwiftyJSON
+import LBBlurredImage
+
 
 class TimeViewController: UIViewController {
 
