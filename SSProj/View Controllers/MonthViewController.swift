@@ -131,13 +131,16 @@ class MonthViewController: UIViewController {
         
         println("SORTED MONTHS")
         var i: Int
+        var count: Int = 1
         for (i = 0; i < aveLikesPerMonth.count; i++) {
             var likes: Double = averageLikesSorted[i]
             var ms = (aveLikesPerMonth as NSDictionary).allKeysForObject(likes) as! [String]
             for m in ms {
                 var monthName: String = getMonthName(m)
-                var likesName: String = "\(likes)"
-                info.months.append(Month(m: monthName, l: likesName))
+                var infoName: String = "\(likes)"
+                var rankName: String = "\(count)"
+                info.months.append(Month(m: monthName, i: infoName, r: rankName))
+                count++
             }
             i += ms.count - 1
 

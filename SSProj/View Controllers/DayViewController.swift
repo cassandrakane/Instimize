@@ -115,14 +115,17 @@ class DayViewController: UIViewController {
         averageLikesSorted.sort({ $0 > $1 })
         //quickSort(averageLikesSorted, start: 0, end: aveLikesPerHour.count)
         var i: Int
+        var count: Int = 1
         println("SORTED DAYS")
         for (i = 0; i < aveLikesPerDay.count; i++) {
             var likes: Double = averageLikesSorted[i]
             var ds = (aveLikesPerDay as NSDictionary).allKeysForObject(likes) as! [String]
             for d in ds {
                 var dayName: String = getDayName(d)
-                var likesName: String = "\(likes)"
-                info.days.append(Day(d: dayName, l: likesName))
+                var infoName: String = "\(likes)"
+                var rankName: String = "\(count)"
+                info.days.append(Day(d: dayName, i: infoName, r: rankName))
+                count++
             }
             i += ds.count - 1
         }

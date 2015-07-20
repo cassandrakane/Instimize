@@ -278,13 +278,16 @@ class TimeViewController: UIViewController {
         
         println("SORTED TIMES")
         var i: Int
+        var count: Int = 1
         for (i = 0; i < aveLikesPerHour.count; i++) {
             var likes: Double = averageLikesSorted[i]
             var ts = (aveLikesPerHour as NSDictionary).allKeysForObject(likes) as! [String]
             for t in ts {
                 var timeName: String = getTimeName(t)
-                var likesName: String = "\(likes)"
-                info.times.append(Time(t: timeName, l: likesName))
+                var infoName: String = "\(likes)"
+                var rankName: String = "\(count)"
+                info.times.append(Time(t: timeName, i: infoName, r: rankName))
+                count++
             }
             i += ts.count - 1
         }

@@ -11,9 +11,11 @@ import Foundation
 class Day {
     var dayName: String = ""
     var info: String = ""
+    var rank: String = ""
     
-    init(d: String, l: String) {
+    init(d: String, i: String, r: String) {
         dayName = d
-        info = l
+        info = i
+        rank = r
     }
 }

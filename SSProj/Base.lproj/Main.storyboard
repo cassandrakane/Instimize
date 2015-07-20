@@ -297,6 +297,7 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="infoLabel" destination="mVi-IY-1rI" id="kkM-ie-MQC"/>
+                                    <outlet property="rankLabel" destination="Eal-6K-47d" id="Wa5-Up-wjE"/>
                                     <outlet property="timeLabel" destination="JPC-6Z-Cne" id="ozb-wA-9YP"/>
                                 </connections>
                             </tableViewCell>
@@ -417,6 +418,7 @@
                                 <connections>
                                     <outlet property="dayLabel" destination="2qN-uc-qM5" id="rX9-9C-QvC"/>
                                     <outlet property="infoLabel" destination="MfY-1G-tXr" id="h8d-tu-rIt"/>
+                                    <outlet property="rankLabel" destination="IHc-pJ-vA9" id="NVb-lj-OzK"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -532,6 +534,7 @@
                                 <connections>
                                     <outlet property="infoLabel" destination="AXd-8Q-a2I" id="GCs-Xj-ThL"/>
                                     <outlet property="monthLabel" destination="EKn-mh-Ag1" id="Pex-oc-CLZ"/>
+                                    <outlet property="rankLabel" destination="Whg-gK-v7u" id="xp6-ur-4SP"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>

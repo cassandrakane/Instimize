@@ -11,9 +11,11 @@ import Foundation
 class Month {
     var monthName: String = ""
     var info: String = ""
+    var rank: String = ""
     
-    init(m: String, l: String) {
+    init(m: String, i: String, r: String) {
         monthName = m
-        info = l
+        info = i
+        rank = r
     }
 }

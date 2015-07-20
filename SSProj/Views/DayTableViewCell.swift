@@ -15,13 +15,15 @@ class DayTableViewCell: UITableViewCell {
     
     @IBOutlet weak var dayLabel: UILabel!
     @IBOutlet weak var infoLabel: UILabel!
+    @IBOutlet weak var rankLabel: UILabel!
     
     var day: Day? {
         didSet {
-            if let day = day, dayLabel = dayLabel, infoLabel = infoLabel {
+            if let day = day, dayLabel = dayLabel, infoLabel = infoLabel, rankLabel = rankLabel {
                 //sets up note table cell
                 self.dayLabel.text = day.dayName
                 self.infoLabel.text = day.info
+                self.rankLabel.text = day.rank
             }
         }
     }

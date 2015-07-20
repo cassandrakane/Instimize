@@ -15,13 +15,15 @@ class TimeTableViewCell: UITableViewCell {
     
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var infoLabel: UILabel!
+    @IBOutlet weak var rankLabel: UILabel!
     
     var time: Time? {
         didSet {
-            if let time = time, timeLabel = timeLabel, infoLabel = infoLabel {
+            if let time = time, timeLabel = timeLabel, infoLabel = infoLabel, rankLabel = rankLabel {
                 //sets up note table cell
                 self.timeLabel.text = time.timeName
                 self.infoLabel.text = time.info
+                self.rankLabel.text = time.rank
             }
         }
     }

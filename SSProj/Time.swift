@@ -11,9 +11,11 @@ import Foundation
 class Time {
     var timeName: String = ""
     var info: String = ""
+    var rank: String = ""
     
-    init(t: String, l: String) {
+    init(t: String, i: String, r: String) {
         timeName = t
-        info = l
+        info = i
+        rank = r
     }
 }
