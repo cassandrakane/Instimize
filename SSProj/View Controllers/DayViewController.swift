@@ -122,7 +122,7 @@ class DayViewController: UIViewController {
             var ds = (aveLikesPerDay as NSDictionary).allKeysForObject(likes) as! [String]
             for d in ds {
                 var dayName: String = getDayName(d)
-                var infoName: String = "\(likes)"
+                var infoName: String = "average likes: \(((Double)( (Int)(likes * 100.0) ) ) / 100.0)"
                 var rankName: String = "\(count)"
                 info.days.append(Day(d: dayName, i: infoName, r: rankName))
                 count++

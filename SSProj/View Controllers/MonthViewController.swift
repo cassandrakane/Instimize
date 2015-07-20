@@ -137,7 +137,7 @@ class MonthViewController: UIViewController {
             var ms = (aveLikesPerMonth as NSDictionary).allKeysForObject(likes) as! [String]
             for m in ms {
                 var monthName: String = getMonthName(m)
-                var infoName: String = "\(likes)"
+                var infoName: String = "average likes: \(((Double)( (Int)(likes * 100.0) ) ) / 100.0)"
                 var rankName: String = "\(count)"
                 info.months.append(Month(m: monthName, i: infoName, r: rankName))
                 count++

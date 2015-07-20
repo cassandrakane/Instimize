@@ -279,12 +279,13 @@ class TimeViewController: UIViewController {
         println("SORTED TIMES")
         var i: Int
         var count: Int = 1
+
         for (i = 0; i < aveLikesPerHour.count; i++) {
             var likes: Double = averageLikesSorted[i]
             var ts = (aveLikesPerHour as NSDictionary).allKeysForObject(likes) as! [String]
             for t in ts {
                 var timeName: String = getTimeName(t)
-                var infoName: String = "\(likes)"
+                var infoName: String = "average likes: \(((Double)( (Int)(likes * 100.0) ) ) / 100.0)"
                 var rankName: String = "\(count)"
                 info.times.append(Time(t: timeName, i: infoName, r: rankName))
                 count++
@@ -298,53 +299,53 @@ class TimeViewController: UIViewController {
         var timeName: String = ""
         
         if (timeNum == "00") {
-            timeName = "12AM to 1AM"
+            timeName = "12AM - 1AM"
         } else if (timeNum == "01") {
-            timeName = "1AM to 2AM"
+            timeName = "1AM - 2AM"
         } else if (timeNum == "02") {
-            timeName = "2AM to 3AM"
+            timeName = "2AM - 3AM"
         } else if (timeNum == "03") {
-            timeName = "3AM to 4AM"
+            timeName = "3AM - 4AM"
         } else if (timeNum == "04") {
-            timeName = "4AM to 5AM"
+            timeName = "4AM - 5AM"
         } else if (timeNum == "05") {
-            timeName = "5AM to 6AM"
+            timeName = "5AM - 6AM"
         } else if (timeNum == "06") {
-            timeName = "6AM to 7AM"
+            timeName = "6AM - 7AM"
         } else if (timeNum == "07") {
-            timeName = "7AM to 8AM"
+            timeName = "7AM - 8AM"
         } else if (timeNum == "08") {
-            timeName = "8AM to 9AM"
+            timeName = "8AM - 9AM"
         } else if (timeNum == "09") {
-            timeName = "9AM to 10AM"
+            timeName = "9AM - 10AM"
         } else if (timeNum == "10") {
-            timeName = "10AM to 11AM"
+            timeName = "10AM - 11AM"
         } else if (timeNum == "11") {
-            timeName = "11AM to 12PM"
+            timeName = "11AM - 12PM"
         } else if (timeNum == "12") {
-            timeName = "12PM to 1PM"
+            timeName = "12PM - 1PM"
         } else if (timeNum == "13") {
-            timeName = "1PM to 2PM"
+            timeName = "1PM - 2PM"
         } else if (timeNum == "14") {
-            timeName = "2PM to 3PM"
+            timeName = "2PM - 3PM"
         } else if (timeNum == "15") {
-            timeName = "3PM to 4PM"
+            timeName = "3PM - 4PM"
         } else if (timeNum == "16") {
-            timeName = "4PM to 5PM"
+            timeName = "4PM - 5PM"
         } else if (timeNum == "17") {
-            timeName = "5PM to 6PM"
+            timeName = "5PM - 6PM"
         } else if (timeNum == "18") {
-            timeName = "6PM to 7PM"
+            timeName = "6PM - 7PM"
         } else if (timeNum == "19") {
-            timeName = "7PM to 8PM"
+            timeName = "7PM - 8PM"
         } else if (timeNum == "20") {
-            timeName = "8PM to 9PM"
+            timeName = "8PM - 9PM"
         } else if (timeNum == "21") {
-            timeName = "9PM to 10PM"
+            timeName = "9PM - 10PM"
         } else if (timeNum == "22") {
-            timeName = "10PM to 11PM"
+            timeName = "10PM - 11PM"
         } else if (timeNum == "23") {
-            timeName = "11PM to 12AM"
+            timeName = "11PM - 12AM"
         }
         
         return timeName
