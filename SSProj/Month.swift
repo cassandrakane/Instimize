@@ -10,10 +10,10 @@ import Foundation
 
 class Month {
     var monthName: String = ""
-    var averageLikes: String = ""
+    var info: String = ""
     
     init(m: String, l: String) {
         monthName = m
-        averageLikes = l
+        info = l
     }
 }

@@ -10,10 +10,10 @@ import Foundation
 
 class Time {
     var timeName: String = ""
-    var averageLikes: String = ""
+    var info: String = ""
     
     init(t: String, l: String) {
         timeName = t
-        averageLikes = l
+        info = l
     }
 }

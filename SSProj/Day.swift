@@ -10,10 +10,10 @@ import Foundation
 
 class Day {
     var dayName: String = ""
-    var averageLikes: String = ""
+    var info: String = ""
     
     init(d: String, l: String) {
         dayName = d
-        averageLikes = l
+        info = l
     }
 }

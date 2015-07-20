@@ -206,7 +206,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Time Cell" id="xyp-vO-WFo">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TimeCell" id="xyp-vO-WFo" customClass="TimeTableViewCell" customModule="SSProj" customModuleProvider="target">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="xyp-vO-WFo" id="lGW-k2-QMi">
                                     <autoresizingMask key="autoresizingMask"/>
@@ -295,6 +295,10 @@
                                         <constraint firstItem="fzm-VE-jc4" firstAttribute="leading" secondItem="RkO-KN-sc9" secondAttribute="trailing" id="zZO-Rv-1mP"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="infoLabel" destination="mVi-IY-1rI" id="kkM-ie-MQC"/>
+                                    <outlet property="timeLabel" destination="JPC-6Z-Cne" id="ozb-wA-9YP"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
