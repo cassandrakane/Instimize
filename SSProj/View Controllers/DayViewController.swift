@@ -18,7 +18,7 @@ class DayViewController: UIViewController {
     var dates: [String] = []
     var totLikesPerDay: [String : [Int]] = [ : ]
     var aveLikesPerDay: [String: Double] = [ : ]
-    var days: [Day] = []
+    var info = Info.sharedInstance
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,7 +53,7 @@ class DayViewController: UIViewController {
         dates = []
         totLikesPerDay = [ : ]
         aveLikesPerDay = [ : ]
-        days = []
+        info.days = []
         for index in 1...7 {
             totLikesPerDay["\(index)"] = []
         }
@@ -122,7 +122,7 @@ class DayViewController: UIViewController {
             for d in ds {
                 var dayName: String = getDayName(d)
                 var likesName: String = "\(likes)"
-                days.append(Day(d: dayName, l: likesName))
+                info.days.append(Day(d: dayName, l: likesName))
             }
             i += ds.count - 1
         }
@@ -166,7 +166,7 @@ class DayViewController: UIViewController {
     }
     
     func setBestDayLabel() {
-        bestDayLabel.text = days[0].dayName
+        bestDayLabel.text = info.days[0].dayName
     }
     
     /*

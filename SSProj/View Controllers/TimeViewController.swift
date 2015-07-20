@@ -29,7 +29,7 @@ class TimeViewController: UIViewController {
     var dates: [String] = []
     var totLikesPerHour: [String : [Int]] = [ : ]
     var aveLikesPerHour: [String: Double] = [ : ]
-    var times: [Time] = []
+    var info = Info.sharedInstance
     
     var user: User? {
         didSet {
@@ -200,7 +200,7 @@ class TimeViewController: UIViewController {
         dates = []
         totLikesPerHour = [ : ]
         aveLikesPerHour = [ : ]
-        times = []
+        info.times = []
         for index in 0...23 {
             if (index < 10) {
                 self.totLikesPerHour["0\(index)"] = []
@@ -284,7 +284,7 @@ class TimeViewController: UIViewController {
             for t in ts {
                 var timeName: String = getTimeName(t)
                 var likesName: String = "\(likes)"
-                times.append(Time(t: timeName, l: likesName))
+                info.times.append(Time(t: timeName, l: likesName))
             }
             i += ts.count - 1
         }
@@ -348,7 +348,7 @@ class TimeViewController: UIViewController {
     }
     
     func setBestTimeLabel() {
-        bestTimeLabel.text = times[0].timeName
+        bestTimeLabel.text = info.times[0].timeName
     }
     
     /*

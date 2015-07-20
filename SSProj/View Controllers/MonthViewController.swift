@@ -18,7 +18,7 @@ class MonthViewController: UIViewController {
     var dates: [String] = []
     var totLikesPerMonth: [String : [Int]] = [ : ]
     var aveLikesPerMonth: [String: Double] = [ : ]
-    var months: [Month] = []
+    var info = Info.sharedInstance
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,7 +52,7 @@ class MonthViewController: UIViewController {
         dates = []
         totLikesPerMonth = [ : ]
         aveLikesPerMonth = [ : ]
-        months = []
+        info.months = []
         for index in 1...12 {
             if (index < 10) {
                 totLikesPerMonth["0\(index)"] = []
@@ -137,7 +137,7 @@ class MonthViewController: UIViewController {
             for m in ms {
                 var monthName: String = getMonthName(m)
                 var likesName: String = "\(likes)"
-                months.append(Month(m: monthName, l: likesName))
+                info.months.append(Month(m: monthName, l: likesName))
             }
             i += ms.count - 1
 
@@ -179,7 +179,7 @@ class MonthViewController: UIViewController {
     
     
     func setBestMonthLabel() {
-        bestMonthLabel.text = months[0].monthName
+        bestMonthLabel.text = info.months[0].monthName
     }
 
 

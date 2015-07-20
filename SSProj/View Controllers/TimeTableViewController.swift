@@ -9,15 +9,16 @@
 import UIKit
 import RealmSwift
 
-class TimeTableViewController: UIViewController {
+class TimeTableViewController: UITableViewController {
     
-    @IBOutlet weak var tableView: UITableView!
     //@IBOutlet weak var searchBar: UISearchBar!
     
     enum State {
         case DefaultMode
         //case SearchMode
     }
+    
+    var info = Info.sharedInstance
     
     /*
     var state: State = .DefaultMode {
@@ -66,7 +67,7 @@ class TimeTableViewController: UIViewController {
         //notifies the view controller that its view is about to be added to a view hierarchy
         super.viewWillAppear(animated)
         //let realm = Realm()
-        times = realm.objects(Note).sorted("modificationDate", ascending: false)
+        times = info.times
         //state = .DefaultMode
     }
     
@@ -128,7 +129,7 @@ class TimeTableViewController: UIViewController {
 extension TimeTableViewController: UITableViewDataSource {
     
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         //asks the data source for a cell to insert in a particular location of the table view
         let cell = tableView.dequeueReusableCellWithIdentifier("TimeCell", forIndexPath: indexPath) as! TimeTableViewCell //1
         
@@ -140,6 +141,7 @@ extension TimeTableViewController: UITableViewDataSource {
         return cell
     }
     
+override     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         //tells the data source to return the number of rows in a given section of a table view
         return Int(times.count ?? 0)

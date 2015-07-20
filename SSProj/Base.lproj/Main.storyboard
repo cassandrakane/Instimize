@@ -200,7 +200,7 @@
         <!--Time Table-->
         <scene sceneID="602-mf-qWF">
             <objects>
-                <tableViewController title="Time Table" id="bnM-R3-Zsb" sceneMemberID="viewController">
+                <tableViewController title="Time Table" id="bnM-R3-Zsb" customClass="TimeTableViewController" customModule="SSProj" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="80" sectionHeaderHeight="22" sectionFooterHeight="22" id="06b-vj-MZx">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -319,13 +319,13 @@
         <!--Day Table-->
         <scene sceneID="pYC-ZM-tCZ">
             <objects>
-                <tableViewController title="Day Table" id="an4-6o-pRZ" sceneMemberID="viewController">
+                <tableViewController title="Day Table" id="an4-6o-pRZ" customClass="DayTableViewController" customModule="SSProj" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="80" sectionHeaderHeight="22" sectionFooterHeight="22" id="e4a-Qk-iR3">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Day Cell" id="rAO-bT-ck0">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="DayCell" id="rAO-bT-ck0" customClass="DayTableViewCell" customModule="SSProj" customModuleProvider="target">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="rAO-bT-ck0" id="Faw-29-fJ8">
                                     <autoresizingMask key="autoresizingMask"/>
@@ -414,6 +414,10 @@
                                         <constraint firstAttribute="centerY" secondItem="lsk-YF-sDO" secondAttribute="centerY" id="xyo-mb-sgd"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="dayLabel" destination="2qN-uc-qM5" id="rX9-9C-QvC"/>
+                                    <outlet property="infoLabel" destination="MfY-1G-tXr" id="h8d-tu-rIt"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -429,13 +433,13 @@
         <!--Month Table-->
         <scene sceneID="WrR-d7-c8C">
             <objects>
-                <tableViewController title="Month Table" id="YV0-jL-kKW" sceneMemberID="viewController">
+                <tableViewController title="Month Table" id="YV0-jL-kKW" customClass="MonthTableViewController" customModule="SSProj" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="80" sectionHeaderHeight="22" sectionFooterHeight="22" id="LsX-0K-0uB">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Month Cell" id="V06-ls-zIV">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MonthCell" id="V06-ls-zIV" customClass="MonthTableViewCell" customModule="SSProj" customModuleProvider="target">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="V06-ls-zIV" id="6VV-R2-Ny7">
                                     <autoresizingMask key="autoresizingMask"/>
@@ -525,6 +529,10 @@
                                         <constraint firstItem="AXd-8Q-a2I" firstAttribute="leading" secondItem="Q0v-qV-WZm" secondAttribute="trailing" constant="10" id="w2B-90-8HO"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="infoLabel" destination="AXd-8Q-a2I" id="GCs-Xj-ThL"/>
+                                    <outlet property="monthLabel" destination="EKn-mh-Ag1" id="Pex-oc-CLZ"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
