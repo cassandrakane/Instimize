@@ -13,8 +13,11 @@ class MenuViewController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         var nav = self.navigationController?.navigationBar
+        var tabs = self.tabBar
         nav?.barStyle = UIBarStyle.Black
         nav?.tintColor = UIColor.whiteColor()
+        tabs.barStyle = UIBarStyle.Black
+        tabs.tintColor = UIColor.whiteColor()
         // Do any additional setup after loading the view.
     }
 

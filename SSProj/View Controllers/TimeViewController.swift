@@ -68,6 +68,9 @@ class TimeViewController: UIViewController {
 
         }
         
+        var background: UIImageView = UIImageView(image: UIImage(named: ""))
+        self.view.addSubview(background)
+        
         // Do any additional setup after loading the view.
         
     }
@@ -106,8 +109,9 @@ class TimeViewController: UIViewController {
                 }
 
             }
-            
         }
+        
+        
     }
     
     override func didReceiveMemoryWarning() {
