@@ -48,6 +48,8 @@ class TimeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        bestTimeLabel.text = ""
+        
         let realm = Realm()
         println("Time View Did Load")
         
@@ -91,7 +93,7 @@ class TimeViewController: UIViewController {
             if setUp {
                 self.optimizeTime()
                 println("Time Opted")
-                self.setLabels()
+                self.setBestTimeLabel()
             } else {
                 let urlString = Instagram.Router.getRecent(user!.userID, user!.accessToken)
                 getInfo(user!, request: urlString) {
@@ -100,7 +102,7 @@ class TimeViewController: UIViewController {
                     //TIME OPT STUFF
                     self.optimizeTime()
                     println("Time Opted")
-                    self.setLabels()
+                    self.setBestTimeLabel()
                 }
 
             }
@@ -345,7 +347,7 @@ class TimeViewController: UIViewController {
         return timeName
     }
     
-    func setLabels() {
+    func setBestTimeLabel() {
         bestTimeLabel.text = times[0].timeName
     }
     

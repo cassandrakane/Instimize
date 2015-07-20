@@ -22,6 +22,9 @@ class MonthViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        bestMonthLabel.text = ""
+        
         setUser()
         // Do any additional setup after loading the view.
         

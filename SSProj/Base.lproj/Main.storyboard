@@ -85,22 +85,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="246" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZWt-L9-vui">
-                                <rect key="frame" x="189" y="486" width="222" height="40"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="y0L-iY-Lt3"/>
-                                </constraints>
-                                <attributedString key="attributedText">
-                                    <fragment content="Time Name Label">
-                                        <attributes>
-                                            <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                            <font key="NSFont" size="28" name="Avenir-Book"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
-                                        </attributes>
-                                    </fragment>
-                                </attributedString>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aPY-Sq-eFu">
                                 <rect key="frame" x="-4" y="64" width="608" height="40"/>
                                 <constraints>
@@ -150,19 +134,31 @@
                                     <segue destination="bnM-R3-Zsb" kind="show" id="koW-Kj-q3r"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="246" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fLb-Hx-lgw">
+                                <rect key="frame" x="187" y="486" width="222" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="Zqg-hc-emd"/>
+                                </constraints>
+                                <attributedString key="attributedText">
+                                    <fragment content="Time Name Label">
+                                        <attributes>
+                                            <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="28" name="Avenir-Book"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="eT2-Dx-Jha" firstAttribute="leading" secondItem="Zey-Gb-EbV" secondAttribute="leadingMargin" constant="-20" id="240-6t-8nV"/>
                             <constraint firstAttribute="centerX" secondItem="fB0-7b-0OR" secondAttribute="centerX" id="3K4-VP-zYN"/>
-                            <constraint firstItem="ZWt-L9-vui" firstAttribute="top" secondItem="eT2-Dx-Jha" secondAttribute="bottom" id="5yy-MK-gw6"/>
                             <constraint firstAttribute="trailingMargin" secondItem="O5e-66-PSp" secondAttribute="trailing" constant="-20" id="6dY-Lg-gSM"/>
                             <constraint firstItem="fB0-7b-0OR" firstAttribute="leading" secondItem="Zey-Gb-EbV" secondAttribute="leadingMargin" constant="-20" id="ACs-i8-1fb"/>
-                            <constraint firstAttribute="centerX" secondItem="ZWt-L9-vui" secondAttribute="centerX" id="Eaf-m2-0RW"/>
                             <constraint firstItem="eT2-Dx-Jha" firstAttribute="height" secondItem="92X-zf-8Ej" secondAttribute="height" id="Fmn-Jk-3bB"/>
-                            <constraint firstItem="ZWt-L9-vui" firstAttribute="top" secondItem="eT2-Dx-Jha" secondAttribute="bottom" id="HRy-HR-rpm"/>
                             <constraint firstItem="eT2-Dx-Jha" firstAttribute="top" secondItem="06Q-kh-FCu" secondAttribute="bottom" id="Mgv-z3-GHe"/>
-                            <constraint firstItem="92X-zf-8Ej" firstAttribute="top" secondItem="ZWt-L9-vui" secondAttribute="bottom" id="Mvn-Nh-9t5"/>
                             <constraint firstItem="eT2-Dx-Jha" firstAttribute="top" secondItem="8wJ-yb-Nto" secondAttribute="bottom" id="NJs-bz-Dsr"/>
                             <constraint firstAttribute="trailingMargin" secondItem="eT2-Dx-Jha" secondAttribute="trailing" constant="-20" id="P33-Cc-GBw"/>
                             <constraint firstItem="vCV-Hv-z5b" firstAttribute="top" secondItem="92X-zf-8Ej" secondAttribute="bottom" id="Pmf-EW-Gb9"/>
@@ -171,29 +167,29 @@
                             <constraint firstAttribute="trailingMargin" secondItem="92X-zf-8Ej" secondAttribute="trailing" constant="-20" id="ZWx-ee-4jb"/>
                             <constraint firstItem="O5e-66-PSp" firstAttribute="top" secondItem="fB0-7b-0OR" secondAttribute="bottom" id="aM7-rE-ggN"/>
                             <constraint firstAttribute="centerX" secondItem="8wJ-yb-Nto" secondAttribute="centerX" id="aZP-Fm-6c9"/>
-                            <constraint firstItem="92X-zf-8Ej" firstAttribute="top" secondItem="ZWt-L9-vui" secondAttribute="bottom" id="afM-BB-t23"/>
                             <constraint firstItem="aPY-Sq-eFu" firstAttribute="leading" secondItem="Zey-Gb-EbV" secondAttribute="leadingMargin" constant="-20" id="bQa-PQ-qdk"/>
+                            <constraint firstItem="92X-zf-8Ej" firstAttribute="top" secondItem="fLb-Hx-lgw" secondAttribute="bottom" id="cJX-Cj-JpV"/>
                             <constraint firstItem="aPY-Sq-eFu" firstAttribute="height" secondItem="O5e-66-PSp" secondAttribute="height" id="cPW-jK-gfu"/>
                             <constraint firstAttribute="centerX" secondItem="06Q-kh-FCu" secondAttribute="centerX" id="eM9-3W-FX7"/>
                             <constraint firstItem="06Q-kh-FCu" firstAttribute="top" secondItem="O5e-66-PSp" secondAttribute="bottom" id="hsm-Hv-pBN"/>
                             <constraint firstAttribute="trailingMargin" secondItem="aPY-Sq-eFu" secondAttribute="trailing" constant="-20" id="jx9-Lf-JwA"/>
                             <constraint firstAttribute="trailingMargin" secondItem="fB0-7b-0OR" secondAttribute="trailing" constant="-20" id="kCS-0I-Vhc"/>
                             <constraint firstItem="8wJ-yb-Nto" firstAttribute="top" secondItem="O5e-66-PSp" secondAttribute="bottom" id="mIm-ss-QHL"/>
+                            <constraint firstAttribute="centerX" secondItem="fLb-Hx-lgw" secondAttribute="centerX" constant="2" id="rLc-3j-sGI"/>
                             <constraint firstItem="aPY-Sq-eFu" firstAttribute="top" secondItem="Hg8-Vd-LeA" secondAttribute="bottom" id="vYJ-Jk-hMr"/>
                             <constraint firstItem="92X-zf-8Ej" firstAttribute="leading" secondItem="Zey-Gb-EbV" secondAttribute="leadingMargin" constant="-20" id="wIR-xa-ntu"/>
+                            <constraint firstItem="fLb-Hx-lgw" firstAttribute="top" secondItem="eT2-Dx-Jha" secondAttribute="bottom" id="zMN-Nx-74Y"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
                                 <exclude reference="ACs-i8-1fb"/>
                                 <exclude reference="kCS-0I-Vhc"/>
-                                <exclude reference="HRy-HR-rpm"/>
-                                <exclude reference="afM-BB-t23"/>
                             </mask>
                         </variation>
                     </view>
                     <tabBarItem key="tabBarItem" title="Time" id="Bhj-mZ-BYD"/>
                     <connections>
-                        <outlet property="bestTimeLabel" destination="ZWt-L9-vui" id="DE3-95-PJ8"/>
+                        <outlet property="bestTimeLabel" destination="fLb-Hx-lgw" id="lfd-C7-Kfr"/>
                         <segue destination="lCE-aj-GVf" kind="presentation" identifier="Login" id="GTI-ZR-8AJ"/>
                     </connections>
                 </viewController>
