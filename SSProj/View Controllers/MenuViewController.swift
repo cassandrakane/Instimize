@@ -50,7 +50,7 @@ class MenuViewController: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-      
+        
         let realm = Realm()
         println("Menu View Did Load")
         
