@@ -7,112 +7,61 @@
 //
 
 import UIKit
-import Foundation
 import Realm
 import RealmSwift
-import Alamofire
-import SwiftyJSON
+import Foundation
 import LBBlurredImage
 
 
 class TimeViewController: UIViewController {
 
+    
+    @IBOutlet weak var backgroundImageView: UIImageView!
+    @IBOutlet weak var blurredImageView: UIImageView!
+    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var tableHeaderView: UIView!
+    
     @IBOutlet weak var bestTimeLabel: UILabel!
     
-    //STUFF FOR SET UP
-    var shouldLogin = true
-    var testing: Bool = true
-    var mediaIDs: [String] = []
-    var allLikes: [Int] = []
-    var createdTimes: [String] = []
-    var setUp: Bool = false
     
     //STUFF FOR TIME OPT
+    var user: User = User()
+    /*
     var dates: [String] = []
     var totLikesPerHour: [String : [Int]] = [ : ]
     var aveLikesPerHour: [String: Double] = [ : ]
+    */
     var info = Info.sharedInstance
+    var times: [Time] = []
     
-    var user: User? {
-        didSet {
-            if user != nil {
-                //hideLogoutButtonItem(false)
-                println("user isn't nil")
-            } else {
-                println("user is nil")
-                shouldLogin = true
-                //hideLogoutButtonItem(true)
-            }
-        }
-    }
-    
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        bestTimeLabel.text = ""
-        
-        let realm = Realm()
-        println("Time View Did Load")
-        
-        if realm.objects(User).first != nil {
-            //IF THERE IS A USER STORED IN REALM LOAD IT
-            println("user found")
-            self.user = realm.objects(User).first
-            shouldLogin = false
-            for index in 0...23 {
-                if (index < 10) {
-                    totLikesPerHour["0\(index)"] = []
-                } else {
-                    totLikesPerHour["\(index)"] = []
-                }
-            }
-
-        }
-        
-        var background: UIImageView = UIImageView(image: UIImage(named: ""))
-        self.view.addSubview(background)
-        
+        println("Time Did Load")
         // Do any additional setup after loading the view.
-        
     }
     
     override func viewDidAppear(animated: Bool) {
         println("Time View Did Appear")
         super.viewDidAppear(animated)
-        println(shouldLogin)
         
-        if shouldLogin {
-            println("Logging In")
-            performSegueWithIdentifier("Login", sender: self)
-            shouldLogin = false
-        } else {
-            let realm = Realm()
-            if realm.objects(User).first != nil && realm.objects(User).first!.posts.description != user!.posts.description {
-                println("RESET POSTS")
-                self.mediaIDs = []
-                self.allLikes = []
-                self.createdTimes = []
-                setUp = false
-            }
-            if setUp {
-                self.optimizeTime()
-                println("Time Opted")
-                self.setBestTimeLabel()
-            } else {
-                let urlString = Instagram.Router.getRecent(user!.userID, user!.accessToken)
-                getInfo(user!, request: urlString) {
-                    NSLog("NUM OF POSTS \(self.user!.posts.count)")
-                    self.setUp = true
-                    //TIME OPT STUFF
-                    self.optimizeTime()
-                    println("Time Opted")
-                    self.setBestTimeLabel()
-                }
-
+        let realm = Realm()
+        if realm.objects(User).first != nil {
+            setUser()
+            //bestTimeLabel.text = ""
+            if user.set {
+                times = info.times
+                
+                var background: UIImage = UIImage(named: "TestTest")!
+                self.blurredImageView.setImageToBlur(background, blurRadius: 10, completionBlock: nil)
+                self.tableView.tableHeaderView = tableHeaderView
+            
+                //optimizeTime()
+                
+                self.tableView.dataSource = self
+                self.tableView.delegate = self
             }
         }
-        
         
     }
     
@@ -121,87 +70,19 @@ class TimeViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    
-    @IBAction func unwindToMenu (segue : UIStoryboardSegue) {
-        
-    }
-    
-    
-    
-    //ACCESSING AND CREATING INFORMATION
-    
-    func getInfo(user: User, request: URLRequestConvertible, callback: () -> Void) {
-        //GETS INFO FROM INSTAGRAM
-        
-        Alamofire.request(request).responseJSON() {
-            (_ , _, jsonObject, error) in
-            
-            if (error == nil) {
-                
-                let json = JSON(jsonObject!)
-                if (json["meta"]["code"].intValue  == 200) {
-                    
-                    //GET ALL MEDIA IDS
-                    
-                    //clear out previous posts
-                    user.posts = List<Post> ()
-                    
-                    let posts = json["data"].arrayValue
-                    
-                    var i: Int
-                    for (i = 0; i < posts.count; i++) {
-                        let mediaID = posts[i]["id"].string!
-                        let likes = String(stringInterpolationSegment: posts[i]["likes"]["count"]).toInt()!
-                        let createdTime = posts[i]["created_time"].string!
-                        //let filter = posts[i]["filter"].string!
-                        self.mediaIDs.append(mediaID)
-                        self.allLikes.append(likes)
-                        self.createdTimes.append(createdTime)
-                        //self.filters.append(filter)
-                    }
-                    
-                    if let urlString = json["pagination"]["next_url"].URL {
-                        var nextURLRequest = NSURLRequest(URL: urlString)
-                        self.getInfo(user, request: nextURLRequest) {
-                            callback()
-                        }
-                    } else {
-                        self.makeAllPosts(user) {
-                            callback()
-                        }
-                    }
-                }
-            }
-        }
-    }
-    
-    func makeAllPosts(user: User, callback: () -> Void) {
-        //GETS ALL LIKES/COMMENTS
-        var i: Int
+    func setUser() {
+        println("setting user")
         let realm = Realm()
-        //clear posts
-        realm.write() {
-            realm.objects(User).first!.posts.removeAll()
-        }
-        for (i = 0; i < self.mediaIDs.count; i++) {
-            //GOES THROUGH EACH POST
-            let mediaID: String = self.mediaIDs[i]
-            let likes: Int = self.allLikes[i]
-            let createdTime: String = self.createdTimes[i]
-            //let filter: String = self.filters[i]
-            var newPost: Post = Post(id: mediaID, nol: likes, ct: createdTime)
-            user.posts.append(newPost)
-            realm.write(){
-                realm.objects(User).first!.posts.append(newPost)
-            }
-            
-        }
-        
-        callback()
+        user = realm.objects(User).first!
     }
     
-
-    //TIME OPTI
+    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+        return UIStatusBarStyle.LightContent
+    }
+    
+    
+    /*
+    //TIME OPTIMIZATION
     func optimizeTime() {
         dates = []
         totLikesPerHour = [ : ]
@@ -221,16 +102,16 @@ class TimeViewController: UIViewController {
         self.sortTimes()
     }
     
-    func createDates() {
+    func createDatesT() {
         var i: Int = 0
-        for (i = 0; i < user!.posts.count; i++) {
-            let post = user!.posts[i]
+        for (i = 0; i < user.posts.count; i++) {
+            let post = user.posts[i]
             let date = post.getDate()
             dates.append(date.description)
         }
     }
     
-    func changeNanToZero() {
+    func changeNanToZeroT() {
         for index in 0...23 {
             if (index < 10) {
                 if (totLikesPerHour["0\(index)"]! == []) {
@@ -244,10 +125,10 @@ class TimeViewController: UIViewController {
         }
     }
     
-    func createHoursWithLikes() {
+    func createHoursWithLikesT() {
         var i: Int = 0
-        for (i = 0; i < user!.posts.count; i++) {
-            let post = user!.posts[i]
+        for (i = 0; i < user.posts.count; i++) {
+            let post = user.posts[i]
             let date = dates[i]
             let rangeOfHour = Range(start: (advance(date.startIndex, 11)), end: (advance(date.startIndex, 13)))
             let hour = date.substringWithRange(rangeOfHour)
@@ -256,7 +137,7 @@ class TimeViewController: UIViewController {
         }
     }
     
-    func createAverages() {
+    func createAveragesT() {
         for i in 0...23 {
             let likes: [Int]
             if (i < 10) {
@@ -358,9 +239,9 @@ class TimeViewController: UIViewController {
     }
     
     func setBestTimeLabel() {
-        bestTimeLabel.text = info.times[0].timeName
+        //bestTimeLabel.text = info.times[0].timeName
     }
-    
+    */
     /*
     // MARK: - Navigation
 
@@ -371,4 +252,33 @@ class TimeViewController: UIViewController {
     }
     */
 
+}
+
+extension TimeViewController: UITableViewDataSource {
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        println(times.count)
+        return Int(times.count ?? 0)
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("TimeCell", forIndexPath: indexPath) as! TimeTableViewCell
+        
+        let row = indexPath.row
+        let time = times[row] as Time
+        cell.time = time
+        
+        
+        return cell
+    }
+}
+
+extension TimeViewController: UITableViewDelegate {
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return 80
+    }
+}
+
+extension TimeViewController: UIScrollViewDelegate {
+    
 }

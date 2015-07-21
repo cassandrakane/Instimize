@@ -31,7 +31,6 @@ class TestViewController: UIViewController {
         
         self.tableView.dataSource = self
         self.tableView.delegate = self
-      
         
         self.tableView.tableHeaderView = tableHeaderView
         
@@ -62,6 +61,7 @@ class TestViewController: UIViewController {
 
 }
 
+
 extension TestViewController: UITableViewDataSource {
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -89,3 +89,4 @@ extension TestViewController: UITableViewDelegate {
 extension TestViewController: UIScrollViewDelegate {
     
 }
+

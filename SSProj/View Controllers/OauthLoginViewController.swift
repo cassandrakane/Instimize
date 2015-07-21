@@ -48,10 +48,10 @@ class OauthLoginViewController: UIViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
-        if segue.identifier == "unwindToMenu" && segue.destinationViewController.isKindOfClass(TimeViewController.classForCoder()) {
-            let timeViewController = segue.destinationViewController as! TimeViewController
+        if segue.identifier == "unwindToMenu" && segue.destinationViewController.isKindOfClass(MenuViewController.classForCoder()) {
+            let menuViewController = segue.destinationViewController as! MenuViewController
             if let user = sender?.valueForKey("user") as? User {
-               timeViewController.user = user
+               menuViewController.user = user
             }
         }
     }

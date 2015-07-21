@@ -16,6 +16,7 @@ class User : Object {
     dynamic var userID: String = ""
     dynamic var accessToken: String = ""
     dynamic var posts = List<Post> ()
+    dynamic var set: Bool = false
     //dynamic var posts = RLMArray(objectClassName: Post.className())
     //dynamic var followers: [Follower] = []
     //dynamic var followings: [Following] = []
