@@ -23,6 +23,14 @@
             </objects>
             <point key="canvasLocation" x="266" y="339"/>
         </scene>
+        <!--Page View Controller-->
+        <scene sceneID="RFr-od-ZJv">
+            <objects>
+                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="pageCurl" navigationOrientation="horizontal" spineLocation="min" id="c8y-N6-YrH" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Gex-I7-tu0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="224" y="-1207"/>
+        </scene>
         <!--Test-->
         <scene sceneID="OUH-kb-Hge">
             <objects>
@@ -173,11 +181,11 @@
                             <imageView userInteractionEnabled="NO" alpha="0.10000000149011612" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TestTest" translatesAutoresizingMaskIntoConstraints="NO" id="BFs-jA-CUi">
                                 <rect key="frame" x="16" y="64" width="568" height="487"/>
                             </imageView>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PPe-4z-GdR">
-                                <rect key="frame" x="16" y="57" width="568" height="487"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PPe-4z-GdR">
+                                <rect key="frame" x="16" y="64" width="568" height="487"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" pagingEnabled="YES" dataMode="prototypes" style="plain" rowHeight="80" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="4M0-Gm-Vmm">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" pagingEnabled="YES" dataMode="prototypes" style="plain" rowHeight="393" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="4M0-Gm-Vmm">
                                 <rect key="frame" x="16" y="64" width="568" height="487"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -185,17 +193,17 @@
                                 <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="sectionIndexTrackingBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TimeCell" id="hy0-IV-K5f" customClass="TimeTableViewCell" customModule="SSProj" customModuleProvider="target">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TimeCell" rowHeight="80" id="hy0-IV-K5f" customClass="TimeTableViewCell" customModule="SSProj" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="568" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hy0-IV-K5f" id="vvv-Lf-ZQF">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BVk-IG-akF">
-                                                    <rect key="frame" x="128" y="0.0" width="432" height="80"/>
+                                                    <rect key="frame" x="128" y="-1" width="432" height="81"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NBa-S4-BtF">
-                                                            <rect key="frame" x="10" y="6" width="148" height="41"/>
+                                                            <rect key="frame" x="10" y="7" width="148" height="41"/>
                                                             <attributedString key="attributedText">
                                                                 <fragment content="Time Label">
                                                                     <attributes>
@@ -207,13 +215,13 @@
                                                             </attributedString>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b5X-lL-fol">
-                                                            <rect key="frame" x="10" y="45" width="412" height="28"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b5X-lL-fol">
+                                                            <rect key="frame" x="10" y="46" width="412" height="28"/>
                                                             <attributedString key="attributedText">
                                                                 <fragment content="time info">
                                                                     <attributes>
                                                                         <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                                        <font key="NSFont" size="20" name="Avenir-Book"/>
+                                                                        <font key="NSFont" size="17" name="Avenir-Book"/>
                                                                         <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
                                                                     </attributes>
                                                                 </fragment>
@@ -231,10 +239,10 @@
                                                     </constraints>
                                                 </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g4Q-fR-SbZ">
-                                                    <rect key="frame" x="48" y="0.0" width="80" height="80"/>
+                                                    <rect key="frame" x="48" y="-1" width="80" height="81"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Test Image" translatesAutoresizingMaskIntoConstraints="NO" id="0I4-bd-wr1">
-                                                            <rect key="frame" x="10" y="10" width="60" height="60"/>
+                                                            <rect key="frame" x="10" y="11" width="60" height="60"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" secondItem="0I4-bd-wr1" secondAttribute="height" multiplier="1:1" id="7Me-vk-ja9"/>
                                                             </constraints>
@@ -250,10 +258,10 @@
                                                     </constraints>
                                                 </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oHh-cL-fZP">
-                                                    <rect key="frame" x="8" y="0.0" width="40" height="80"/>
+                                                    <rect key="frame" x="8" y="-1" width="40" height="81"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ng8-Vu-8nE">
-                                                            <rect key="frame" x="14" y="26" width="12" height="28"/>
+                                                            <rect key="frame" x="14" y="27" width="12" height="28"/>
                                                             <attributedString key="attributedText">
                                                                 <fragment content="#">
                                                                     <attributes>
@@ -300,18 +308,28 @@
                         </subviews>
                         <constraints>
                             <constraint firstItem="BFs-jA-CUi" firstAttribute="leading" secondItem="Zey-Gb-EbV" secondAttribute="leadingMargin" id="4iG-ZU-QDm"/>
+                            <constraint firstItem="vCV-Hv-z5b" firstAttribute="top" secondItem="PPe-4z-GdR" secondAttribute="bottom" id="5JR-KS-VNZ"/>
+                            <constraint firstItem="4M0-Gm-Vmm" firstAttribute="top" secondItem="PPe-4z-GdR" secondAttribute="bottom" id="BDD-Mu-T8O"/>
                             <constraint firstItem="4M0-Gm-Vmm" firstAttribute="top" secondItem="Hg8-Vd-LeA" secondAttribute="bottom" id="G8f-rA-uXI"/>
                             <constraint firstItem="vCV-Hv-z5b" firstAttribute="top" secondItem="4M0-Gm-Vmm" secondAttribute="bottom" id="IWG-Rc-RYH"/>
+                            <constraint firstItem="PPe-4z-GdR" firstAttribute="leading" secondItem="Zey-Gb-EbV" secondAttribute="leadingMargin" id="Mth-F3-bMy"/>
                             <constraint firstItem="vCV-Hv-z5b" firstAttribute="top" secondItem="BFs-jA-CUi" secondAttribute="bottom" id="OO9-8c-vml"/>
                             <constraint firstItem="vCV-Hv-z5b" firstAttribute="top" secondItem="CJ4-Wg-wRB" secondAttribute="bottom" id="PDX-eY-QRY"/>
                             <constraint firstItem="CJ4-Wg-wRB" firstAttribute="leading" secondItem="Zey-Gb-EbV" secondAttribute="leadingMargin" id="SIl-1W-Tlg"/>
                             <constraint firstItem="CJ4-Wg-wRB" firstAttribute="trailing" secondItem="Zey-Gb-EbV" secondAttribute="trailingMargin" id="Z1E-Nz-F2X"/>
                             <constraint firstItem="BFs-jA-CUi" firstAttribute="top" secondItem="Hg8-Vd-LeA" secondAttribute="bottom" id="dsm-yz-F8V"/>
                             <constraint firstItem="CJ4-Wg-wRB" firstAttribute="top" secondItem="Hg8-Vd-LeA" secondAttribute="bottom" id="eC3-yH-yUt"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="PPe-4z-GdR" secondAttribute="trailing" id="eyb-8R-wRt"/>
                             <constraint firstItem="4M0-Gm-Vmm" firstAttribute="trailing" secondItem="Zey-Gb-EbV" secondAttribute="trailingMargin" id="g7f-n6-qJ0"/>
                             <constraint firstItem="BFs-jA-CUi" firstAttribute="trailing" secondItem="Zey-Gb-EbV" secondAttribute="trailingMargin" id="gSk-FT-cfR"/>
+                            <constraint firstItem="PPe-4z-GdR" firstAttribute="top" secondItem="Hg8-Vd-LeA" secondAttribute="bottom" id="rOx-sg-I0r"/>
                             <constraint firstItem="4M0-Gm-Vmm" firstAttribute="leading" secondItem="Zey-Gb-EbV" secondAttribute="leadingMargin" id="uVX-xf-Z61"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="BDD-Mu-T8O"/>
+                            </mask>
+                        </variation>
                     </view>
                     <tabBarItem key="tabBarItem" title="Time" id="Bhj-mZ-BYD"/>
                     <connections>

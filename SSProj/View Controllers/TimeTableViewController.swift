@@ -20,40 +20,7 @@ class TimeTableViewController: UITableViewController {
     
     var info = Info.sharedInstance
     
-    /*
-    var state: State = .DefaultMode {
-        didSet {
-            // update notes and search bar whenever State changes
-            switch (state) {
-            case .DefaultMode:
-                let realm = Realm()
-                times = realm.objects(Time).sorted("modificationDate", ascending: false) //1
-                //self.navigationController!.setNavigationBarHidden(false, animated: true) //2
-                //searchBar.resignFirstResponder() // 3
-                //searchBar.text = ""
-                //searchBar.showsCancelButton = false
-            /*
-            case .SearchMode:
-                let searchText = searchBar?.text ?? ""
-                searchBar.setShowsCancelButton(true, animated: true) //4
-                notes = searchNotes(searchText) //5
-                self.navigationController!.setNavigationBarHidden(true, animated: true) //6
-            }
-            */
-        }
-    }
-    */
-
     var times: [Time] = []
-        /*
-        {
-        didSet {
-            // Whenever notes update, update the table view
-            tableView?.reloadData()
-        }
-    }
-    */
-    //var selectedNote: Note?
     
     override func viewDidLoad() {
         //called after the controller's view is loaded into memory
@@ -66,9 +33,7 @@ class TimeTableViewController: UITableViewController {
     override func viewWillAppear(animated: Bool) {
         //notifies the view controller that its view is about to be added to a view hierarchy
         super.viewWillAppear(animated)
-        //let realm = Realm()
         times = info.times
-        //state = .DefaultMode
     }
     
     override func didReceiveMemoryWarning() {
@@ -76,51 +41,6 @@ class TimeTableViewController: UITableViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    /*
-    @IBAction func unwindToSegue(segue: UIStoryboardSegue) {
-        if let identifier = segue.identifier {
-            let realm = Realm()
-            switch identifier {
-            case "Save":
-                //allows note to save
-                let source = segue.sourceViewController as! NewNoteViewController //1
-                
-                realm.write() {
-                    realm.add(source.newNote!)
-                }
-            case "Delete":
-                //deletes note
-                realm.write() {
-                    realm.delete(self.selectedNote!)
-                }
-                
-                let source = segue.sourceViewController as! NoteDisplayViewController
-                source.note = nil
-                
-            default:
-                println()
-                //println("No one loves \(identifier)")
-            }
-            
-            notes = realm.objects(Note).sorted("modificationDate", ascending: false) //2
-        }
-    }
-
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if (segue.identifier == "ShowExistingNote") {
-            //opens a pre-existing note
-            let noteViewController = segue.destinationViewController as! NoteDisplayViewController
-            noteViewController.note = selectedNote
-        }
-    }
-
-    func searchNotes(searchString: String) -> Results<Note> {
-        let realm = Realm()
-        let searchPredicate = NSPredicate(format: "title CONTAINS[c] %@ OR content CONTAINS[c] %@", searchString, searchString)
-        return realm.objects(Note).filter(searchPredicate)
-    }
-    */
     
 }
 
