@@ -63,9 +63,6 @@ class TestViewController: UIViewController {
 }
 
 extension TestViewController: UITableViewDataSource {
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 20
-    }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return Int(times.count ?? 0)

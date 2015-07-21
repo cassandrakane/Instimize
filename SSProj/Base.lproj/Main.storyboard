@@ -38,7 +38,7 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TestTest" translatesAutoresizingMaskIntoConstraints="NO" id="W8R-Qz-Abh">
                                 <rect key="frame" x="16" y="64" width="568" height="487"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6bv-dO-0J9">
+                            <imageView userInteractionEnabled="NO" alpha="0.10000000000000001" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TestTest" translatesAutoresizingMaskIntoConstraints="NO" id="6bv-dO-0J9">
                                 <rect key="frame" x="16" y="64" width="568" height="487"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lQd-Kn-hXN">
@@ -60,6 +60,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -993,6 +994,6 @@
         <image name="TestTest" width="320" height="568"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="rk2-Xp-wBj"/>
+        <segue reference="GTI-ZR-8AJ"/>
     </inferredMetricsTieBreakers>
 </document>
