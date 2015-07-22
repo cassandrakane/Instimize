@@ -17,7 +17,6 @@ class TimeViewController: UIViewController {
 
     
     @IBOutlet weak var backgroundImageView: UIImageView!
-    @IBOutlet weak var blurredImageView: UIImageView!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var tableHeaderView: UIView!
     
@@ -53,7 +52,7 @@ class TimeViewController: UIViewController {
                 times = info.times
                 
                 var background: UIImage = UIImage(named: "TestTest")!
-                self.blurredImageView.setImageToBlur(background, blurRadius: 10, completionBlock: nil)
+                
                 self.tableView.tableHeaderView = tableHeaderView
                 //optimizeTime()
                 
