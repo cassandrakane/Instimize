@@ -267,7 +267,6 @@ class RootViewController: UIViewController, UIPageViewControllerDataSource {
         createHoursWithLikesT()
         createAveragesT()
         sortTimes()
-        setBestTimeLabel()
     }
     
     func changeNanToZeroT() {
@@ -397,17 +396,12 @@ class RootViewController: UIViewController, UIPageViewControllerDataSource {
         return timeName
     }
     
-    func setBestTimeLabel() {
-        //bestTimeLabel.text = info.times[0].timeName
-    }
-    
     
     //OPTIMIZE DAYS
     func optimizeDay() {
         createDaysWithLikes()
         createAveragesD()
         sortDays()
-        setBestDayLabel()
     }
     
     func changeNanToZeroD() {
@@ -502,17 +496,12 @@ class RootViewController: UIViewController, UIPageViewControllerDataSource {
         return dayName
     }
     
-    func setBestDayLabel() {
-        //bestDayLabel.text = info.days[0].dayName
-    }
-    
     
     //OPTIMIZE MONTHS
     func optimizeMonth() {
         createMonthsWithLikes()
         createAveragesM()
         sortMonths()
-        setBestMonthLabel()
     }
     
     func changeNanToZeroM() {
@@ -618,27 +607,7 @@ class RootViewController: UIViewController, UIPageViewControllerDataSource {
         return monthName
     }
     
-    func setBestMonthLabel() {
-        //bestMonthLabel.text = info.months[0].monthName
-    }
     
-    
-    // MARK: - Navigation
-    
-    /*
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-        println("Button Tapped")
-        var tabBarController = self
-        tabBarController.selectedIndex = 0
-    }
-    */
-
-    
-
-        // Do any additional setup after loading the view.
 
     func viewControllerAtIndex(index: NSInteger) -> PageContentViewController {
         if ((self.pageImages.count == 0) || (index >= self.pageImages.count)) {
@@ -661,7 +630,6 @@ class RootViewController: UIViewController, UIPageViewControllerDataSource {
     func presentationIndexForPageViewController(pageViewController: UIPageViewController) -> NSInteger {
         return 0
     }
-    
     
     
         /*

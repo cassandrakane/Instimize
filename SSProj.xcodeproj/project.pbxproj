@@ -13,7 +13,6 @@
 		7402953F1B6014AB001155B8 /* Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7402953E1B6014AB001155B8 /* Label.swift */; };
 		740295411B6015BE001155B8 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 740295401B6015BE001155B8 /* TableViewCell.swift */; };
 		740FA4C91B459292000E88B7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 740FA4C81B459292000E88B7 /* AppDelegate.swift */; };
-		740FA4CB1B459292000E88B7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 740FA4CA1B459292000E88B7 /* ViewController.swift */; };
 		740FA4CE1B459292000E88B7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 740FA4CC1B459292000E88B7 /* Main.storyboard */; };
 		740FA4D01B459292000E88B7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 740FA4CF1B459292000E88B7 /* Images.xcassets */; };
 		740FA4D31B459292000E88B7 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 740FA4D11B459292000E88B7 /* LaunchScreen.xib */; };
@@ -21,17 +20,7 @@
 		741E1D1B1B45A78D001C9B27 /* OauthLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741E1D1A1B45A78D001C9B27 /* OauthLoginViewController.swift */; };
 		741E1D1D1B45AA0D001C9B27 /* Instagram.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741E1D1C1B45AA0D001C9B27 /* Instagram.swift */; };
 		741E1D211B45B7F0001C9B27 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741E1D201B45B7F0001C9B27 /* User.swift */; };
-		744003D71B54434C00778626 /* TimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 744003D61B54434C00778626 /* TimeViewController.swift */; };
-		744003D91B54436600778626 /* DayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 744003D81B54436600778626 /* DayViewController.swift */; };
-		744003DB1B54438500778626 /* MonthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 744003DA1B54438500778626 /* MonthViewController.swift */; };
-		7461ACD31B5D290D00FDDFCA /* TimeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7461ACD21B5D290D00FDDFCA /* TimeTableViewCell.swift */; };
 		7461ACD71B5D30EF00FDDFCA /* Info.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7461ACD61B5D30EF00FDDFCA /* Info.swift */; };
-		7461ACDB1B5D3ADD00FDDFCA /* DayTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7461ACDA1B5D3ADD00FDDFCA /* DayTableViewCell.swift */; };
-		7461ACDD1B5D3AF300FDDFCA /* MonthTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7461ACDC1B5D3AF300FDDFCA /* MonthTableViewCell.swift */; };
-		74A7321D1B57E401000C5889 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74A7321C1B57E401000C5889 /* MenuViewController.swift */; };
-		74A732231B5801F0000C5889 /* Day.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74A732221B5801F0000C5889 /* Day.swift */; };
-		74A732271B58089B000C5889 /* Time.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74A732261B58089B000C5889 /* Time.swift */; };
-		74A732291B580B27000C5889 /* Month.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74A732281B580B27000C5889 /* Month.swift */; };
 		74D7F0461B5E7EA90083C41F /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D7F0451B5E7EA90083C41F /* TestViewController.swift */; };
 		CB21AABF5A0FF8A995627C1D /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D948DF58668113D13E30771 /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
@@ -57,7 +46,6 @@
 		740FA4C31B459292000E88B7 /* SSProj.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SSProj.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		740FA4C71B459292000E88B7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		740FA4C81B459292000E88B7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		740FA4CA1B459292000E88B7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		740FA4CD1B459292000E88B7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		740FA4CF1B459292000E88B7 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		740FA4D21B459292000E88B7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -67,17 +55,7 @@
 		741E1D1A1B45A78D001C9B27 /* OauthLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OauthLoginViewController.swift; path = "View Controllers/OauthLoginViewController.swift"; sourceTree = "<group>"; };
 		741E1D1C1B45AA0D001C9B27 /* Instagram.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Instagram.swift; sourceTree = "<group>"; };
 		741E1D201B45B7F0001C9B27 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		744003D61B54434C00778626 /* TimeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TimeViewController.swift; path = "View Controllers/TimeViewController.swift"; sourceTree = "<group>"; };
-		744003D81B54436600778626 /* DayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DayViewController.swift; path = "View Controllers/DayViewController.swift"; sourceTree = "<group>"; };
-		744003DA1B54438500778626 /* MonthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MonthViewController.swift; path = "View Controllers/MonthViewController.swift"; sourceTree = "<group>"; };
-		7461ACD21B5D290D00FDDFCA /* TimeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TimeTableViewCell.swift; path = Views/TimeTableViewCell.swift; sourceTree = "<group>"; };
 		7461ACD61B5D30EF00FDDFCA /* Info.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Info.swift; sourceTree = "<group>"; };
-		7461ACDA1B5D3ADD00FDDFCA /* DayTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DayTableViewCell.swift; path = Views/DayTableViewCell.swift; sourceTree = "<group>"; };
-		7461ACDC1B5D3AF300FDDFCA /* MonthTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MonthTableViewCell.swift; path = Views/MonthTableViewCell.swift; sourceTree = "<group>"; };
-		74A7321C1B57E401000C5889 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MenuViewController.swift; path = "View Controllers/MenuViewController.swift"; sourceTree = "<group>"; };
-		74A732221B5801F0000C5889 /* Day.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Day.swift; sourceTree = "<group>"; };
-		74A732261B58089B000C5889 /* Time.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Time.swift; sourceTree = "<group>"; };
-		74A732281B580B27000C5889 /* Month.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Month.swift; sourceTree = "<group>"; };
 		74D7F0441B5D98570083C41F /* SSProj-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SSProj-Bridging-Header.h"; sourceTree = "<group>"; };
 		74D7F0451B5E7EA90083C41F /* TestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TestViewController.swift; path = "View Controllers/TestViewController.swift"; sourceTree = "<group>"; };
 		A49590FA6B898EBC4474AF93 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -116,9 +94,6 @@
 			children = (
 				741E1D201B45B7F0001C9B27 /* User.swift */,
 				7401D11C1B4AC8680035C0C1 /* Post.swift */,
-				74A732221B5801F0000C5889 /* Day.swift */,
-				74A732261B58089B000C5889 /* Time.swift */,
-				74A732281B580B27000C5889 /* Month.swift */,
 				7461ACD61B5D30EF00FDDFCA /* Info.swift */,
 				7402953E1B6014AB001155B8 /* Label.swift */,
 			);
@@ -190,12 +165,7 @@
 		741E1D191B45A726001C9B27 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				740FA4CA1B459292000E88B7 /* ViewController.swift */,
 				741E1D1A1B45A78D001C9B27 /* OauthLoginViewController.swift */,
-				744003D61B54434C00778626 /* TimeViewController.swift */,
-				744003D81B54436600778626 /* DayViewController.swift */,
-				744003DA1B54438500778626 /* MonthViewController.swift */,
-				74A7321C1B57E401000C5889 /* MenuViewController.swift */,
 				74D7F0451B5E7EA90083C41F /* TestViewController.swift */,
 				7402953A1B5FD40C001155B8 /* PageContentViewController.swift */,
 				7402953C1B5FD4C1001155B8 /* RootViewController.swift */,
@@ -206,9 +176,6 @@
 		74A7321F1B580146000C5889 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				7461ACD21B5D290D00FDDFCA /* TimeTableViewCell.swift */,
-				7461ACDA1B5D3ADD00FDDFCA /* DayTableViewCell.swift */,
-				7461ACDC1B5D3AF300FDDFCA /* MonthTableViewCell.swift */,
 				740295401B6015BE001155B8 /* TableViewCell.swift */,
 			);
 			name = Views;
@@ -373,28 +340,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7461ACD31B5D290D00FDDFCA /* TimeTableViewCell.swift in Sources */,
 				7461ACD71B5D30EF00FDDFCA /* Info.swift in Sources */,
-				74A732271B58089B000C5889 /* Time.swift in Sources */,
 				741E1D1D1B45AA0D001C9B27 /* Instagram.swift in Sources */,
-				7461ACDD1B5D3AF300FDDFCA /* MonthTableViewCell.swift in Sources */,
 				7402953F1B6014AB001155B8 /* Label.swift in Sources */,
-				74A7321D1B57E401000C5889 /* MenuViewController.swift in Sources */,
 				74D7F0461B5E7EA90083C41F /* TestViewController.swift in Sources */,
-				74A732231B5801F0000C5889 /* Day.swift in Sources */,
-				7461ACDB1B5D3ADD00FDDFCA /* DayTableViewCell.swift in Sources */,
-				744003D71B54434C00778626 /* TimeViewController.swift in Sources */,
 				7402953D1B5FD4C1001155B8 /* RootViewController.swift in Sources */,
 				7401D11D1B4AC8680035C0C1 /* Post.swift in Sources */,
-				744003DB1B54438500778626 /* MonthViewController.swift in Sources */,
 				741E1D211B45B7F0001C9B27 /* User.swift in Sources */,
-				744003D91B54436600778626 /* DayViewController.swift in Sources */,
 				7402953B1B5FD40C001155B8 /* PageContentViewController.swift in Sources */,
 				740295411B6015BE001155B8 /* TableViewCell.swift in Sources */,
 				741E1D1B1B45A78D001C9B27 /* OauthLoginViewController.swift in Sources */,
-				740FA4CB1B459292000E88B7 /* ViewController.swift in Sources */,
 				740FA4C91B459292000E88B7 /* AppDelegate.swift in Sources */,
-				74A732291B580B27000C5889 /* Month.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

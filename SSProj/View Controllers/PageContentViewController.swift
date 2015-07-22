@@ -110,7 +110,7 @@ extension PageContentViewController: UITableViewDelegate {
     }
 }
 
-extension TimeViewController: UIScrollViewDelegate {
+extension PageContentViewController: UIScrollViewDelegate {
     
 }
 
