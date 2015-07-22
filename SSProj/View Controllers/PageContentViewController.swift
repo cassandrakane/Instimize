@@ -20,10 +20,10 @@ class PageContentViewController: UIViewController {
     
     var pageIndex: Int = 0
     var imageFile: String = ""
+    var dataType: String = ""
     var user: User = User()
-   
     var info = Info.sharedInstance
-    var times: [Time] = []
+    var data : [Label] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,14 +31,21 @@ class PageContentViewController: UIViewController {
         self.backgroundImage.image = UIImage(named: imageFile)
         tableView.tableHeaderView = headerView
       
-        
         let realm = Realm()
         if realm.objects(User).first != nil {
             setUser()
             //bestTimeLabel.text = ""
             if user.set {
-                //times = info.times
-                times = [Time(t: "Test1", i: "test1", r: "#"), Time(t: "Test2", i: "test2", r: "#"), Time(t: "Test3", i: "test3", r: "#")]
+                if (dataType == "Time") {
+                    data = info.times
+                } else if (dataType == "Day") {
+                    data = info.days
+                } else if (dataType == "Month") {
+                    data = info.months
+                } else {
+                    data = [Label(n: "Error", i: "error", r: "#")]
+                }
+                //data = [Label(n: "Test1", i: "test1", r: "#"), Label(n: "Test2", i: "test2", r: "#"), Label(n: "Test3", i: "test3", r: "#")]
                 //tableView.dataSource = self
                 //tableView.delegate = self
             }
@@ -82,16 +89,15 @@ class PageContentViewController: UIViewController {
 extension PageContentViewController: UITableViewDataSource {
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        println(times.count)
-        return Int(times.count ?? 0)
+        return Int(data.count ?? 0)
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("TimeCell", forIndexPath: indexPath) as! TimeTableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! TableViewCell
         
         let row = indexPath.row
-        let time = times[row] as Time
-        cell.time = time
+        let label = data[row] as Label
+        cell.label = label
         
         
         return cell

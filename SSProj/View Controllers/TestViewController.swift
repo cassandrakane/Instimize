@@ -18,7 +18,7 @@ class TestViewController: UIViewController {
     var screenHeight: CGFloat = CGFloat()
     
     var info = Info.sharedInstance
-    var times: [Time] = []
+    var times: [Label] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -69,11 +69,11 @@ extension TestViewController: UITableViewDataSource {
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("TimeCell", forIndexPath: indexPath) as! TimeTableViewCell //1
+        let cell = tableView.dequeueReusableCellWithIdentifier("TimeCell", forIndexPath: indexPath) as! TableViewCell //1
         
         let row = indexPath.row
-        let time = times[row] as Time
-        cell.time = time
+        let time = times[row] as Label
+        cell.label = time
         
         
         return cell

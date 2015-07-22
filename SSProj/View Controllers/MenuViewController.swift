@@ -308,7 +308,7 @@ class MenuViewController: UITabBarController {
                 var timeName: String = getTimeName(t)
                 var infoName: String = "average likes: \(((Double)( (Int)(likes * 100.0) ) ) / 100.0)"
                 var rankName: String = "\(count)"
-                info.times.append(Time(t: timeName, i: infoName, r: rankName))
+                info.times.append(Label(n: timeName, i: infoName, r: rankName))
                 count++
             }
             i += ts.count - 1
@@ -435,7 +435,7 @@ class MenuViewController: UITabBarController {
                 var dayName: String = getDayName(d)
                 var infoName: String = "average likes: \(((Double)( (Int)(likes * 100.0) ) ) / 100.0)"
                 var rankName: String = "\(count)"
-                info.days.append(Day(d: dayName, i: infoName, r: rankName))
+                info.days.append(Label(n: dayName, i: infoName, r: rankName))
                 count++
             }
             i += ds.count - 1
@@ -552,7 +552,7 @@ class MenuViewController: UITabBarController {
                 var monthName: String = getMonthName(m)
                 var infoName: String = "average likes: \(((Double)( (Int)(likes * 100.0) ) ) / 100.0)"
                 var rankName: String = "\(count)"
-                info.months.append(Month(m: monthName, i: infoName, r: rankName))
+                info.months.append(Label(n: monthName, i: infoName, r: rankName))
                 count++
             }
             i += ms.count - 1

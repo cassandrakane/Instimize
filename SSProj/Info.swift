@@ -9,9 +9,9 @@
 import Foundation
 
 class Info {
-    var times: [Time] = []
-    var days: [Day] = []
-    var months: [Month] = []
+    var times: [Label] = []
+    var days: [Label] = []
+    var months: [Label] = []
     
     class var sharedInstance : Info {
         struct Static {

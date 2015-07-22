@@ -139,7 +139,7 @@ class MonthViewController: UIViewController {
                 var monthName: String = getMonthName(m)
                 var infoName: String = "average likes: \(((Double)( (Int)(likes * 100.0) ) ) / 100.0)"
                 var rankName: String = "\(count)"
-                info.months.append(Month(m: monthName, i: infoName, r: rankName))
+                info.months.append(Label(n: monthName, i: infoName, r: rankName))
                 count++
             }
             i += ms.count - 1
@@ -182,7 +182,7 @@ class MonthViewController: UIViewController {
     
     
     func setBestMonthLabel() {
-        bestMonthLabel.text = info.months[0].monthName
+        //bestMonthLabel.text = info.months[0].monthName
     }
 
 

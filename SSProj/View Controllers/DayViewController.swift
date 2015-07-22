@@ -124,7 +124,7 @@ class DayViewController: UIViewController {
                 var dayName: String = getDayName(d)
                 var infoName: String = "average likes: \(((Double)( (Int)(likes * 100.0) ) ) / 100.0)"
                 var rankName: String = "\(count)"
-                info.days.append(Day(d: dayName, i: infoName, r: rankName))
+                info.days.append(Label(n: dayName, i: infoName, r: rankName))
                 count++
             }
             i += ds.count - 1
@@ -169,7 +169,7 @@ class DayViewController: UIViewController {
     }
     
     func setBestDayLabel() {
-        bestDayLabel.text = info.days[0].dayName
+        //bestDayLabel.text = info.days[0].dayName
     }
     
     /*

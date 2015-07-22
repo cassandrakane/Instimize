@@ -49,7 +49,7 @@ class TimeViewController: UIViewController {
             setUser()
             //bestTimeLabel.text = ""
             if user.set {
-                times = info.times
+                //times = info.times
                 
                 var background: UIImage = UIImage(named: "TestTest")!
                 
