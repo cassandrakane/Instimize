@@ -12,6 +12,7 @@
 		7402953D1B5FD4C1001155B8 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7402953C1B5FD4C1001155B8 /* RootViewController.swift */; };
 		7402953F1B6014AB001155B8 /* Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7402953E1B6014AB001155B8 /* Label.swift */; };
 		740295411B6015BE001155B8 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 740295401B6015BE001155B8 /* TableViewCell.swift */; };
+		740295431B602083001155B8 /* NavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 740295421B602083001155B8 /* NavigationViewController.swift */; };
 		740FA4C91B459292000E88B7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 740FA4C81B459292000E88B7 /* AppDelegate.swift */; };
 		740FA4CE1B459292000E88B7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 740FA4CC1B459292000E88B7 /* Main.storyboard */; };
 		740FA4D01B459292000E88B7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 740FA4CF1B459292000E88B7 /* Images.xcassets */; };
@@ -21,7 +22,6 @@
 		741E1D1D1B45AA0D001C9B27 /* Instagram.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741E1D1C1B45AA0D001C9B27 /* Instagram.swift */; };
 		741E1D211B45B7F0001C9B27 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741E1D201B45B7F0001C9B27 /* User.swift */; };
 		7461ACD71B5D30EF00FDDFCA /* Info.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7461ACD61B5D30EF00FDDFCA /* Info.swift */; };
-		74D7F0461B5E7EA90083C41F /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D7F0451B5E7EA90083C41F /* TestViewController.swift */; };
 		CB21AABF5A0FF8A995627C1D /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D948DF58668113D13E30771 /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
@@ -43,6 +43,7 @@
 		7402953C1B5FD4C1001155B8 /* RootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RootViewController.swift; path = "View Controllers/RootViewController.swift"; sourceTree = "<group>"; };
 		7402953E1B6014AB001155B8 /* Label.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Label.swift; sourceTree = "<group>"; };
 		740295401B6015BE001155B8 /* TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TableViewCell.swift; path = Views/TableViewCell.swift; sourceTree = "<group>"; };
+		740295421B602083001155B8 /* NavigationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NavigationViewController.swift; path = "View Controllers/NavigationViewController.swift"; sourceTree = "<group>"; };
 		740FA4C31B459292000E88B7 /* SSProj.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SSProj.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		740FA4C71B459292000E88B7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		740FA4C81B459292000E88B7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -57,7 +58,6 @@
 		741E1D201B45B7F0001C9B27 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		7461ACD61B5D30EF00FDDFCA /* Info.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Info.swift; sourceTree = "<group>"; };
 		74D7F0441B5D98570083C41F /* SSProj-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SSProj-Bridging-Header.h"; sourceTree = "<group>"; };
-		74D7F0451B5E7EA90083C41F /* TestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TestViewController.swift; path = "View Controllers/TestViewController.swift"; sourceTree = "<group>"; };
 		A49590FA6B898EBC4474AF93 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -166,9 +166,9 @@
 			isa = PBXGroup;
 			children = (
 				741E1D1A1B45A78D001C9B27 /* OauthLoginViewController.swift */,
-				74D7F0451B5E7EA90083C41F /* TestViewController.swift */,
 				7402953A1B5FD40C001155B8 /* PageContentViewController.swift */,
 				7402953C1B5FD4C1001155B8 /* RootViewController.swift */,
+				740295421B602083001155B8 /* NavigationViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -341,9 +341,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				7461ACD71B5D30EF00FDDFCA /* Info.swift in Sources */,
+				740295431B602083001155B8 /* NavigationViewController.swift in Sources */,
 				741E1D1D1B45AA0D001C9B27 /* Instagram.swift in Sources */,
 				7402953F1B6014AB001155B8 /* Label.swift in Sources */,
-				74D7F0461B5E7EA90083C41F /* TestViewController.swift in Sources */,
 				7402953D1B5FD4C1001155B8 /* RootViewController.swift in Sources */,
 				7401D11D1B4AC8680035C0C1 /* Post.swift in Sources */,
 				741E1D211B45B7F0001C9B27 /* User.swift in Sources */,

@@ -83,10 +83,6 @@ class RootViewController: UIViewController, UIPageViewControllerDataSource {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func unwindToMenu (segue : UIStoryboardSegue) {
-        
-    }
-    
     func setUpUser() {
         let realm = Realm()
         println("Menu View Did Load")

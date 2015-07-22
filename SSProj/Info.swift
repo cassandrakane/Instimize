@@ -9,6 +9,7 @@
 import Foundation
 
 class Info {
+    var user: User = User()
     var times: [Label] = []
     var days: [Label] = []
     var months: [Label] = []

@@ -15,8 +15,8 @@ import LBBlurredImage
 class PageContentViewController: UIViewController {
 
     @IBOutlet weak var backgroundImage: UIImageView!
-    @IBOutlet weak var headerView: UIView!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var headerView: UIView!
     
     var pageIndex: Int = 0
     var imageFile: String = ""
@@ -29,7 +29,7 @@ class PageContentViewController: UIViewController {
         super.viewDidLoad()
         let frame: CGRect = UIScreen.mainScreen().bounds
         self.backgroundImage.image = UIImage(named: imageFile)
-        tableView.tableHeaderView = headerView
+        headerView.frame = frame
       
         let realm = Realm()
         if realm.objects(User).first != nil {

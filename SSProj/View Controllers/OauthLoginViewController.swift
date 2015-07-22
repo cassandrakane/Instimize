@@ -16,6 +16,7 @@ import SwiftyJSON
 class OauthLoginViewController: UIViewController {
     
     @IBOutlet weak var webView: UIWebView!
+    var info = Info.sharedInstance
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,10 +49,10 @@ class OauthLoginViewController: UIViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
-        if segue.identifier == "unwindToMenu" && segue.destinationViewController.isKindOfClass(RootViewController.classForCoder()) {
-            let rootViewController = segue.destinationViewController as! RootViewController
+        if segue.identifier == "unwindToMenu" && segue.destinationViewController.isKindOfClass(NavigationViewController.classForCoder()) {
+            let navViewController = segue.destinationViewController as! NavigationViewController
             if let user = sender?.valueForKey("user") as? User {
-               rootViewController.user = user
+               //info.user = user
             }
         }
     }
