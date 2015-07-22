@@ -16,7 +16,7 @@ class RootViewController: UIViewController, UIPageViewControllerDataSource {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        pageImages = ["TestTest", "TestTest"]
+        pageImages = ["TestTest", "TestTest", "TestTest"]
         
         // Create page view controller
         self.pageViewController = self.storyboard?.instantiateViewControllerWithIdentifier("PageViewController") as! UIPageViewController
@@ -105,3 +105,4 @@ extension RootViewController: UIPageViewControllerDataSource {
     }
     
 }
+

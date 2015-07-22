@@ -239,6 +239,10 @@
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="ewc-8z-Vcj" id="kTy-4T-fDP"/>
+                                    <outlet property="delegate" destination="ewc-8z-Vcj" id="gfK-kj-Xvc"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
