@@ -30,12 +30,23 @@ class Post : Object {
     }
 
     
-    func getDate() -> NSDate {
+    func getDate() -> String {
         
-        var timeinterval : NSTimeInterval = (createdTime as NSString).doubleValue
-        var createdDate = NSDate(timeIntervalSince1970: timeinterval)
-
-        return createdDate
+        var gmtTimeInterval : NSTimeInterval = (createdTime as NSString).doubleValue
+        var gmtDate = NSDate(timeIntervalSince1970: gmtTimeInterval)
+        
+        let dateFormatter: NSDateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        let timezoneName: String = NSTimeZone.localTimeZone().name
+        dateFormatter.timeZone = NSTimeZone(name: timezoneName)
+        //dateFormatter.timeZone = NSTimeZone(name: "Pacific/Midway")
+        
+        println("Time Zone: \(timezoneName)")
+        
+        let localDateString = dateFormatter.stringFromDate(gmtDate) + "+0000"
+        
+        return localDateString
+        //return gmtDate.description
     }
     
 }

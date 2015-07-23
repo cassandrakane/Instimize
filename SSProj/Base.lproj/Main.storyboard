@@ -20,7 +20,6 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="vjm-TC-GX9"/>
                     <connections>
                         <segue destination="lCE-aj-GVf" kind="presentation" identifier="Login" id="keK-mN-lU3"/>
                     </connections>
@@ -35,7 +34,7 @@
                 <pageViewController storyboardIdentifier="PageViewController" autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="EeA-ok-om0" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Imn-JL-UiZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1164" y="-1061"/>
+            <point key="canvasLocation" x="1156" y="-1061"/>
         </scene>
         <!--PageContentViewController-->
         <scene sceneID="GcL-H6-CMN">
@@ -52,6 +51,13 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TestTest" translatesAutoresizingMaskIntoConstraints="NO" id="0yw-rH-6lt">
                                 <rect key="frame" x="-4" y="20" width="608" height="580"/>
                             </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xCk-ta-3eQ">
+                                <rect key="frame" x="-4" y="0.0" width="608" height="20"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="eOY-8z-juU"/>
+                                </constraints>
+                            </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" pagingEnabled="YES" dataMode="prototypes" style="plain" rowHeight="80" sectionHeaderHeight="22" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="V6P-JY-iMQ">
                                 <rect key="frame" x="-4" y="20" width="608" height="580"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -64,9 +70,9 @@
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cZx-FZ-0um">
-                                            <rect key="frame" x="20" y="10" width="151" height="48"/>
+                                            <rect key="frame" x="20" y="10" width="161" height="48"/>
                                             <attributedString key="attributedText">
-                                                <fragment content="Optimize">
+                                                <fragment content="Optimize:">
                                                     <attributes>
                                                         <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                         <font key="NSFont" size="35" name="Avenir-Heavy"/>
@@ -253,13 +259,6 @@
                                     <outlet property="delegate" destination="ewc-8z-Vcj" id="gfK-kj-Xvc"/>
                                 </connections>
                             </tableView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xCk-ta-3eQ">
-                                <rect key="frame" x="-4" y="0.0" width="608" height="20"/>
-                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="20" id="eOY-8z-juU"/>
-                                </constraints>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -293,7 +292,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1CD-h8-GYo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1832" y="-1063"/>
+            <point key="canvasLocation" x="1840" y="-1061"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Rfz-Bf-2Mf">
@@ -309,7 +308,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zt4-86-Apd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="300" y="-280"/>
+            <point key="canvasLocation" x="472" y="-344"/>
         </scene>
         <!--Login-->
         <scene sceneID="CRN-By-TtL">
@@ -356,7 +355,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aDi-mE-h4t" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="QTy-Oz-hIF" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1140" y="-280"/>
+            <point key="canvasLocation" x="1156" y="-344"/>
         </scene>
     </scenes>
     <resources>

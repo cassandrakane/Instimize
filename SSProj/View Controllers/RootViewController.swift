@@ -43,6 +43,7 @@ class RootViewController: UIViewController, UIPageViewControllerDataSource {
         }
     }
     
+    var timeZone: NSTimeZone = NSTimeZone.localTimeZone()
     var dates: [String] = []
     var totLikesPerHour: [String : [Int]] = [ : ]
     var aveLikesPerHour: [String: Double] = [ : ]
@@ -57,6 +58,11 @@ class RootViewController: UIViewController, UIPageViewControllerDataSource {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        // Do any additional setup after loading the view.
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(true)
         setUpUser() {
             self.pageImages = ["TestTest", "TestTest", "TestTest"]
             self.pageDataTypes = ["Time", "Day", "Month"]
@@ -73,35 +79,12 @@ class RootViewController: UIViewController, UIPageViewControllerDataSource {
             
             // Change the size of page view controller
             self.pageViewController.view.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height - 30);
-            
             self.addChildViewController(self.pageViewController)
             self.view.addSubview(self.pageViewController.view)
             self.pageViewController.didMoveToParentViewController(self)
-
+            
         }
-    
-        /*
-        pageImages = ["TestTest", "TestTest", "TestTest"]
-        pageDataTypes = ["Time", "Day", "Month"]
-        pageDataTypeLabels = ["Best Time Of Day", "Best Day Of Week", "Best Month Of Year"]
-        pageBestDataLabels = [bestTime, bestDay, bestMonth]
-        
-        // Create page view controller
-        self.pageViewController = self.storyboard?.instantiateViewControllerWithIdentifier("PageViewController") as! UIPageViewController
-        self.pageViewController.dataSource = self
-        var startingViewController: PageContentViewController = self.viewControllerAtIndex(0)
-        var viewControllers: NSArray = [startingViewController]
-        self.pageViewController.setViewControllers(viewControllers as [AnyObject], direction: UIPageViewControllerNavigationDirection.Forward, animated: false, completion: nil)
-        
-        
-        // Change the size of page view controller
-        self.pageViewController.view.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height - 30);
-        
-        self.addChildViewController(pageViewController)
-        self.view.addSubview(pageViewController.view)
-        self.pageViewController.didMoveToParentViewController(self)
-        */
-        // Do any additional setup after loading the view.
+
     }
     
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
@@ -260,14 +243,12 @@ class RootViewController: UIViewController, UIPageViewControllerDataSource {
                 self.totLikesPerHour["\(index)"] = []
             }
         }
-        changeNanToZeroT()
         totLikesPerDay = [ : ]
         aveLikesPerDay = [ : ]
         info.days = []
         for index in 1...7 {
             totLikesPerDay["\(index)"] = []
         }
-        changeNanToZeroD()
         totLikesPerMonth = [ : ]
         aveLikesPerMonth = [ : ]
         for index in 1...12 {
@@ -277,7 +258,6 @@ class RootViewController: UIViewController, UIPageViewControllerDataSource {
                 totLikesPerMonth["\(index)"] = []
             }
         }
-        changeNanToZeroM()
     }
     
     func createDates() {
@@ -285,7 +265,7 @@ class RootViewController: UIViewController, UIPageViewControllerDataSource {
         for (i = 0; i < user!.posts.count; i++) {
             let post = user!.posts[i]
             let date = post.getDate()
-            dates.append(date.description)
+            dates.append(date)
         }
     }
     
@@ -293,6 +273,7 @@ class RootViewController: UIViewController, UIPageViewControllerDataSource {
     //OPTIMIZE TIMES
     func optimizeTime() {
         createHoursWithLikesT()
+        changeNanToZeroT()
         createAveragesT()
         sortTimes()
     }
@@ -352,7 +333,6 @@ class RootViewController: UIViewController, UIPageViewControllerDataSource {
         println("SORTED TIMES")
         var i: Int
         var count: Int = 1
-        
         for (i = 0; i < aveLikesPerHour.count; i++) {
             var likes: Double = averageLikesSorted[i]
             var ts = (aveLikesPerHour as NSDictionary).allKeysForObject(likes) as! [String]
@@ -430,6 +410,7 @@ class RootViewController: UIViewController, UIPageViewControllerDataSource {
     //OPTIMIZE DAYS
     func optimizeDay() {
         createDaysWithLikes()
+        changeNanToZeroD()
         createAveragesD()
         sortDays()
     }
@@ -532,6 +513,7 @@ class RootViewController: UIViewController, UIPageViewControllerDataSource {
     //OPTIMIZE MONTHS
     func optimizeMonth() {
         createMonthsWithLikes()
+        changeNanToZeroM()
         createAveragesM()
         sortMonths()
     }
