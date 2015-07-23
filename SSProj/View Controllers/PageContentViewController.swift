@@ -28,13 +28,14 @@ class PageContentViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         let frame: CGRect = UIScreen.mainScreen().bounds
+        tableView.tableHeaderView!.bounds.size.height = UIScreen.mainScreen().bounds.size.height
         self.backgroundImage.image = UIImage(named: imageFile)
-        headerView.frame = frame
-      
+        self.backgroundImage.bounds = frame
+        backgroundImage.contentMode = UIViewContentMode.ScaleAspectFill
+        
         let realm = Realm()
         if realm.objects(User).first != nil {
             setUser()
-            //bestTimeLabel.text = ""
             if user.set {
                 if (dataType == "Time") {
                     data = info.times
@@ -45,9 +46,6 @@ class PageContentViewController: UIViewController {
                 } else {
                     data = [Label(n: "Error", i: "error", r: "#")]
                 }
-                //data = [Label(n: "Test1", i: "test1", r: "#"), Label(n: "Test2", i: "test2", r: "#"), Label(n: "Test3", i: "test3", r: "#")]
-                //tableView.dataSource = self
-                //tableView.delegate = self
             }
         }
 
@@ -98,7 +96,6 @@ extension PageContentViewController: UITableViewDataSource {
         let row = indexPath.row
         let label = data[row] as Label
         cell.label = label
-        
         
         return cell
     }
