@@ -16,8 +16,13 @@ import SwiftyJSON
 class RootViewController: UIViewController, UIPageViewControllerDataSource {
 
     var pageViewController: UIPageViewController = UIPageViewController()
-    var pageImages: NSArray = []
     var pageDataTypes: NSArray = []
+    var pageImages: NSArray = []
+    var pageDataTypeLabels: NSArray = []
+    var pageBestDataLabels: NSArray = []
+    var bestTime: String = ""
+    var bestDay: String = ""
+    var bestMonth: String = ""
     
     //STUFF FOR SET UP
     var shouldLogin = true
@@ -30,12 +35,10 @@ class RootViewController: UIViewController, UIPageViewControllerDataSource {
     var user: User? {
         didSet {
             if user != nil {
-                //hideLogoutButtonItem(false)
                 println("user isn't nil")
             } else {
                 println("user is nil")
                 shouldLogin = true
-                //hideLogoutButtonItem(true)
             }
         }
     }
@@ -54,10 +57,34 @@ class RootViewController: UIViewController, UIPageViewControllerDataSource {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setUpUser()
-        
+        setUpUser() {
+            self.pageImages = ["TestTest", "TestTest", "TestTest"]
+            self.pageDataTypes = ["Time", "Day", "Month"]
+            self.pageDataTypeLabels = ["Best Time Of Day", "Best Day Of Week", "Best Month Of Year"]
+            self.pageBestDataLabels = [self.bestTime, self.bestDay, self.bestMonth]
+            
+            // Create page view controller
+            self.pageViewController = self.storyboard?.instantiateViewControllerWithIdentifier("PageViewController") as! UIPageViewController
+            self.pageViewController.dataSource = self
+            var startingViewController: PageContentViewController = self.viewControllerAtIndex(0)
+            var viewControllers: NSArray = [startingViewController]
+            self.pageViewController.setViewControllers(viewControllers as [AnyObject], direction: UIPageViewControllerNavigationDirection.Forward, animated: false, completion: nil)
+            
+            
+            // Change the size of page view controller
+            self.pageViewController.view.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height - 30);
+            
+            self.addChildViewController(self.pageViewController)
+            self.view.addSubview(self.pageViewController.view)
+            self.pageViewController.didMoveToParentViewController(self)
+
+        }
+    
+        /*
         pageImages = ["TestTest", "TestTest", "TestTest"]
         pageDataTypes = ["Time", "Day", "Month"]
+        pageDataTypeLabels = ["Best Time Of Day", "Best Day Of Week", "Best Month Of Year"]
+        pageBestDataLabels = [bestTime, bestDay, bestMonth]
         
         // Create page view controller
         self.pageViewController = self.storyboard?.instantiateViewControllerWithIdentifier("PageViewController") as! UIPageViewController
@@ -73,8 +100,12 @@ class RootViewController: UIViewController, UIPageViewControllerDataSource {
         self.addChildViewController(pageViewController)
         self.view.addSubview(pageViewController.view)
         self.pageViewController.didMoveToParentViewController(self)
-
+        */
         // Do any additional setup after loading the view.
+    }
+    
+    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+        return UIStatusBarStyle.LightContent
     }
     
     
@@ -83,7 +114,7 @@ class RootViewController: UIViewController, UIPageViewControllerDataSource {
         // Dispose of any resources that can be recreated.
     }
     
-    func setUpUser() {
+    func setUpUser(callback: () -> Void) {
         let realm = Realm()
         println("Menu View Did Load")
         
@@ -127,11 +158,12 @@ class RootViewController: UIViewController, UIPageViewControllerDataSource {
                         realm.objects(User).first!.set = true
                         self.user?.set = true
                     }
+                    callback()
                 }
                 
             }
         }
-
+        callback()
     }
     
     func getInfo(user: User, request: URLRequestConvertible, callback: () -> Void) {
@@ -334,6 +366,8 @@ class RootViewController: UIViewController, UIPageViewControllerDataSource {
             i += ts.count - 1
         }
         
+        bestTime = info.times[0].name
+        
     }
     
     func getTimeName(timeNum: String) -> String {
@@ -456,6 +490,8 @@ class RootViewController: UIViewController, UIPageViewControllerDataSource {
             i += ds.count - 1
         }
         
+        bestDay = info.days[0].name
+        
     }
     
     func getDayOfWeek(date:String) -> Int {
@@ -569,6 +605,8 @@ class RootViewController: UIViewController, UIPageViewControllerDataSource {
             
         }
         
+        bestMonth = info.months[0].name
+        
     }
     
     func getMonthName(monthNum: String) -> String {
@@ -613,6 +651,8 @@ class RootViewController: UIViewController, UIPageViewControllerDataSource {
         var pageContentViewController: PageContentViewController = self.storyboard!.instantiateViewControllerWithIdentifier("PageContentViewController") as! PageContentViewController
         pageContentViewController.imageFile = self.pageImages[index] as! String
         pageContentViewController.dataType = self.pageDataTypes[index] as! String
+        pageContentViewController.dataTypeString = self.pageDataTypeLabels[index] as! String
+        pageContentViewController.bestDataString = self.pageBestDataLabels[index] as! String
         pageContentViewController.pageIndex = index
         
         return pageContentViewController;

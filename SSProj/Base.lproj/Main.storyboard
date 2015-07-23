@@ -253,17 +253,27 @@
                                     <outlet property="delegate" destination="ewc-8z-Vcj" id="gfK-kj-Xvc"/>
                                 </connections>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xCk-ta-3eQ">
+                                <rect key="frame" x="-4" y="0.0" width="608" height="20"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="eOY-8z-juU"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="G9i-Hu-Soj" firstAttribute="top" secondItem="0yw-rH-6lt" secondAttribute="bottom" id="3Fm-FV-MAy"/>
                             <constraint firstItem="G9i-Hu-Soj" firstAttribute="top" secondItem="V6P-JY-iMQ" secondAttribute="bottom" id="540-R1-xag"/>
                             <constraint firstItem="0yw-rH-6lt" firstAttribute="leading" secondItem="9UF-ZN-UxS" secondAttribute="leadingMargin" constant="-20" id="Kjf-4g-eiU"/>
+                            <constraint firstItem="xCk-ta-3eQ" firstAttribute="top" secondItem="kot-6h-xZd" secondAttribute="bottom" constant="-20" id="Lhf-rD-BOA"/>
                             <constraint firstItem="V6P-JY-iMQ" firstAttribute="leading" secondItem="9UF-ZN-UxS" secondAttribute="leadingMargin" constant="-20" id="T9S-T0-n3t"/>
+                            <constraint firstItem="xCk-ta-3eQ" firstAttribute="leading" secondItem="9UF-ZN-UxS" secondAttribute="leadingMargin" constant="-20" id="bZW-yd-TzP"/>
                             <constraint firstItem="0yw-rH-6lt" firstAttribute="trailing" secondItem="9UF-ZN-UxS" secondAttribute="trailingMargin" constant="20" id="chQ-Td-H3z"/>
                             <constraint firstItem="0yw-rH-6lt" firstAttribute="leading" secondItem="9UF-ZN-UxS" secondAttribute="leadingMargin" constant="-20" id="fl8-1s-NVz"/>
                             <constraint firstItem="V6P-JY-iMQ" firstAttribute="trailing" secondItem="9UF-ZN-UxS" secondAttribute="trailingMargin" constant="20" id="hMg-36-8kh"/>
                             <constraint firstItem="V6P-JY-iMQ" firstAttribute="top" secondItem="kot-6h-xZd" secondAttribute="bottom" id="kj5-cM-hR9"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="xCk-ta-3eQ" secondAttribute="trailing" constant="-20" id="mCw-dz-42D"/>
                             <constraint firstAttribute="trailingMargin" secondItem="0yw-rH-6lt" secondAttribute="trailing" constant="-20" id="oij-rC-eed"/>
                             <constraint firstItem="0yw-rH-6lt" firstAttribute="top" secondItem="kot-6h-xZd" secondAttribute="bottom" id="tTU-Tb-TCz"/>
                         </constraints>
@@ -276,7 +286,8 @@
                     </view>
                     <connections>
                         <outlet property="backgroundImage" destination="0yw-rH-6lt" id="76i-CH-8gC"/>
-                        <outlet property="headerView" destination="MlF-vO-IAs" id="LON-Xa-dMh"/>
+                        <outlet property="bestDataLabel" destination="p7z-OI-h8M" id="w4L-u9-TCL"/>
+                        <outlet property="bestDataTypeLabel" destination="dGE-UN-x3X" id="HC4-0O-Rr2"/>
                         <outlet property="tableView" destination="V6P-JY-iMQ" id="mFZ-ZU-B2e"/>
                     </connections>
                 </viewController>

@@ -16,11 +16,14 @@ class PageContentViewController: UIViewController {
 
     @IBOutlet weak var backgroundImage: UIImageView!
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var headerView: UIView!
+    @IBOutlet weak var bestDataTypeLabel: UILabel!
+    @IBOutlet weak var bestDataLabel: UILabel!
     
     var pageIndex: Int = 0
-    var imageFile: String = ""
     var dataType: String = ""
+    var imageFile: String = ""
+    var dataTypeString: String = ""
+    var bestDataString: String = ""
     var user: User = User()
     var info = Info.sharedInstance
     var data : [Label] = []
@@ -32,6 +35,8 @@ class PageContentViewController: UIViewController {
         self.backgroundImage.image = UIImage(named: imageFile)
         self.backgroundImage.bounds = frame
         backgroundImage.contentMode = UIViewContentMode.ScaleAspectFill
+        bestDataTypeLabel.text = dataTypeString
+        bestDataLabel.text = bestDataString
         
         let realm = Realm()
         if realm.objects(User).first != nil {
@@ -65,10 +70,6 @@ class PageContentViewController: UIViewController {
         println("setting user")
         let realm = Realm()
         user = realm.objects(User).first!
-    }
-    
-    override func preferredStatusBarStyle() -> UIStatusBarStyle {
-        return UIStatusBarStyle.LightContent
     }
     
 
