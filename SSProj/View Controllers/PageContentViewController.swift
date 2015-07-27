@@ -22,6 +22,11 @@ class PageContentViewController: UIViewController {
     @IBOutlet weak var settingsButton: UIButton!
     @IBOutlet weak var settingsView: UIView!
     
+    @IBOutlet weak var logoutButton: UIButton!
+    @IBOutlet weak var infoButton: UIButton!
+    
+    var settingsOpen = false
+    
     var pageIndex: Int = 0
     var dataType: String = ""
     var imageFile: String = ""
@@ -42,6 +47,9 @@ class PageContentViewController: UIViewController {
         backgroundImage.contentMode = UIViewContentMode.ScaleAspectFill
         bestDataTypeLabel.text = dataTypeString
         bestDataLabel.text = bestDataString
+        
+        self.settingsView.bounds.size.width = UIScreen.mainScreen().bounds.size.width - 100
+        self.settingsView.bounds.size.height = UIScreen.mainScreen().bounds.size.width - 100
         
         let realm = Realm()
         if realm.objects(User).first != nil {
@@ -84,11 +92,28 @@ class PageContentViewController: UIViewController {
 
     func animateSettings() {
         println("animate settings")
+        
         UIView.animateWithDuration(0.5) {
             // changes made in here will be animated
             println("animating")
             
-            self.settingsView.frame = CGRect(x: UIScreen.mainScreen().bounds.size.width - 250, y: 50, width: 240, height: 100)
+            let width = self.settingsView.bounds.size.width
+            let height = self.settingsView.bounds.size.height
+            let xCenter = (UIScreen.mainScreen().bounds.size.width / 2) - (self.settingsView.bounds.size.width / 2)
+            
+            if self.settingsOpen {
+                
+                
+                self.settingsView.frame = CGRect(x: xCenter, y: -UIScreen.mainScreen().bounds.size.height / 2, width: width, height: height)
+                
+                
+            } else {
+            
+                self.settingsView.frame = CGRect(x: xCenter, y: UIScreen.mainScreen().bounds.size.height / 2, width: width, height: height)
+               
+            }
+            
+            self.settingsOpen = !self.settingsOpen
         }
     }
 
