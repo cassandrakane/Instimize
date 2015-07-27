@@ -23,6 +23,8 @@ class RootViewController: UIViewController, UIPageViewControllerDataSource {
     var bestTime: String = ""
     var bestDay: String = ""
     var bestMonth: String = ""
+    var timeImage: String = ""
+    var seasonImage: String = ""
     
     //STUFF FOR SET UP
     var shouldLogin = true
@@ -59,12 +61,8 @@ class RootViewController: UIViewController, UIPageViewControllerDataSource {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-    }
-    
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(true)
         setUpUser() {
-            self.pageImages = ["TestTest", "TestTest", "TestTest"]
+            self.pageImages = [self.timeImage, "TestTest", self.seasonImage]
             self.pageDataTypes = ["Time", "Day", "Month"]
             self.pageDataTypeLabels = ["Best Time Of Day", "Best Day Of Week", "Best Month Of Year"]
             self.pageBestDataLabels = [self.bestTime, self.bestDay, self.bestMonth]
@@ -82,8 +80,33 @@ class RootViewController: UIViewController, UIPageViewControllerDataSource {
             self.addChildViewController(self.pageViewController)
             self.view.addSubview(self.pageViewController.view)
             self.pageViewController.didMoveToParentViewController(self)
-            
         }
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(true)
+        /*
+        setUpUser() {
+            self.pageImages = [self.timeImage, "TestTest", self.seasonImage]
+            self.pageDataTypes = ["Time", "Day", "Month"]
+            self.pageDataTypeLabels = ["Best Time Of Day", "Best Day Of Week", "Best Month Of Year"]
+            self.pageBestDataLabels = [self.bestTime, self.bestDay, self.bestMonth]
+            
+            // Create page view controller
+            self.pageViewController = self.storyboard?.instantiateViewControllerWithIdentifier("PageViewController") as! UIPageViewController
+            self.pageViewController.dataSource = self
+            var startingViewController: PageContentViewController = self.viewControllerAtIndex(0)
+            var viewControllers: NSArray = [startingViewController]
+            self.pageViewController.setViewControllers(viewControllers as [AnyObject], direction: UIPageViewControllerNavigationDirection.Forward, animated: false, completion: nil)
+            
+            
+            // Change the size of page view controller
+            self.pageViewController.view.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height - 30);
+            self.addChildViewController(self.pageViewController)
+            self.view.addSubview(self.pageViewController.view)
+            self.pageViewController.didMoveToParentViewController(self)
+        }
+        */
 
     }
     
@@ -146,7 +169,7 @@ class RootViewController: UIViewController, UIPageViewControllerDataSource {
                 
             }
         }
-        callback()
+        //callback()
     }
     
     func getInfo(user: User, request: URLRequestConvertible, callback: () -> Void) {
@@ -347,6 +370,13 @@ class RootViewController: UIViewController, UIPageViewControllerDataSource {
         }
         
         bestTime = info.times[0].name
+        if (bestTime == "6AM - 7AM" || bestTime == "7AM - 8AM" || bestTime == "8AM - 9AM" || bestTime == "9AM - 10AM" || bestTime == "10AM - 11AM" || bestTime == "11AM - 12PM" || bestTime == "12PM - 1PM" || bestTime == "1PM - 2PM" || bestTime == "2PM - 3PM" || bestTime == "3PM - 4PM" || bestTime == "4PM - 5PM" || bestTime == "5PM - 6PM") {
+            timeImage = "Day"
+        } else if (bestTime == "6PM - 7PM" || bestTime == "7PM - 8PM" || bestTime == "8PM - 9PM" || bestTime == "9PM - 10PM" || bestTime == "10PM - 11PM" || bestTime == "11PM - 12AM" || bestTime == "12AM - 1AM" || bestTime == "1AM - 2AM" || bestTime == "2AM - 3AM" || bestTime == "3AM - 4AM" || bestTime == "4AM - 5AM" || bestTime == "5AM - 6AM") {
+            timeImage = "Night"
+        } else {
+            timeImage = "TestTest"
+        }
         
     }
     
@@ -588,6 +618,17 @@ class RootViewController: UIViewController, UIPageViewControllerDataSource {
         }
         
         bestMonth = info.months[0].name
+        if (bestMonth == "December" || bestMonth == "January" || bestMonth == "Febuary") {
+            seasonImage = "Winter"
+        } else if (bestMonth == "March" || bestMonth == "April" || bestMonth == "May") {
+            seasonImage = "Spring"
+        } else if (bestMonth == "June" || bestMonth == "July" || bestMonth == "August") {
+            seasonImage = "Summer"
+        } else if (bestMonth == "September" || bestMonth == "October" || bestMonth == "November") {
+            seasonImage = "Autumn"
+        } else {
+            seasonImage = "TestTest"
+        }
         
     }
     

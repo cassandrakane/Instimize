@@ -41,8 +41,6 @@ class Post : Object {
         dateFormatter.timeZone = NSTimeZone(name: timezoneName)
         //dateFormatter.timeZone = NSTimeZone(name: "Pacific/Midway")
         
-        println("Time Zone: \(timezoneName)")
-        
         let localDateString = dateFormatter.stringFromDate(gmtDate) + "+0000"
         
         return localDateString
