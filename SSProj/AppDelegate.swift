@@ -21,7 +21,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         pageControl.pageIndicatorTintColor = UIColor.lightGrayColor()
         pageControl.currentPageIndicatorTintColor = UIColor.blackColor()
         pageControl.backgroundColor = UIColor.whiteColor()
-        pageControl.frame = CGRectMake(50, 50, UIScreen.mainScreen().bounds.size.width, 10)
         return true
     }
 

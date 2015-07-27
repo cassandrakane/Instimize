@@ -28,6 +28,7 @@ class RootViewController: UIViewController, UIPageViewControllerDataSource {
     
     //STUFF FOR SET UP
     var shouldLogin = true
+    var newLogin = false
     var testing: Bool = true
     var mediaIDs: [String] = []
     var allLikes: [Int] = []
@@ -58,8 +59,14 @@ class RootViewController: UIViewController, UIPageViewControllerDataSource {
     var days: [Label] = []
     var months: [Label] = []
     
+    @IBAction func unwindToMenu (segue : UIStoryboardSegue) {
+        newLogin = true
+    }
+    
     override func viewDidLoad() {
+        println("ROOT VIEW DID LOAD")
         super.viewDidLoad()
+        self.navigationController?.navigationBarHidden = true
         // Do any additional setup after loading the view.
         setUpUser() {
             self.pageImages = [self.timeImage, "TestTest", self.seasonImage]
@@ -84,30 +91,32 @@ class RootViewController: UIViewController, UIPageViewControllerDataSource {
     }
     
     override func viewDidAppear(animated: Bool) {
+        println("ROot View DID Appear")
         super.viewDidAppear(true)
-        /*
-        setUpUser() {
-            self.pageImages = [self.timeImage, "TestTest", self.seasonImage]
-            self.pageDataTypes = ["Time", "Day", "Month"]
-            self.pageDataTypeLabels = ["Best Time Of Day", "Best Day Of Week", "Best Month Of Year"]
-            self.pageBestDataLabels = [self.bestTime, self.bestDay, self.bestMonth]
+        self.navigationController?.navigationBarHidden = true
+        if newLogin {
+            setUpUser() {
+                self.pageImages = [self.timeImage, "TestTest", self.seasonImage]
+                self.pageDataTypes = ["Time", "Day", "Month"]
+                self.pageDataTypeLabels = ["Best Time Of Day", "Best Day Of Week", "Best Month Of Year"]
+                self.pageBestDataLabels = [self.bestTime, self.bestDay, self.bestMonth]
+                
+                // Create page view controller
+                self.pageViewController = self.storyboard?.instantiateViewControllerWithIdentifier("PageViewController") as! UIPageViewController
+                self.pageViewController.dataSource = self
+                var startingViewController: PageContentViewController = self.viewControllerAtIndex(0)
+                var viewControllers: NSArray = [startingViewController]
+                self.pageViewController.setViewControllers(viewControllers as [AnyObject], direction: UIPageViewControllerNavigationDirection.Forward, animated: false, completion: nil)
             
-            // Create page view controller
-            self.pageViewController = self.storyboard?.instantiateViewControllerWithIdentifier("PageViewController") as! UIPageViewController
-            self.pageViewController.dataSource = self
-            var startingViewController: PageContentViewController = self.viewControllerAtIndex(0)
-            var viewControllers: NSArray = [startingViewController]
-            self.pageViewController.setViewControllers(viewControllers as [AnyObject], direction: UIPageViewControllerNavigationDirection.Forward, animated: false, completion: nil)
             
-            
-            // Change the size of page view controller
-            self.pageViewController.view.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height - 30);
-            self.addChildViewController(self.pageViewController)
-            self.view.addSubview(self.pageViewController.view)
-            self.pageViewController.didMoveToParentViewController(self)
+                // Change the size of page view controller
+                self.pageViewController.view.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height - 30);
+                self.addChildViewController(self.pageViewController)
+                self.view.addSubview(self.pageViewController.view)
+                self.pageViewController.didMoveToParentViewController(self)
+            }
         }
-        */
-
+        newLogin = false
     }
     
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
