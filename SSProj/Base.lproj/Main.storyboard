@@ -250,6 +250,7 @@
                                         <connections>
                                             <outlet property="dataLabel" destination="Nw7-sf-Rfy" id="tlY-c6-5Pc"/>
                                             <outlet property="infoLabel" destination="rtU-5L-WXf" id="AZO-Dk-HKa"/>
+                                            <outlet property="photoLabel" destination="fx9-gg-WLa" id="4FD-Dj-rD6"/>
                                             <outlet property="rankLabel" destination="bFm-Vy-76q" id="UvS-0r-rrk"/>
                                         </connections>
                                     </tableViewCell>

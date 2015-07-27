@@ -12,10 +12,12 @@ class Label {
     var name: String = ""
     var info: String = ""
     var rank: String = ""
+    var photo: String = ""
     
-    init(n: String, i: String, r: String) {
+    init(n: String, i: String, r: String, p: String) {
         name = n
         info = i
         rank = r
+        photo = p
     }
 }

@@ -360,10 +360,10 @@ class RootViewController: UIViewController, UIPageViewControllerDataSource {
             var likes: Double = averageLikesSorted[i]
             var ts = (aveLikesPerHour as NSDictionary).allKeysForObject(likes) as! [String]
             for t in ts {
-                var timeName: String = getTimeName(t)
+                var (timeName, timePhoto) : (String, String) = getTimeName(t)
                 var infoName: String = "average likes: \(((Double)( (Int)(likes * 100.0) ) ) / 100.0)"
                 var rankName: String = "\(count)"
-                info.times.append(Label(n: timeName, i: infoName, r: rankName))
+                info.times.append(Label(n: timeName, i: infoName, r: rankName, p: timePhoto))
                 count++
             }
             i += ts.count - 1
@@ -380,60 +380,85 @@ class RootViewController: UIViewController, UIPageViewControllerDataSource {
         
     }
     
-    func getTimeName(timeNum: String) -> String {
+    func getTimeName(timeNum: String) -> (String, String) {
         var timeName: String = ""
+        var timePhoto: String = ""
         
         if (timeNum == "00") {
             timeName = "12AM - 1AM"
+            timePhoto = "12"
         } else if (timeNum == "01") {
             timeName = "1AM - 2AM"
+            timePhoto = "1"
         } else if (timeNum == "02") {
             timeName = "2AM - 3AM"
+            timePhoto = "2"
         } else if (timeNum == "03") {
             timeName = "3AM - 4AM"
+            timePhoto = "3"
         } else if (timeNum == "04") {
             timeName = "4AM - 5AM"
+            timePhoto = "4"
         } else if (timeNum == "05") {
             timeName = "5AM - 6AM"
+            timePhoto = "5"
         } else if (timeNum == "06") {
             timeName = "6AM - 7AM"
+            timePhoto = "6"
         } else if (timeNum == "07") {
             timeName = "7AM - 8AM"
+            timePhoto = "7"
         } else if (timeNum == "08") {
             timeName = "8AM - 9AM"
+            timePhoto = "8"
         } else if (timeNum == "09") {
             timeName = "9AM - 10AM"
+            timePhoto = "9"
         } else if (timeNum == "10") {
             timeName = "10AM - 11AM"
+            timePhoto = "10"
         } else if (timeNum == "11") {
             timeName = "11AM - 12PM"
+            timePhoto = "11"
         } else if (timeNum == "12") {
             timeName = "12PM - 1PM"
+            timePhoto = "12"
         } else if (timeNum == "13") {
             timeName = "1PM - 2PM"
+            timePhoto = "1"
         } else if (timeNum == "14") {
             timeName = "2PM - 3PM"
+            timePhoto = "2"
         } else if (timeNum == "15") {
             timeName = "3PM - 4PM"
+            timePhoto = "3"
         } else if (timeNum == "16") {
             timeName = "4PM - 5PM"
+            timePhoto = "4"
         } else if (timeNum == "17") {
             timeName = "5PM - 6PM"
+            timePhoto = "5"
         } else if (timeNum == "18") {
             timeName = "6PM - 7PM"
+            timePhoto = "6"
         } else if (timeNum == "19") {
             timeName = "7PM - 8PM"
+            timePhoto = "7"
         } else if (timeNum == "20") {
             timeName = "8PM - 9PM"
+            timePhoto = "8"
         } else if (timeNum == "21") {
             timeName = "9PM - 10PM"
+            timePhoto = "9"
         } else if (timeNum == "22") {
             timeName = "10PM - 11PM"
+            timePhoto = "10"
         } else if (timeNum == "23") {
             timeName = "11PM - 12AM"
+            timePhoto = "11"
         }
         
-        return timeName
+        return (timeName, timePhoto)
     }
     
     
@@ -492,10 +517,10 @@ class RootViewController: UIViewController, UIPageViewControllerDataSource {
             var likes: Double = averageLikesSorted[i]
             var ds = (aveLikesPerDay as NSDictionary).allKeysForObject(likes) as! [String]
             for d in ds {
-                var dayName: String = getDayName(d)
+                var (dayName, dayPhoto): (String, String) = getDayName(d)
                 var infoName: String = "average likes: \(((Double)( (Int)(likes * 100.0) ) ) / 100.0)"
                 var rankName: String = "\(count)"
-                info.days.append(Label(n: dayName, i: infoName, r: rankName))
+                info.days.append(Label(n: dayName, i: infoName, r: rankName, p: dayPhoto))
                 count++
             }
             i += ds.count - 1
@@ -517,26 +542,34 @@ class RootViewController: UIViewController, UIPageViewControllerDataSource {
         
     }
     
-    func getDayName(dayNum: String) -> String {
+    func getDayName(dayNum: String) -> (String, String) {
         var dayName: String = ""
+        var dayPhoto: String = ""
         
         if (dayNum == "1") {
             dayName = "Sunday"
+            dayPhoto = "Sunday"
         } else if (dayNum == "2") {
             dayName = "Monday"
+            dayPhoto = "Monday"
         } else if (dayNum == "3") {
             dayName = "Tuesday"
+            dayPhoto = "Tuesday"
         } else if (dayNum == "4") {
             dayName = "Wednesday"
+            dayPhoto = "Wednesday"
         } else if (dayNum == "5") {
             dayName = "Thursday"
+            dayPhoto = "Thursday"
         } else if (dayNum == "6") {
             dayName = "Friday"
+            dayPhoto = "Friday"
         } else if (dayNum == "7") {
             dayName = "Saturday"
+            dayPhoto = "Saturday"
         }
         
-        return dayName
+        return (dayName, dayPhoto)
     }
     
     
@@ -607,10 +640,10 @@ class RootViewController: UIViewController, UIPageViewControllerDataSource {
             var likes: Double = averageLikesSorted[i]
             var ms = (aveLikesPerMonth as NSDictionary).allKeysForObject(likes) as! [String]
             for m in ms {
-                var monthName: String = getMonthName(m)
+                var (monthName, monthPhoto): (String, String) = getMonthName(m)
                 var infoName: String = "average likes: \(((Double)( (Int)(likes * 100.0) ) ) / 100.0)"
                 var rankName: String = "\(count)"
-                info.months.append(Label(n: monthName, i: infoName, r: rankName))
+                info.months.append(Label(n: monthName, i: infoName, r: rankName, p: monthPhoto))
                 count++
             }
             i += ms.count - 1
@@ -618,7 +651,7 @@ class RootViewController: UIViewController, UIPageViewControllerDataSource {
         }
         
         bestMonth = info.months[0].name
-        if (bestMonth == "December" || bestMonth == "January" || bestMonth == "Febuary") {
+        if (bestMonth == "December" || bestMonth == "January" || bestMonth == "February") {
             seasonImage = "Winter"
         } else if (bestMonth == "March" || bestMonth == "April" || bestMonth == "May") {
             seasonImage = "Spring"
@@ -632,36 +665,49 @@ class RootViewController: UIViewController, UIPageViewControllerDataSource {
         
     }
     
-    func getMonthName(monthNum: String) -> String {
+    func getMonthName(monthNum: String) -> (String, String) {
         var monthName: String = ""
+        var monthPhoto: String = ""
         
         if (monthNum == "01") {
             monthName = "January"
+            monthPhoto = "January"
         } else if (monthNum == "02") {
-            monthName = "Febuary"
+            monthName = "February"
+            monthPhoto = "February"
         } else if (monthNum == "03") {
             monthName = "March"
+            monthPhoto = "March"
         } else if (monthNum == "04") {
             monthName = "April"
+            monthPhoto = "April"
         } else if (monthNum == "05") {
             monthName = "May"
+            monthPhoto = "May"
         } else if (monthNum == "06") {
             monthName = "June"
+            monthPhoto = "June"
         } else if (monthNum == "07") {
             monthName = "July"
+            monthPhoto = "July"
         } else if (monthNum == "08") {
             monthName = "August"
+            monthPhoto = "August"
         } else if (monthNum == "09") {
             monthName = "September"
+            monthPhoto = "September"
         } else if (monthNum == "10") {
             monthName = "October"
+            monthPhoto = "October"
         } else if (monthNum == "11") {
             monthName = "November"
+            monthPhoto = "November"
         } else if (monthNum == "12") {
             monthName = "December"
+            monthPhoto = "December"
         }
         
-        return monthName
+        return (monthName, monthPhoto)
     }
     
     
