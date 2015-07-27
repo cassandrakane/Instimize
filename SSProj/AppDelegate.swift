@@ -21,6 +21,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         pageControl.pageIndicatorTintColor = UIColor.lightGrayColor()
         pageControl.currentPageIndicatorTintColor = UIColor.blackColor()
         pageControl.backgroundColor = UIColor.whiteColor()
+        
+        pageControl.hidden = true;
+        
         return true
     }
 

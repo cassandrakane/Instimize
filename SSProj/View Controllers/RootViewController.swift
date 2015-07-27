@@ -83,10 +83,11 @@ class RootViewController: UIViewController, UIPageViewControllerDataSource {
             
             
             // Change the size of page view controller
-            self.pageViewController.view.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height - 30);
+            self.pageViewController.view.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height + 40);
             self.addChildViewController(self.pageViewController)
             self.view.addSubview(self.pageViewController.view)
             self.pageViewController.didMoveToParentViewController(self)
+        
         }
     }
     

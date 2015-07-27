@@ -19,6 +19,9 @@ class PageContentViewController: UIViewController {
     @IBOutlet weak var bestDataTypeLabel: UILabel!
     @IBOutlet weak var bestDataLabel: UILabel!
     
+    @IBOutlet weak var settingsButton: UIButton!
+    @IBOutlet weak var settingsView: UIView!
+    
     var pageIndex: Int = 0
     var dataType: String = ""
     var imageFile: String = ""
@@ -30,10 +33,12 @@ class PageContentViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let frame: CGRect = UIScreen.mainScreen().bounds
-        tableView.tableHeaderView!.bounds.size.height = UIScreen.mainScreen().bounds.size.height
+        println("page content vc did load")
+        //let frame: CGRect = CGRect(x: 0, y: 0, width: UIScreen.mainScreen().bounds.size.width, height: UIScreen.mainScreen().bounds.size.height)
+        tableView.tableHeaderView!.bounds.size.height = UIScreen.mainScreen().bounds.size.height + 90
+        self.backgroundImage.bounds.size.width = UIScreen.mainScreen().bounds.size.width
         self.backgroundImage.image = UIImage(named: imageFile)
-        self.backgroundImage.bounds = frame
+        //self.backgroundImage.bounds = frame
         backgroundImage.contentMode = UIViewContentMode.ScaleAspectFill
         bestDataTypeLabel.text = dataTypeString
         bestDataLabel.text = bestDataString
@@ -72,16 +77,20 @@ class PageContentViewController: UIViewController {
         user = realm.objects(User).first!
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    @IBAction func buttonTapped(sender: AnyObject) {
+        println("button tapped")
+        animateSettings()
     }
-    */
+
+    func animateSettings() {
+        println("animate settings")
+        UIView.animateWithDuration(0.5) {
+            // changes made in here will be animated
+            println("animating")
+            
+            self.settingsView.frame = CGRect(x: UIScreen.mainScreen().bounds.size.width - 250, y: 50, width: 240, height: 100)
+        }
+    }
 
 }
 
