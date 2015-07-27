@@ -99,17 +99,17 @@ class PageContentViewController: UIViewController {
             
             let width = self.settingsView.bounds.size.width
             let height = self.settingsView.bounds.size.height
-            let xCenter = (UIScreen.mainScreen().bounds.size.width / 2) - (self.settingsView.bounds.size.width / 2)
+            //let xCenter = (UIScreen.mainScreen().bounds.size.width / 2) - (self.settingsView.bounds.size.width / 2)
+            let xCenter = self.settingsView.frame.origin.x
             
             if self.settingsOpen {
-                
                 
                 self.settingsView.frame = CGRect(x: xCenter, y: -UIScreen.mainScreen().bounds.size.height / 2, width: width, height: height)
                 
                 
             } else {
             
-                self.settingsView.frame = CGRect(x: xCenter, y: UIScreen.mainScreen().bounds.size.height / 2, width: width, height: height)
+                self.settingsView.frame = CGRect(x: xCenter, y: UIScreen.mainScreen().bounds.size.height / 3, width: width, height: height)
                
             }
             

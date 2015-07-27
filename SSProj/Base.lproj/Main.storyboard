@@ -75,8 +75,8 @@
                                     <constraint firstAttribute="height" constant="20" id="eOY-8z-juU"/>
                                 </constraints>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" pagingEnabled="YES" dataMode="prototypes" style="plain" rowHeight="80" sectionHeaderHeight="22" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="V6P-JY-iMQ">
-                                <rect key="frame" x="-14" y="10" width="598" height="580"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" pagingEnabled="YES" dataMode="prototypes" style="plain" rowHeight="80" sectionHeaderHeight="22" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="V6P-JY-iMQ">
+                                <rect key="frame" x="1" y="20" width="598" height="580"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="separatorColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -139,10 +139,10 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4wb-mg-txP">
-                                            <rect key="frame" x="299" y="150" width="0.0" height="0.0"/>
+                                            <rect key="frame" x="199" y="-500" width="200" height="150"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7Vj-1y-x8W">
-                                                    <rect key="frame" x="-50" y="50" width="100" height="50"/>
+                                                    <rect key="frame" x="50" y="20" width="100" height="50"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="100" id="dG3-x9-3vH"/>
                                                         <constraint firstAttribute="height" constant="50" id="fTk-a5-3AM"/>
@@ -151,14 +151,14 @@
                                                         <attributedString key="attributedTitle">
                                                             <fragment content="Logout">
                                                                 <attributes>
-                                                                    <font key="NSFont" size="25" name="Avenir-Book"/>
+                                                                    <font key="NSFont" size="30" name="Avenir-Book"/>
                                                                 </attributes>
                                                             </fragment>
                                                         </attributedString>
                                                     </state>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iAl-zf-G5w">
-                                                    <rect key="frame" x="-50" y="-100" width="100" height="50"/>
+                                                    <rect key="frame" x="50" y="80" width="100" height="50"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="50" id="kJm-gA-oJt"/>
                                                         <constraint firstAttribute="width" constant="100" id="z57-61-RdJ"/>
@@ -167,7 +167,7 @@
                                                         <attributedString key="attributedTitle">
                                                             <fragment content="Info">
                                                                 <attributes>
-                                                                    <font key="NSFont" size="25" name="Avenir-Book"/>
+                                                                    <font key="NSFont" size="30" name="Avenir-Book"/>
                                                                 </attributes>
                                                             </fragment>
                                                         </attributedString>
@@ -178,17 +178,17 @@
                                             <constraints>
                                                 <constraint firstAttribute="centerX" secondItem="7Vj-1y-x8W" secondAttribute="centerX" id="5YY-UD-hyF"/>
                                                 <constraint firstAttribute="centerY" secondItem="iAl-zf-G5w" secondAttribute="centerY" id="6I7-ND-3e1"/>
-                                                <constraint firstAttribute="bottom" secondItem="iAl-zf-G5w" secondAttribute="bottom" constant="50" id="Dmp-En-cSL"/>
-                                                <constraint firstAttribute="height" id="Jsc-zi-LXJ"/>
+                                                <constraint firstAttribute="bottom" secondItem="iAl-zf-G5w" secondAttribute="bottom" constant="20" id="Dmp-En-cSL"/>
+                                                <constraint firstAttribute="height" constant="150" id="Jsc-zi-LXJ"/>
                                                 <constraint firstAttribute="centerX" secondItem="iAl-zf-G5w" secondAttribute="centerX" id="SYB-pk-hNf"/>
-                                                <constraint firstItem="7Vj-1y-x8W" firstAttribute="top" secondItem="4wb-mg-txP" secondAttribute="top" constant="50" id="Shd-0u-LI7"/>
+                                                <constraint firstItem="7Vj-1y-x8W" firstAttribute="top" secondItem="4wb-mg-txP" secondAttribute="top" constant="20" id="Shd-0u-LI7"/>
                                                 <constraint firstAttribute="centerY" secondItem="7Vj-1y-x8W" secondAttribute="centerY" id="l1v-S1-Qa8"/>
-                                                <constraint firstAttribute="width" id="o8k-fZ-18w"/>
+                                                <constraint firstAttribute="width" constant="200" id="o8k-fZ-18w"/>
                                             </constraints>
                                             <variation key="default">
                                                 <mask key="constraints">
-                                                    <exclude reference="6I7-ND-3e1"/>
                                                     <exclude reference="l1v-S1-Qa8"/>
+                                                    <exclude reference="6I7-ND-3e1"/>
                                                 </mask>
                                             </variation>
                                         </view>
@@ -221,6 +221,7 @@
                                         <constraint firstAttribute="centerY" secondItem="4wb-mg-txP" secondAttribute="centerY" id="ZgD-Hx-yj2"/>
                                         <constraint firstItem="DSD-So-VuB" firstAttribute="leading" secondItem="4wb-mg-txP" secondAttribute="trailing" id="cWm-k6-Th1"/>
                                         <constraint firstItem="dGE-UN-x3X" firstAttribute="leading" secondItem="MlF-vO-IAs" secondAttribute="leading" constant="20" id="d4t-xe-Xac"/>
+                                        <constraint firstItem="4wb-mg-txP" firstAttribute="top" secondItem="MlF-vO-IAs" secondAttribute="top" constant="-500" id="hjf-YL-dJS"/>
                                         <constraint firstItem="4wb-mg-txP" firstAttribute="top" secondItem="DSD-So-VuB" secondAttribute="bottom" id="ihz-AB-0c4"/>
                                         <constraint firstAttribute="trailing" secondItem="DSD-So-VuB" secondAttribute="trailing" constant="30" id="jyH-li-4FP"/>
                                         <constraint firstItem="3TC-Gr-crh" firstAttribute="leading" secondItem="MlF-vO-IAs" secondAttribute="leading" constant="20" id="t1E-Uh-tO2"/>
@@ -231,10 +232,11 @@
                                         <mask key="constraints">
                                             <exclude reference="9gm-T8-Ixj"/>
                                             <exclude reference="Clz-lE-Vp3"/>
+                                            <exclude reference="cWm-k6-Th1"/>
                                             <exclude reference="5Ya-gI-lEn"/>
                                             <exclude reference="Ebf-t2-VKq"/>
+                                            <exclude reference="ZgD-Hx-yj2"/>
                                             <exclude reference="ihz-AB-0c4"/>
-                                            <exclude reference="cWm-k6-Th1"/>
                                         </mask>
                                     </variation>
                                 </view>
