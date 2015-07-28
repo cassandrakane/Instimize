@@ -10,14 +10,16 @@ import Foundation
 
 class Label {
     var name: String = ""
-    var info: String = ""
+    var likes: String = ""
+    var posts: String = ""
     var rank: String = ""
     var photo: String = ""
     
-    init(n: String, i: String, r: String, p: String) {
+    init(n: String, l: String, p: String, r: String, ph: String) {
         name = n
-        info = i
+        likes = l
+        posts = p
         rank = r
-        photo = p
+        photo = ph
     }
 }

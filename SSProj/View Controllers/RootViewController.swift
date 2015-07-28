@@ -154,18 +154,18 @@ class RootViewController: UIViewController, UIPageViewControllerDataSource {
                 self.user?.set = false
             }
             if realm.objects(User).first != nil && realm.objects(User).first!.posts.description != user!.posts.description {
+                info.setUp = false
+            }
+            println("set up: \(info.setUp)")
+            if !info.setUp {
                 println("RESET POSTS")
                 self.mediaIDs = []
                 self.allLikes = []
                 self.createdTimes = []
-                info.setUp = false
                 realm.write() {
                     realm.objects(User).first!.set = false
                     self.user?.set = false
                 }
-            }
-            println("set up: \(info.setUp)")
-            if !info.setUp {
                 let urlString = Instagram.Router.getRecent(user!.userID, user!.accessToken)
                 getInfo(user!, request: urlString) {
                     NSLog("NUM OF POSTS \(self.user!.posts.count)")
@@ -308,20 +308,20 @@ class RootViewController: UIViewController, UIPageViewControllerDataSource {
     //OPTIMIZE TIMES
     func optimizeTime() {
         createHoursWithLikesT()
-        changeNanToZeroT()
+        changeNanToZegativeT()
         createAveragesT()
         sortTimes()
     }
     
-    func changeNanToZeroT() {
+    func changeNanToZegativeT() {
         for index in 0...23 {
             if (index < 10) {
                 if (totLikesPerHour["0\(index)"]! == []) {
-                    totLikesPerHour["0\(index)"]!.append(0)
+                    totLikesPerHour["0\(index)"]!.append(-1)
                 }
             } else {
                 if (totLikesPerHour["\(index)"]! == []) {
-                    totLikesPerHour["\(index)"]!.append(0)
+                    totLikesPerHour["\(index)"]!.append(-1)
                 }
             }
         }
@@ -373,18 +373,27 @@ class RootViewController: UIViewController, UIPageViewControllerDataSource {
             var ts = (aveLikesPerHour as NSDictionary).allKeysForObject(likes) as! [String]
             for t in ts {
                 var (timeName, timePhoto) : (String, String) = getTimeName(t)
-                var infoName: String = "average likes: \(((Double)( (Int)(likes * 100.0) ) ) / 100.0)"
+                var likesName: String = ""
+                var postName: String = ""
+                if (likes >= 0) {
+                    likesName = "average likes: \(((Double)( (Int)(likes * 100.0) ) ) / 100.0)"
+                    postName = "# of posts: \(totLikesPerHour[t]!.count)"
+                } else {
+                    likesName = "average likes: n/a"
+                    postName = "# of posts: 0"
+                }
+
                 var rankName: String = "\(count)"
-                info.times.append(Label(n: timeName, i: infoName, r: rankName, p: timePhoto))
+                info.times.append(Label(n: timeName, l: likesName, p: postName, r: rankName, ph: timePhoto))
                 count++
             }
             i += ts.count - 1
         }
         
         bestTime = info.times[0].name
-        if (bestTime == "6AM - 7AM" || bestTime == "7AM - 8AM" || bestTime == "8AM - 9AM" || bestTime == "9AM - 10AM" || bestTime == "10AM - 11AM" || bestTime == "11AM - 12PM" || bestTime == "12PM - 1PM" || bestTime == "1PM - 2PM" || bestTime == "2PM - 3PM" || bestTime == "3PM - 4PM" || bestTime == "4PM - 5PM" || bestTime == "5PM - 6PM") {
+        if (bestTime == "6AM – 7AM" || bestTime == "7AM – 8AM" || bestTime == "8AM – 9AM" || bestTime == "9AM – 10AM" || bestTime == "10AM – 11AM" || bestTime == "11AM – 12PM" || bestTime == "12PM – 1PM" || bestTime == "1PM – 2PM" || bestTime == "2PM – 3PM" || bestTime == "3PM – 4PM" || bestTime == "4PM – 5PM" || bestTime == "5PM – 6PM") {
             timeImage = "Day"
-        } else if (bestTime == "6PM - 7PM" || bestTime == "7PM - 8PM" || bestTime == "8PM - 9PM" || bestTime == "9PM - 10PM" || bestTime == "10PM - 11PM" || bestTime == "11PM - 12AM" || bestTime == "12AM - 1AM" || bestTime == "1AM - 2AM" || bestTime == "2AM - 3AM" || bestTime == "3AM - 4AM" || bestTime == "4AM - 5AM" || bestTime == "5AM - 6AM") {
+        } else if (bestTime == "6PM – 7PM" || bestTime == "7PM – 8PM" || bestTime == "8PM – 9PM" || bestTime == "9PM – 10PM" || bestTime == "10PM – 11PM" || bestTime == "11PM – 12AM" || bestTime == "12AM – 1AM" || bestTime == "1AM – 2AM" || bestTime == "2AM – 3AM" || bestTime == "3AM – 4AM" || bestTime == "4AM – 5AM" || bestTime == "5AM – 6AM") {
             timeImage = "Night"
         } else {
             timeImage = "TestTest"
@@ -397,76 +406,76 @@ class RootViewController: UIViewController, UIPageViewControllerDataSource {
         var timePhoto: String = ""
         
         if (timeNum == "00") {
-            timeName = "12AM - 1AM"
+            timeName = "12AM – 1AM"
             timePhoto = "12"
         } else if (timeNum == "01") {
-            timeName = "1AM - 2AM"
+            timeName = "1AM – 2AM"
             timePhoto = "1"
         } else if (timeNum == "02") {
-            timeName = "2AM - 3AM"
+            timeName = "2AM – 3AM"
             timePhoto = "2"
         } else if (timeNum == "03") {
-            timeName = "3AM - 4AM"
+            timeName = "3AM – 4AM"
             timePhoto = "3"
         } else if (timeNum == "04") {
-            timeName = "4AM - 5AM"
+            timeName = "4AM – 5AM"
             timePhoto = "4"
         } else if (timeNum == "05") {
-            timeName = "5AM - 6AM"
+            timeName = "5AM – 6AM"
             timePhoto = "5"
         } else if (timeNum == "06") {
-            timeName = "6AM - 7AM"
+            timeName = "6AM – 7AM"
             timePhoto = "6"
         } else if (timeNum == "07") {
-            timeName = "7AM - 8AM"
+            timeName = "7AM – 8AM"
             timePhoto = "7"
         } else if (timeNum == "08") {
-            timeName = "8AM - 9AM"
+            timeName = "8AM – 9AM"
             timePhoto = "8"
         } else if (timeNum == "09") {
-            timeName = "9AM - 10AM"
+            timeName = "9AM – 10AM"
             timePhoto = "9"
         } else if (timeNum == "10") {
-            timeName = "10AM - 11AM"
+            timeName = "10AM – 11AM"
             timePhoto = "10"
         } else if (timeNum == "11") {
-            timeName = "11AM - 12PM"
+            timeName = "11AM – 12PM"
             timePhoto = "11"
         } else if (timeNum == "12") {
-            timeName = "12PM - 1PM"
+            timeName = "12PM – 1PM"
             timePhoto = "12"
         } else if (timeNum == "13") {
-            timeName = "1PM - 2PM"
+            timeName = "1PM – 2PM"
             timePhoto = "1"
         } else if (timeNum == "14") {
-            timeName = "2PM - 3PM"
+            timeName = "2PM – 3PM"
             timePhoto = "2"
         } else if (timeNum == "15") {
-            timeName = "3PM - 4PM"
+            timeName = "3PM – 4PM"
             timePhoto = "3"
         } else if (timeNum == "16") {
-            timeName = "4PM - 5PM"
+            timeName = "4PM – 5PM"
             timePhoto = "4"
         } else if (timeNum == "17") {
-            timeName = "5PM - 6PM"
+            timeName = "5PM – 6PM"
             timePhoto = "5"
         } else if (timeNum == "18") {
-            timeName = "6PM - 7PM"
+            timeName = "6PM – 7PM"
             timePhoto = "6"
         } else if (timeNum == "19") {
-            timeName = "7PM - 8PM"
+            timeName = "7PM – 8PM"
             timePhoto = "7"
         } else if (timeNum == "20") {
-            timeName = "8PM - 9PM"
+            timeName = "8PM – 9PM"
             timePhoto = "8"
         } else if (timeNum == "21") {
-            timeName = "9PM - 10PM"
+            timeName = "9PM – 10PM"
             timePhoto = "9"
         } else if (timeNum == "22") {
-            timeName = "10PM - 11PM"
+            timeName = "10PM – 11PM"
             timePhoto = "10"
         } else if (timeNum == "23") {
-            timeName = "11PM - 12AM"
+            timeName = "11PM – 12AM"
             timePhoto = "11"
         }
         
@@ -477,15 +486,15 @@ class RootViewController: UIViewController, UIPageViewControllerDataSource {
     //OPTIMIZE DAYS
     func optimizeDay() {
         createDaysWithLikes()
-        changeNanToZeroD()
+        changeNanToZegativeD()
         createAveragesD()
         sortDays()
     }
     
-    func changeNanToZeroD() {
+    func changeNanToZegativeD() {
         for index in 1...7 {
             if (totLikesPerDay["\(index)"]! == []) {
-                totLikesPerDay["\(index)"]!.append(0)
+                totLikesPerDay["\(index)"]!.append(-1)
             }
         }
     }
@@ -530,9 +539,17 @@ class RootViewController: UIViewController, UIPageViewControllerDataSource {
             var ds = (aveLikesPerDay as NSDictionary).allKeysForObject(likes) as! [String]
             for d in ds {
                 var (dayName, dayPhoto): (String, String) = getDayName(d)
-                var infoName: String = "average likes: \(((Double)( (Int)(likes * 100.0) ) ) / 100.0)"
+                var likesName: String = ""
+                var postName: String = ""
+                if (likes >= 0) {
+                    likesName = "average likes: \(((Double)( (Int)(likes * 100.0) ) ) / 100.0)"
+                    postName = "# of posts: \(totLikesPerDay[d]!.count)"
+                } else {
+                    likesName = "average likes: n/a"
+                    postName = "# of posts: 0"
+                }
                 var rankName: String = "\(count)"
-                info.days.append(Label(n: dayName, i: infoName, r: rankName, p: dayPhoto))
+                info.days.append(Label(n: dayName, l: likesName, p: postName, r: rankName, ph: dayPhoto))
                 count++
             }
             i += ds.count - 1
@@ -588,20 +605,20 @@ class RootViewController: UIViewController, UIPageViewControllerDataSource {
     //OPTIMIZE MONTHS
     func optimizeMonth() {
         createMonthsWithLikes()
-        changeNanToZeroM()
+        changeNanToZegativeM()
         createAveragesM()
         sortMonths()
     }
     
-    func changeNanToZeroM() {
+    func changeNanToZegativeM() {
         for index in 1...12 {
             if (index < 10) {
                 if (totLikesPerMonth["0\(index)"]! == []) {
-                    totLikesPerMonth["0\(index)"]!.append(0)
+                    totLikesPerMonth["0\(index)"]!.append(-1)
                 }
             } else {
                 if (totLikesPerMonth["\(index)"]! == []) {
-                    totLikesPerMonth["\(index)"]!.append(0)
+                    totLikesPerMonth["\(index)"]!.append(-1)
                 }
             }
         }
@@ -653,9 +670,17 @@ class RootViewController: UIViewController, UIPageViewControllerDataSource {
             var ms = (aveLikesPerMonth as NSDictionary).allKeysForObject(likes) as! [String]
             for m in ms {
                 var (monthName, monthPhoto): (String, String) = getMonthName(m)
-                var infoName: String = "average likes: \(((Double)( (Int)(likes * 100.0) ) ) / 100.0)"
+                var likesName: String = ""
+                var postName: String = ""
+                if (likes >= 0) {
+                    likesName = "average likes: \(((Double)( (Int)(likes * 100.0) ) ) / 100.0)"
+                    postName = "# of posts: \(totLikesPerMonth[m]!.count)"
+                } else {
+                    likesName = "average likes: n/a"
+                    postName = "# of posts: 0"
+                }
                 var rankName: String = "\(count)"
-                info.months.append(Label(n: monthName, i: infoName, r: rankName, p: monthPhoto))
+                info.months.append(Label(n: monthName, l: likesName, p: postName, r: rankName, ph: monthPhoto))
                 count++
             }
             i += ms.count - 1
