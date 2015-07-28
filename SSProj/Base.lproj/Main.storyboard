@@ -34,7 +34,21 @@
                     <view key="view" contentMode="scaleToFill" id="nvo-pz-tMS">
                         <rect key="frame" x="0.0" y="64" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="mTu-OG-j2t">
+                                <rect key="frame" x="275" y="275" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="gu8-mo-6gN"/>
+                                    <constraint firstAttribute="height" constant="50" id="pAg-5g-4UC"/>
+                                </constraints>
+                                <color key="color" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </activityIndicatorView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="mTu-OG-j2t" secondAttribute="centerX" id="7ol-hE-p8P"/>
+                            <constraint firstAttribute="centerY" secondItem="mTu-OG-j2t" secondAttribute="centerY" id="th1-h3-Rj4"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="TKL-fl-mie"/>
                     <connections>
@@ -65,7 +79,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TestTest" translatesAutoresizingMaskIntoConstraints="NO" id="0yw-rH-6lt">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TestTest" translatesAutoresizingMaskIntoConstraints="NO" id="0yw-rH-6lt">
                                 <rect key="frame" x="8" y="0.0" width="576" height="600"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xCk-ta-3eQ">
@@ -510,8 +524,8 @@ Make School Summer Academy (makeschool.com)</string>
                                 </attributedString>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iSJ-my-o5M">
-                                <rect key="frame" x="220" y="25" width="162" height="46"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iSJ-my-o5M">
+                                <rect key="frame" x="219" y="25" width="162" height="46"/>
                                 <state key="normal">
                                     <attributedString key="attributedTitle">
                                         <fragment content="Back To Home">
@@ -612,6 +626,6 @@ Make School Summer Academy (makeschool.com)</string>
         <image name="TestTest" width="320" height="568"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Gcw-Pz-ggT"/>
+        <segue reference="keK-mN-lU3"/>
     </inferredMetricsTieBreakers>
 </document>

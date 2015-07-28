@@ -39,12 +39,12 @@ class PageContentViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         println("page content vc did load")
-        //let frame: CGRect = CGRect(x: 0, y: 0, width: UIScreen.mainScreen().bounds.size.width, height: UIScreen.mainScreen().bounds.size.height)
+        let frame: CGRect = CGRect(x: 0, y: 0, width: UIScreen.mainScreen().bounds.size.width, height: UIScreen.mainScreen().bounds.size.height)
         tableView.tableHeaderView!.bounds.size.height = UIScreen.mainScreen().bounds.size.height + 90
-        self.backgroundImage.bounds.size.width = UIScreen.mainScreen().bounds.size.width
         self.backgroundImage.image = UIImage(named: imageFile)
-        //self.backgroundImage.bounds = frame
+        self.backgroundImage.bounds = frame
         backgroundImage.contentMode = UIViewContentMode.ScaleAspectFill
+        
         bestDataTypeLabel.text = dataTypeString
         bestDataLabel.text = bestDataString
         
@@ -154,9 +154,11 @@ extension PageContentViewController: UITableViewDataSource {
 }
 
 extension PageContentViewController: UITableViewDelegate {
+   
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return 80
     }
+
 }
 
 extension PageContentViewController: UIScrollViewDelegate {
