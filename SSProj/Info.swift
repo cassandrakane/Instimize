@@ -13,6 +13,8 @@ class Info {
     var times: [Label] = []
     var days: [Label] = []
     var months: [Label] = []
+    var newLogin: Bool = false
+    var setUp: Bool = false
     
     class var sharedInstance : Info {
         struct Static {

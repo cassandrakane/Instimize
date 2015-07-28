@@ -28,12 +28,11 @@ class RootViewController: UIViewController, UIPageViewControllerDataSource {
     
     //STUFF FOR SET UP
     var shouldLogin = true
-    var newLogin = false
+    //var newLogin = false
     var testing: Bool = true
     var mediaIDs: [String] = []
     var allLikes: [Int] = []
     var createdTimes: [String] = []
-    var setUp: Bool = false
     
     var user: User? {
         didSet {
@@ -60,7 +59,7 @@ class RootViewController: UIViewController, UIPageViewControllerDataSource {
     var months: [Label] = []
     
     @IBAction func unwindToMenu (segue : UIStoryboardSegue) {
-        newLogin = true
+        info.newLogin = true
     }
     
     override func viewDidLoad() {
@@ -95,8 +94,9 @@ class RootViewController: UIViewController, UIPageViewControllerDataSource {
         println("ROot View DID Appear")
         super.viewDidAppear(true)
         self.navigationController?.navigationBarHidden = true
-        if newLogin {
+        if info.newLogin {
             setUpUser() {
+                println("setting up user")
                 self.pageImages = [self.timeImage, "TestTest", self.seasonImage]
                 self.pageDataTypes = ["Time", "Day", "Month"]
                 self.pageDataTypeLabels = ["Best Time Of Day", "Best Day Of Week", "Best Month Of Year"]
@@ -108,16 +108,17 @@ class RootViewController: UIViewController, UIPageViewControllerDataSource {
                 var startingViewController: PageContentViewController = self.viewControllerAtIndex(0)
                 var viewControllers: NSArray = [startingViewController]
                 self.pageViewController.setViewControllers(viewControllers as [AnyObject], direction: UIPageViewControllerNavigationDirection.Forward, animated: false, completion: nil)
-            
-            
+                
+                
                 // Change the size of page view controller
-                self.pageViewController.view.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height - 30);
+                self.pageViewController.view.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height + 40);
                 self.addChildViewController(self.pageViewController)
                 self.view.addSubview(self.pageViewController.view)
                 self.pageViewController.didMoveToParentViewController(self)
+                
             }
         }
-        newLogin = false
+        info.newLogin = false
     }
     
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
@@ -157,26 +158,27 @@ class RootViewController: UIViewController, UIPageViewControllerDataSource {
                 self.mediaIDs = []
                 self.allLikes = []
                 self.createdTimes = []
-                setUp = false
+                info.setUp = false
                 realm.write() {
                     realm.objects(User).first!.set = false
                     self.user?.set = false
                 }
             }
-            println("set up: \(setUp)")
-            if !setUp {
+            println("set up: \(info.setUp)")
+            if !info.setUp {
                 let urlString = Instagram.Router.getRecent(user!.userID, user!.accessToken)
                 getInfo(user!, request: urlString) {
                     NSLog("NUM OF POSTS \(self.user!.posts.count)")
                     self.optimizeAll()
-                    self.setUp = true
+                    self.info.setUp = true
                     realm.write() {
                         realm.objects(User).first!.set = true
                         self.user?.set = true
                     }
                     callback()
                 }
-                
+            } else {
+                callback()
             }
         }
         //callback()

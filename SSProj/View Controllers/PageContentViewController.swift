@@ -87,12 +87,27 @@ class PageContentViewController: UIViewController {
     
     @IBAction func buttonTapped(sender: AnyObject) {
         println("button tapped")
+        self.settingsButton.setImage(UIImage(named: "Info Selected"), forState: UIControlState.Normal)
         animateSettings()
+        self.settingsButton.setImage(UIImage(named: "Info"), forState: UIControlState.Normal)
     }
 
+    
+    @IBAction func logoutTapped(sender: AnyObject) {
+        self.settingsOpen = true
+        animateSettings()
+        info.newLogin = true
+        info.setUp = false
+    }
+    
+    @IBAction func infoTapped(sender: AnyObject) {
+    
+    }
+    
+    
     func animateSettings() {
         println("animate settings")
-        
+      
         UIView.animateWithDuration(0.5) {
             // changes made in here will be animated
             println("animating")
