@@ -22,6 +22,7 @@
 		741E1D1D1B45AA0D001C9B27 /* Instagram.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741E1D1C1B45AA0D001C9B27 /* Instagram.swift */; };
 		741E1D211B45B7F0001C9B27 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741E1D201B45B7F0001C9B27 /* User.swift */; };
 		7461ACD71B5D30EF00FDDFCA /* Info.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7461ACD61B5D30EF00FDDFCA /* Info.swift */; };
+		74B58BEE1B67C9AC00BD0FA4 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B58BED1B67C9AC00BD0FA4 /* SettingsViewController.swift */; };
 		CB21AABF5A0FF8A995627C1D /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D948DF58668113D13E30771 /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
@@ -57,6 +58,7 @@
 		741E1D1C1B45AA0D001C9B27 /* Instagram.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Instagram.swift; sourceTree = "<group>"; };
 		741E1D201B45B7F0001C9B27 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		7461ACD61B5D30EF00FDDFCA /* Info.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Info.swift; sourceTree = "<group>"; };
+		74B58BED1B67C9AC00BD0FA4 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsViewController.swift; path = "View Controllers/SettingsViewController.swift"; sourceTree = "<group>"; };
 		74D7F0441B5D98570083C41F /* SSProj-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SSProj-Bridging-Header.h"; sourceTree = "<group>"; };
 		A49590FA6B898EBC4474AF93 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -169,6 +171,7 @@
 				7402953A1B5FD40C001155B8 /* PageContentViewController.swift */,
 				7402953C1B5FD4C1001155B8 /* RootViewController.swift */,
 				740295421B602083001155B8 /* NavigationViewController.swift */,
+				74B58BED1B67C9AC00BD0FA4 /* SettingsViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -352,6 +355,7 @@
 				740295411B6015BE001155B8 /* TableViewCell.swift in Sources */,
 				741E1D1B1B45A78D001C9B27 /* OauthLoginViewController.swift in Sources */,
 				740FA4C91B459292000E88B7 /* AppDelegate.swift in Sources */,
+				74B58BEE1B67C9AC00BD0FA4 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -121,6 +121,7 @@ class RootViewController: UIViewController, UIPageViewControllerDataSource {
         info.newLogin = false
     }
     
+    
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
         return UIStatusBarStyle.LightContent
     }

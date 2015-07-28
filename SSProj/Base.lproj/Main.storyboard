@@ -178,6 +178,7 @@
                                                     </state>
                                                     <connections>
                                                         <action selector="infoTapped:" destination="ewc-8z-Vcj" eventType="touchUpInside" id="5tv-i8-nvM"/>
+                                                        <segue destination="0AT-jJ-KaP" kind="presentation" modalTransitionStyle="flipHorizontal" id="B1k-PO-1Um"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -418,6 +419,128 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1CD-h8-GYo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1847" y="-1061"/>
+        </scene>
+        <!--Settings View Controller-->
+        <scene sceneID="5hn-JV-g23">
+            <objects>
+                <viewController id="0AT-jJ-KaP" customClass="SettingsViewController" customModule="SSProj" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="lG1-JT-qBR"/>
+                        <viewControllerLayoutGuide type="bottom" id="vjU-h0-JLo"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="z2X-KH-aky">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" usesAttributedText="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Z3-iu-GSG">
+                                <rect key="frame" x="8" y="65" width="592" height="535"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <attributedString key="attributedText">
+                                    <fragment>
+                                        <string key="content">Artwork
+</string>
+                                        <attributes>
+                                            <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="20" name="Avenir-Book"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content">“2009 Leonid Meteor” by Ed Sweeney
+“leaves” by liz west
+"Foot Steps in the Snow" by Sean J Connolly
+"Flowers with Macro Mode on Lumix TZ5" by Jeff Turner
+Licensed under Creative Commons: By Attribution 2.0
+(http://creativecommons.org/licenses/by/2.0/)
+"Info" by Arthur Shlain from the Noun Project
+"Clocks" by Michael Thompson from the Noun Project - Edited (crop, color) by Cassandra Kane
+"Days and Dates" by Gianni - Dolce Merda from the Noun Project - Edited (crop, color) by Cassandra Kane
+"Monthly Calendars" by Garrett Knoll from the Noun Project - Edited (crop, color) by Cassandra Kane
+Licensed under Creative Commons: By Attribution 3.0
+(http://creativecommons.org/licenses/by/3.0/)
+
+</string>
+                                        <attributes>
+                                            <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="15" name="Avenir-Book"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content">Notes
+</string>
+                                        <attributes>
+                                            <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="20" name="Avenir-Book"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content">Information from Instimize cannot guarantee an increase in likes on future posts due to the unavoidable variance in content (photo, caption, etc).
+Users with less data - under 50 posts - will have less accurate results compared to users with more data.</string>
+                                        <attributes>
+                                            <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="15" name="Avenir-Book"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content">
+
+Special Thanks
+</string>
+                                        <attributes>
+                                            <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="20" name="Avenir-Book"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content">Zachary Espirutu
+Rose Meier
+Adam Reis
+The Kane Family
+Make School Summer Academy (makeschool.com)</string>
+                                        <attributes>
+                                            <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="15" name="Avenir-Book"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iSJ-my-o5M">
+                                <rect key="frame" x="220" y="25" width="162" height="46"/>
+                                <state key="normal">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="Back To Home">
+                                            <attributes>
+                                                <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <font key="NSFont" size="25" name="Avenir-Book"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                </state>
+                                <connections>
+                                    <action selector="buttonTapped:" destination="0AT-jJ-KaP" eventType="touchUpInside" id="98b-RQ-IS6"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="5Z3-iu-GSG" firstAttribute="leadingMargin" secondItem="z2X-KH-aky" secondAttribute="leadingMargin" id="5X1-1s-Lhp"/>
+                            <constraint firstItem="vjU-h0-JLo" firstAttribute="top" secondItem="5Z3-iu-GSG" secondAttribute="bottom" id="CLb-MP-Mqi"/>
+                            <constraint firstAttribute="centerX" secondItem="iSJ-my-o5M" secondAttribute="centerX" id="XFh-ks-OUu"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="5Z3-iu-GSG" secondAttribute="trailing" constant="-16" id="dTc-6A-pgC"/>
+                            <constraint firstItem="5Z3-iu-GSG" firstAttribute="top" secondItem="z2X-KH-aky" secondAttribute="topMargin" constant="65" id="e4S-kT-BxV"/>
+                            <constraint firstItem="iSJ-my-o5M" firstAttribute="top" secondItem="lG1-JT-qBR" secondAttribute="bottom" constant="5" id="zBx-cL-s9b"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2vZ-pn-VvP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1847" y="-344"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Rfz-Bf-2Mf">
