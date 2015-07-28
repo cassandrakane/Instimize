@@ -183,9 +183,10 @@
                                                     </constraints>
                                                     <state key="normal">
                                                         <attributedString key="attributedTitle">
-                                                            <fragment content="Info">
+                                                            <fragment content="About">
                                                                 <attributes>
                                                                     <font key="NSFont" size="30" name="Avenir-Book"/>
+                                                                    <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
                                                                 </attributes>
                                                             </fragment>
                                                         </attributedString>
@@ -254,11 +255,11 @@
                                         <mask key="constraints">
                                             <exclude reference="9gm-T8-Ixj"/>
                                             <exclude reference="Clz-lE-Vp3"/>
-                                            <exclude reference="cWm-k6-Th1"/>
                                             <exclude reference="5Ya-gI-lEn"/>
                                             <exclude reference="Ebf-t2-VKq"/>
                                             <exclude reference="ZgD-Hx-yj2"/>
                                             <exclude reference="ihz-AB-0c4"/>
+                                            <exclude reference="cWm-k6-Th1"/>
                                         </mask>
                                     </variation>
                                 </view>
@@ -626,6 +627,6 @@ Make School Summer Academy (makeschool.com)</string>
         <image name="TestTest" width="320" height="568"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="keK-mN-lU3"/>
+        <segue reference="Gcw-Pz-ggT"/>
     </inferredMetricsTieBreakers>
 </document>

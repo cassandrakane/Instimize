@@ -66,9 +66,6 @@ class PageContentViewController: UIViewController {
                 }
             }
         }
-
-        
-        
         // Do any additional setup after loading the view.
     }
     
@@ -105,7 +102,6 @@ class PageContentViewController: UIViewController {
     @IBAction func infoTapped(sender: AnyObject) {
     
     }
-    
     
     func animateSettings() {
         println("animate settings")
