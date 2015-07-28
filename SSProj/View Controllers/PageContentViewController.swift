@@ -39,17 +39,16 @@ class PageContentViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         println("page content vc did load")
-        let frame: CGRect = CGRect(x: 0, y: 0, width: UIScreen.mainScreen().bounds.size.width, height: UIScreen.mainScreen().bounds.size.height)
+        
         tableView.tableHeaderView!.bounds.size.height = UIScreen.mainScreen().bounds.size.height + 90
         self.backgroundImage.image = UIImage(named: imageFile)
-        self.backgroundImage.bounds = frame
-        backgroundImage.contentMode = UIViewContentMode.ScaleAspectFill
         
         bestDataTypeLabel.text = dataTypeString
         bestDataLabel.text = bestDataString
         
         self.settingsView.bounds.size.width = UIScreen.mainScreen().bounds.size.width - 100
         self.settingsView.bounds.size.height = UIScreen.mainScreen().bounds.size.width - 100
+
         
         let realm = Realm()
         if realm.objects(User).first != nil {
@@ -66,8 +65,23 @@ class PageContentViewController: UIViewController {
                 }
             }
         }
+        self.view.bounds = UIScreen.mainScreen().bounds
+        println("viewDidLoad imageView Frame : \(backgroundImage.frame) pageIndex : \(pageIndex)")
         // Do any additional setup after loading the view.
     }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(true)
+        self.view.bounds = UIScreen.mainScreen().bounds
+        println("viewWillAppear imageView Frame : \(backgroundImage.frame) pageIndex : \(pageIndex)")
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        self.view.bounds = UIScreen.mainScreen().bounds
+        println("viewDidAppear imageView Frame : \(backgroundImage.frame) pageIndex : \(pageIndex)")
+    }
+    
     
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
         return UIStatusBarStyle.LightContent

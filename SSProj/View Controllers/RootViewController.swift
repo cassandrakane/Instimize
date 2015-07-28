@@ -400,9 +400,7 @@ class RootViewController: UIViewController, UIPageViewControllerDataSource {
             timeImage = "TestTest"
         }
         
-        getBestTime()
-        
-        
+        //getBestTime()
     }
     
     func getTimeName(timeNum: String) -> (String, String) {
@@ -537,7 +535,8 @@ class RootViewController: UIViewController, UIPageViewControllerDataSource {
             bestTime = "11PM"
         }
     }
-
+    
+    
     //OPTIMIZE DAYS
     func optimizeDay() {
         createDaysWithLikes()
