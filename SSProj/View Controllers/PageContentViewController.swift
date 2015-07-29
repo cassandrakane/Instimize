@@ -65,20 +65,20 @@ class PageContentViewController: UIViewController {
                 }
             }
         }
-        self.view.bounds = UIScreen.mainScreen().bounds
+        //self.view.bounds = UIScreen.mainScreen().bounds
         println("viewDidLoad imageView Frame : \(backgroundImage.frame) pageIndex : \(pageIndex)")
         // Do any additional setup after loading the view.
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true)
-        self.view.bounds = UIScreen.mainScreen().bounds
+        //self.view.bounds = UIScreen.mainScreen().bounds
         println("viewWillAppear imageView Frame : \(backgroundImage.frame) pageIndex : \(pageIndex)")
     }
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        self.view.bounds = UIScreen.mainScreen().bounds
+        //self.view.bounds = UIScreen.mainScreen().bounds
         println("viewDidAppear imageView Frame : \(backgroundImage.frame) pageIndex : \(pageIndex)")
     }
     

@@ -10,9 +10,11 @@ import UIKit
 
 class SettingsViewController: UIViewController {
     
+    @IBOutlet weak var textView: UITextView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.textView.scrollRangeToVisible(NSMakeRange(0, 0))
         // Do any additional setup after loading the view.
     }
 
