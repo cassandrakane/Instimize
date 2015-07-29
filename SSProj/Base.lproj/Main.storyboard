@@ -7,10 +7,10 @@
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
-        <!--Navigation View Controller-->
+        <!--Navigation Controller-->
         <scene sceneID="Zx4-HC-Gb8">
             <objects>
-                <navigationController id="vUn-Tm-1LV" customClass="NavigationViewController" customModule="SSProj" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController id="vUn-Tm-1LV" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="aOn-7f-waH">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -550,10 +550,10 @@ Make School Summer Academy (makeschool.com)</string>
             </objects>
             <point key="canvasLocation" x="1847" y="-344"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Navigation View Controller-->
         <scene sceneID="Rfz-Bf-2Mf">
             <objects>
-                <navigationController id="lCE-aj-GVf" sceneMemberID="viewController">
+                <navigationController id="lCE-aj-GVf" customClass="NavigationViewController" customModule="SSProj" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Yav-0U-U5S">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -578,11 +578,37 @@ Make School Summer Academy (makeschool.com)</string>
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mDV-e7-qmI">
+                                <rect key="frame" x="197" y="116" width="207" height="69"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="Instimize">
+                                        <attributes>
+                                            <color key="NSColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <font key="NSFont" size="50" name="Avenir-Heavy"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q6g-JQ-hbJ">
+                                <rect key="frame" x="183" y="195" width="235" height="41"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="Begin Optimizing">
+                                        <attributes>
+                                            <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="30" name="Avenir-Book"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zms-vP-kGa">
-                                <rect key="frame" x="0.0" y="255" width="600" height="240"/>
+                                <rect key="frame" x="0.0" y="288" width="600" height="225"/>
                                 <subviews>
                                     <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="SyE-l9-zea">
-                                        <rect key="frame" x="275" y="95" width="50" height="50"/>
+                                        <rect key="frame" x="275" y="87" width="50" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="AgS-Oz-1IV"/>
                                             <constraint firstAttribute="width" constant="50" id="RxV-ei-pdZ"/>
@@ -590,7 +616,7 @@ Make School Summer Academy (makeschool.com)</string>
                                         <color key="color" red="0.1058823529" green="0.14901960780000001" blue="0.20392156859999999" alpha="1" colorSpace="calibratedRGB"/>
                                     </activityIndicatorView>
                                     <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sTU-A6-XgS">
-                                        <rect key="frame" x="0.0" y="0.0" width="600" height="240"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="225"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="280" id="KZJ-4A-1sP"/>
@@ -612,7 +638,7 @@ Make School Summer Academy (makeschool.com)</string>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="sTU-A6-XgS" firstAttribute="top" secondItem="zms-vP-kGa" secondAttribute="top" id="3Fo-6c-8GT"/>
-                                    <constraint firstAttribute="height" constant="240" id="KVL-7M-6DN"/>
+                                    <constraint firstAttribute="height" constant="225" id="KVL-7M-6DN"/>
                                     <constraint firstItem="sTU-A6-XgS" firstAttribute="leading" secondItem="zms-vP-kGa" secondAttribute="leading" id="U7J-E2-BFE"/>
                                     <constraint firstAttribute="centerY" secondItem="SyE-l9-zea" secondAttribute="centerY" id="UOd-of-doe"/>
                                     <constraint firstAttribute="bottom" secondItem="sTU-A6-XgS" secondAttribute="bottom" id="W4R-gW-Scs"/>
@@ -620,26 +646,23 @@ Make School Summer Academy (makeschool.com)</string>
                                     <constraint firstAttribute="centerX" secondItem="SyE-l9-zea" secondAttribute="centerX" id="pos-8b-2eI"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mDV-e7-qmI">
-                                <rect key="frame" x="320" y="89" width="42" height="21"/>
-                                <attributedString key="attributedText">
-                                    <fragment content="Instimize">
-                                        <attributes>
-                                            <color key="NSColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            <font key="NSFont" size="25" name="Avenir-Heavy"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
-                                        </attributes>
-                                    </fragment>
-                                </attributedString>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.1058823529" green="0.14901960780000001" blue="0.20392156859999999" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="q6g-JQ-hbJ" firstAttribute="top" secondItem="mDV-e7-qmI" secondAttribute="bottom" constant="10" id="7ad-AX-2J3"/>
+                            <constraint firstAttribute="centerY" secondItem="mDV-e7-qmI" secondAttribute="centerY" multiplier="2:1" id="7sO-en-N3Y"/>
                             <constraint firstAttribute="trailingMargin" secondItem="zms-vP-kGa" secondAttribute="trailing" constant="-16" id="L2M-Pd-j9i"/>
-                            <constraint firstAttribute="centerY" secondItem="zms-vP-kGa" secondAttribute="centerY" multiplier="4:5" id="cel-6K-c15"/>
+                            <constraint firstAttribute="centerX" secondItem="mDV-e7-qmI" secondAttribute="centerX" id="SSo-d9-MQs"/>
+                            <constraint firstAttribute="centerY" secondItem="zms-vP-kGa" secondAttribute="centerY" multiplier="3:4" id="cel-6K-c15"/>
+                            <constraint firstAttribute="centerX" secondItem="q6g-JQ-hbJ" secondAttribute="centerX" id="lyx-Vv-BDU"/>
+                            <constraint firstItem="mDV-e7-qmI" firstAttribute="top" secondItem="iRT-a9-Fpb" secondAttribute="bottom" constant="30" id="r1M-pj-O0p"/>
                             <constraint firstItem="zms-vP-kGa" firstAttribute="leading" secondItem="CQc-po-9Fl" secondAttribute="leadingMargin" constant="-16" id="sqO-GC-9LZ"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="r1M-pj-O0p"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="gM7-I7-g7x"/>
                     <connections>
@@ -660,6 +683,6 @@ Make School Summer Academy (makeschool.com)</string>
         <image name="backArrow" width="435" height="435"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="38v-h7-vef"/>
+        <segue reference="keK-mN-lU3"/>
     </inferredMetricsTieBreakers>
 </document>
