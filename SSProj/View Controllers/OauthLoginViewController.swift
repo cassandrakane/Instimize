@@ -49,9 +49,7 @@ class OauthLoginViewController: UIViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
-        println("maybe segueing?")
         if segue.identifier == "unwindToMenu" && segue.destinationViewController.isKindOfClass(RootViewController.classForCoder()) {
-            println("segueing")
             let navViewController = segue.destinationViewController as! RootViewController
             if let user = sender?.valueForKey("user") as? User {
                self.info.user = user
@@ -64,13 +62,11 @@ class OauthLoginViewController: UIViewController {
 extension OauthLoginViewController: UIWebViewDelegate {
     
     func webView(webView: UIWebView, shouldStartLoadWithRequest request: NSURLRequest, navigationType: UIWebViewNavigationType) -> Bool {
-        println("REQUEST URL: " + request.URLString)
         let urlString = request.URLString
         if let range = urlString.rangeOfString(Instagram.Router.redirectURI + "?code=") {
             //receive code, request AccessToken
             let location = range.endIndex
             let code = urlString.substringFromIndex(location)
-            println("CODE: " + code)
             requestAccessToken(code)
             return false
         }
@@ -85,24 +81,19 @@ extension OauthLoginViewController: UIWebViewDelegate {
                 (_, _, jsonObject, error) in
                 
                 if (error == nil) {
-                    //println(jsonObject)
                     let json = JSON(jsonObject!)
                     
                     if let accessToken = json["access_token"].string, userID = json["user"]["id"].string {
                         let user = User()
                         user.userID = userID
                         user.accessToken = accessToken
-                        println("USER ID:" + user.userID)
-                        println("ACCESS TOKEN:" + user.accessToken)
                         
                         let realm = Realm()
                         
                         realm.write() {
                             if (realm.objects(User).first == nil) {
-                                println("FIRST TIME, ADDING NEW USER TO REALM")
                                 realm.add(user)
                             } else {
-                                println("REWRITING USER")
                                 realm.objects(User).first!.userID = userID
                                 realm.objects(User).first!.accessToken = accessToken
                             }

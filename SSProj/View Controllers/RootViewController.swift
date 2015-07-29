@@ -36,10 +36,7 @@ class RootViewController: UIViewController, UIPageViewControllerDataSource {
     
     var user: User? {
         didSet {
-            if user != nil {
-                println("user isn't nil")
-            } else {
-                println("user is nil")
+            if user == nil {
                 shouldLogin = true
             }
         }
@@ -63,7 +60,6 @@ class RootViewController: UIViewController, UIPageViewControllerDataSource {
     }
     
     override func viewDidLoad() {
-        println("ROOT VIEW DID LOAD")
         super.viewDidLoad()
         self.navigationController?.navigationBarHidden = true
         // Do any additional setup after loading the view.
@@ -91,12 +87,10 @@ class RootViewController: UIViewController, UIPageViewControllerDataSource {
     }
     
     override func viewDidAppear(animated: Bool) {
-        println("ROot View DID Appear")
         super.viewDidAppear(true)
         self.navigationController?.navigationBarHidden = true
         if info.newLogin {
             setUpUser() {
-                println("setting up user")
                 self.pageImages = [self.timeImage, "TestTest", self.seasonImage]
                 self.pageDataTypes = ["Time", "Day", "Month"]
                 self.pageDataTypeLabels = ["Best Time Of Day", "Best Day Of Week", "Best Month Of Year"]
@@ -134,19 +128,14 @@ class RootViewController: UIViewController, UIPageViewControllerDataSource {
     
     func setUpUser(callback: () -> Void) {
         let realm = Realm()
-        println("Menu View Did Load")
         
         if realm.objects(User).first != nil {
             //IF THERE IS A USER STORED IN REALM LOAD IT
-            println("user found")
             self.user = realm.objects(User).first
             shouldLogin = false
         }
         
-        println("should login: \(shouldLogin)")
-        
         if shouldLogin {
-            println("Logging In")
             performSegueWithIdentifier("Login", sender: self)
             shouldLogin = false
         } else {
@@ -157,9 +146,7 @@ class RootViewController: UIViewController, UIPageViewControllerDataSource {
             if realm.objects(User).first != nil && realm.objects(User).first!.posts.description != user!.posts.description {
                 info.setUp = false
             }
-            println("set up: \(info.setUp)")
             if !info.setUp {
-                println("RESET POSTS")
                 self.mediaIDs = []
                 self.allLikes = []
                 self.createdTimes = []
@@ -169,7 +156,6 @@ class RootViewController: UIViewController, UIPageViewControllerDataSource {
                 }
                 let urlString = Instagram.Router.getRecent(user!.userID, user!.accessToken)
                 getInfo(user!, request: urlString) {
-                    NSLog("NUM OF POSTS \(self.user!.posts.count)")
                     self.optimizeAll()
                     self.info.setUp = true
                     realm.write() {
@@ -365,8 +351,7 @@ class RootViewController: UIViewController, UIPageViewControllerDataSource {
     func sortTimes() {
         var averageLikesSorted : [Double] = aveLikesPerHour.values.array
         averageLikesSorted.sort({ $0 > $1 })
-        
-        println("SORTED TIMES")
+
         var i: Int
         var count: Int = 1
         for (i = 0; i < aveLikesPerHour.count; i++) {
@@ -587,7 +572,6 @@ class RootViewController: UIViewController, UIPageViewControllerDataSource {
         //quickSort(averageLikesSorted, start: 0, end: aveLikesPerHour.count)
         var i: Int
         var count: Int = 1
-        println("SORTED DAYS")
         for (i = 0; i < aveLikesPerDay.count; i++) {
             var likes: Double = averageLikesSorted[i]
             var ds = (aveLikesPerDay as NSDictionary).allKeysForObject(likes) as! [String]
@@ -716,7 +700,6 @@ class RootViewController: UIViewController, UIPageViewControllerDataSource {
         var averageLikesSorted : [Double] = aveLikesPerMonth.values.array
         averageLikesSorted.sort({ $0 > $1 })
         
-        println("SORTED MONTHS")
         var i: Int
         var count: Int = 1
         for (i = 0; i < aveLikesPerMonth.count; i++) {

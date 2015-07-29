@@ -11,9 +11,7 @@ import UIKit
 class NavigationViewController: UINavigationController {
 
     override func viewDidLoad() {
-        println("NAV VIEWDIDLOAD")
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
     }
 

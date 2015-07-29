@@ -34,7 +34,6 @@ class PageContentViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        println("page content vc did load")
         
         tableView.tableHeaderView!.bounds.size.height = UIScreen.mainScreen().bounds.size.height + 90
         self.backgroundImage.image = UIImage(named: imageFile)
@@ -57,31 +56,14 @@ class PageContentViewController: UIViewController {
                 }
             }
         }
-        //self.view.bounds = UIScreen.mainScreen().bounds
-        println("viewDidLoad imageView Frame : \(backgroundImage.frame) pageIndex : \(pageIndex)")
         // Do any additional setup after loading the view.
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        println("viewDidLayoutSubviews imageView Frame : \(backgroundImage.frame) pageIndex : \(pageIndex)")
         self.backgroundImage.bounds = CGRect(x: UIScreen.mainScreen().bounds.origin.x, y: UIScreen.mainScreen().bounds.origin.y, width: UIScreen.mainScreen().bounds.size.width, height: UIScreen.mainScreen().bounds.size.height + 20)
-        //self.backgroundImage.bounds = UIScreen.mainScreen().bounds
         self.tableView.bounds = UIScreen.mainScreen().bounds
     }
-    
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(true)
-        //self.view.bounds = UIScreen.mainScreen().bounds
-        println("viewWillAppear imageView Frame : \(backgroundImage.frame) pageIndex : \(pageIndex)")
-    }
-    
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
-        //self.view.bounds = UIScreen.mainScreen().bounds
-        println("viewDidAppear imageView Frame : \(backgroundImage.frame) pageIndex : \(pageIndex)")
-    }
-    
     
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
         return UIStatusBarStyle.LightContent
@@ -93,18 +75,9 @@ class PageContentViewController: UIViewController {
     }
     
     func setUser() {
-        println("setting user")
         let realm = Realm()
         user = realm.objects(User).first!
     }
-    
-    /*
-    @IBAction func buttonTapped(sender: AnyObject) {
-        println("button tapped")
-        self.settingsButton.setImage(UIImage(named: "Info Selected"), forState: UIControlState.Normal)
-        self.settingsButton.setImage(UIImage(named: "Info"), forState: UIControlState.Normal)
-    }
-    */
    
 }
 
