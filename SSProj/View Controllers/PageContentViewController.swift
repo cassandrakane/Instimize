@@ -20,10 +20,6 @@ class PageContentViewController: UIViewController {
     @IBOutlet weak var bestDataLabel: UILabel!
     
     @IBOutlet weak var settingsButton: UIButton!
-    @IBOutlet weak var settingsView: UIView!
-    
-    @IBOutlet weak var logoutButton: UIButton!
-    @IBOutlet weak var infoButton: UIButton!
     
     var settingsOpen = false
     
@@ -45,10 +41,6 @@ class PageContentViewController: UIViewController {
         
         bestDataTypeLabel.text = dataTypeString
         bestDataLabel.text = bestDataString
-        
-        self.settingsView.bounds.size.width = UIScreen.mainScreen().bounds.size.width - 100
-        self.settingsView.bounds.size.height = UIScreen.mainScreen().bounds.size.width - 100
-
         
         let realm = Realm()
         if realm.objects(User).first != nil {
@@ -98,52 +90,14 @@ class PageContentViewController: UIViewController {
         user = realm.objects(User).first!
     }
     
+    /*
     @IBAction func buttonTapped(sender: AnyObject) {
         println("button tapped")
         self.settingsButton.setImage(UIImage(named: "Info Selected"), forState: UIControlState.Normal)
-        animateSettings()
         self.settingsButton.setImage(UIImage(named: "Info"), forState: UIControlState.Normal)
     }
-
-    
-    @IBAction func logoutTapped(sender: AnyObject) {
-        self.settingsOpen = true
-        animateSettings()
-        info.newLogin = true
-        info.setUp = false
-    }
-    
-    @IBAction func infoTapped(sender: AnyObject) {
-    
-    }
-    
-    func animateSettings() {
-        println("animate settings")
-      
-        UIView.animateWithDuration(0.5) {
-            // changes made in here will be animated
-            println("animating")
-            
-            let width = self.settingsView.bounds.size.width
-            let height = self.settingsView.bounds.size.height
-            //let xCenter = (UIScreen.mainScreen().bounds.size.width / 2) - (self.settingsView.bounds.size.width / 2)
-            let xCenter = self.settingsView.frame.origin.x
-            
-            if self.settingsOpen {
-                
-                self.settingsView.frame = CGRect(x: xCenter, y: -UIScreen.mainScreen().bounds.size.height / 2, width: width, height: height)
-                
-                
-            } else {
-            
-                self.settingsView.frame = CGRect(x: xCenter, y: UIScreen.mainScreen().bounds.size.height / 3, width: width, height: height)
-               
-            }
-            
-            self.settingsOpen = !self.settingsOpen
-        }
-    }
-
+    */
+   
 }
 
 extension PageContentViewController: UITableViewDataSource {

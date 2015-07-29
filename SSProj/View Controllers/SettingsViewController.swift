@@ -11,6 +11,7 @@ import UIKit
 class SettingsViewController: UIViewController {
     
     @IBOutlet weak var textView: UITextView!
+    var info = Info.sharedInstance 
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,6 +35,9 @@ class SettingsViewController: UIViewController {
         self.presentingViewController?.dismissViewControllerAnimated(true, completion: nil)
     }
 
+    @IBAction func logoutTapped(sender: AnyObject) {
+        info.setUp = false
+    }
     /*
     // MARK: - Navigation
 

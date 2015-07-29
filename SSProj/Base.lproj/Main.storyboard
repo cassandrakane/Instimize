@@ -152,71 +152,8 @@
                                             </attributedString>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4wb-mg-txP">
-                                            <rect key="frame" x="184" y="-500" width="200" height="150"/>
-                                            <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7Vj-1y-x8W">
-                                                    <rect key="frame" x="50" y="20" width="100" height="50"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="100" id="dG3-x9-3vH"/>
-                                                        <constraint firstAttribute="height" constant="50" id="fTk-a5-3AM"/>
-                                                    </constraints>
-                                                    <state key="normal">
-                                                        <attributedString key="attributedTitle">
-                                                            <fragment content="Logout">
-                                                                <attributes>
-                                                                    <font key="NSFont" size="30" name="Avenir-Book"/>
-                                                                </attributes>
-                                                            </fragment>
-                                                        </attributedString>
-                                                    </state>
-                                                    <connections>
-                                                        <action selector="logoutTapped:" destination="ewc-8z-Vcj" eventType="touchUpInside" id="4lK-Sd-ram"/>
-                                                        <segue destination="lCE-aj-GVf" kind="presentation" id="Gcw-Pz-ggT"/>
-                                                    </connections>
-                                                </button>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iAl-zf-G5w">
-                                                    <rect key="frame" x="50" y="80" width="100" height="50"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="50" id="kJm-gA-oJt"/>
-                                                        <constraint firstAttribute="width" constant="100" id="z57-61-RdJ"/>
-                                                    </constraints>
-                                                    <state key="normal">
-                                                        <attributedString key="attributedTitle">
-                                                            <fragment content="About">
-                                                                <attributes>
-                                                                    <font key="NSFont" size="30" name="Avenir-Book"/>
-                                                                    <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
-                                                                </attributes>
-                                                            </fragment>
-                                                        </attributedString>
-                                                    </state>
-                                                    <connections>
-                                                        <action selector="infoTapped:" destination="ewc-8z-Vcj" eventType="touchUpInside" id="5tv-i8-nvM"/>
-                                                        <segue destination="0AT-jJ-KaP" kind="presentation" modalTransitionStyle="flipHorizontal" id="B1k-PO-1Um"/>
-                                                    </connections>
-                                                </button>
-                                            </subviews>
-                                            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.75" colorSpace="calibratedRGB"/>
-                                            <constraints>
-                                                <constraint firstAttribute="centerX" secondItem="7Vj-1y-x8W" secondAttribute="centerX" id="5YY-UD-hyF"/>
-                                                <constraint firstAttribute="centerY" secondItem="iAl-zf-G5w" secondAttribute="centerY" id="6I7-ND-3e1"/>
-                                                <constraint firstAttribute="bottom" secondItem="iAl-zf-G5w" secondAttribute="bottom" constant="20" id="Dmp-En-cSL"/>
-                                                <constraint firstAttribute="height" constant="150" id="Jsc-zi-LXJ"/>
-                                                <constraint firstAttribute="centerX" secondItem="iAl-zf-G5w" secondAttribute="centerX" id="SYB-pk-hNf"/>
-                                                <constraint firstItem="7Vj-1y-x8W" firstAttribute="top" secondItem="4wb-mg-txP" secondAttribute="top" constant="20" id="Shd-0u-LI7"/>
-                                                <constraint firstAttribute="centerY" secondItem="7Vj-1y-x8W" secondAttribute="centerY" id="l1v-S1-Qa8"/>
-                                                <constraint firstAttribute="width" constant="200" id="o8k-fZ-18w"/>
-                                            </constraints>
-                                            <variation key="default">
-                                                <mask key="constraints">
-                                                    <exclude reference="l1v-S1-Qa8"/>
-                                                    <exclude reference="6I7-ND-3e1"/>
-                                                </mask>
-                                            </variation>
-                                        </view>
-                                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DSD-So-VuB">
-                                            <rect key="frame" x="530" y="29" width="30" height="30"/>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DSD-So-VuB">
+                                            <rect key="frame" x="528" y="30" width="30" height="30"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="30" id="7Y9-sI-VEM"/>
                                                 <constraint firstAttribute="height" constant="30" id="YbS-2g-o6M"/>
@@ -225,27 +162,20 @@
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
                                             <connections>
-                                                <action selector="buttonTapped:" destination="ewc-8z-Vcj" eventType="touchUpInside" id="cix-CF-194"/>
+                                                <segue destination="0AT-jJ-KaP" kind="presentation" modalTransitionStyle="flipHorizontal" id="wnC-CZ-aqs"/>
                                             </connections>
                                         </button>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     <constraints>
-                                        <constraint firstAttribute="centerX" secondItem="4wb-mg-txP" secondAttribute="centerX" id="5Ya-gI-lEn"/>
                                         <constraint firstItem="cZx-FZ-0um" firstAttribute="leading" secondItem="MlF-vO-IAs" secondAttribute="leading" constant="10" id="6el-s3-maF"/>
-                                        <constraint firstAttribute="centerX" secondItem="4wb-mg-txP" secondAttribute="centerX" id="8KT-2K-A5b"/>
                                         <constraint firstAttribute="centerY" secondItem="3TC-Gr-crh" secondAttribute="centerY" multiplier="6:11" id="9gm-T8-Ixj"/>
                                         <constraint firstItem="dGE-UN-x3X" firstAttribute="top" secondItem="cZx-FZ-0um" secondAttribute="bottom" id="BjQ-Ii-cah"/>
                                         <constraint firstAttribute="centerX" secondItem="3TC-Gr-crh" secondAttribute="centerX" multiplier="11:6" id="Clz-lE-Vp3"/>
                                         <constraint firstItem="cZx-FZ-0um" firstAttribute="top" secondItem="MlF-vO-IAs" secondAttribute="top" constant="20" id="DiD-Lr-ZMt"/>
-                                        <constraint firstAttribute="centerY" secondItem="4wb-mg-txP" secondAttribute="centerY" id="Ebf-t2-VKq"/>
                                         <constraint firstItem="p7z-OI-h8M" firstAttribute="leading" secondItem="MlF-vO-IAs" secondAttribute="leading" constant="10" id="FTU-Om-eVs"/>
                                         <constraint firstItem="3TC-Gr-crh" firstAttribute="top" secondItem="p7z-OI-h8M" secondAttribute="bottom" constant="30" id="W9C-o5-h0s"/>
-                                        <constraint firstAttribute="centerY" secondItem="4wb-mg-txP" secondAttribute="centerY" id="ZgD-Hx-yj2"/>
-                                        <constraint firstItem="DSD-So-VuB" firstAttribute="leading" secondItem="4wb-mg-txP" secondAttribute="trailing" id="cWm-k6-Th1"/>
                                         <constraint firstItem="dGE-UN-x3X" firstAttribute="leading" secondItem="MlF-vO-IAs" secondAttribute="leading" constant="10" id="d4t-xe-Xac"/>
-                                        <constraint firstItem="4wb-mg-txP" firstAttribute="top" secondItem="MlF-vO-IAs" secondAttribute="top" constant="-500" id="hjf-YL-dJS"/>
-                                        <constraint firstItem="4wb-mg-txP" firstAttribute="top" secondItem="DSD-So-VuB" secondAttribute="bottom" id="ihz-AB-0c4"/>
                                         <constraint firstAttribute="trailing" secondItem="DSD-So-VuB" secondAttribute="trailing" constant="10" id="jyH-li-4FP"/>
                                         <constraint firstItem="3TC-Gr-crh" firstAttribute="leading" secondItem="MlF-vO-IAs" secondAttribute="leading" constant="10" id="t1E-Uh-tO2"/>
                                         <constraint firstAttribute="bottom" secondItem="3TC-Gr-crh" secondAttribute="bottom" constant="10" id="ttg-zS-keG"/>
@@ -255,11 +185,6 @@
                                         <mask key="constraints">
                                             <exclude reference="9gm-T8-Ixj"/>
                                             <exclude reference="Clz-lE-Vp3"/>
-                                            <exclude reference="5Ya-gI-lEn"/>
-                                            <exclude reference="Ebf-t2-VKq"/>
-                                            <exclude reference="ZgD-Hx-yj2"/>
-                                            <exclude reference="ihz-AB-0c4"/>
-                                            <exclude reference="cWm-k6-Th1"/>
                                         </mask>
                                     </variation>
                                 </view>
@@ -424,10 +349,7 @@
                         <outlet property="backgroundImage" destination="0yw-rH-6lt" id="76i-CH-8gC"/>
                         <outlet property="bestDataLabel" destination="p7z-OI-h8M" id="w4L-u9-TCL"/>
                         <outlet property="bestDataTypeLabel" destination="dGE-UN-x3X" id="HC4-0O-Rr2"/>
-                        <outlet property="infoButton" destination="iAl-zf-G5w" id="aoF-bs-nmk"/>
-                        <outlet property="logoutButton" destination="7Vj-1y-x8W" id="90c-y6-JaF"/>
                         <outlet property="settingsButton" destination="DSD-So-VuB" id="wpz-jz-isQ"/>
-                        <outlet property="settingsView" destination="4wb-mg-txP" id="Rkd-Qe-L5X"/>
                         <outlet property="tableView" destination="V6P-JY-iMQ" id="mFZ-ZU-B2e"/>
                     </connections>
                 </viewController>
@@ -447,19 +369,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iSJ-my-o5M">
-                                <rect key="frame" x="554" y="45" width="30" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="LU3-Rh-UoK"/>
-                                    <constraint firstAttribute="width" constant="30" id="NmD-bk-9dy"/>
-                                </constraints>
-                                <state key="normal" image="backArrow">
-                                    <attributedString key="attributedTitle"/>
-                                </state>
-                                <connections>
-                                    <action selector="buttonTapped:" destination="0AT-jJ-KaP" eventType="touchUpInside" id="98b-RQ-IS6"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rpk-pK-ZYM">
                                 <rect key="frame" x="228" y="40" width="145" height="48"/>
                                 <attributedString key="attributedText">
@@ -551,11 +460,43 @@ Make School Summer Academy (makeschool.com)</string>
                                 </attributedString>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iSJ-my-o5M">
+                                <rect key="frame" x="554" y="45" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="LU3-Rh-UoK"/>
+                                    <constraint firstAttribute="width" constant="30" id="NmD-bk-9dy"/>
+                                </constraints>
+                                <state key="normal" image="backArrow">
+                                    <attributedString key="attributedTitle"/>
+                                </state>
+                                <connections>
+                                    <action selector="buttonTapped:" destination="0AT-jJ-KaP" eventType="touchUpInside" id="98b-RQ-IS6"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="saH-hy-zgp">
+                                <rect key="frame" x="16" y="45" width="64" height="39"/>
+                                <state key="normal">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="Logout">
+                                            <attributes>
+                                                <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <font key="NSFont" size="20" name="Avenir-Book"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                </state>
+                                <connections>
+                                    <action selector="logoutTapped:" destination="0AT-jJ-KaP" eventType="touchUpInside" id="5zX-MP-bYP"/>
+                                    <segue destination="lCE-aj-GVf" kind="presentation" id="38v-h7-vef"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="5Z3-iu-GSG" firstAttribute="leadingMargin" secondItem="z2X-KH-aky" secondAttribute="leadingMargin" id="5X1-1s-Lhp"/>
                             <constraint firstItem="vjU-h0-JLo" firstAttribute="top" secondItem="5Z3-iu-GSG" secondAttribute="bottom" id="CLb-MP-Mqi"/>
+                            <constraint firstItem="saH-hy-zgp" firstAttribute="top" secondItem="lG1-JT-qBR" secondAttribute="bottom" constant="25" id="D0r-Kz-8IU"/>
+                            <constraint firstItem="saH-hy-zgp" firstAttribute="leading" secondItem="z2X-KH-aky" secondAttribute="leadingMargin" id="PRD-yK-Duo"/>
                             <constraint firstAttribute="centerX" secondItem="iSJ-my-o5M" secondAttribute="centerX" id="XFh-ks-OUu"/>
                             <constraint firstAttribute="trailingMargin" secondItem="5Z3-iu-GSG" secondAttribute="trailing" constant="-16" id="dTc-6A-pgC"/>
                             <constraint firstItem="5Z3-iu-GSG" firstAttribute="top" secondItem="z2X-KH-aky" secondAttribute="topMargin" constant="65" id="e4S-kT-BxV"/>
@@ -665,6 +606,6 @@ Make School Summer Academy (makeschool.com)</string>
         <image name="backArrow" width="435" height="435"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Gcw-Pz-ggT"/>
+        <segue reference="38v-h7-vef"/>
     </inferredMetricsTieBreakers>
 </document>
