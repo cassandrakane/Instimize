@@ -385,7 +385,7 @@ class RootViewController: UIViewController, UIPageViewControllerDataSource {
             timeImage = "TestTest"
         }
         
-        //getBestTime()
+        getBestTime()
     }
     
     func getTimeName(timeNum: String) -> (String, String) {
@@ -471,53 +471,53 @@ class RootViewController: UIViewController, UIPageViewControllerDataSource {
     
     func getBestTime() {
         if bestTime == "12AM – 1AM" {
-            bestTime = "12AM"
+            bestTime = "12AM - 1AM"
         } else if bestTime == "1AM – 2AM" {
-            bestTime = "1AM"
+            bestTime = "1AM - 2AM"
         } else if bestTime == "2AM – 3AM" {
-            bestTime = "2AM"
+            bestTime = "2AM - 3AM"
         } else if bestTime == "3AM – 4AM" {
-            bestTime = "3AM"
+            bestTime = "3AM - 4AM"
         } else if bestTime == "4AM – 5AM" {
-            bestTime = "4AM"
+            bestTime = "4AM - 5AM"
         } else if bestTime == "5AM – 6AM" {
-            bestTime = "5AM"
+            bestTime = "5AM - 6AM"
         } else if bestTime == "6AM – 7AM" {
-            bestTime = "6AM"
+            bestTime = "6AM - 7AM"
         } else if bestTime == "7AM – 8M" {
-            bestTime = "7AM"
+            bestTime = "7AM - 8AM"
         } else if bestTime == "8AM – 9AM" {
-            bestTime = "8AM"
+            bestTime = "8AM - 9AM"
         } else if bestTime == "9AM – 10AM" {
-            bestTime = "9AM"
+            bestTime = "9AM - 10AM"
         } else if bestTime == "10AM – 11AM" {
-            bestTime = "10AM"
+            bestTime = "10AM - 11AM"
         } else if bestTime == "11AM – 12PM" {
-            bestTime = "11AM"
+            bestTime = "11AM - 12PM"
         } else if bestTime == "12PM – 1PM" {
-            bestTime = "12PM"
+            bestTime = "12PM - 1PM"
         } else if bestTime == "1PM – 2PM" {
-            bestTime = "1PM"
+            bestTime = "1PM - 2PM"
         } else if bestTime == "2PM – 3PM" {
-            bestTime = "2PM"
+            bestTime = "2PM - 3PM"
         } else if bestTime == "3PM – 4PM" {
-            bestTime = "3PM"
+            bestTime = "3PM - 4PM"
         } else if bestTime == "4PM – 5PM" {
-            bestTime = "4PM"
+            bestTime = "4PM - 5PM"
         } else if bestTime == "5PM – 6PM" {
-            bestTime = "5PM"
+            bestTime = "5PM - 6PM"
         } else if bestTime == "6PM – 7PM" {
-            bestTime = "6PM"
+            bestTime = "6PM - 7PM"
         } else if bestTime == "7PM – 8M" {
-            bestTime = "7PM"
+            bestTime = "7PM - 8PM"
         } else if bestTime == "8PM – 9PM" {
-            bestTime = "8PM"
+            bestTime = "8PM - 9PM"
         } else if bestTime == "9PM – 10PM" {
-            bestTime = "9PM"
+            bestTime = "9PM - 10PM"
         } else if bestTime == "10PM – 11PM" {
-            bestTime = "10PM"
+            bestTime = "10PM - 11PM"
         } else if bestTime == "11PM – 12AM" {
-            bestTime = "11PM"
+            bestTime = "11PM - 12AM"
         }
     }
     
