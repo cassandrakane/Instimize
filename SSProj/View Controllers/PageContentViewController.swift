@@ -62,6 +62,14 @@ class PageContentViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        println("viewDidLayoutSubviews imageView Frame : \(backgroundImage.frame) pageIndex : \(pageIndex)")
+        self.backgroundImage.bounds = CGRect(x: UIScreen.mainScreen().bounds.origin.x, y: UIScreen.mainScreen().bounds.origin.y, width: UIScreen.mainScreen().bounds.size.width, height: UIScreen.mainScreen().bounds.size.height + 20)
+        //self.backgroundImage.bounds = UIScreen.mainScreen().bounds
+        self.tableView.bounds = UIScreen.mainScreen().bounds
+    }
+    
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true)
         //self.view.bounds = UIScreen.mainScreen().bounds

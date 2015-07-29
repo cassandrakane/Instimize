@@ -82,13 +82,6 @@
                             <imageView autoresizesSubviews="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TestTest" translatesAutoresizingMaskIntoConstraints="NO" id="0yw-rH-6lt">
                                 <rect key="frame" x="16" y="0.0" width="568" height="600"/>
                             </imageView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xCk-ta-3eQ">
-                                <rect key="frame" x="8" y="0.0" width="576" height="20"/>
-                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="20" id="eOY-8z-juU"/>
-                                </constraints>
-                            </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" pagingEnabled="YES" dataMode="prototypes" style="plain" rowHeight="80" sectionHeaderHeight="22" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="V6P-JY-iMQ">
                                 <rect key="frame" x="16" y="20" width="568" height="580"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -168,6 +161,7 @@
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     <constraints>
+                                        <constraint firstItem="cZx-FZ-0um" firstAttribute="leading" secondItem="MlF-vO-IAs" secondAttribute="leading" constant="10" id="0wk-s7-9Py"/>
                                         <constraint firstItem="cZx-FZ-0um" firstAttribute="leading" secondItem="MlF-vO-IAs" secondAttribute="leading" constant="10" id="6el-s3-maF"/>
                                         <constraint firstAttribute="centerY" secondItem="3TC-Gr-crh" secondAttribute="centerY" multiplier="6:11" id="9gm-T8-Ixj"/>
                                         <constraint firstItem="dGE-UN-x3X" firstAttribute="top" secondItem="cZx-FZ-0um" secondAttribute="bottom" id="BjQ-Ii-cah"/>
@@ -183,6 +177,7 @@
                                     </constraints>
                                     <variation key="default">
                                         <mask key="constraints">
+                                            <exclude reference="6el-s3-maF"/>
                                             <exclude reference="9gm-T8-Ixj"/>
                                             <exclude reference="Clz-lE-Vp3"/>
                                         </mask>
@@ -323,6 +318,13 @@
                                     <outlet property="delegate" destination="ewc-8z-Vcj" id="gfK-kj-Xvc"/>
                                 </connections>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xCk-ta-3eQ">
+                                <rect key="frame" x="8" y="0.0" width="576" height="20"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="eOY-8z-juU"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -370,20 +372,50 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rpk-pK-ZYM">
-                                <rect key="frame" x="228" y="40" width="145" height="48"/>
+                                <rect key="frame" x="248" y="40" width="104" height="35"/>
                                 <attributedString key="attributedText">
                                     <fragment content="Instimize">
                                         <attributes>
                                             <color key="NSColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            <font key="NSFont" size="35" name="Avenir-Heavy"/>
+                                            <font key="NSFont" size="25" name="Avenir-Heavy"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
                                         </attributes>
                                     </fragment>
                                 </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iSJ-my-o5M">
+                                <rect key="frame" x="554" y="45" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="LU3-Rh-UoK"/>
+                                    <constraint firstAttribute="width" constant="30" id="NmD-bk-9dy"/>
+                                </constraints>
+                                <state key="normal" image="backArrow">
+                                    <attributedString key="attributedTitle"/>
+                                </state>
+                                <connections>
+                                    <action selector="buttonTapped:" destination="0AT-jJ-KaP" eventType="touchUpInside" id="98b-RQ-IS6"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="saH-hy-zgp">
+                                <rect key="frame" x="16" y="40" width="64" height="39"/>
+                                <state key="normal">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="Logout">
+                                            <attributes>
+                                                <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <font key="NSFont" size="20" name="Avenir-Book"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                </state>
+                                <connections>
+                                    <action selector="logoutTapped:" destination="0AT-jJ-KaP" eventType="touchUpInside" id="5zX-MP-bYP"/>
+                                    <segue destination="lCE-aj-GVf" kind="presentation" id="38v-h7-vef"/>
+                                </connections>
+                            </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" usesAttributedText="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Z3-iu-GSG">
-                                <rect key="frame" x="8" y="98" width="592" height="502"/>
+                                <rect key="frame" x="8" y="85" width="592" height="515"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <attributedString key="attributedText">
                                     <fragment>
@@ -407,8 +439,16 @@ Licensed under Creative Commons: By Attribution 2.0
 "Days and Dates" by Gianni - Dolce Merda from the Noun Project - Edited (crop, color) by Cassandra Kane
 "Monthly Calendars" by Garrett Knoll from the Noun Project - Edited (crop, color) by Cassandra Kane
 Licensed under Creative Commons: By Attribution 3.0
-(http://creativecommons.org/licenses/by/3.0/)
-
+(http://creativecommons.org/licenses/by/3.0/)</string>
+                                        <attributes>
+                                            <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="12" name="Avenir-Book"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content" base64-UTF8="YES">
+Cgo
 </string>
                                         <attributes>
                                             <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -430,7 +470,7 @@ Licensed under Creative Commons: By Attribution 3.0
 Users with less data - under 50 posts - will have less accurate results compared to users with more data.</string>
                                         <attributes>
                                             <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                            <font key="NSFont" size="15" name="Avenir-Book"/>
+                                            <font key="NSFont" size="12" name="Avenir-Book"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
                                         </attributes>
                                     </fragment>
@@ -446,56 +486,26 @@ Special Thanks
                                         </attributes>
                                     </fragment>
                                     <fragment>
-                                        <string key="content">Zachary Espirutu
+                                        <string key="content">Zachary Espiritu
 Rose Meier
 Adam Reis
 The Kane Family
 Make School Summer Academy (makeschool.com)</string>
                                         <attributes>
                                             <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                            <font key="NSFont" size="15" name="Avenir-Book"/>
+                                            <font key="NSFont" size="12" name="Avenir-Book"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
                                         </attributes>
                                     </fragment>
                                 </attributedString>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iSJ-my-o5M">
-                                <rect key="frame" x="554" y="45" width="30" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="LU3-Rh-UoK"/>
-                                    <constraint firstAttribute="width" constant="30" id="NmD-bk-9dy"/>
-                                </constraints>
-                                <state key="normal" image="backArrow">
-                                    <attributedString key="attributedTitle"/>
-                                </state>
-                                <connections>
-                                    <action selector="buttonTapped:" destination="0AT-jJ-KaP" eventType="touchUpInside" id="98b-RQ-IS6"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="saH-hy-zgp">
-                                <rect key="frame" x="16" y="45" width="64" height="39"/>
-                                <state key="normal">
-                                    <attributedString key="attributedTitle">
-                                        <fragment content="Logout">
-                                            <attributes>
-                                                <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                <font key="NSFont" size="20" name="Avenir-Book"/>
-                                            </attributes>
-                                        </fragment>
-                                    </attributedString>
-                                </state>
-                                <connections>
-                                    <action selector="logoutTapped:" destination="0AT-jJ-KaP" eventType="touchUpInside" id="5zX-MP-bYP"/>
-                                    <segue destination="lCE-aj-GVf" kind="presentation" id="38v-h7-vef"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="5Z3-iu-GSG" firstAttribute="leadingMargin" secondItem="z2X-KH-aky" secondAttribute="leadingMargin" id="5X1-1s-Lhp"/>
                             <constraint firstItem="vjU-h0-JLo" firstAttribute="top" secondItem="5Z3-iu-GSG" secondAttribute="bottom" id="CLb-MP-Mqi"/>
-                            <constraint firstItem="saH-hy-zgp" firstAttribute="top" secondItem="lG1-JT-qBR" secondAttribute="bottom" constant="25" id="D0r-Kz-8IU"/>
+                            <constraint firstItem="saH-hy-zgp" firstAttribute="top" secondItem="lG1-JT-qBR" secondAttribute="bottom" constant="20" id="D0r-Kz-8IU"/>
                             <constraint firstItem="saH-hy-zgp" firstAttribute="leading" secondItem="z2X-KH-aky" secondAttribute="leadingMargin" id="PRD-yK-Duo"/>
                             <constraint firstAttribute="centerX" secondItem="iSJ-my-o5M" secondAttribute="centerX" id="XFh-ks-OUu"/>
                             <constraint firstAttribute="trailingMargin" secondItem="5Z3-iu-GSG" secondAttribute="trailing" constant="-16" id="dTc-6A-pgC"/>
