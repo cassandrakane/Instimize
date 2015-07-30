@@ -79,7 +79,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView autoresizesSubviews="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TestTest" translatesAutoresizingMaskIntoConstraints="NO" id="0yw-rH-6lt">
+                            <imageView autoresizesSubviews="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Null" translatesAutoresizingMaskIntoConstraints="NO" id="0yw-rH-6lt">
                                 <rect key="frame" x="16" y="0.0" width="568" height="600"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xCk-ta-3eQ">
@@ -255,7 +255,7 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9yf-Kf-LFZ">
                                                     <rect key="frame" x="28" y="-1" width="80" height="81"/>
                                                     <subviews>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Test Image" translatesAutoresizingMaskIntoConstraints="NO" id="fx9-gg-WLa">
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Null" translatesAutoresizingMaskIntoConstraints="NO" id="fx9-gg-WLa">
                                                             <rect key="frame" x="10" y="11" width="60" height="60"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" secondItem="fx9-gg-WLa" secondAttribute="height" multiplier="1:1" id="2CT-3e-IN4"/>
@@ -678,8 +678,7 @@ Make School Summer Academy (makeschool.com)</string>
     </scenes>
     <resources>
         <image name="Info" width="545" height="545"/>
-        <image name="Test Image" width="211" height="222"/>
-        <image name="TestTest" width="320" height="568"/>
+        <image name="Null" width="200" height="195"/>
         <image name="backArrow" width="435" height="435"/>
     </resources>
     <inferredMetricsTieBreakers>

@@ -52,7 +52,7 @@ class PageContentViewController: UIViewController {
                 } else if (dataType == "Month") {
                     data = info.months
                 } else {
-                    data = [Label(n: "Error", l: "error", p: "error", r: "#", ph: "Test Image")]
+                    data = [Label(n: "Error", l: "error", p: "error", r: "#", ph: "Null")]
                 }
             }
         }
