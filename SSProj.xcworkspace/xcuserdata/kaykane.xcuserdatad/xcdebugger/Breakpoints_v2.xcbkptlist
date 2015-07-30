@@ -9,14 +9,62 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "SSProj/View Controllers/OauthLoginViewController.swift"
-            timestampString = "459969027.15605"
+            filePath = "SSProj/View Controllers/SettingsViewController.swift"
+            timestampString = "459970828.483035"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "60"
-            endingLineNumber = "60"
-            landmarkName = "OauthLoginViewController"
-            landmarkType = "3">
+            startingLineNumber = "49"
+            endingLineNumber = "49"
+            landmarkName = "logoutTapped(_:)"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SSProj.SettingsViewController.logoutTapped (SSProj.SettingsViewController)(Swift.AnyObject) -&gt; ()"
+                  moduleName = "SSProj"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kaykane/Desktop/Projects/MakeSchool/IGO/SSProj/View%20Controllers/SettingsViewController.swift"
+                  timestampString = "459971748.462963"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "49"
+                  endingLineNumber = "49"
+                  offsetFromSymbolStart = "420">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "function signature specialization &lt;Arg[1] = Dead, Arg[2] = Value Promoted from InOut&gt; of SSProj.SettingsViewController.(logoutTapped (SSProj.SettingsViewController) -&gt; (Swift.AnyObject) -&gt; ()).(closure #1)"
+                  moduleName = "SSProj"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kaykane/Desktop/Projects/MakeSchool/IGO/SSProj/View%20Controllers/SettingsViewController.swift"
+                  timestampString = "459971748.463331"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "49"
+                  endingLineNumber = "49"
+                  offsetFromSymbolStart = "136">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SSProj/View Controllers/RootViewController.swift"
+            timestampString = "459970984.662698"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "132"
+            endingLineNumber = "132"
+            landmarkName = "setUpUser(_:)"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

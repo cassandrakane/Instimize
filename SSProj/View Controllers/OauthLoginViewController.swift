@@ -83,7 +83,7 @@ class OauthLoginViewController: UIViewController {
         if segue.identifier == "unwindToMenu" && segue.destinationViewController.isKindOfClass(RootViewController.classForCoder()) {
             let navViewController = segue.destinationViewController as! RootViewController
             if let user = sender?.valueForKey("user") as? User {
-               self.info.user = user
+                self.info.user = user
             }
         }
     }

@@ -130,7 +130,7 @@ class RootViewController: UIViewController, UIPageViewControllerDataSource {
     func setUpUser(callback: () -> Void) {
         let realm = Realm()
         
-        if realm.objects(User).first != nil {
+        if realm.objects(User).first != nil && realm.objects(User).first!.userID != "" {
             //IF THERE IS A USER STORED IN REALM LOAD IT
             self.user = realm.objects(User).first
             shouldLogin = false

@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Realm
+import RealmSwift
 
 class SettingsViewController: UIViewController {
     
@@ -37,6 +39,14 @@ class SettingsViewController: UIViewController {
 
     @IBAction func logoutTapped(sender: AnyObject) {
         info.setUp = false
+        let realm = Realm()
+        
+        let oldUser = realm.objects(User).first!
+        var newUser: User = User()
+        realm.write() {
+            realm.add(newUser)
+            realm.delete(oldUser)
+        }
     }
     /*
     // MARK: - Navigation
