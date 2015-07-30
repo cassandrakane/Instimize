@@ -35,6 +35,32 @@
                         <rect key="frame" x="0.0" y="64" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="em5-Nz-08w">
+                                <rect key="frame" x="223" y="358" width="155" height="35"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="Scroll For Info">
+                                        <attributes>
+                                            <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="25" name="Avenir-Book"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pfu-mP-7T6">
+                                <rect key="frame" x="180" y="393" width="240" height="35"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="Swipe For Categories">
+                                        <attributes>
+                                            <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="25" name="Avenir-Book"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="mTu-OG-j2t">
                                 <rect key="frame" x="275" y="275" width="50" height="50"/>
                                 <constraints>
@@ -44,21 +70,41 @@
                                 <color key="color" red="0.88235294119999996" green="0.90588235289999997" blue="0.91372549020000005" alpha="1" colorSpace="calibratedRGB"/>
                             </activityIndicatorView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wlO-V9-vqy">
-                                <rect key="frame" x="275" y="275" width="50" height="50"/>
+                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="50" id="Qfl-EF-CVh"/>
                                     <constraint firstAttribute="height" constant="50" id="qTX-Zs-7N5"/>
                                 </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="Qfl-EF-CVh"/>
+                                        <exclude reference="qTX-Zs-7N5"/>
+                                    </mask>
+                                </variation>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="0.13770000000000002" green="0.19944000000000006" blue="0.27000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="Pfu-mP-7T6" firstAttribute="top" secondItem="em5-Nz-08w" secondAttribute="bottom" id="3O2-aQ-aPO"/>
                             <constraint firstAttribute="centerX" secondItem="mTu-OG-j2t" secondAttribute="centerX" id="7ol-hE-p8P"/>
+                            <constraint firstItem="wlO-V9-vqy" firstAttribute="top" secondItem="3Lo-Pp-hlg" secondAttribute="bottom" id="AbU-Ff-2vs"/>
                             <constraint firstAttribute="centerX" secondItem="wlO-V9-vqy" secondAttribute="centerX" id="MMf-xn-Nd0"/>
                             <constraint firstAttribute="centerY" secondItem="wlO-V9-vqy" secondAttribute="centerY" id="Upv-7t-sDO"/>
+                            <constraint firstItem="JdF-ql-BN0" firstAttribute="top" secondItem="wlO-V9-vqy" secondAttribute="bottom" id="cUM-73-z41"/>
+                            <constraint firstAttribute="centerX" secondItem="Pfu-mP-7T6" secondAttribute="centerX" id="gIV-xc-xf9"/>
+                            <constraint firstAttribute="centerY" secondItem="em5-Nz-08w" secondAttribute="centerY" multiplier="4:5" id="lDZ-EE-9jk"/>
+                            <constraint firstItem="wlO-V9-vqy" firstAttribute="leading" secondItem="nvo-pz-tMS" secondAttribute="leadingMargin" constant="-16" id="oNG-j9-Qul"/>
+                            <constraint firstAttribute="centerX" secondItem="em5-Nz-08w" secondAttribute="centerX" id="ocN-g9-ApX"/>
                             <constraint firstAttribute="centerY" secondItem="mTu-OG-j2t" secondAttribute="centerY" id="th1-h3-Rj4"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="wlO-V9-vqy" secondAttribute="trailing" constant="-16" id="yn5-Ej-8br"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="MMf-xn-Nd0"/>
+                                <exclude reference="Upv-7t-sDO"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="TKL-fl-mie"/>
                     <connections>
@@ -388,66 +434,37 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <attributedString key="attributedText">
                                     <fragment>
-                                        <string key="content">Artwork
-</string>
-                                        <attributes>
-                                            <color key="NSColor" red="0.39417791494979559" green="0.40932300069227345" blue="0.42135621719160099" alpha="1" colorSpace="calibratedRGB"/>
-                                            <font key="NSFont" size="20" name="Avenir-Book"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment>
-                                        <string key="content">“2009 Leonid Meteor” by Ed Sweeney
-“leaves” by liz west
-"Foot Steps in the Snow" by Sean J Connolly
-"Flowers with Macro Mode on Lumix TZ5" by Jeff Turner
-Licensed under Creative Commons: By Attribution 2.0
-(http://creativecommons.org/licenses/by/2.0/)
-"Info" by Arthur Shlain from the Noun Project
-"Clocks" by Michael Thompson from the Noun Project - Edited (crop, color) by Cassandra Kane
-"Days and Dates" by Gianni - Dolce Merda from the Noun Project - Edited (crop, color) by Cassandra Kane
-"Monthly Calendars" by Garrett Knoll from the Noun Project - Edited (crop, color) by Cassandra Kane
-Licensed under Creative Commons: By Attribution 3.0
-(http://creativecommons.org/licenses/by/3.0/)</string>
-                                        <attributes>
-                                            <color key="NSColor" red="0.39417791494979559" green="0.40932300069227345" blue="0.42135621719160099" alpha="1" colorSpace="calibratedRGB"/>
-                                            <font key="NSFont" size="13" name="Avenir-Book"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment>
                                         <string key="content" base64-UTF8="YES">
 Cgo
 </string>
                                         <attributes>
                                             <color key="NSColor" red="0.39417791494979559" green="0.40932300069227345" blue="0.42135621719160099" alpha="1" colorSpace="calibratedRGB"/>
-                                            <font key="NSFont" size="15" name="Avenir-Book"/>
+                                            <font key="NSFont" size="13" name="Avenir-Book"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
                                         </attributes>
                                     </fragment>
-                                    <fragment>
-                                        <string key="content">Notes
-</string>
+                                    <fragment content="Notes">
                                         <attributes>
                                             <color key="NSColor" red="0.39417791494979559" green="0.40932300069227345" blue="0.42135621719160099" alpha="1" colorSpace="calibratedRGB"/>
                                             <font key="NSFont" size="20" name="Avenir-Book"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment>
-                                        <string key="content">Information from Instimize cannot guarantee an increase in likes on future posts due to the unavoidable variance in content (photo, caption, etc).
-Users with less data - under 50 posts - will have less accurate results compared to users with more data.</string>
-                                        <attributes>
-                                            <color key="NSColor" red="0.39417791494979559" green="0.40932300069227345" blue="0.42135621719160099" alpha="1" colorSpace="calibratedRGB"/>
-                                            <font key="NSFont" size="13" name="Avenir-Book"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
                                         </attributes>
                                     </fragment>
                                     <fragment>
                                         <string key="content">
 
-Special Thanks
+Information from Instimize cannot guarantee an increase in likes on future posts due to the unavoidable variance in content (photo, caption, etc).
+Users with less data - under 50 posts - will have less accurate results compared to users with more data.
+
+
 </string>
+                                        <attributes>
+                                            <color key="NSColor" red="0.39417791494979559" green="0.40932300069227345" blue="0.42135621719160099" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="13" name="Avenir-Book"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="Privacy Policy &amp; Terms Of Use">
                                         <attributes>
                                             <color key="NSColor" red="0.39417791494979559" green="0.40932300069227345" blue="0.42135621719160099" alpha="1" colorSpace="calibratedRGB"/>
                                             <font key="NSFont" size="20" name="Avenir-Book"/>
@@ -455,7 +472,71 @@ Special Thanks
                                         </attributes>
                                     </fragment>
                                     <fragment>
-                                        <string key="content">Zachary Espiritu
+                                        <string key="content">
+
+This privacy policy governs the use of the software application Instimize, created by Cassandra Kane, for mobile devices. Instimize obtains the information provided at Instagram login. All collection of information by Instimize can be stopped easily by uninstalling the application. One may use the standard uninstall process as may be available as part of the mobile device or via the mobile application marketplace or network. User provided data will be retained for as long as the application is used. By using Instigram, you are consenting to the processing of your information as set forth in this Privacy Policy. 
+
+
+</string>
+                                        <attributes>
+                                            <color key="NSColor" red="0.39417791494979559" green="0.40932300069227345" blue="0.42135621719160099" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="13" name="Avenir-Book"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="Artwork">
+                                        <attributes>
+                                            <color key="NSColor" red="0.39417791494979559" green="0.40932300069227345" blue="0.42135621719160099" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="20" name="Avenir-Book"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content">
+
+“2009 Leonid Meteor” by Ed Sweeney
+"Porto "old city"" by Evan Bench 
+"New York Skyline" by William Warby 
+"The city of Calgary from a different spot." by davebloggs007 
+"The city of Calgary June 7th 2014" by davebloggs007 
+"United States Coast Guard Katherine Walker and the New York City Skyline" by Anthony Quintano 
+"New York City Sunset June 28, 2014" by Anthony Quintano
+"The city of Calgary at night from crescent heights" by davebloggs007 
+“leaves” by liz west
+"Foot Steps in the Snow" by Sean J Connolly
+"Flowers with Macro Mode on Lumix TZ5" by Jeff Turner
+Licensed under Creative Commons: By Attribution 2.0
+(http://creativecommons.org/licenses/by/2.0/)
+
+"Info" by Arthur Shlain from the Noun Project
+"Clocks" by Michael Thompson from the Noun Project
+"Days and Dates" by Gianni - Dolce Merda from the Noun Project
+"Monthly Calendars" by Garrett Knoll from the Noun Project
+"back" by Gregor Črešnar from the Noun Project
+Edited (crop, flip, color) by Cassandra Kane
+Licensed under Creative Commons: By Attribution 3.0
+(http://creativecommons.org/licenses/by/3.0/)
+
+
+</string>
+                                        <attributes>
+                                            <color key="NSColor" red="0.39417791494979559" green="0.40932300069227345" blue="0.42135621719160099" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="13" name="Avenir-Book"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="Special Thanks">
+                                        <attributes>
+                                            <color key="NSColor" red="0.39417791494979559" green="0.40932300069227345" blue="0.42135621719160099" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="20" name="Avenir-Book"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content">
+
+Zachary Espirutu
+Eric Kim
 Rose Meier
 Adam Reis
 The Kane Family
