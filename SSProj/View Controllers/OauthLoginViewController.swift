@@ -16,7 +16,17 @@ import SwiftyJSON
 class OauthLoginViewController: UIViewController {
     
     @IBOutlet weak var webView: UIWebView!
+    @IBOutlet weak var button: UIButton!
+    @IBOutlet weak var parentWebView: UIView!
     var info = Info.sharedInstance
+    @IBOutlet weak var buttonView: UIView!
+    
+    @IBOutlet weak var LoginLabel: UILabel!
+    
+    @IBOutlet weak var buttonHeight: NSLayoutConstraint!
+    @IBOutlet weak var webViewHeight: NSLayoutConstraint!
+    @IBOutlet weak var webViewPosition: NSLayoutConstraint!
+    @IBOutlet weak var coverViewHeight: NSLayoutConstraint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,7 +36,7 @@ class OauthLoginViewController: UIViewController {
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
         return UIStatusBarStyle.LightContent
     }
-
+    
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         webView.hidden = true
@@ -45,6 +55,22 @@ class OauthLoginViewController: UIViewController {
         let request = NSURLRequest(URL: Instagram.Router.authorizationURL, cachePolicy: .ReloadIgnoringLocalAndRemoteCacheData, timeoutInterval: 10.0)
         self.webView.loadRequest(request)
         
+    }
+    
+    
+    @IBAction func webViewTapped(sender: AnyObject) {
+        println("tapped")
+        self.buttonHeight.constant = 0
+        animateWebView()
+        LoginLabel.textColor = UIColor.whiteColor()
+    }
+    
+    func animateWebView() {
+        UIView.animateWithDuration(1.3, delay: 0.0, usingSpringWithDamping: 1.0, initialSpringVelocity: 4.0, options: UIViewAnimationOptions.TransitionNone, animations: {
+                self.coverViewHeight.constant = UIScreen.mainScreen().bounds.size.height - 260
+                self.webViewHeight.constant = UIScreen.mainScreen().bounds.size.height + 100
+                self.view.layoutIfNeeded()
+        }, completion: nil)
     }
     
     override func didReceiveMemoryWarning() {
