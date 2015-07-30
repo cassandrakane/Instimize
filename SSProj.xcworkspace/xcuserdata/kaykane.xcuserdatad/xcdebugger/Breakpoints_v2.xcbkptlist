@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SSProj/View Controllers/SettingsViewController.swift"
-            timestampString = "459970828.483035"
+            timestampString = "459972684.488014"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "49"
-            endingLineNumber = "49"
+            startingLineNumber = "46"
+            endingLineNumber = "46"
             landmarkName = "logoutTapped(_:)"
             landmarkType = "5">
             <Locations>
@@ -58,7 +58,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SSProj/View Controllers/RootViewController.swift"
-            timestampString = "459970984.662698"
+            timestampString = "459972684.488014"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "132"
