@@ -43,15 +43,26 @@
                                 </constraints>
                                 <color key="color" red="0.88235294119999996" green="0.90588235289999997" blue="0.91372549020000005" alpha="1" colorSpace="calibratedRGB"/>
                             </activityIndicatorView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wlO-V9-vqy">
+                                <rect key="frame" x="275" y="275" width="50" height="50"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="Qfl-EF-CVh"/>
+                                    <constraint firstAttribute="height" constant="50" id="qTX-Zs-7N5"/>
+                                </constraints>
+                            </view>
                         </subviews>
-                        <color key="backgroundColor" red="0.13725490200000001" green="0.20000000000000001" blue="0.27058823529999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.13770000000000002" green="0.19944000000000006" blue="0.27000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="centerX" secondItem="mTu-OG-j2t" secondAttribute="centerX" id="7ol-hE-p8P"/>
+                            <constraint firstAttribute="centerX" secondItem="wlO-V9-vqy" secondAttribute="centerX" id="MMf-xn-Nd0"/>
+                            <constraint firstAttribute="centerY" secondItem="wlO-V9-vqy" secondAttribute="centerY" id="Upv-7t-sDO"/>
                             <constraint firstAttribute="centerY" secondItem="mTu-OG-j2t" secondAttribute="centerY" id="th1-h3-Rj4"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="TKL-fl-mie"/>
                     <connections>
+                        <outlet property="hideActivityView" destination="wlO-V9-vqy" id="Gk9-hi-N78"/>
                         <segue destination="lCE-aj-GVf" kind="presentation" identifier="Login" id="keK-mN-lU3"/>
                     </connections>
                 </viewController>

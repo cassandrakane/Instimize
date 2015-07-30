@@ -43,6 +43,8 @@ class RootViewController: UIViewController, UIPageViewControllerDataSource {
         }
     }
     
+    @IBOutlet weak var hideActivityView: UIView!
+    
     var timeZone: NSTimeZone = NSTimeZone.localTimeZone()
     var dates: [String] = []
     var totLikesPerHour: [String : [Int]] = [ : ]
@@ -65,25 +67,7 @@ class RootViewController: UIViewController, UIPageViewControllerDataSource {
         self.navigationController?.navigationBarHidden = true
         // Do any additional setup after loading the view.
         setUpUser() {
-            self.pageImages = [self.timeImage, self.dayImage, self.seasonImage]
-            self.pageDataTypes = ["Time", "Day", "Month"]
-            self.pageDataTypeLabels = ["Best Time Of Day", "Best Day Of Week", "Best Month Of Year"]
-            self.pageBestDataLabels = [self.bestTime, self.bestDay, self.bestMonth]
-            
-            // Create page view controller
-            self.pageViewController = self.storyboard?.instantiateViewControllerWithIdentifier("PageViewController") as! UIPageViewController
-            self.pageViewController.dataSource = self
-            var startingViewController: PageContentViewController = self.viewControllerAtIndex(0)
-            var viewControllers: NSArray = [startingViewController]
-            self.pageViewController.setViewControllers(viewControllers as [AnyObject], direction: UIPageViewControllerNavigationDirection.Forward, animated: false, completion: nil)
-            
-            
-            // Change the size of page view controller
-            self.pageViewController.view.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height + 40);
-            self.addChildViewController(self.pageViewController)
-            self.view.addSubview(self.pageViewController.view)
-            self.pageViewController.didMoveToParentViewController(self)
-        
+            self.setUpViewControllers()
         }
     }
     
@@ -92,25 +76,7 @@ class RootViewController: UIViewController, UIPageViewControllerDataSource {
         self.navigationController?.navigationBarHidden = true
         if info.newLogin {
             setUpUser() {
-                self.pageImages = [self.timeImage, self.dayImage, self.seasonImage]
-                self.pageDataTypes = ["Time", "Day", "Month"]
-                self.pageDataTypeLabels = ["Best Time Of Day", "Best Day Of Week", "Best Month Of Year"]
-                self.pageBestDataLabels = [self.bestTime, self.bestDay, self.bestMonth]
-                
-                // Create page view controller
-                self.pageViewController = self.storyboard?.instantiateViewControllerWithIdentifier("PageViewController") as! UIPageViewController
-                self.pageViewController.dataSource = self
-                var startingViewController: PageContentViewController = self.viewControllerAtIndex(0)
-                var viewControllers: NSArray = [startingViewController]
-                self.pageViewController.setViewControllers(viewControllers as [AnyObject], direction: UIPageViewControllerNavigationDirection.Forward, animated: false, completion: nil)
-                
-                
-                // Change the size of page view controller
-                self.pageViewController.view.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height + 40);
-                self.addChildViewController(self.pageViewController)
-                self.view.addSubview(self.pageViewController.view)
-                self.pageViewController.didMoveToParentViewController(self)
-                
+                self.setUpViewControllers()
             }
         }
         info.newLogin = false
@@ -242,6 +208,29 @@ class RootViewController: UIViewController, UIPageViewControllerDataSource {
         callback()
     }
     
+    
+    func setUpViewControllers() {
+        self.pageImages = [self.timeImage, self.dayImage, self.seasonImage]
+        self.pageDataTypes = ["Time", "Day", "Month"]
+        self.pageDataTypeLabels = ["Best Time Of Day", "Best Day Of Week", "Best Month Of Year"]
+        self.pageBestDataLabels = [self.bestTime, self.bestDay, self.bestMonth]
+        
+        // Create page view controller
+        self.pageViewController = self.storyboard?.instantiateViewControllerWithIdentifier("PageViewController") as! UIPageViewController
+        self.pageViewController.dataSource = self
+        var startingViewController: PageContentViewController = self.viewControllerAtIndex(0)
+        var viewControllers: NSArray = [startingViewController]
+        self.pageViewController.setViewControllers(viewControllers as [AnyObject], direction: UIPageViewControllerNavigationDirection.Forward, animated: false, completion: nil)
+        
+        
+        // Change the size of page view controller
+        self.pageViewController.view.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height + 40);
+        self.addChildViewController(self.pageViewController)
+        self.view.addSubview(self.pageViewController.view)
+        self.pageViewController.didMoveToParentViewController(self)
+        
+        self.hideActivityView.backgroundColor = UIColor(red: 27/255, green: 38/255, blue: 52/255, alpha: 1)
+    }
     
     //OPTIMIZE EVERYTHING
     func optimizeAll() {
