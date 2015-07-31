@@ -53,6 +53,8 @@ class RootViewController: UIViewController, UIPageViewControllerDataSource {
     @IBOutlet weak var scrollLabel: UILabel!
     @IBOutlet weak var coverButtonHeight: NSLayoutConstraint!
     
+    @IBOutlet weak var clockImage: UIImageView!
+    
     var timeZone: NSTimeZone = NSTimeZone.localTimeZone()
     var dates: [String] = []
     var totLikesPerHour: [String : [Int]] = [ : ]
@@ -71,6 +73,8 @@ class RootViewController: UIViewController, UIPageViewControllerDataSource {
     }
     
     override func viewDidLoad() {
+        super.viewDidLoad()
+        
         tutorialHeight.constant = UIScreen.mainScreen().bounds.size.height
         let clearColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 0)
 
@@ -79,8 +83,9 @@ class RootViewController: UIViewController, UIPageViewControllerDataSource {
         scrollLabel.textColor = clearColor
         coverButtonHeight.constant = 400
         
-        super.viewDidLoad()
         self.navigationController?.navigationBarHidden = true
+        
+        rotateImage()
         // Do any additional setup after loading the view.
         setUpUser() {
             self.setUpViewControllers()
@@ -287,6 +292,18 @@ class RootViewController: UIViewController, UIPageViewControllerDataSource {
             self.setUpViewControllers()
         }
     }
+    
+    
+    func rotateImage() {
+        UIView.animateWithDuration(2.0, delay: 0, options: UIViewAnimationOptions.Repeat, animations: {() -> Void in
+                self.clockImage.transform = CGAffineTransformRotate(self.clockImage.transform, 3.1415926)
+            }, completion: nil)
+
+    }
+    
+    
+    
+    
     
     //OPTIMIZE EVERYTHING
     func optimizeAll() {

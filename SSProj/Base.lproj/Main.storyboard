@@ -36,7 +36,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="em5-Nz-08w">
-                                <rect key="frame" x="223" y="358" width="155" height="35"/>
+                                <rect key="frame" x="223" y="383" width="155" height="35"/>
                                 <attributedString key="attributedText">
                                     <fragment content="Scroll For Info">
                                         <attributes>
@@ -49,7 +49,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pfu-mP-7T6">
-                                <rect key="frame" x="180" y="393" width="240" height="35"/>
+                                <rect key="frame" x="180" y="418" width="240" height="35"/>
                                 <attributedString key="attributedText">
                                     <fragment content="Swipe For Categories">
                                         <attributes>
@@ -61,14 +61,30 @@
                                 </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="mTu-OG-j2t">
-                                <rect key="frame" x="275" y="275" width="50" height="50"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rJq-WH-YzC">
+                                <rect key="frame" x="260" y="260" width="80" height="80"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="EmptyClock" translatesAutoresizingMaskIntoConstraints="NO" id="DBM-d5-7U8">
+                                        <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Camera" translatesAutoresizingMaskIntoConstraints="NO" id="yPJ-I7-KlT">
+                                        <rect key="frame" x="25" y="25" width="30" height="30"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="50" id="gu8-mo-6gN"/>
-                                    <constraint firstAttribute="height" constant="50" id="pAg-5g-4UC"/>
+                                    <constraint firstAttribute="trailing" secondItem="yPJ-I7-KlT" secondAttribute="trailing" constant="25" id="572-Rb-bMn"/>
+                                    <constraint firstItem="yPJ-I7-KlT" firstAttribute="top" secondItem="rJq-WH-YzC" secondAttribute="top" constant="25" id="Be2-fH-dB7"/>
+                                    <constraint firstItem="DBM-d5-7U8" firstAttribute="leading" secondItem="rJq-WH-YzC" secondAttribute="leading" id="Brs-ol-6Al"/>
+                                    <constraint firstAttribute="width" constant="80" id="JMC-eu-iDw"/>
+                                    <constraint firstAttribute="trailing" secondItem="DBM-d5-7U8" secondAttribute="trailing" id="MxY-Il-iG1"/>
+                                    <constraint firstAttribute="bottom" secondItem="yPJ-I7-KlT" secondAttribute="bottom" constant="25" id="ZBq-lV-2zM"/>
+                                    <constraint firstItem="DBM-d5-7U8" firstAttribute="top" secondItem="rJq-WH-YzC" secondAttribute="top" id="kj4-WE-ldC"/>
+                                    <constraint firstAttribute="height" constant="80" id="s1L-Lm-mwR"/>
+                                    <constraint firstItem="yPJ-I7-KlT" firstAttribute="leading" secondItem="rJq-WH-YzC" secondAttribute="leading" constant="25" id="s3Y-1g-yTZ"/>
+                                    <constraint firstAttribute="bottom" secondItem="DBM-d5-7U8" secondAttribute="bottom" id="wTt-Tn-6CA"/>
                                 </constraints>
-                                <color key="color" red="0.88235294119999996" green="0.90588235289999997" blue="0.91372549020000005" alpha="1" colorSpace="calibratedRGB"/>
-                            </activityIndicatorView>
+                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wlO-V9-vqy">
                                 <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -84,7 +100,7 @@
                                 </variation>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3nS-Z7-f6H">
-                                <rect key="frame" x="0.0" y="325" width="600" height="275"/>
+                                <rect key="frame" x="0.0" y="340" width="600" height="260"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CWl-Ee-x9H">
@@ -191,9 +207,7 @@
                         <constraints>
                             <constraint firstItem="Pfu-mP-7T6" firstAttribute="top" secondItem="em5-Nz-08w" secondAttribute="bottom" id="3O2-aQ-aPO"/>
                             <constraint firstItem="JdF-ql-BN0" firstAttribute="top" secondItem="bBf-O5-dpB" secondAttribute="bottom" id="3gw-40-JGt"/>
-                            <constraint firstAttribute="centerX" secondItem="mTu-OG-j2t" secondAttribute="centerX" id="7ol-hE-p8P"/>
                             <constraint firstItem="wlO-V9-vqy" firstAttribute="top" secondItem="3Lo-Pp-hlg" secondAttribute="bottom" id="AbU-Ff-2vs"/>
-                            <constraint firstItem="3nS-Z7-f6H" firstAttribute="top" secondItem="mTu-OG-j2t" secondAttribute="bottom" id="FLh-4l-319"/>
                             <constraint firstItem="JdF-ql-BN0" firstAttribute="top" secondItem="3nS-Z7-f6H" secondAttribute="bottom" id="LF6-hy-dLH"/>
                             <constraint firstItem="CWl-Ee-x9H" firstAttribute="leading" secondItem="nvo-pz-tMS" secondAttribute="leadingMargin" constant="-16" id="TIk-vy-SlU"/>
                             <constraint firstAttribute="trailingMargin" secondItem="bBf-O5-dpB" secondAttribute="trailing" constant="-16" id="Tgx-Vh-ft8"/>
@@ -203,19 +217,22 @@
                             <constraint firstAttribute="trailingMargin" secondItem="3nS-Z7-f6H" secondAttribute="trailing" constant="-16" id="fVf-Wo-aiI"/>
                             <constraint firstAttribute="centerX" secondItem="Pfu-mP-7T6" secondAttribute="centerX" id="gIV-xc-xf9"/>
                             <constraint firstAttribute="trailingMargin" secondItem="CWl-Ee-x9H" secondAttribute="trailing" constant="-16" id="gqP-j4-TYH"/>
+                            <constraint firstAttribute="centerY" secondItem="rJq-WH-YzC" secondAttribute="centerY" id="h0m-fc-f8p"/>
                             <constraint firstItem="CWl-Ee-x9H" firstAttribute="top" secondItem="3Lo-Pp-hlg" secondAttribute="bottom" constant="-44" id="hdY-RA-CZo"/>
+                            <constraint firstItem="3nS-Z7-f6H" firstAttribute="top" secondItem="rJq-WH-YzC" secondAttribute="bottom" id="hif-LZ-ax5"/>
                             <constraint firstItem="JdF-ql-BN0" firstAttribute="top" secondItem="CWl-Ee-x9H" secondAttribute="bottom" id="l4J-HC-EzY"/>
-                            <constraint firstAttribute="centerY" secondItem="em5-Nz-08w" secondAttribute="centerY" multiplier="4:5" id="lDZ-EE-9jk"/>
+                            <constraint firstAttribute="centerY" secondItem="em5-Nz-08w" secondAttribute="centerY" multiplier="3:4" id="lDZ-EE-9jk"/>
                             <constraint firstItem="wlO-V9-vqy" firstAttribute="leading" secondItem="nvo-pz-tMS" secondAttribute="leadingMargin" constant="-16" id="oNG-j9-Qul"/>
                             <constraint firstAttribute="centerX" secondItem="em5-Nz-08w" secondAttribute="centerX" id="ocN-g9-ApX"/>
                             <constraint firstItem="bBf-O5-dpB" firstAttribute="top" secondItem="3Lo-Pp-hlg" secondAttribute="bottom" constant="400" id="sNS-Hx-XUT"/>
-                            <constraint firstAttribute="centerY" secondItem="mTu-OG-j2t" secondAttribute="centerY" id="th1-h3-Rj4"/>
+                            <constraint firstAttribute="centerX" secondItem="rJq-WH-YzC" secondAttribute="centerX" id="xDf-FF-Ip6"/>
                             <constraint firstItem="bBf-O5-dpB" firstAttribute="leading" secondItem="nvo-pz-tMS" secondAttribute="leadingMargin" constant="-16" id="xq2-ed-kwR"/>
                             <constraint firstAttribute="trailingMargin" secondItem="wlO-V9-vqy" secondAttribute="trailing" constant="-16" id="yn5-Ej-8br"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="TKL-fl-mie"/>
                     <connections>
+                        <outlet property="clockImage" destination="DBM-d5-7U8" id="Vw3-Fl-lFi"/>
                         <outlet property="coverButtonHeight" destination="sNS-Hx-XUT" id="B2V-1V-T7D"/>
                         <outlet property="hideActivityView" destination="wlO-V9-vqy" id="Gk9-hi-N78"/>
                         <outlet property="hideInstructionsView" destination="3nS-Z7-f6H" id="Y9E-8F-sXb"/>
@@ -940,6 +957,8 @@ Make School Summer Academy (makeschool.com)</string>
         </scene>
     </scenes>
     <resources>
+        <image name="Camera" width="100" height="100"/>
+        <image name="EmptyClock" width="1022" height="1022"/>
         <image name="Info" width="545" height="545"/>
         <image name="Logo" width="541" height="155"/>
         <image name="Null" width="200" height="195"/>
