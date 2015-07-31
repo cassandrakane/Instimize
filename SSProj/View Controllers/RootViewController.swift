@@ -44,6 +44,7 @@ class RootViewController: UIViewController, UIPageViewControllerDataSource {
     }
     
     @IBOutlet weak var hideActivityView: UIView!
+    @IBOutlet weak var hideInstructionsView: UIView!
     
     var timeZone: NSTimeZone = NSTimeZone.localTimeZone()
     var dates: [String] = []
@@ -103,9 +104,11 @@ class RootViewController: UIViewController, UIPageViewControllerDataSource {
         }
         
         if shouldLogin {
+            self.hideInstructionsView.backgroundColor = UIColor(red: 27/255, green: 38/255, blue: 52/255, alpha: 1)
             performSegueWithIdentifier("Login", sender: self)
             shouldLogin = false
         } else {
+            self.hideInstructionsView.backgroundColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 0)
             realm.write() {
                 realm.objects(User).first!.set = false
                 self.user?.set = false
@@ -135,7 +138,6 @@ class RootViewController: UIViewController, UIPageViewControllerDataSource {
                 callback()
             }
         }
-        //callback()
     }
     
     func getInfo(user: User, request: URLRequestConvertible, callback: () -> Void) {

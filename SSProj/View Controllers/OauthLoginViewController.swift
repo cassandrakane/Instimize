@@ -21,12 +21,11 @@ class OauthLoginViewController: UIViewController {
     var info = Info.sharedInstance
     @IBOutlet weak var buttonView: UIView!
     
-    @IBOutlet weak var LoginLabel: UILabel!
-    
+    @IBOutlet weak var bottomView: UIView!
     @IBOutlet weak var buttonHeight: NSLayoutConstraint!
-    @IBOutlet weak var webViewHeight: NSLayoutConstraint!
-    @IBOutlet weak var webViewPosition: NSLayoutConstraint!
-    @IBOutlet weak var coverViewHeight: NSLayoutConstraint!
+    
+    @IBOutlet weak var parentViewTopHeight: NSLayoutConstraint!
+    @IBOutlet weak var labelPosition: NSLayoutConstraint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,13 +61,12 @@ class OauthLoginViewController: UIViewController {
         println("tapped")
         self.buttonHeight.constant = 0
         animateWebView()
-        LoginLabel.textColor = UIColor.whiteColor()
     }
     
     func animateWebView() {
         UIView.animateWithDuration(1.3, delay: 0.0, usingSpringWithDamping: 1.0, initialSpringVelocity: 4.0, options: UIViewAnimationOptions.TransitionNone, animations: {
-                self.coverViewHeight.constant = UIScreen.mainScreen().bounds.size.height - 260
-                self.webViewHeight.constant = UIScreen.mainScreen().bounds.size.height + 100
+                self.parentViewTopHeight.constant = self.parentViewTopHeight.constant - 170
+                self.labelPosition.constant = self.bottomView.bounds.size.height / 2 + 82
                 self.view.layoutIfNeeded()
         }, completion: nil)
     }
