@@ -15,6 +15,7 @@ class Info {
     var months: [Label] = []
     var newLogin: Bool = false
     var setUp: Bool = false
+    var firstTime: Bool = false
     
     class var sharedInstance : Info {
         struct Static {

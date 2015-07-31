@@ -46,6 +46,13 @@ class RootViewController: UIViewController, UIPageViewControllerDataSource {
     @IBOutlet weak var hideActivityView: UIView!
     @IBOutlet weak var hideInstructionsView: UIView!
     
+    @IBOutlet weak var tutorialHeight: NSLayoutConstraint!
+    
+    @IBOutlet weak var welcomeLabel: UILabel!
+    @IBOutlet weak var swipeLabel: UILabel!
+    @IBOutlet weak var scrollLabel: UILabel!
+    @IBOutlet weak var coverButtonHeight: NSLayoutConstraint!
+    
     var timeZone: NSTimeZone = NSTimeZone.localTimeZone()
     var dates: [String] = []
     var totLikesPerHour: [String : [Int]] = [ : ]
@@ -64,6 +71,14 @@ class RootViewController: UIViewController, UIPageViewControllerDataSource {
     }
     
     override func viewDidLoad() {
+        tutorialHeight.constant = UIScreen.mainScreen().bounds.size.height
+        let clearColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 0)
+
+        welcomeLabel.textColor = clearColor
+        swipeLabel.textColor = clearColor
+        scrollLabel.textColor = clearColor
+        coverButtonHeight.constant = 400
+        
         super.viewDidLoad()
         self.navigationController?.navigationBarHidden = true
         // Do any additional setup after loading the view.
@@ -76,8 +91,13 @@ class RootViewController: UIViewController, UIPageViewControllerDataSource {
         super.viewDidAppear(true)
         self.navigationController?.navigationBarHidden = true
         if info.newLogin {
-            setUpUser() {
-                self.setUpViewControllers()
+            if self.info.firstTime {
+                self.showTutorial()
+                self.info.firstTime = false
+            } else {
+                setUpUser() {
+                    self.setUpViewControllers()
+                }
             }
         }
         info.newLogin = false
@@ -101,6 +121,10 @@ class RootViewController: UIViewController, UIPageViewControllerDataSource {
             //IF THERE IS A USER STORED IN REALM LOAD IT
             self.user = realm.objects(User).first
             shouldLogin = false
+        } else {
+            if realm.objects(User).first == nil {
+                self.info.firstTime = true
+            }
         }
         
         if shouldLogin {
@@ -232,6 +256,36 @@ class RootViewController: UIViewController, UIPageViewControllerDataSource {
         self.pageViewController.didMoveToParentViewController(self)
         
         self.hideActivityView.backgroundColor = UIColor(red: 27/255, green: 38/255, blue: 52/255, alpha: 1)
+    }
+    
+    func showTutorial() {
+        
+        UIView.animateWithDuration(2, delay: 0.0, usingSpringWithDamping: 1.0, initialSpringVelocity: 4.0, options: UIViewAnimationOptions.TransitionNone, animations: {
+            self.tutorialHeight.constant = 0
+            let grayColor: UIColor = UIColor(red: 101/255, green: 105/255, blue: 108/255, alpha: 1)
+            self.welcomeLabel.textColor = grayColor
+            self.swipeLabel.textColor = grayColor
+            self.scrollLabel.textColor = grayColor
+            self.coverButtonHeight.constant = UIScreen.mainScreen().bounds.size.height - 20
+            self.view.layoutIfNeeded()
+        }, completion: nil)
+
+    }
+    
+    @IBAction func hideTutorial(sender: AnyObject) {
+        let clearColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 0)
+        UIView.animateWithDuration(1.3, delay: 0.0, usingSpringWithDamping: 1.0, initialSpringVelocity: 4.0, options: UIViewAnimationOptions.TransitionNone, animations: {
+            self.tutorialHeight.constant = UIScreen.mainScreen().bounds.size.height
+            self.welcomeLabel.textColor = clearColor
+            self.swipeLabel.textColor = clearColor
+            self.scrollLabel.textColor = clearColor
+            self.coverButtonHeight.constant = 400
+    
+            self.view.layoutIfNeeded()
+            }, completion: nil)
+        setUpUser() {
+            self.setUpViewControllers()
+        }
     }
     
     //OPTIMIZE EVERYTHING

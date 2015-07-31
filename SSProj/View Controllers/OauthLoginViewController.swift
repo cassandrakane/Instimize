@@ -64,7 +64,7 @@ class OauthLoginViewController: UIViewController {
     }
     
     func animateWebView() {
-        UIView.animateWithDuration(1.3, delay: 0.0, usingSpringWithDamping: 1.0, initialSpringVelocity: 4.0, options: UIViewAnimationOptions.TransitionNone, animations: {
+        UIView.animateWithDuration(0.7, delay: 0.0, usingSpringWithDamping: 1.0, initialSpringVelocity: 4.0, options: UIViewAnimationOptions.TransitionNone, animations: {
                 self.parentViewTopHeight.constant = self.parentViewTopHeight.constant - 170
                 self.labelPosition.constant = self.bottomView.bounds.size.height / 2 + 82
                 self.view.layoutIfNeeded()
