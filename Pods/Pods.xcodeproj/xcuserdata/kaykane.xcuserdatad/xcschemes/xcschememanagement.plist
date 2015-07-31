@@ -9,27 +9,7 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>HexColors.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>LBBlurredImage.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>Mantle.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>Pods.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>ReactiveCocoa.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -49,15 +29,10 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>TSMessages.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>0C8BB887D3FFFDD895360E643C7F332C</key>
+		<key>05CCCBBF4C39EFD1470DBBF9A706201F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -67,12 +42,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>3E76D22C7459E686AE0B843987FA8506</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>3F6B6B2441E6F27B14BA891DAC6A872C</key>
+		<key>45C0BC7D5A9BAD1EF0B9C872A6CBADEB</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -82,27 +52,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>9858970870C02E65E78C5631DC3DC8BE</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>A74E024E4B9B908CE7BEF6DC40B9062E</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>C90A3367FB763C46FC29C74F349B0482</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>E78C0B9AD325E11C8F86FB15BC9700BE</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>F342B803F725E94CA08191A6BEFC6F7E</key>
+		<key>A95401EF31B338E56609941909167619</key>
 		<dict>
 			<key>primary</key>
 			<true/>

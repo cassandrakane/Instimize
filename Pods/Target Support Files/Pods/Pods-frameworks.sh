@@ -53,23 +53,13 @@ code_sign_if_enabled() {
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework 'Pods/Alamofire.framework'
-  install_framework 'Pods/HexColors.framework'
-  install_framework 'Pods/LBBlurredImage.framework'
-  install_framework 'Pods/Mantle.framework'
-  install_framework 'Pods/ReactiveCocoa.framework'
   install_framework 'Pods/Realm.framework'
   install_framework 'Pods/RealmSwift.framework'
   install_framework 'Pods/SwiftyJSON.framework'
-  install_framework 'Pods/TSMessages.framework'
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework 'Pods/Alamofire.framework'
-  install_framework 'Pods/HexColors.framework'
-  install_framework 'Pods/LBBlurredImage.framework'
-  install_framework 'Pods/Mantle.framework'
-  install_framework 'Pods/ReactiveCocoa.framework'
   install_framework 'Pods/Realm.framework'
   install_framework 'Pods/RealmSwift.framework'
   install_framework 'Pods/SwiftyJSON.framework'
-  install_framework 'Pods/TSMessages.framework'
 fi

@@ -281,19 +281,6 @@
                                     <rect key="frame" x="0.0" y="0.0" width="568" height="300"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cZx-FZ-0um">
-                                            <rect key="frame" x="10" y="20" width="155" height="48"/>
-                                            <attributedString key="attributedText">
-                                                <fragment content="Instimize:">
-                                                    <attributes>
-                                                        <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                        <font key="NSFont" size="35" name="Avenir-Heavy"/>
-                                                        <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
-                                                    </attributes>
-                                                </fragment>
-                                            </attributedString>
-                                            <nil key="highlightedColor"/>
-                                        </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3TC-Gr-crh">
                                             <rect key="frame" x="10" y="242" width="147" height="48"/>
                                             <attributedString key="attributedText">
@@ -347,6 +334,19 @@
                                                 <segue destination="0AT-jJ-KaP" kind="presentation" modalTransitionStyle="flipHorizontal" id="wnC-CZ-aqs"/>
                                             </connections>
                                         </button>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cZx-FZ-0um">
+                                            <rect key="frame" x="10" y="20" width="155" height="48"/>
+                                            <attributedString key="attributedText">
+                                                <fragment content="Instimize:">
+                                                    <attributes>
+                                                        <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <font key="NSFont" size="35" name="Avenir-Heavy"/>
+                                                        <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                                    </attributes>
+                                                </fragment>
+                                            </attributedString>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     <constraints>
@@ -595,7 +595,7 @@ Users with less data - under 50 posts - will have less accurate results compared
                                     <fragment>
                                         <string key="content">
 
-This privacy policy governs the use of the software application Instimize, created by Cassandra Kane, for mobile devices. Instimize obtains the information provided at Instagram login. All collection of information by Instimize can be stopped easily by uninstalling the application. One may use the standard uninstall process as may be available as part of the mobile device or via the mobile application marketplace or network. User provided data will be retained for as long as the application is used. By using Instigram, you are consenting to the processing of your information as set forth in this Privacy Policy. 
+This privacy policy governs the use of the software application Instimize, created by Cassandra Kane, for mobile devices. Instimize obtains the information provided at Instagram login. All collection of information by Instimize can be stopped easily by uninstalling the application. One may use the standard uninstall process as may be available as part of the mobile device or via the mobile application marketplace or network. User provided data will be retained for as long as the application is used. By using Instimize, you are consenting to the processing of your information as set forth in this Privacy Policy. 
 
 
 </string>
@@ -615,6 +615,7 @@ This privacy policy governs the use of the software application Instimize, creat
                                     <fragment>
                                         <string key="content">
 
+"Camera" by Icons8
 “2009 Leonid Meteor” by Ed Sweeney
 "Porto "old city"" by Evan Bench 
 "New York Skyline" by William Warby 
@@ -628,7 +629,6 @@ This privacy policy governs the use of the software application Instimize, creat
 "Flowers with Macro Mode on Lumix TZ5" by Jeff Turner
 Licensed under Creative Commons: By Attribution 2.0
 (http://creativecommons.org/licenses/by/2.0/)
-
 "Info" by Arthur Shlain from the Noun Project
 "Clocks" by Michael Thompson from the Noun Project
 "Days and Dates" by Gianni - Dolce Merda from the Noun Project
@@ -659,6 +659,9 @@ Licensed under Creative Commons: By Attribution 3.0
 Zachary Espirutu
 Eric Kim
 Rose Meier
+Zhouqi Mo
+Ryan Nystrom
+Rebecca Poch
 Adam Reis
 The Kane Family
 Make School Summer Academy (makeschool.com)</string>
