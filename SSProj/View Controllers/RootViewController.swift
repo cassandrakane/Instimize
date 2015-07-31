@@ -81,7 +81,7 @@ class RootViewController: UIViewController, UIPageViewControllerDataSource {
         welcomeLabel.textColor = clearColor
         swipeLabel.textColor = clearColor
         scrollLabel.textColor = clearColor
-        coverButtonHeight.constant = 400
+        coverButtonHeight.constant = 450
         
         self.navigationController?.navigationBarHidden = true
         
@@ -271,7 +271,7 @@ class RootViewController: UIViewController, UIPageViewControllerDataSource {
             self.welcomeLabel.textColor = grayColor
             self.swipeLabel.textColor = grayColor
             self.scrollLabel.textColor = grayColor
-            self.coverButtonHeight.constant = UIScreen.mainScreen().bounds.size.height - 20
+            self.coverButtonHeight.constant = UIScreen.mainScreen().bounds.size.height - 35
             self.view.layoutIfNeeded()
         }, completion: nil)
 
@@ -284,8 +284,7 @@ class RootViewController: UIViewController, UIPageViewControllerDataSource {
             self.welcomeLabel.textColor = clearColor
             self.swipeLabel.textColor = clearColor
             self.scrollLabel.textColor = clearColor
-            self.coverButtonHeight.constant = 400
-    
+            self.coverButtonHeight.constant = 450
             self.view.layoutIfNeeded()
             }, completion: nil)
         setUpUser() {
