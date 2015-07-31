@@ -12,13 +12,6 @@
             <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="SrB-Q1-zIC">
-                    <rect key="frame" x="100" y="120" width="280" height="80"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="80" id="I4l-nQ-8Sw"/>
-                        <constraint firstAttribute="width" secondItem="SrB-Q1-zIC" secondAttribute="height" multiplier="541:155" id="kb4-b9-uwz"/>
-                    </constraints>
-                </imageView>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="8ie-xW-0ye">
                     <rect key="frame" x="114" y="446" width="252" height="14"/>
                     <attributedString key="attributedText">
@@ -32,13 +25,29 @@
                     </attributedString>
                     <nil key="highlightedColor"/>
                 </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="SrB-Q1-zIC">
+                    <rect key="frame" x="100" y="120" width="280" height="80"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="80" id="I4l-nQ-8Sw"/>
+                        <constraint firstAttribute="width" secondItem="SrB-Q1-zIC" secondAttribute="height" multiplier="541:155" id="kb4-b9-uwz"/>
+                    </constraints>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Icon" translatesAutoresizingMaskIntoConstraints="NO" id="mbz-dd-lyw">
+                    <rect key="frame" x="128" y="189" width="225" height="224"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="mbz-dd-lyw" secondAttribute="height" multiplier="1:1" constant="1" id="KBo-8L-aKd"/>
+                        <constraint firstAttribute="width" constant="225" id="nPY-31-ZhH"/>
+                    </constraints>
+                </imageView>
             </subviews>
             <color key="backgroundColor" red="0.13725490200000001" green="0.20000000000000001" blue="0.27058823529999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstAttribute="centerY" secondItem="SrB-Q1-zIC" secondAttribute="centerY" multiplier="3:2" id="AIa-7N-0ku"/>
                 <constraint firstAttribute="centerX" secondItem="SrB-Q1-zIC" secondAttribute="centerX" id="I0q-jg-xBp"/>
+                <constraint firstAttribute="centerX" secondItem="mbz-dd-lyw" secondAttribute="centerX" id="KFj-o7-kx5"/>
                 <constraint firstAttribute="bottom" secondItem="8ie-xW-0ye" secondAttribute="bottom" constant="20" id="Kzo-t9-V3l"/>
                 <constraint firstItem="8ie-xW-0ye" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" symbolic="YES" id="MfP-vx-nX0"/>
+                <constraint firstAttribute="centerY" secondItem="mbz-dd-lyw" secondAttribute="centerY" multiplier="4:5" id="VE0-St-2ke"/>
                 <constraint firstAttribute="centerX" secondItem="8ie-xW-0ye" secondAttribute="centerX" id="ZEH-qu-HZ9"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
@@ -52,6 +61,7 @@
         </view>
     </objects>
     <resources>
+        <image name="Icon" width="579" height="579"/>
         <image name="Logo" width="541" height="155"/>
     </resources>
 </document>
