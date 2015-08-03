@@ -10,7 +10,6 @@ import UIKit
 import Realm
 import RealmSwift
 import Foundation
-import LBBlurredImage
 
 class PageContentViewController: UIViewController {
 
@@ -79,6 +78,12 @@ class PageContentViewController: UIViewController {
         user = realm.objects(User).first!
     }
    
+    @IBAction func scrollTapped(sender: AnyObject) {
+        tableView.setContentOffset(CGPointMake(0, UIScreen.mainScreen().bounds.size.height), animated: true)
+    }
+    
+    
+    
 }
 
 

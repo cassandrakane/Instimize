@@ -59,7 +59,6 @@
 		741E1D201B45B7F0001C9B27 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		7461ACD61B5D30EF00FDDFCA /* Info.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Info.swift; sourceTree = "<group>"; };
 		74B58BED1B67C9AC00BD0FA4 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsViewController.swift; path = "View Controllers/SettingsViewController.swift"; sourceTree = "<group>"; };
-		74D7F0441B5D98570083C41F /* SSProj-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SSProj-Bridging-Header.h"; sourceTree = "<group>"; };
 		A49590FA6B898EBC4474AF93 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -134,7 +133,6 @@
 				740FA4D11B459292000E88B7 /* LaunchScreen.xib */,
 				740FA4C61B459292000E88B7 /* Supporting Files */,
 				741E1D1C1B45AA0D001C9B27 /* Instagram.swift */,
-				74D7F0441B5D98570083C41F /* SSProj-Bridging-Header.h */,
 			);
 			path = SSProj;
 			sourceTree = "<group>";
@@ -490,7 +488,7 @@
 				INFOPLIST_FILE = SSProj/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "SSProj/SSProj-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 			};
 			name = Debug;
 		};
@@ -504,7 +502,7 @@
 				INFOPLIST_FILE = SSProj/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "SSProj/SSProj-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 			};
 			name = Release;
 		};
