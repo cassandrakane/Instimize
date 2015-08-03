@@ -10,10 +10,13 @@ import UIKit
 
 class NavigationViewController: UINavigationController {
 
+    var info = Info.sharedInstance
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
+
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

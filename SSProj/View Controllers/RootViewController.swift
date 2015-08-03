@@ -55,6 +55,11 @@ class RootViewController: UIViewController, UIPageViewControllerDataSource {
     
     @IBOutlet weak var beginButton: UIButton!
     @IBOutlet weak var clockImage: UIImageView!
+    @IBOutlet weak var errorView: UIView!
+    
+    @IBOutlet weak var errorLabel1: UILabel!
+    @IBOutlet weak var errorLabel2: UILabel!
+    @IBOutlet weak var returnHomeButton: UIButton!
     
     var timeZone: NSTimeZone = NSTimeZone.localTimeZone()
     var dates: [String] = []
@@ -85,8 +90,6 @@ class RootViewController: UIViewController, UIPageViewControllerDataSource {
         let buttonTitle = NSAttributedString(string: "Begin",
             attributes: [NSForegroundColorAttributeName : UIColor.clearColor()])
         self.beginButton.setAttributedTitle(buttonTitle, forState: UIControlState.Normal)
-        //beginButton.setTitleColor(UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 0), forState: UIControlState.Normal)
-        //beginButton.bounds.size.height = 0
         
         self.navigationController?.navigationBarHidden = true
         
@@ -224,6 +227,16 @@ class RootViewController: UIViewController, UIPageViewControllerDataSource {
                             callback()
                         }
                     }
+                } else {
+                    UIView.animateWithDuration(2.0, animations: {
+                        self.errorView.backgroundColor = UIColor(red: 223/255, green: 53/255, blue: 46/255, alpha: 1)
+                        self.errorLabel1.textColor = UIColor.whiteColor()
+                        self.errorLabel2.textColor = UIColor.whiteColor()
+                        let buttonTitle = NSAttributedString(string: "Return To Home",
+                            attributes: [NSForegroundColorAttributeName : UIColor.whiteColor()])
+                        self.returnHomeButton.setAttributedTitle(buttonTitle, forState: UIControlState.Normal)
+                    })
+                    
                 }
             }
         }
@@ -282,11 +295,9 @@ class RootViewController: UIViewController, UIPageViewControllerDataSource {
             self.welcomeLabel.textColor = grayColor
             self.tutorialSwipeLabel.textColor = grayColor
             self.tutorialScrollLabel.textColor = grayColor
-            //self.beginButton.bounds.size.height = 53
             let buttonTitle = NSAttributedString(string: "Begin",
-                attributes: [NSForegroundColorAttributeName : UIColor.grayColor()])
+                attributes: [NSForegroundColorAttributeName : UIColor.darkGrayColor()])
             self.beginButton.setAttributedTitle(buttonTitle, forState: UIControlState.Normal)
-            //self.beginButton.setTitleColor(UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 1), forState: UIControlState.Normal)
             self.view.layoutIfNeeded()
         }, completion: nil)
 
@@ -302,8 +313,6 @@ class RootViewController: UIViewController, UIPageViewControllerDataSource {
             let buttonTitle = NSAttributedString(string: "Begin",
                 attributes: [NSForegroundColorAttributeName : UIColor.clearColor()])
             self.beginButton.setAttributedTitle(buttonTitle, forState: UIControlState.Normal)
-            //self.beginButton.setTitleColor(UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 0), forState: UIControlState.Normal)
-            //self.beginButton.bounds.size.height = 0
             self.view.layoutIfNeeded()
             }, completion: nil)
         setUpUser() {
@@ -311,11 +320,24 @@ class RootViewController: UIViewController, UIPageViewControllerDataSource {
         }
     }
     
-    
     func rotateImage() {
         UIView.animateWithDuration(2.0, delay: 0, options: UIViewAnimationOptions.Repeat, animations: {() -> Void in
                 self.clockImage.transform = CGAffineTransformRotate(self.clockImage.transform, 3.1415926)
             }, completion: nil)
+
+    }
+    
+    @IBAction func returnHomeTapped(sender: AnyObject) {
+        println("tapped")
+        self.info.setUp = false
+        let realm = Realm()
+        
+        let oldUser = realm.objects(User).first!
+        var newUser: User = User()
+        realm.write() {
+            realm.add(newUser)
+            realm.delete(oldUser)
+        }
 
     }
     
@@ -904,17 +926,6 @@ class RootViewController: UIViewController, UIPageViewControllerDataSource {
     func presentationIndexForPageViewController(pageViewController: UIPageViewController) -> NSInteger {
         return 0
     }
-    
-    
-        /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
 

@@ -68,20 +68,20 @@
                                         <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
                                     </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Camera" translatesAutoresizingMaskIntoConstraints="NO" id="yPJ-I7-KlT">
-                                        <rect key="frame" x="25" y="25" width="30" height="30"/>
+                                        <rect key="frame" x="20" y="18" width="40" height="40"/>
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="yPJ-I7-KlT" secondAttribute="trailing" constant="25" id="572-Rb-bMn"/>
-                                    <constraint firstItem="yPJ-I7-KlT" firstAttribute="top" secondItem="rJq-WH-YzC" secondAttribute="top" constant="25" id="Be2-fH-dB7"/>
+                                    <constraint firstAttribute="trailing" secondItem="yPJ-I7-KlT" secondAttribute="trailing" constant="20" id="572-Rb-bMn"/>
+                                    <constraint firstItem="yPJ-I7-KlT" firstAttribute="top" secondItem="rJq-WH-YzC" secondAttribute="top" constant="18" id="Be2-fH-dB7"/>
                                     <constraint firstItem="DBM-d5-7U8" firstAttribute="leading" secondItem="rJq-WH-YzC" secondAttribute="leading" id="Brs-ol-6Al"/>
                                     <constraint firstAttribute="width" constant="80" id="JMC-eu-iDw"/>
                                     <constraint firstAttribute="trailing" secondItem="DBM-d5-7U8" secondAttribute="trailing" id="MxY-Il-iG1"/>
-                                    <constraint firstAttribute="bottom" secondItem="yPJ-I7-KlT" secondAttribute="bottom" constant="25" id="ZBq-lV-2zM"/>
+                                    <constraint firstAttribute="bottom" secondItem="yPJ-I7-KlT" secondAttribute="bottom" constant="22" id="ZBq-lV-2zM"/>
                                     <constraint firstItem="DBM-d5-7U8" firstAttribute="top" secondItem="rJq-WH-YzC" secondAttribute="top" id="kj4-WE-ldC"/>
                                     <constraint firstAttribute="height" constant="80" id="s1L-Lm-mwR"/>
-                                    <constraint firstItem="yPJ-I7-KlT" firstAttribute="leading" secondItem="rJq-WH-YzC" secondAttribute="leading" constant="25" id="s3Y-1g-yTZ"/>
+                                    <constraint firstItem="yPJ-I7-KlT" firstAttribute="leading" secondItem="rJq-WH-YzC" secondAttribute="leading" constant="20" id="s3Y-1g-yTZ"/>
                                     <constraint firstAttribute="bottom" secondItem="DBM-d5-7U8" secondAttribute="bottom" id="wTt-Tn-6CA"/>
                                 </constraints>
                             </view>
@@ -194,13 +194,81 @@
                                     </mask>
                                 </variation>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kML-it-bKC">
+                                <rect key="frame" x="0.0" y="84" width="600" height="100"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xIv-9i-Jsl">
+                                        <rect key="frame" x="152" y="17" width="296" height="17"/>
+                                        <attributedString key="attributedText">
+                                            <fragment content="There seems to be a connection error preventing login.">
+                                                <attributes>
+                                                    <color key="NSColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="calibratedRGB"/>
+                                                    <font key="NSFont" size="12" name="Avenir-Book"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                                </attributes>
+                                            </fragment>
+                                        </attributedString>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W6j-vj-sk6">
+                                        <rect key="frame" x="211" y="39" width="179" height="17"/>
+                                        <attributedString key="attributedText">
+                                            <fragment content="Apologies for any inconvenience.">
+                                                <attributes>
+                                                    <color key="NSColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="calibratedRGB"/>
+                                                    <font key="NSFont" size="12" name="Avenir-Book"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                                </attributes>
+                                            </fragment>
+                                        </attributedString>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EEx-Hf-ceW">
+                                        <rect key="frame" x="231" y="56" width="139" height="38"/>
+                                        <state key="normal">
+                                            <attributedString key="attributedTitle">
+                                                <fragment content="Return To ">
+                                                    <attributes>
+                                                        <color key="NSColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="calibratedRGB"/>
+                                                        <font key="NSFont" size="19" name="Avenir-Book"/>
+                                                        <font key="NSOriginalFont" size="15" name="Avenir-Book"/>
+                                                    </attributes>
+                                                </fragment>
+                                                <fragment content="Home">
+                                                    <attributes>
+                                                        <color key="NSColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="calibratedRGB"/>
+                                                        <font key="NSFont" size="19" name="Avenir-Book"/>
+                                                    </attributes>
+                                                </fragment>
+                                            </attributedString>
+                                        </state>
+                                        <connections>
+                                            <action selector="returnHomeTapped:" destination="vS9-TJ-iWq" eventType="touchUpInside" id="1ZN-XY-oZy"/>
+                                            <segue destination="vUn-Tm-1LV" kind="showDetail" id="ZHE-E6-7eg"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.87450980392156863" green="0.20784313725490197" blue="0.1803921568627451" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="centerX" secondItem="xIv-9i-Jsl" secondAttribute="centerX" id="2dA-BR-TJo"/>
+                                    <constraint firstItem="EEx-Hf-ceW" firstAttribute="top" secondItem="W6j-vj-sk6" secondAttribute="bottom" id="9yJ-LF-v9e"/>
+                                    <constraint firstAttribute="height" constant="100" id="G92-nO-O7R"/>
+                                    <constraint firstItem="W6j-vj-sk6" firstAttribute="top" secondItem="xIv-9i-Jsl" secondAttribute="bottom" constant="5" id="OHB-21-iuk"/>
+                                    <constraint firstAttribute="centerX" secondItem="W6j-vj-sk6" secondAttribute="centerX" id="gbZ-Qa-Wil"/>
+                                    <constraint firstItem="xIv-9i-Jsl" firstAttribute="top" secondItem="kML-it-bKC" secondAttribute="top" constant="17" id="srv-yp-AbD"/>
+                                    <constraint firstAttribute="centerX" secondItem="EEx-Hf-ceW" secondAttribute="centerX" id="sse-Mf-bsz"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.13770000000000002" green="0.19944000000000006" blue="0.27000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="Pfu-mP-7T6" firstAttribute="top" secondItem="em5-Nz-08w" secondAttribute="bottom" id="3O2-aQ-aPO"/>
                             <constraint firstItem="wlO-V9-vqy" firstAttribute="top" secondItem="3Lo-Pp-hlg" secondAttribute="bottom" id="AbU-Ff-2vs"/>
+                            <constraint firstItem="kML-it-bKC" firstAttribute="leading" secondItem="nvo-pz-tMS" secondAttribute="leadingMargin" constant="-16" id="PCc-a9-4jC"/>
+                            <constraint firstItem="kML-it-bKC" firstAttribute="top" secondItem="3Lo-Pp-hlg" secondAttribute="bottom" constant="20" id="RIt-Jz-6nq"/>
                             <constraint firstItem="CWl-Ee-x9H" firstAttribute="leading" secondItem="nvo-pz-tMS" secondAttribute="leadingMargin" constant="-16" id="TIk-vy-SlU"/>
                             <constraint firstItem="JdF-ql-BN0" firstAttribute="top" secondItem="wlO-V9-vqy" secondAttribute="bottom" id="cUM-73-z41"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="kML-it-bKC" secondAttribute="trailing" constant="-16" id="cvU-Gl-PwM"/>
                             <constraint firstItem="CWl-Ee-x9H" firstAttribute="top" secondItem="nvo-pz-tMS" secondAttribute="topMargin" constant="20" id="fKY-Ch-Vfg"/>
                             <constraint firstAttribute="centerX" secondItem="Pfu-mP-7T6" secondAttribute="centerX" id="gIV-xc-xf9"/>
                             <constraint firstAttribute="trailingMargin" secondItem="CWl-Ee-x9H" secondAttribute="trailing" constant="-16" id="gqP-j4-TYH"/>
@@ -218,9 +286,13 @@
                     <connections>
                         <outlet property="beginButton" destination="B9P-Tk-7da" id="tRj-zK-Gch"/>
                         <outlet property="clockImage" destination="DBM-d5-7U8" id="Vw3-Fl-lFi"/>
+                        <outlet property="errorLabel1" destination="xIv-9i-Jsl" id="q0s-wf-ndb"/>
+                        <outlet property="errorLabel2" destination="W6j-vj-sk6" id="bzH-G3-RfO"/>
+                        <outlet property="errorView" destination="kML-it-bKC" id="C6m-aI-DIV"/>
                         <outlet property="hideActivityView" destination="wlO-V9-vqy" id="Gk9-hi-N78"/>
                         <outlet property="regularScrollLabel" destination="em5-Nz-08w" id="o4d-YV-9aK"/>
                         <outlet property="regularSwipeLabel" destination="Pfu-mP-7T6" id="zDA-0I-lU8"/>
+                        <outlet property="returnHomeButton" destination="EEx-Hf-ceW" id="Uxd-Y1-JoO"/>
                         <outlet property="tutorialHeight" destination="l4J-HC-EzY" id="0Kl-z5-PGk"/>
                         <outlet property="tutorialScrollLabel" destination="W7t-Du-5De" id="hXx-gE-7Xq"/>
                         <outlet property="tutorialSwipeLabel" destination="Czs-dv-wzu" id="S6R-dM-78v"/>
@@ -951,4 +1023,7 @@ Make School Summer Academy (makeschool.com)</string>
         <image name="Logo" width="541" height="155"/>
         <image name="Null" width="200" height="195"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="ZHE-E6-7eg"/>
+    </inferredMetricsTieBreakers>
 </document>
