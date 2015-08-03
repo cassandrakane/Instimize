@@ -680,7 +680,7 @@ to view more information</string>
                                 <attributedString key="attributedText">
                                     <fragment>
                                         <string key="content" base64-UTF8="YES">
-Cgo
+Cg
 </string>
                                         <attributes>
                                             <color key="NSColor" red="0.39417791494979559" green="0.40932300069227345" blue="0.42135621719160099" alpha="1" colorSpace="calibratedRGB"/>
@@ -748,12 +748,13 @@ This privacy policy governs the use of the software application Instimize, creat
 "United States Coast Guard Katherine Walker and the New York City Skyline" by Anthony Quintano 
 "New York City Sunset June 28, 2014" by Anthony Quintano
 "The city of Calgary at night from crescent heights" by davebloggs007 
-“leaves” by liz west
+"Maple Leaves" by William Warby
 "Foot Steps in the Snow" by Sean J Connolly
 "Flowers with Macro Mode on Lumix TZ5" by Jeff Turner
 Licensed under Creative Commons: By Attribution 2.0
 (http://creativecommons.org/licenses/by/2.0/)
 "Info" by Arthur Shlain from the Noun Project
+"Next" by Philipp Koerner from the Noun Project
 "Clocks" by Michael Thompson from the Noun Project
 "Days and Dates" by Gianni - Dolce Merda from the Noun Project
 "Monthly Calendars" by Garrett Knoll from the Noun Project
@@ -1092,6 +1093,6 @@ Make School Summer Academy (makeschool.com)</string>
         <image name="Null" width="200" height="195"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ZHE-E6-7eg"/>
+        <segue reference="xOF-a0-ir6"/>
     </inferredMetricsTieBreakers>
 </document>
