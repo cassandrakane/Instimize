@@ -99,10 +99,6 @@
                                     </mask>
                                 </variation>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3nS-Z7-f6H">
-                                <rect key="frame" x="0.0" y="340" width="600" height="260"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CWl-Ee-x9H">
                                 <rect key="frame" x="0.0" y="20" width="600" height="580"/>
                                 <subviews>
@@ -198,47 +194,36 @@
                                     </mask>
                                 </variation>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bBf-O5-dpB">
-                                <rect key="frame" x="0.0" y="464" width="600" height="136"/>
-                                <color key="backgroundColor" red="0.1058823529" green="0.14901960780000001" blue="0.20392156859999999" alpha="1" colorSpace="calibratedRGB"/>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.13770000000000002" green="0.19944000000000006" blue="0.27000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="Pfu-mP-7T6" firstAttribute="top" secondItem="em5-Nz-08w" secondAttribute="bottom" id="3O2-aQ-aPO"/>
-                            <constraint firstItem="JdF-ql-BN0" firstAttribute="top" secondItem="bBf-O5-dpB" secondAttribute="bottom" id="3gw-40-JGt"/>
                             <constraint firstItem="wlO-V9-vqy" firstAttribute="top" secondItem="3Lo-Pp-hlg" secondAttribute="bottom" id="AbU-Ff-2vs"/>
-                            <constraint firstItem="JdF-ql-BN0" firstAttribute="top" secondItem="3nS-Z7-f6H" secondAttribute="bottom" id="LF6-hy-dLH"/>
                             <constraint firstItem="CWl-Ee-x9H" firstAttribute="leading" secondItem="nvo-pz-tMS" secondAttribute="leadingMargin" constant="-16" id="TIk-vy-SlU"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="bBf-O5-dpB" secondAttribute="trailing" constant="-16" id="Tgx-Vh-ft8"/>
-                            <constraint firstItem="3nS-Z7-f6H" firstAttribute="leading" secondItem="nvo-pz-tMS" secondAttribute="leadingMargin" constant="-16" id="U9e-Oz-xFz"/>
                             <constraint firstItem="JdF-ql-BN0" firstAttribute="top" secondItem="wlO-V9-vqy" secondAttribute="bottom" id="cUM-73-z41"/>
                             <constraint firstItem="CWl-Ee-x9H" firstAttribute="top" secondItem="nvo-pz-tMS" secondAttribute="topMargin" constant="20" id="fKY-Ch-Vfg"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="3nS-Z7-f6H" secondAttribute="trailing" constant="-16" id="fVf-Wo-aiI"/>
                             <constraint firstAttribute="centerX" secondItem="Pfu-mP-7T6" secondAttribute="centerX" id="gIV-xc-xf9"/>
                             <constraint firstAttribute="trailingMargin" secondItem="CWl-Ee-x9H" secondAttribute="trailing" constant="-16" id="gqP-j4-TYH"/>
                             <constraint firstAttribute="centerY" secondItem="rJq-WH-YzC" secondAttribute="centerY" id="h0m-fc-f8p"/>
                             <constraint firstItem="CWl-Ee-x9H" firstAttribute="top" secondItem="3Lo-Pp-hlg" secondAttribute="bottom" constant="-44" id="hdY-RA-CZo"/>
-                            <constraint firstItem="3nS-Z7-f6H" firstAttribute="top" secondItem="rJq-WH-YzC" secondAttribute="bottom" id="hif-LZ-ax5"/>
                             <constraint firstItem="JdF-ql-BN0" firstAttribute="top" secondItem="CWl-Ee-x9H" secondAttribute="bottom" id="l4J-HC-EzY"/>
                             <constraint firstAttribute="centerY" secondItem="em5-Nz-08w" secondAttribute="centerY" multiplier="3:4" id="lDZ-EE-9jk"/>
                             <constraint firstItem="wlO-V9-vqy" firstAttribute="leading" secondItem="nvo-pz-tMS" secondAttribute="leadingMargin" constant="-16" id="oNG-j9-Qul"/>
                             <constraint firstAttribute="centerX" secondItem="em5-Nz-08w" secondAttribute="centerX" id="ocN-g9-ApX"/>
-                            <constraint firstItem="bBf-O5-dpB" firstAttribute="top" secondItem="3Lo-Pp-hlg" secondAttribute="bottom" constant="400" id="sNS-Hx-XUT"/>
                             <constraint firstAttribute="centerX" secondItem="rJq-WH-YzC" secondAttribute="centerX" id="xDf-FF-Ip6"/>
-                            <constraint firstItem="bBf-O5-dpB" firstAttribute="leading" secondItem="nvo-pz-tMS" secondAttribute="leadingMargin" constant="-16" id="xq2-ed-kwR"/>
                             <constraint firstAttribute="trailingMargin" secondItem="wlO-V9-vqy" secondAttribute="trailing" constant="-16" id="yn5-Ej-8br"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="TKL-fl-mie"/>
                     <connections>
+                        <outlet property="beginButton" destination="B9P-Tk-7da" id="tRj-zK-Gch"/>
                         <outlet property="clockImage" destination="DBM-d5-7U8" id="Vw3-Fl-lFi"/>
-                        <outlet property="coverButtonHeight" destination="sNS-Hx-XUT" id="B2V-1V-T7D"/>
                         <outlet property="hideActivityView" destination="wlO-V9-vqy" id="Gk9-hi-N78"/>
-                        <outlet property="hideInstructionsView" destination="3nS-Z7-f6H" id="Y9E-8F-sXb"/>
-                        <outlet property="scrollLabel" destination="W7t-Du-5De" id="Tns-Wa-frz"/>
-                        <outlet property="swipeLabel" destination="Czs-dv-wzu" id="cJB-0v-cd7"/>
+                        <outlet property="regularScrollLabel" destination="em5-Nz-08w" id="o4d-YV-9aK"/>
+                        <outlet property="regularSwipeLabel" destination="Pfu-mP-7T6" id="zDA-0I-lU8"/>
                         <outlet property="tutorialHeight" destination="l4J-HC-EzY" id="0Kl-z5-PGk"/>
+                        <outlet property="tutorialScrollLabel" destination="W7t-Du-5De" id="hXx-gE-7Xq"/>
+                        <outlet property="tutorialSwipeLabel" destination="Czs-dv-wzu" id="S6R-dM-78v"/>
                         <outlet property="welcomeLabel" destination="p3D-iG-qSH" id="UYB-Kb-dDZ"/>
                         <segue destination="lCE-aj-GVf" kind="presentation" identifier="Login" id="keK-mN-lU3"/>
                     </connections>

@@ -44,15 +44,16 @@ class RootViewController: UIViewController, UIPageViewControllerDataSource {
     }
     
     @IBOutlet weak var hideActivityView: UIView!
-    @IBOutlet weak var hideInstructionsView: UIView!
+    @IBOutlet weak var regularScrollLabel: UILabel!
+    @IBOutlet weak var regularSwipeLabel: UILabel!
     
     @IBOutlet weak var tutorialHeight: NSLayoutConstraint!
     
     @IBOutlet weak var welcomeLabel: UILabel!
-    @IBOutlet weak var swipeLabel: UILabel!
-    @IBOutlet weak var scrollLabel: UILabel!
-    @IBOutlet weak var coverButtonHeight: NSLayoutConstraint!
+    @IBOutlet weak var tutorialSwipeLabel: UILabel!
+    @IBOutlet weak var tutorialScrollLabel: UILabel!
     
+    @IBOutlet weak var beginButton: UIButton!
     @IBOutlet weak var clockImage: UIImageView!
     
     var timeZone: NSTimeZone = NSTimeZone.localTimeZone()
@@ -79,9 +80,13 @@ class RootViewController: UIViewController, UIPageViewControllerDataSource {
         let clearColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 0)
 
         welcomeLabel.textColor = clearColor
-        swipeLabel.textColor = clearColor
-        scrollLabel.textColor = clearColor
-        coverButtonHeight.constant = 450
+        tutorialSwipeLabel.textColor = clearColor
+        tutorialScrollLabel.textColor = clearColor
+        let buttonTitle = NSAttributedString(string: "Begin",
+            attributes: [NSForegroundColorAttributeName : UIColor.clearColor()])
+        self.beginButton.setAttributedTitle(buttonTitle, forState: UIControlState.Normal)
+        //beginButton.setTitleColor(UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 0), forState: UIControlState.Normal)
+        //beginButton.bounds.size.height = 0
         
         self.navigationController?.navigationBarHidden = true
         
@@ -133,14 +138,16 @@ class RootViewController: UIViewController, UIPageViewControllerDataSource {
         }
         
         if shouldLogin {
-            UIView.animateWithDuration(0.2, animations: {
-                self.hideInstructionsView.backgroundColor = UIColor(red: 27/255, green: 38/255, blue: 52/255, alpha: 1)
+            UIView.animateWithDuration(1, animations: {
+                self.regularScrollLabel.textColor = UIColor(red: 27/255, green: 38/255, blue: 52/255, alpha: 1)
+                self.regularSwipeLabel.textColor = UIColor(red: 27/255, green: 38/255, blue: 52/255, alpha: 1)
             })
             performSegueWithIdentifier("Login", sender: self)
             shouldLogin = false
         } else {
-            UIView.animateWithDuration(0.5, animations: {
-                self.hideInstructionsView.backgroundColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 0)
+            UIView.animateWithDuration(1, animations: {
+                self.regularScrollLabel.textColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 1)
+                self.regularSwipeLabel.textColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 1)
             })
             realm.write() {
                 realm.objects(User).first!.set = false
@@ -273,9 +280,13 @@ class RootViewController: UIViewController, UIPageViewControllerDataSource {
             self.tutorialHeight.constant = 0
             let grayColor: UIColor = UIColor(red: 101/255, green: 105/255, blue: 108/255, alpha: 1)
             self.welcomeLabel.textColor = grayColor
-            self.swipeLabel.textColor = grayColor
-            self.scrollLabel.textColor = grayColor
-            self.coverButtonHeight.constant = UIScreen.mainScreen().bounds.size.height - 35
+            self.tutorialSwipeLabel.textColor = grayColor
+            self.tutorialScrollLabel.textColor = grayColor
+            //self.beginButton.bounds.size.height = 53
+            let buttonTitle = NSAttributedString(string: "Begin",
+                attributes: [NSForegroundColorAttributeName : UIColor.grayColor()])
+            self.beginButton.setAttributedTitle(buttonTitle, forState: UIControlState.Normal)
+            //self.beginButton.setTitleColor(UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 1), forState: UIControlState.Normal)
             self.view.layoutIfNeeded()
         }, completion: nil)
 
@@ -286,9 +297,13 @@ class RootViewController: UIViewController, UIPageViewControllerDataSource {
         UIView.animateWithDuration(1.3, delay: 0.0, usingSpringWithDamping: 1.0, initialSpringVelocity: 4.0, options: UIViewAnimationOptions.TransitionNone, animations: {
             self.tutorialHeight.constant = UIScreen.mainScreen().bounds.size.height
             self.welcomeLabel.textColor = clearColor
-            self.swipeLabel.textColor = clearColor
-            self.scrollLabel.textColor = clearColor
-            self.coverButtonHeight.constant = 450
+            self.tutorialSwipeLabel.textColor = clearColor
+            self.tutorialScrollLabel.textColor = clearColor
+            let buttonTitle = NSAttributedString(string: "Begin",
+                attributes: [NSForegroundColorAttributeName : UIColor.clearColor()])
+            self.beginButton.setAttributedTitle(buttonTitle, forState: UIControlState.Normal)
+            //self.beginButton.setTitleColor(UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 0), forState: UIControlState.Normal)
+            //self.beginButton.bounds.size.height = 0
             self.view.layoutIfNeeded()
             }, completion: nil)
         setUpUser() {
@@ -303,8 +318,6 @@ class RootViewController: UIViewController, UIPageViewControllerDataSource {
             }, completion: nil)
 
     }
-    
-    
     
     
     
