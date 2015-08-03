@@ -265,7 +265,7 @@ class RootViewController: UIViewController, UIPageViewControllerDataSource {
     
     
     func setUpViewControllers() {
-        self.pageImages = [self.timeImage, self.dayImage, self.seasonImage]
+        self.pageImages = [self.timeImage, self.dayImage, "Autumn"]
         self.pageDataTypes = ["Time", "Day", "Month"]
         self.pageDataTypeLabels = ["Best Time Of Day", "Best Day Of Week", "Best Month Of Year"]
         self.pageBestDataLabels = [self.bestTime, self.bestDay, self.bestMonth]
