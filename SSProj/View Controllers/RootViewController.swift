@@ -141,16 +141,16 @@ class RootViewController: UIViewController, UIPageViewControllerDataSource {
         }
         
         if shouldLogin {
-            UIView.animateWithDuration(1, animations: {
+            UIView.animateWithDuration(1.0, animations: {
                 self.regularScrollLabel.textColor = UIColor(red: 27/255, green: 38/255, blue: 52/255, alpha: 1)
                 self.regularSwipeLabel.textColor = UIColor(red: 27/255, green: 38/255, blue: 52/255, alpha: 1)
             })
             performSegueWithIdentifier("Login", sender: self)
             shouldLogin = false
         } else {
-            UIView.animateWithDuration(1, animations: {
-                self.regularScrollLabel.textColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 1)
-                self.regularSwipeLabel.textColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 1)
+            UIView.animateWithDuration(1.0, animations: {
+                self.regularScrollLabel.textColor = UIColor.whiteColor()
+                self.regularSwipeLabel.textColor = UIColor.whiteColor()
             })
             realm.write() {
                 realm.objects(User).first!.set = false
