@@ -40,7 +40,7 @@ class OauthLoginViewController: UIViewController {
         super.viewWillAppear(animated)
         webView.hidden = true
         
-        //clears urls?
+        //clears urls
         NSURLCache.sharedURLCache().removeAllCachedResponses()
         
         //deletes all cookies
@@ -58,7 +58,6 @@ class OauthLoginViewController: UIViewController {
     
     
     @IBAction func webViewTapped(sender: AnyObject) {
-        println("tapped")
         self.buttonHeight.constant = 0
         animateWebView()
     }

@@ -24,12 +24,4 @@ class Info {
         return Static.instance
     }
     
-    /*
-    init(t: [Time], d: [Day], m: [Month]) {
-        times = t
-        days = d
-        months = m
-    }
-    */
-    
 }

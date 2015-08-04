@@ -103,11 +103,11 @@
                                 <rect key="frame" x="0.0" y="20" width="600" height="580"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p3D-iG-qSH">
-                                        <rect key="frame" x="173" y="150" width="254" height="35"/>
+                                        <rect key="frame" x="173" y="100" width="254" height="35"/>
                                         <attributedString key="attributedText">
                                             <fragment content="Welcome To Instimize">
                                                 <attributes>
-                                                    <color key="NSColor" red="0.39607843139999999" green="0.41176470590000003" blue="0.42352941179999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="NSColor" red="0.39607843139999999" green="0.41176470590000003" blue="0.42352941179999998" alpha="0.0" colorSpace="calibratedRGB"/>
                                                     <font key="NSFont" size="25" name="Avenir-Heavy"/>
                                                     <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
                                                 </attributes>
@@ -116,11 +116,11 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Czs-dv-wzu">
-                                        <rect key="frame" x="226" y="275" width="149" height="47"/>
+                                        <rect key="frame" x="226" y="225" width="149" height="47"/>
                                         <attributedString key="attributedText">
                                             <fragment content="swipe">
                                                 <attributes>
-                                                    <color key="NSColor" red="0.39607843139999999" green="0.41176470590000003" blue="0.42352941179999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="NSColor" red="0.39607843139999999" green="0.41176470590000003" blue="0.42352941179999998" alpha="0.0" colorSpace="calibratedRGB"/>
                                                     <font key="NSFont" size="17" name="Avenir-Heavy"/>
                                                     <font key="NSOriginalFont" size="14" name="Avenir-BlackOblique"/>
                                                     <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
@@ -130,7 +130,7 @@
                                                 <string key="content"> left and right
 to view categories</string>
                                                 <attributes>
-                                                    <color key="NSColor" red="0.39607843139999999" green="0.41176470590000003" blue="0.42352941179999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="NSColor" red="0.39607843139999999" green="0.41176470590000003" blue="0.42352941179999998" alpha="0.0" colorSpace="calibratedRGB"/>
                                                     <font key="NSFont" size="17" name="Avenir-Book"/>
                                                     <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
                                                 </attributes>
@@ -139,12 +139,12 @@ to view categories</string>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="B9P-Tk-7da">
-                                        <rect key="frame" x="260" y="479" width="81" height="53"/>
+                                        <rect key="frame" x="260" y="429" width="81" height="53"/>
                                         <state key="normal">
                                             <attributedString key="attributedTitle">
                                                 <fragment content="Begin">
                                                     <attributes>
-                                                        <color key="NSColor" red="0.39607843139999999" green="0.41176470590000003" blue="0.42352941179999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <color key="NSColor" red="0.39607843139999999" green="0.41176470590000003" blue="0.42352941179999998" alpha="0.0" colorSpace="calibratedRGB"/>
                                                         <font key="NSFont" size="30" name="Avenir-Heavy"/>
                                                     </attributes>
                                                 </fragment>
@@ -155,11 +155,11 @@ to view categories</string>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W7t-Du-5De">
-                                        <rect key="frame" x="205" y="342" width="191" height="47"/>
+                                        <rect key="frame" x="205" y="292" width="191" height="47"/>
                                         <attributedString key="attributedText">
                                             <fragment content="scroll">
                                                 <attributes>
-                                                    <color key="NSColor" red="0.39607843139999999" green="0.41176470590000003" blue="0.42352941179999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="NSColor" red="0.39607843139999999" green="0.41176470590000003" blue="0.42352941179999998" alpha="0.0" colorSpace="calibratedRGB"/>
                                                     <font key="NSFont" size="17" name="Avenir-Heavy"/>
                                                     <font key="NSOriginalFont" size="16" name="Avenir-Black"/>
                                                     <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
@@ -167,7 +167,7 @@ to view categories</string>
                                             </fragment>
                                             <fragment content=" ">
                                                 <attributes>
-                                                    <color key="NSColor" red="0.39607843139999999" green="0.41176470590000003" blue="0.42352941179999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="NSColor" red="0.39607843139999999" green="0.41176470590000003" blue="0.42352941179999998" alpha="0.0" colorSpace="calibratedRGB"/>
                                                     <font key="NSFont" size="17" name="Avenir-Heavy"/>
                                                     <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
                                                 </attributes>
@@ -176,7 +176,7 @@ to view categories</string>
                                                 <string key="content">up and down
 to view more information</string>
                                                 <attributes>
-                                                    <color key="NSColor" red="0.39607843139999999" green="0.41176470590000003" blue="0.42352941179999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="NSColor" red="0.39607843139999999" green="0.41176470590000003" blue="0.42352941179999998" alpha="0.0" colorSpace="calibratedRGB"/>
                                                     <font key="NSFont" size="17" name="Avenir-Book"/>
                                                     <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
                                                 </attributes>
@@ -185,7 +185,7 @@ to view more information</string>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" red="0.88235294119999996" green="0.90588235289999997" blue="0.91372549020000005" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="W7t-Du-5De" firstAttribute="top" secondItem="Czs-dv-wzu" secondAttribute="bottom" constant="10" id="3ea-PT-zOZ"/>
                                     <constraint firstItem="W7t-Du-5De" firstAttribute="top" secondItem="p3D-iG-qSH" secondAttribute="bottom" constant="120" id="4Cp-Dw-x1i"/>
@@ -196,7 +196,7 @@ to view more information</string>
                                     <constraint firstItem="W7t-Du-5De" firstAttribute="top" secondItem="Czs-dv-wzu" secondAttribute="bottom" constant="20" id="nb2-Wy-JH8"/>
                                     <constraint firstAttribute="centerY" secondItem="Czs-dv-wzu" secondAttribute="centerY" constant="-6.5" id="o9S-N7-WBu"/>
                                     <constraint firstAttribute="centerX" secondItem="p3D-iG-qSH" secondAttribute="centerX" id="pyh-fM-JoE"/>
-                                    <constraint firstItem="p3D-iG-qSH" firstAttribute="top" secondItem="CWl-Ee-x9H" secondAttribute="top" constant="150" id="qJg-3I-3cu"/>
+                                    <constraint firstItem="p3D-iG-qSH" firstAttribute="top" secondItem="CWl-Ee-x9H" secondAttribute="top" constant="100" id="qJg-3I-3cu"/>
                                     <constraint firstItem="B9P-Tk-7da" firstAttribute="top" secondItem="W7t-Du-5De" secondAttribute="bottom" constant="90" id="rgC-dR-KZF"/>
                                     <constraint firstItem="p3D-iG-qSH" firstAttribute="leading" secondItem="CWl-Ee-x9H" secondAttribute="leading" constant="30" id="tCz-Sw-ak5"/>
                                     <constraint firstAttribute="centerX" secondItem="Czs-dv-wzu" secondAttribute="centerX" id="vUx-el-I99"/>
@@ -265,7 +265,7 @@ to view more information</string>
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" red="0.87450980392156863" green="0.20784313725490197" blue="0.1803921568627451" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="centerX" secondItem="xIv-9i-Jsl" secondAttribute="centerX" id="2dA-BR-TJo"/>
                                     <constraint firstItem="EEx-Hf-ceW" firstAttribute="top" secondItem="W6j-vj-sk6" secondAttribute="bottom" id="9yJ-LF-v9e"/>
@@ -298,6 +298,11 @@ to view more information</string>
                             <constraint firstAttribute="centerX" secondItem="rJq-WH-YzC" secondAttribute="centerX" id="xDf-FF-Ip6"/>
                             <constraint firstAttribute="trailingMargin" secondItem="wlO-V9-vqy" secondAttribute="trailing" constant="-16" id="yn5-Ej-8br"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="hdY-RA-CZo"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="TKL-fl-mie"/>
                     <connections>
@@ -310,9 +315,9 @@ to view more information</string>
                         <outlet property="regularScrollLabel" destination="em5-Nz-08w" id="o4d-YV-9aK"/>
                         <outlet property="regularSwipeLabel" destination="Pfu-mP-7T6" id="zDA-0I-lU8"/>
                         <outlet property="returnHomeButton" destination="EEx-Hf-ceW" id="Uxd-Y1-JoO"/>
-                        <outlet property="tutorialHeight" destination="l4J-HC-EzY" id="0Kl-z5-PGk"/>
                         <outlet property="tutorialScrollLabel" destination="W7t-Du-5De" id="hXx-gE-7Xq"/>
                         <outlet property="tutorialSwipeLabel" destination="Czs-dv-wzu" id="S6R-dM-78v"/>
+                        <outlet property="tutorialView" destination="CWl-Ee-x9H" id="qmo-Vf-MPF"/>
                         <outlet property="welcomeLabel" destination="p3D-iG-qSH" id="UYB-Kb-dDZ"/>
                         <segue destination="lCE-aj-GVf" kind="presentation" identifier="Login" id="keK-mN-lU3"/>
                     </connections>

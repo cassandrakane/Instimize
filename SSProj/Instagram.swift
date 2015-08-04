@@ -20,14 +20,8 @@ struct Instagram {
         static let clientSecret = "ba7368a3061445749c7c36126ad757f4"
         static let authorizationURL = NSURL(string: Router.baseURLString + "/oauth/authorize/?client_id=" + Router.clientID + "&redirect_uri=" + Router.redirectURI + "&response_type=code")!
         
-        //case getCounts(String, String)
         case getRecent(String, String)
-        /*
-        case getLikes(String, String)
-        case getComments(String, String)
-        case getFollowers(String, String)
-        case getFollowings(String, String)
-        */
+     
         case requestOauthCode
         
         static func requestAccessTokenURLStringAndParms(code: String) -> (URLString: String, Params: [String: AnyObject]) {
@@ -37,48 +31,15 @@ struct Instagram {
             let urlString = Instagram.Router.baseURLString + pathString
             return (urlString, params)
         }
-        
-        /*
-        static func requestRecentMediaURLStringAndParms(userID: String, accessToken: String) -> (URLString: String, Params: [String: AnyObject]) {
-            let params = ["count": , "max_timestamp": , "access_token": accessToken, "min_timestamp": , "min_id": , "max_id": ]
-            let pathString = "/v1/users/" + userID + "/media/recent"
-            let urlString = Instagram.Router.baseURLString + pathString
-            return (urlSTring, params)
-        }
-        */
 
         
         var URLRequest: NSURLRequest {
             let (path: String, parameters: [String: AnyObject]) = {
                 switch self {
-                    /*
-                case .getCounts (let userID, let accessToken):
-                    let params: [String: AnyObject] = ["access_token": accessToken]
-                    let pathString = "/v1/users/" + userID
-                    return (pathString, params)
-                    */
                 case .getRecent (let userID, let accessToken):
                     let params: [String: AnyObject] = ["access_token": accessToken]
                     let pathString = "/v1/users/" + userID + "/media/recent"
                     return (pathString, params)
-                    /*
-                case .getLikes (let mediaID, let accessToken):
-                    let params = ["access_token": accessToken]
-                    let pathString = "/v1/media/" + mediaID + "/likes"
-                    return (pathString, params)
-                case .getComments (let mediaID, let accessToken):
-                    let params = ["access_token": accessToken]
-                    let pathString = "/v1/media/" + mediaID + "/comments"
-                    return (pathString, params)
-                case .getFollowers (let userID, let accessToken):
-                    let params = ["access_token": accessToken]
-                    let pathString = "/v1/users/" + userID + "/followed-by"
-                    return (pathString, params)
-                case .getFollowings (let userID, let accessToken):
-                    let params = ["access_token": accessToken]
-                    let pathString = "/v1/users/" + userID + "/follows"
-                    return (pathString, params)
-                    */
                 case .requestOauthCode:
                     let pathString = "/oauth/authorize/?client_id=" + Router.clientID + "&redirect_uri=" + Router.redirectURI + "&response_type=code"
                     return ("/photos", [:])
@@ -94,5 +55,5 @@ struct Instagram {
 }
 
 extension Alamofire.Request {
-    //FIGURE OUT LATER
+    
 }

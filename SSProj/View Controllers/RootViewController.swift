@@ -27,9 +27,8 @@ class RootViewController: UIViewController, UIPageViewControllerDataSource {
     var dayImage: String = ""
     var seasonImage: String = ""
     
-    //STUFF FOR SET UP
+    //SET UP
     var shouldLogin = true
-    //var newLogin = false
     var testing: Bool = true
     var mediaIDs: [String] = []
     var allLikes: [Int] = []
@@ -47,7 +46,7 @@ class RootViewController: UIViewController, UIPageViewControllerDataSource {
     @IBOutlet weak var regularScrollLabel: UILabel!
     @IBOutlet weak var regularSwipeLabel: UILabel!
     
-    @IBOutlet weak var tutorialHeight: NSLayoutConstraint!
+    @IBOutlet weak var tutorialView: UIView!
     
     @IBOutlet weak var welcomeLabel: UILabel!
     @IBOutlet weak var tutorialSwipeLabel: UILabel!
@@ -76,25 +75,18 @@ class RootViewController: UIViewController, UIPageViewControllerDataSource {
     
     @IBAction func unwindToMenu (segue : UIStoryboardSegue) {
         info.newLogin = true
+        UIView.animateWithDuration(1.0, animations: {
+            self.regularScrollLabel.textColor = UIColor.whiteColor()
+            self.regularSwipeLabel.textColor = UIColor.whiteColor()
+        })
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        tutorialHeight.constant = UIScreen.mainScreen().bounds.size.height
-        let clearColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 0)
 
-        welcomeLabel.textColor = clearColor
-        tutorialSwipeLabel.textColor = clearColor
-        tutorialScrollLabel.textColor = clearColor
-        let buttonTitle = NSAttributedString(string: "Begin",
-            attributes: [NSForegroundColorAttributeName : UIColor.clearColor()])
-        self.beginButton.setAttributedTitle(buttonTitle, forState: UIControlState.Normal)
-        
         self.navigationController?.navigationBarHidden = true
         
         rotateImage()
-        // Do any additional setup after loading the view.
         setUpUser() {
             self.setUpViewControllers()
         }
@@ -131,7 +123,6 @@ class RootViewController: UIViewController, UIPageViewControllerDataSource {
         let realm = Realm()
         
         if realm.objects(User).first != nil && realm.objects(User).first!.userID != "" {
-            //IF THERE IS A USER STORED IN REALM LOAD IT
             self.user = realm.objects(User).first
             shouldLogin = false
         } else {
@@ -184,8 +175,6 @@ class RootViewController: UIViewController, UIPageViewControllerDataSource {
     }
     
     func getInfo(user: User, request: URLRequestConvertible, callback: () -> Void) {
-        //GETS INFO FROM INSTAGRAM
-        
         Alamofire.request(request).responseJSON() {
             (_ , _, jsonObject, error) in
             
@@ -193,8 +182,6 @@ class RootViewController: UIViewController, UIPageViewControllerDataSource {
                 
                 let json = JSON(jsonObject!)
                 if (json["meta"]["code"].intValue  == 200) {
-                    
-                    //GET ALL MEDIA IDS
                     
                     //clear out previous posts
                     user.posts = List<Post> ()
@@ -210,11 +197,9 @@ class RootViewController: UIViewController, UIPageViewControllerDataSource {
                         let mediaID = posts[i]["id"].string!
                         let likes = String(stringInterpolationSegment: posts[i]["likes"]["count"]).toInt()!
                         let createdTime = posts[i]["created_time"].string!
-                        //let filter = posts[i]["filter"].string!
                         self.mediaIDs.append(mediaID)
                         self.allLikes.append(likes)
                         self.createdTimes.append(createdTime)
-                        //self.filters.append(filter)
                     }
                     
                     if let urlString = json["pagination"]["next_url"].URL {
@@ -228,15 +213,19 @@ class RootViewController: UIViewController, UIPageViewControllerDataSource {
                         }
                     }
                 } else {
-                    UIView.animateWithDuration(2.0, animations: {
+                    UIView.animateWithDuration(0.5, animations: {
                         self.errorView.backgroundColor = UIColor(red: 223/255, green: 53/255, blue: 46/255, alpha: 1)
-                        self.errorLabel1.textColor = UIColor.whiteColor()
-                        self.errorLabel2.textColor = UIColor.whiteColor()
-                        let buttonTitle = NSAttributedString(string: "Return To Home",
-                            attributes: [NSForegroundColorAttributeName : UIColor.whiteColor()])
-                        self.returnHomeButton.setAttributedTitle(buttonTitle, forState: UIControlState.Normal)
+                        }, completion: {
+                            (value: Bool) in
+                            UIView.animateWithDuration(5.0, animations: {
+                                self.errorLabel1.textColor = UIColor.whiteColor()
+                                self.errorLabel2.textColor = UIColor.whiteColor()
+                                let buttonTitle = NSAttributedString(string: "Return To Home",
+                                    attributes: [NSForegroundColorAttributeName : UIColor.whiteColor()])
+                                self.returnHomeButton.setAttributedTitle(buttonTitle, forState: UIControlState.Normal)
+                            })
                     })
-                    
+
                 }
             }
         }
@@ -246,11 +235,9 @@ class RootViewController: UIViewController, UIPageViewControllerDataSource {
         //GETS ALL LIKES/COMMENTS
         var i: Int
         for (i = 0; i < self.mediaIDs.count; i++) {
-            //GOES THROUGH EACH POST
             let mediaID: String = self.mediaIDs[i]
             let likes: Int = self.allLikes[i]
             let createdTime: String = self.createdTimes[i]
-            //let filter: String = self.filters[i]
             var newPost: Post = Post(id: mediaID, nol: likes, ct: createdTime)
             user.posts.append(newPost)
             let realm = Realm()
@@ -288,33 +275,38 @@ class RootViewController: UIViewController, UIPageViewControllerDataSource {
     }
     
     func showTutorial() {
-        
-        UIView.animateWithDuration(2, delay: 0.0, usingSpringWithDamping: 1.0, initialSpringVelocity: 4.0, options: UIViewAnimationOptions.TransitionNone, animations: {
-            self.tutorialHeight.constant = 0
-            let grayColor: UIColor = UIColor(red: 101/255, green: 105/255, blue: 108/255, alpha: 1)
-            self.welcomeLabel.textColor = grayColor
-            self.tutorialSwipeLabel.textColor = grayColor
-            self.tutorialScrollLabel.textColor = grayColor
-            let buttonTitle = NSAttributedString(string: "Begin",
-                attributes: [NSForegroundColorAttributeName : UIColor.darkGrayColor()])
-            self.beginButton.setAttributedTitle(buttonTitle, forState: UIControlState.Normal)
-            self.view.layoutIfNeeded()
-        }, completion: nil)
-
+        UIView.animateWithDuration(0.5, animations: {
+            self.tutorialView.backgroundColor = UIColor(red: 225/255, green: 231/255, blue: 233/255, alpha: 1)
+            }, completion: {
+                (value: Bool) in
+                UIView.animateWithDuration(5.0, animations: {
+                    let grayColor: UIColor = UIColor(red: 101/255, green: 105/255, blue: 108/255, alpha: 1)
+                    self.welcomeLabel.textColor = grayColor
+                    self.tutorialSwipeLabel.textColor = grayColor
+                    self.tutorialScrollLabel.textColor = grayColor
+                    let buttonTitle = NSAttributedString(string: "Begin",
+                        attributes: [NSForegroundColorAttributeName : UIColor.darkGrayColor()])
+                    self.beginButton.setAttributedTitle(buttonTitle, forState: UIControlState.Normal)
+                })
+        })
     }
     
     @IBAction func hideTutorial(sender: AnyObject) {
-        let clearColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 0)
-        UIView.animateWithDuration(1.3, delay: 0.0, usingSpringWithDamping: 1.0, initialSpringVelocity: 4.0, options: UIViewAnimationOptions.TransitionNone, animations: {
-            self.tutorialHeight.constant = UIScreen.mainScreen().bounds.size.height
+        UIView.animateWithDuration(1.0, animations: {
+            let clearColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 0)
             self.welcomeLabel.textColor = clearColor
             self.tutorialSwipeLabel.textColor = clearColor
             self.tutorialScrollLabel.textColor = clearColor
             let buttonTitle = NSAttributedString(string: "Begin",
                 attributes: [NSForegroundColorAttributeName : UIColor.clearColor()])
-            self.beginButton.setAttributedTitle(buttonTitle, forState: UIControlState.Normal)
-            self.view.layoutIfNeeded()
-            }, completion: nil)
+            self.beginButton.setAttributedTitle(buttonTitle, forState: UIControlState.Normal)            }, completion: {
+                (value: Bool) in
+                UIView.animateWithDuration(0.5, animations: {
+                    self.tutorialView.backgroundColor = UIColor(red: 225/255, green: 231/255, blue: 233/255, alpha: 0)
+
+                })
+        })
+        
         setUpUser() {
             self.setUpViewControllers()
         }
@@ -324,11 +316,9 @@ class RootViewController: UIViewController, UIPageViewControllerDataSource {
         UIView.animateWithDuration(2.0, delay: 0, options: UIViewAnimationOptions.Repeat, animations: {() -> Void in
                 self.clockImage.transform = CGAffineTransformRotate(self.clockImage.transform, 3.1415926)
             }, completion: nil)
-
     }
     
     @IBAction func returnHomeTapped(sender: AnyObject) {
-        println("tapped")
         self.info.setUp = false
         let realm = Realm()
         
@@ -670,7 +660,6 @@ class RootViewController: UIViewController, UIPageViewControllerDataSource {
     func sortDays() {
         var averageLikesSorted : [Double] = aveLikesPerDay.values.array
         averageLikesSorted.sort({ $0 > $1 })
-        //quickSort(averageLikesSorted, start: 0, end: aveLikesPerHour.count)
         var i: Int
         var count: Int = 1
         for (i = 0; i < aveLikesPerDay.count; i++) {

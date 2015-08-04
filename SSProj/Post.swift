@@ -13,8 +13,6 @@ import Realm
 class Post : Object {
     
     dynamic var mediaID: String = ""
-    //dynamic var likes: [Like] = []
-    //dynamic var comments: [Comment] = []
     dynamic var numOfLikes: Int = 0
     dynamic var createdTime: String = ""
     
@@ -22,11 +20,8 @@ class Post : Object {
     convenience required init(id: String, nol: Int, ct: String) {
         self.init()
         mediaID = id
-        //likes = l
-        //comments = c
         numOfLikes = nol
         createdTime = ct
-        //filter = f
     }
 
     
@@ -39,12 +34,10 @@ class Post : Object {
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
         let timezoneName: String = NSTimeZone.localTimeZone().name
         dateFormatter.timeZone = NSTimeZone(name: timezoneName)
-        //dateFormatter.timeZone = NSTimeZone(name: "Pacific/Midway")
         
         let localDateString = dateFormatter.stringFromDate(gmtDate) + "+0000"
         
         return localDateString
-        //return gmtDate.description
     }
     
 }
