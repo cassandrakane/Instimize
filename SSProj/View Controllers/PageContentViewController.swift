@@ -62,6 +62,16 @@ class PageContentViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(true)
+        UIView.animateWithDuration(0.3, animations: {
+            self.scrollView.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.5)
+            }, completion: {
+                (value: Bool) in
+                self.caretImage.image = UIImage(named: "Caret")
+        })
+    }
+    
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         self.backgroundImage.bounds = CGRect(x: UIScreen.mainScreen().bounds.origin.x, y: UIScreen.mainScreen().bounds.origin.y, width: UIScreen.mainScreen().bounds.size.width, height: UIScreen.mainScreen().bounds.size.height + 20)
@@ -108,18 +118,21 @@ extension PageContentViewController: UITableViewDataSource {
     }
     
     func scrollViewDidScroll(scrollView: UIScrollView) {
-        println("scrolled")
         let offset: CGPoint = scrollView.contentOffset
         if (offset.x == 0 && offset.y == 0) {
-            UIView.animateWithDuration(0.5, animations: {
+            UIView.animateWithDuration(0.3, animations: {
                 self.scrollView.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.5)
-            })
-            self.caretImage.image = UIImage(named: "Caret")
+                }, completion: {
+                    (value: Bool) in
+                    self.caretImage.image = UIImage(named: "Caret")
+                })
         } else {
-            UIView.animateWithDuration(0.5, animations: {
+            UIView.animateWithDuration(0.3, animations: {
                 self.scrollView.backgroundColor = UIColor.clearColor()
+                }, completion: {
+                    (value: Bool) in
+                    self.caretImage.image = UIImage(named: "Null")
             })
-            self.caretImage.image = UIImage(named: "Null")
         }
     }
 }
