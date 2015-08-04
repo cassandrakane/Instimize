@@ -361,7 +361,7 @@ to view more information</string>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3TC-Gr-crh">
-                                            <rect key="frame" x="10" y="242" width="147" height="48"/>
+                                            <rect key="frame" x="10" y="232" width="147" height="48"/>
                                             <attributedString key="attributedText">
                                                 <fragment content="Rankings">
                                                     <attributes>
@@ -484,12 +484,12 @@ to view more information</string>
                                         <constraint firstAttribute="trailing" secondItem="jLR-eh-FKK" secondAttribute="trailing" constant="-16" id="TNw-xq-AkB"/>
                                         <constraint firstItem="3TC-Gr-crh" firstAttribute="top" secondItem="p7z-OI-h8M" secondAttribute="bottom" constant="40" id="W9C-o5-h0s"/>
                                         <constraint firstItem="dGE-UN-x3X" firstAttribute="leading" secondItem="MlF-vO-IAs" secondAttribute="leading" constant="10" id="d4t-xe-Xac"/>
-                                        <constraint firstItem="3TC-Gr-crh" firstAttribute="top" secondItem="jLR-eh-FKK" secondAttribute="bottom" constant="40" id="dp9-8p-h5d"/>
+                                        <constraint firstItem="3TC-Gr-crh" firstAttribute="top" secondItem="jLR-eh-FKK" secondAttribute="bottom" constant="30" id="dp9-8p-h5d"/>
                                         <constraint firstItem="UDN-DM-NQi" firstAttribute="top" secondItem="p7z-OI-h8M" secondAttribute="bottom" constant="-1" id="ew7-TZ-jzD"/>
                                         <constraint firstAttribute="trailing" secondItem="DSD-So-VuB" secondAttribute="trailing" id="jyH-li-4FP"/>
                                         <constraint firstItem="jLR-eh-FKK" firstAttribute="leading" secondItem="MlF-vO-IAs" secondAttribute="leading" constant="-16" id="nP6-St-Jwd"/>
                                         <constraint firstItem="3TC-Gr-crh" firstAttribute="leading" secondItem="MlF-vO-IAs" secondAttribute="leading" constant="10" id="t1E-Uh-tO2"/>
-                                        <constraint firstAttribute="bottom" secondItem="3TC-Gr-crh" secondAttribute="bottom" constant="10" id="ttg-zS-keG"/>
+                                        <constraint firstAttribute="bottom" secondItem="3TC-Gr-crh" secondAttribute="bottom" constant="20" id="ttg-zS-keG"/>
                                         <constraint firstItem="DSD-So-VuB" firstAttribute="top" secondItem="MlF-vO-IAs" secondAttribute="top" id="z0g-pm-fka"/>
                                     </constraints>
                                     <variation key="default">
@@ -659,6 +659,8 @@ to view more information</string>
                         <outlet property="backgroundImage" destination="0yw-rH-6lt" id="76i-CH-8gC"/>
                         <outlet property="bestDataLabel" destination="p7z-OI-h8M" id="w4L-u9-TCL"/>
                         <outlet property="bestDataTypeLabel" destination="dGE-UN-x3X" id="HC4-0O-Rr2"/>
+                        <outlet property="caretImage" destination="Nyx-jK-UZ6" id="yuG-Yk-bFi"/>
+                        <outlet property="scrollView" destination="UDN-DM-NQi" id="ihq-lv-SCS"/>
                         <outlet property="settingsButton" destination="DSD-So-VuB" id="wpz-jz-isQ"/>
                         <outlet property="tableView" destination="V6P-JY-iMQ" id="mFZ-ZU-B2e"/>
                     </connections>

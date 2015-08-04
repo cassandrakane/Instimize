@@ -20,6 +20,10 @@ class PageContentViewController: UIViewController {
     
     @IBOutlet weak var settingsButton: UIButton!
     
+    @IBOutlet weak var scrollView: UIView!
+    
+    @IBOutlet weak var caretImage: UIImageView!
+    
     var settingsOpen = false
     
     var pageIndex: Int = 0
@@ -83,7 +87,6 @@ class PageContentViewController: UIViewController {
     }
     
     
-    
 }
 
 
@@ -103,6 +106,22 @@ extension PageContentViewController: UITableViewDataSource {
         
         return cell
     }
+    
+    func scrollViewDidScroll(scrollView: UIScrollView) {
+        println("scrolled")
+        let offset: CGPoint = scrollView.contentOffset
+        if (offset.x == 0 && offset.y == 0) {
+            UIView.animateWithDuration(0.5, animations: {
+                self.scrollView.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.5)
+            })
+            self.caretImage.image = UIImage(named: "Caret")
+        } else {
+            UIView.animateWithDuration(0.5, animations: {
+                self.scrollView.backgroundColor = UIColor.clearColor()
+            })
+            self.caretImage.image = UIImage(named: "Null")
+        }
+    }
 }
 
 extension PageContentViewController: UITableViewDelegate {
@@ -114,6 +133,7 @@ extension PageContentViewController: UITableViewDelegate {
 }
 
 extension PageContentViewController: UIScrollViewDelegate {
-    
+   
+
 }
 
