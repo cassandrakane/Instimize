@@ -67,21 +67,21 @@
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="EmptyClock" translatesAutoresizingMaskIntoConstraints="NO" id="DBM-d5-7U8">
                                         <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
                                     </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Camera" translatesAutoresizingMaskIntoConstraints="NO" id="yPJ-I7-KlT">
-                                        <rect key="frame" x="20" y="18" width="40" height="40"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Icon" translatesAutoresizingMaskIntoConstraints="NO" id="yPJ-I7-KlT">
+                                        <rect key="frame" x="25" y="19" width="35" height="39"/>
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="yPJ-I7-KlT" secondAttribute="trailing" constant="20" id="572-Rb-bMn"/>
-                                    <constraint firstItem="yPJ-I7-KlT" firstAttribute="top" secondItem="rJq-WH-YzC" secondAttribute="top" constant="18" id="Be2-fH-dB7"/>
+                                    <constraint firstItem="yPJ-I7-KlT" firstAttribute="top" secondItem="rJq-WH-YzC" secondAttribute="top" constant="19" id="Be2-fH-dB7"/>
                                     <constraint firstItem="DBM-d5-7U8" firstAttribute="leading" secondItem="rJq-WH-YzC" secondAttribute="leading" id="Brs-ol-6Al"/>
                                     <constraint firstAttribute="width" constant="80" id="JMC-eu-iDw"/>
                                     <constraint firstAttribute="trailing" secondItem="DBM-d5-7U8" secondAttribute="trailing" id="MxY-Il-iG1"/>
                                     <constraint firstAttribute="bottom" secondItem="yPJ-I7-KlT" secondAttribute="bottom" constant="22" id="ZBq-lV-2zM"/>
                                     <constraint firstItem="DBM-d5-7U8" firstAttribute="top" secondItem="rJq-WH-YzC" secondAttribute="top" id="kj4-WE-ldC"/>
                                     <constraint firstAttribute="height" constant="80" id="s1L-Lm-mwR"/>
-                                    <constraint firstItem="yPJ-I7-KlT" firstAttribute="leading" secondItem="rJq-WH-YzC" secondAttribute="leading" constant="20" id="s3Y-1g-yTZ"/>
+                                    <constraint firstItem="yPJ-I7-KlT" firstAttribute="leading" secondItem="rJq-WH-YzC" secondAttribute="leading" constant="25" id="s3Y-1g-yTZ"/>
                                     <constraint firstAttribute="bottom" secondItem="DBM-d5-7U8" secondAttribute="bottom" id="wTt-Tn-6CA"/>
                                 </constraints>
                             </view>
@@ -1094,9 +1094,9 @@ Make School Summer Academy (makeschool.com)</string>
         </scene>
     </scenes>
     <resources>
-        <image name="Camera" width="100" height="100"/>
         <image name="Caret" width="541" height="133"/>
         <image name="EmptyClock" width="1022" height="1022"/>
+        <image name="Icon" width="1180" height="1412"/>
         <image name="Info" width="545" height="545"/>
         <image name="Logo" width="541" height="155"/>
         <image name="Null" width="200" height="195"/>

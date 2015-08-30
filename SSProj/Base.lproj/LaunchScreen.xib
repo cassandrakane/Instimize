@@ -33,11 +33,17 @@
                     </constraints>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Icon" translatesAutoresizingMaskIntoConstraints="NO" id="mbz-dd-lyw">
-                    <rect key="frame" x="165" y="226" width="150" height="149"/>
+                    <rect key="frame" x="180" y="228" width="120" height="145"/>
                     <constraints>
+                        <constraint firstAttribute="height" constant="145" id="2rB-LA-NGJ"/>
                         <constraint firstAttribute="width" secondItem="mbz-dd-lyw" secondAttribute="height" multiplier="1:1" constant="1" id="KBo-8L-aKd"/>
-                        <constraint firstAttribute="width" constant="150" id="nPY-31-ZhH"/>
+                        <constraint firstAttribute="width" constant="120" id="nPY-31-ZhH"/>
                     </constraints>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="KBo-8L-aKd"/>
+                        </mask>
+                    </variation>
                 </imageView>
             </subviews>
             <color key="backgroundColor" red="0.13725490200000001" green="0.20000000000000001" blue="0.27058823529999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -61,7 +67,7 @@
         </view>
     </objects>
     <resources>
-        <image name="Icon" width="579" height="579"/>
+        <image name="Icon" width="1180" height="1412"/>
         <image name="Logo" width="541" height="155"/>
     </resources>
 </document>
