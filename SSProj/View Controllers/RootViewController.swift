@@ -175,6 +175,7 @@ class RootViewController: UIViewController, UIPageViewControllerDataSource {
     }
     
     func getInfo(user: User, request: URLRequestConvertible, callback: () -> Void) {
+        
         Alamofire.request(request).responseJSON() {
             (_ , _, jsonObject, error) in
             
@@ -220,6 +221,7 @@ class RootViewController: UIViewController, UIPageViewControllerDataSource {
                             UIView.animateWithDuration(5.0, animations: {
                                 self.errorLabel1.textColor = UIColor.whiteColor()
                                 self.errorLabel2.textColor = UIColor.whiteColor()
+                                self.errorLabel2.text = "Please return to the home menu."
                                 let buttonTitle = NSAttributedString(string: "Return To Home",
                                     attributes: [NSForegroundColorAttributeName : UIColor.whiteColor()])
                                 self.returnHomeButton.setAttributedTitle(buttonTitle, forState: UIControlState.Normal)
@@ -227,6 +229,21 @@ class RootViewController: UIViewController, UIPageViewControllerDataSource {
                     })
 
                 }
+            } else {
+                UIView.animateWithDuration(0.5, animations: {
+                    self.errorView.backgroundColor = UIColor(red: 223/255, green: 53/255, blue: 46/255, alpha: 1)
+                    }, completion: {
+                        (value: Bool) in
+                        UIView.animateWithDuration(5.0, animations: {
+                            self.errorLabel1.textColor = UIColor.whiteColor()
+                            self.errorLabel2.textColor = UIColor.whiteColor()
+                            self.errorLabel2.text = "Please check your internet connection."
+                            let buttonTitle = NSAttributedString(string: "Return To Home",
+                                attributes: [NSForegroundColorAttributeName : UIColor.whiteColor()])
+                            self.returnHomeButton.setAttributedTitle(buttonTitle, forState: UIControlState.Normal)
+                        })
+                })
+
             }
         }
     }

@@ -217,9 +217,9 @@ to view more information</string>
                                 <rect key="frame" x="0.0" y="84" width="600" height="100"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xIv-9i-Jsl">
-                                        <rect key="frame" x="152" y="17" width="296" height="17"/>
+                                        <rect key="frame" x="166" y="17" width="268" height="17"/>
                                         <attributedString key="attributedText">
-                                            <fragment content="There seems to be a connection error preventing login.">
+                                            <fragment content="There seems to be an issue preventing your login.">
                                                 <attributes>
                                                     <color key="NSColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="calibratedRGB"/>
                                                     <font key="NSFont" size="12" name="Avenir-Book"/>
@@ -230,9 +230,9 @@ to view more information</string>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W6j-vj-sk6">
-                                        <rect key="frame" x="211" y="39" width="179" height="17"/>
+                                        <rect key="frame" x="266" y="39" width="69" height="17"/>
                                         <attributedString key="attributedText">
-                                            <fragment content="Apologies for any inconvenience.">
+                                            <fragment content="Error Label 2">
                                                 <attributes>
                                                     <color key="NSColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="calibratedRGB"/>
                                                     <font key="NSFont" size="12" name="Avenir-Book"/>
@@ -1102,6 +1102,6 @@ Make School Summer Academy (makeschool.com)</string>
         <image name="Null" width="200" height="195"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="xOF-a0-ir6"/>
+        <segue reference="ZHE-E6-7eg"/>
     </inferredMetricsTieBreakers>
 </document>
