@@ -33,14 +33,16 @@
                     </constraints>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Icon" translatesAutoresizingMaskIntoConstraints="NO" id="mbz-dd-lyw">
-                    <rect key="frame" x="180" y="228" width="120" height="145"/>
+                    <rect key="frame" x="190" y="228" width="120" height="144"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="145" id="2rB-LA-NGJ"/>
+                        <constraint firstAttribute="height" constant="142" id="2rB-LA-NGJ"/>
                         <constraint firstAttribute="width" secondItem="mbz-dd-lyw" secondAttribute="height" multiplier="1:1" constant="1" id="KBo-8L-aKd"/>
+                        <constraint firstAttribute="width" secondItem="mbz-dd-lyw" secondAttribute="height" multiplier="295:353" id="nDX-0M-JcR"/>
                         <constraint firstAttribute="width" constant="120" id="nPY-31-ZhH"/>
                     </constraints>
                     <variation key="default">
                         <mask key="constraints">
+                            <exclude reference="2rB-LA-NGJ"/>
                             <exclude reference="KBo-8L-aKd"/>
                         </mask>
                     </variation>
@@ -50,7 +52,7 @@
             <constraints>
                 <constraint firstAttribute="centerY" secondItem="SrB-Q1-zIC" secondAttribute="centerY" multiplier="3:2" id="AIa-7N-0ku"/>
                 <constraint firstAttribute="centerX" secondItem="SrB-Q1-zIC" secondAttribute="centerX" id="I0q-jg-xBp"/>
-                <constraint firstAttribute="centerX" secondItem="mbz-dd-lyw" secondAttribute="centerX" id="KFj-o7-kx5"/>
+                <constraint firstAttribute="centerX" secondItem="mbz-dd-lyw" secondAttribute="centerX" constant="-10" id="KFj-o7-kx5"/>
                 <constraint firstAttribute="bottom" secondItem="8ie-xW-0ye" secondAttribute="bottom" constant="20" id="Kzo-t9-V3l"/>
                 <constraint firstItem="8ie-xW-0ye" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" symbolic="YES" id="MfP-vx-nX0"/>
                 <constraint firstAttribute="centerY" secondItem="mbz-dd-lyw" secondAttribute="centerY" multiplier="4:5" id="VE0-St-2ke"/>
@@ -68,6 +70,6 @@
     </objects>
     <resources>
         <image name="Icon" width="1180" height="1412"/>
-        <image name="Logo" width="541" height="155"/>
+        <image name="Logo" width="542" height="144"/>
     </resources>
 </document>

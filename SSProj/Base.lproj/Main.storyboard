@@ -68,22 +68,34 @@
                                         <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
                                     </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Icon" translatesAutoresizingMaskIntoConstraints="NO" id="yPJ-I7-KlT">
-                                        <rect key="frame" x="25" y="19" width="35" height="39"/>
+                                        <rect key="frame" x="24" y="17" width="35" height="41"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="yPJ-I7-KlT" secondAttribute="height" multiplier="295:353" id="CND-dr-LE7"/>
+                                        </constraints>
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="yPJ-I7-KlT" secondAttribute="trailing" constant="20" id="572-Rb-bMn"/>
-                                    <constraint firstItem="yPJ-I7-KlT" firstAttribute="top" secondItem="rJq-WH-YzC" secondAttribute="top" constant="19" id="Be2-fH-dB7"/>
+                                    <constraint firstItem="yPJ-I7-KlT" firstAttribute="top" secondItem="rJq-WH-YzC" secondAttribute="top" constant="17" id="Be2-fH-dB7"/>
                                     <constraint firstItem="DBM-d5-7U8" firstAttribute="leading" secondItem="rJq-WH-YzC" secondAttribute="leading" id="Brs-ol-6Al"/>
                                     <constraint firstAttribute="width" constant="80" id="JMC-eu-iDw"/>
                                     <constraint firstAttribute="trailing" secondItem="DBM-d5-7U8" secondAttribute="trailing" id="MxY-Il-iG1"/>
                                     <constraint firstAttribute="bottom" secondItem="yPJ-I7-KlT" secondAttribute="bottom" constant="22" id="ZBq-lV-2zM"/>
+                                    <constraint firstAttribute="bottom" secondItem="yPJ-I7-KlT" secondAttribute="bottom" constant="22" id="hzK-h6-7xZ"/>
+                                    <constraint firstAttribute="centerX" secondItem="yPJ-I7-KlT" secondAttribute="centerX" constant="-2" id="jmA-Me-meF"/>
                                     <constraint firstItem="DBM-d5-7U8" firstAttribute="top" secondItem="rJq-WH-YzC" secondAttribute="top" id="kj4-WE-ldC"/>
                                     <constraint firstAttribute="height" constant="80" id="s1L-Lm-mwR"/>
-                                    <constraint firstItem="yPJ-I7-KlT" firstAttribute="leading" secondItem="rJq-WH-YzC" secondAttribute="leading" constant="25" id="s3Y-1g-yTZ"/>
+                                    <constraint firstItem="yPJ-I7-KlT" firstAttribute="leading" secondItem="rJq-WH-YzC" secondAttribute="leading" constant="22" id="s3Y-1g-yTZ"/>
                                     <constraint firstAttribute="bottom" secondItem="DBM-d5-7U8" secondAttribute="bottom" id="wTt-Tn-6CA"/>
                                 </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="572-Rb-bMn"/>
+                                        <exclude reference="ZBq-lV-2zM"/>
+                                        <exclude reference="s3Y-1g-yTZ"/>
+                                    </mask>
+                                </variation>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wlO-V9-vqy">
                                 <rect key="frame" x="0.0" y="64" width="600" height="536"/>
@@ -731,10 +743,10 @@ to view more information</string>
                                         </connections>
                                     </button>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="akc-aU-3pg">
-                                        <rect key="frame" x="225" y="22" width="150" height="40"/>
+                                        <rect key="frame" x="234" y="25" width="132" height="35"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="akc-aU-3pg" secondAttribute="height" multiplier="542:144" id="EkT-Qs-crT"/>
-                                            <constraint firstAttribute="height" constant="40" id="GYy-NR-z7d"/>
+                                            <constraint firstAttribute="height" constant="35" id="GYy-NR-z7d"/>
                                         </constraints>
                                     </imageView>
                                 </subviews>
