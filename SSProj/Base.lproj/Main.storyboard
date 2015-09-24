@@ -950,9 +950,6 @@ Make School Summer Academy (makeschool.com)</string>
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Gradient" translatesAutoresizingMaskIntoConstraints="NO" id="iU0-hu-7ks">
-                                <rect key="frame" x="0.0" y="44" width="600" height="556"/>
-                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q6g-JQ-hbJ">
                                 <rect key="frame" x="183" y="210" width="235" height="41"/>
                                 <attributedString key="attributedText">
@@ -1077,20 +1074,16 @@ Make School Summer Academy (makeschool.com)</string>
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.1058823529" green="0.14901960780000001" blue="0.20392156859999999" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="iU0-hu-7ks" secondAttribute="trailing" constant="-16" id="2Ni-3W-CIQ"/>
                             <constraint firstItem="KNO-Ne-Fat" firstAttribute="top" secondItem="NcG-Oh-iCz" secondAttribute="bottom" id="3qW-Db-zFt"/>
                             <constraint firstItem="NcG-Oh-iCz" firstAttribute="top" secondItem="q6g-JQ-hbJ" secondAttribute="bottom" constant="30" id="4HV-E2-0Pg"/>
                             <constraint firstAttribute="trailingMargin" secondItem="NcG-Oh-iCz" secondAttribute="trailing" constant="-16" id="9eP-sW-5uR"/>
                             <constraint firstItem="q6g-JQ-hbJ" firstAttribute="top" secondItem="QxC-jN-hgW" secondAttribute="bottom" constant="20" id="ACe-RZ-BkR"/>
                             <constraint firstAttribute="centerY" secondItem="QxC-jN-hgW" secondAttribute="centerY" multiplier="2:1" id="ADA-v8-fbE"/>
-                            <constraint firstItem="iU0-hu-7ks" firstAttribute="leading" secondItem="CQc-po-9Fl" secondAttribute="leadingMargin" constant="-16" id="FZF-L0-Fo2"/>
-                            <constraint firstItem="iU0-hu-7ks" firstAttribute="top" secondItem="iRT-a9-Fpb" secondAttribute="bottom" constant="-20" id="HyV-Nt-eg9"/>
                             <constraint firstAttribute="centerX" secondItem="QxC-jN-hgW" secondAttribute="centerX" id="O0Y-xz-n0H"/>
                             <constraint firstItem="NcG-Oh-iCz" firstAttribute="leading" secondItem="CQc-po-9Fl" secondAttribute="leadingMargin" constant="-16" id="aBT-nn-zF5"/>
                             <constraint firstAttribute="centerX" secondItem="q6g-JQ-hbJ" secondAttribute="centerX" id="lyx-Vv-BDU"/>
-                            <constraint firstItem="KNO-Ne-Fat" firstAttribute="top" secondItem="iU0-hu-7ks" secondAttribute="bottom" id="pc4-gr-Fr6"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="gM7-I7-g7x"/>
@@ -1115,7 +1108,6 @@ Make School Summer Academy (makeschool.com)</string>
     <resources>
         <image name="Caret" width="541" height="133"/>
         <image name="EmptyClock" width="1022" height="1022"/>
-        <image name="Gradient" width="352" height="349"/>
         <image name="Icon" width="1180" height="1412"/>
         <image name="Info" width="545" height="545"/>
         <image name="Logo" width="542" height="144"/>
