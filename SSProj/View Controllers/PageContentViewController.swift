@@ -44,7 +44,7 @@ class PageContentViewController: UIViewController {
         bestDataTypeLabel.text = dataTypeString
         bestDataLabel.text = bestDataString
         
-        let realm = Realm()
+        let realm = Realm
         if realm.objects(User).first != nil {
             setUser()
             if user.set {
@@ -88,7 +88,7 @@ class PageContentViewController: UIViewController {
     }
     
     func setUser() {
-        let realm = Realm()
+        let realm = Realm
         user = realm.objects(User).first!
     }
    

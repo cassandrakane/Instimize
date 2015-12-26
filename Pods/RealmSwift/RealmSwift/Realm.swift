@@ -62,7 +62,7 @@ public final class Realm {
 
     `default.realm` in your application's documents directory on iOS.
 
-    :returns: Location of the default Realm.
+    - returns: Location of the default Realm.
     */
     public class var defaultPath: String {
         get {
@@ -79,10 +79,10 @@ public final class Realm {
     Obtains a Realm instance persisted at the specified file path. Defaults to
     `Realm.defaultPath`
 
-    :param: path Path to the realm file.
+    - parameter path: Path to the realm file.
     */
     public convenience init(path: String = Realm.defaultPath) {
-        self.init(RLMRealm(path: path, readOnly: false, error: nil))
+        self.init(try? RLMRealm(path: path, readOnly: false))
     }
     
     /**
@@ -98,19 +98,20 @@ public final class Realm {
               on files which cannot be opened in read-write mode, and not just for enforcing
               correctness in code that should not need to write to the Realm.
 
-    :param: path            Path to the file you want the data saved in.
-    :param: readOnly        Bool indicating if this Realm is read-only (must use for read-only files).
-    :param: encryptionKey   64-byte key to use to encrypt the data.
-    :param: error           If an error occurs, upon return contains an `NSError` object
+    - parameter path:            Path to the file you want the data saved in.
+    - parameter readOnly:        Bool indicating if this Realm is read-only (must use for read-only files).
+    - parameter encryptionKey:   64-byte key to use to encrypt the data.
+    - parameter error:           If an error occurs, upon return contains an `NSError` object
                             that describes the problem. If you are not interested in
                             possible errors, omit the argument, or pass in `nil`.
     */
-    public convenience init?(path: String, readOnly: Bool, encryptionKey: NSData? = nil, error: NSErrorPointer = nil) {
-        if let rlmRealm = RLMRealm(path: path, key: encryptionKey, readOnly: readOnly, inMemory: false, dynamic: false, schema: nil, error: error) as RLMRealm? {
+    public convenience init(path: String, readOnly: Bool, encryptionKey: NSData? = nil) throws {
+        var error: NSError! = NSError(domain: "Migrator", code: 0, userInfo: nil)
+        if let rlmRealm = RLMRealm(path: path, key: encryptionKey, readOnly: readOnly, inMemory: false, dynamic: false, schema: nil) as RLMRealm? {
             self.init(rlmRealm)
         } else {
             self.init(RLMRealm())
-            return nil
+            throw error
         }
     }
 
@@ -127,7 +128,7 @@ public final class Realm {
     `Object`s, `List`s, and `Results` that refer to objects persisted in a Realm have a
     strong reference to the relevant `Realm`, as do `NotifcationToken`s.
 
-    :param: identifier A string used to identify a particular in-memory Realm.
+    - parameter identifier: A string used to identify a particular in-memory Realm.
     */
     public convenience init(inMemoryIdentifier: String) {
         self.init(RLMRealm.inMemoryRealmWithIdentifier(inMemoryIdentifier))
@@ -138,7 +139,7 @@ public final class Realm {
     /**
     Helper to perform actions contained within the given block inside a write transation.
 
-    :param: block The block to be executed inside a write transaction.
+    - parameter block: The block to be executed inside a write transaction.
     */
     public func write(block: (() -> Void)) {
         rlmRealm.transactionWithBlock(block)
@@ -239,8 +240,8 @@ public final class Realm {
     The object to be added must be valid and cannot have been previously deleted
     from a Realm (i.e. `invalidated` must be false).
 
-    :param: object Object to be added to this Realm.
-    :param: update If true will try to update existing objects with the same primary key.
+    - parameter object: Object to be added to this Realm.
+    - parameter update: If true will try to update existing objects with the same primary key.
     */
     public func add(object: Object, update: Bool = false) {
         if update && object.objectSchema.primaryKeyProperty == nil {
@@ -254,8 +255,8 @@ public final class Realm {
 
     :see: add(object:update:)
 
-    :param: objects A sequence which contains objects to be added to this Realm.
-    :param: update If true will try to update existing objects with the same primary key.
+    - parameter objects: A sequence which contains objects to be added to this Realm.
+    - parameter update: If true will try to update existing objects with the same primary key.
     */
     public func add<S: SequenceType where S.Generator.Element: Object>(objects: S, update: Bool = false) {
         for obj in objects {
@@ -273,17 +274,17 @@ public final class Realm {
     the Realm instance with the same primary key value, the object is inserted. Otherwise, 
     the existing object is updated with any changed values.
 
-    :param: type    The object type to create.
-    :param: value   The value used to populate the object. This can be any key/value coding compliant
+    - parameter type:    The object type to create.
+    - parameter value:   The value used to populate the object. This can be any key/value coding compliant
                     object, or a JSON dictionary such as those returned from the methods in `NSJSONSerialization`,
                     or an `Array` with one object for each persisted property. An exception will be
                     thrown if any required properties are not present and no default is set.
 
                     When passing in an `Array`, all properties must be present,
                     valid and in the same order as the properties defined in the model.
-    :param: update  If true will try to update existing objects with the same primary key.
+    - parameter update:  If true will try to update existing objects with the same primary key.
 
-    :returns: The created object.
+    - returns: The created object.
     */
     public func create<T: Object>(type: T.Type, value: AnyObject = [:], update: Bool = false) -> T {
         if update && schema[T.className()]?.primaryKeyProperty == nil {
@@ -297,7 +298,7 @@ public final class Realm {
     /**
     Deletes the given object from this Realm.
 
-    :param: object The object to be deleted.
+    - parameter object: The object to be deleted.
     */
     public func delete(object: Object) {
         RLMDeleteObjectFromRealm(object, rlmRealm)
@@ -306,7 +307,7 @@ public final class Realm {
     /**
     Deletes the given objects from this Realm.
 
-    :param: object The objects to be deleted. This can be a `List<Object>`, `Results<Object>`,
+    - parameter object: The objects to be deleted. This can be a `List<Object>`, `Results<Object>`,
                    or any other enumerable SequenceType which generates Object.
     */
     public func delete<S: SequenceType where S.Generator.Element: Object>(objects: S) {
@@ -318,7 +319,7 @@ public final class Realm {
     /**
     Deletes the given objects from this Realm.
 
-    :param: object The objects to be deleted. This can be a `List<Object>`, `Results<Object>`,
+    - parameter object: The objects to be deleted. This can be a `List<Object>`, `Results<Object>`,
                    or any other enumerable SequenceType which generates Object.
     
     :nodoc:
@@ -330,7 +331,7 @@ public final class Realm {
     /**
     Deletes the given objects from this Realm.
 
-    :param: object The objects to be deleted. This can be a `List<Object>`, `Results<Object>`,
+    - parameter object: The objects to be deleted. This can be a `List<Object>`, `Results<Object>`,
                    or any other enumerable SequenceType which generates Object.
     
     :nodoc:
@@ -351,9 +352,9 @@ public final class Realm {
     /**
     Returns all objects of the given type in the Realm.
 
-    :param: type  The type of the objects to be returned.
+    - parameter type:  The type of the objects to be returned.
 
-    :returns: All objects of the given type in Realm.
+    - returns: All objects of the given type in Realm.
     */
     public func objects<T: Object>(type: T.Type) -> Results<T> {
         return Results<T>(RLMGetObjects(rlmRealm, T.className(), nil))
@@ -368,10 +369,10 @@ public final class Realm {
 
     :see: Object.primaryKey()
 
-    :param: type    The type of the objects to be returned.
-    :param: key     The primary key of the desired object.
+    - parameter type:    The type of the objects to be returned.
+    - parameter key:     The primary key of the desired object.
 
-    :returns: An object of type `type` or `nil` if an object with the given primary key does not exist.
+    - returns: An object of type `type` or `nil` if an object with the given primary key does not exist.
     */
     public func objectForPrimaryKey<T: Object>(type: T.Type, key: AnyObject) -> T? {
         return unsafeBitCast(RLMGetObject(rlmRealm, type.className(), key), Optional<T>.self)
@@ -383,13 +384,13 @@ public final class Realm {
     /**
     Add a notification handler for changes in this Realm.
 
-    :param: block A block which is called to process Realm notifications.
+    - parameter block: A block which is called to process Realm notifications.
                   It receives the following parameters:
 
                   - `Notification`: The incoming notification.
                   - `Realm`:        The realm for which this notification occurred.
 
-    :returns: A notification token which can later be passed to `removeNotification(_:)`
+    - returns: A notification token which can later be passed to `removeNotification(_:)`
               to remove this notification.
     */
     public func addNotificationBlock(block: NotificationBlock) -> NotificationToken {
@@ -400,7 +401,7 @@ public final class Realm {
     Remove a previously registered notification handler using the token returned
     from `addNotificationBlock(_:)`
 
-    :param: notificationToken The token returned from `addNotificationBlock(_:)`
+    - parameter notificationToken: The token returned from `addNotificationBlock(_:)`
                               corresponding to the notification block to remove.
     */
     public func removeNotification(notificationToken: NotificationToken) {
@@ -448,7 +449,7 @@ public final class Realm {
     Update a `Realm` and outstanding objects to point to the most recent
     data for this `Realm`.
 
-    :returns: Whether the realm had any updates.
+    - returns: Whether the realm had any updates.
               Note that this may return true even if no data has actually changed.
 
     */
@@ -492,18 +493,26 @@ public final class Realm {
     Note that if this is called from within a write transaction it writes the
     *current* data, and not data when the last write transaction was committed.
 
-    :param: path          Path to save the Realm to.
-    :param: encryptionKey Optional 64-byte encryption key to encrypt the new file with.
-    :returns:             If an error occurs, returns an `NSError` object, otherwise `nil`.
+    - parameter path:          Path to save the Realm to.
+    - parameter encryptionKey: Optional 64-byte encryption key to encrypt the new file with.
+    - returns:             If an error occurs, returns an `NSError` object, otherwise `nil`.
 
-    :returns: Whether the realm was copied successfully.
+    - returns: Whether the realm was copied successfully.
     */
     public func writeCopyToPath(path: String, encryptionKey: NSData? = nil) -> NSError? {
         var error: NSError?
         if let encryptionKey = encryptionKey {
-            rlmRealm.writeCopyToPath(path, encryptionKey: encryptionKey, error: &error)
+            do {
+                try rlmRealm.writeCopyToPath(path, encryptionKey: encryptionKey)
+            } catch var error1 as NSError {
+                error = error1
+            }
         } else {
-            rlmRealm.writeCopyToPath(path, error: &error)
+            do {
+                try rlmRealm.writeCopyToPath(path)
+            } catch var error1 as NSError {
+                error = error1
+            }
         }
         return error
     }
@@ -522,8 +531,8 @@ public final class Realm {
     needed, then use `Realm(path:, encryptionKey:, readOnly:, error:)` rather than this
     method.
 
-    :param: encryptionKey 64-byte encryption key to use, or `nil` to unset.
-    :param: path          Realm path to set the encryption key for.
+    - parameter encryptionKey: 64-byte encryption key to use, or `nil` to unset.
+    - parameter path:          Realm path to set the encryption key for.
     +*/
     public class func setEncryptionKey(encryptionKey: NSData?, forPath: String = Realm.defaultPath) {
         RLMRealm.setEncryptionKey(encryptionKey, forRealmsAtPath: forPath)

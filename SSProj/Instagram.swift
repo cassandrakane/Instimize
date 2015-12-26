@@ -34,7 +34,7 @@ struct Instagram {
 
         
         var URLRequest: NSURLRequest {
-            let (path: String, parameters: [String: AnyObject]) = {
+            let (path, parameters): (String, [String: AnyObject]) = {
                 switch self {
                 case .getRecent (let userID, let accessToken):
                     let params: [String: AnyObject] = ["access_token": accessToken]

@@ -36,7 +36,7 @@ class SettingsViewController: UIViewController {
 
     @IBAction func logoutTapped(sender: AnyObject) {
         info.setUp = false
-        let realm = Realm()
+        let realm = Realm
         
         let oldUser = realm.objects(User).first!
         var newUser: User = User()

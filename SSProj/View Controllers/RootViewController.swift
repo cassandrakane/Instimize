@@ -120,7 +120,7 @@ class RootViewController: UIViewController, UIPageViewControllerDataSource {
     }
     
     func setUpUser(callback: () -> Void) {
-        let realm = Realm()
+        let realm = Realm
         
         if realm.objects(User).first != nil && realm.objects(User).first!.userID != "" {
             self.user = realm.objects(User).first
@@ -196,7 +196,7 @@ class RootViewController: UIViewController, UIPageViewControllerDataSource {
                     var i: Int
                     for (i = 0; i < posts.count; i++) {
                         let mediaID = posts[i]["id"].string!
-                        let likes = String(stringInterpolationSegment: posts[i]["likes"]["count"]).toInt()!
+                        let likes = Int(String(stringInterpolationSegment: posts[i]["likes"]["count"]))!
                         let createdTime = posts[i]["created_time"].string!
                         self.mediaIDs.append(mediaID)
                         self.allLikes.append(likes)
@@ -257,7 +257,7 @@ class RootViewController: UIViewController, UIPageViewControllerDataSource {
             let createdTime: String = self.createdTimes[i]
             var newPost: Post = Post(id: mediaID, nol: likes, ct: createdTime)
             user.posts.append(newPost)
-            let realm = Realm()
+            let realm = Realm
             realm.write(){
                 realm.objects(User).first!.posts.append(newPost)
             }
@@ -279,7 +279,7 @@ class RootViewController: UIViewController, UIPageViewControllerDataSource {
         self.pageViewController.dataSource = self
         var startingViewController: PageContentViewController = self.viewControllerAtIndex(0)
         var viewControllers: NSArray = [startingViewController]
-        self.pageViewController.setViewControllers(viewControllers as [AnyObject], direction: UIPageViewControllerNavigationDirection.Forward, animated: false, completion: nil)
+        self.pageViewController.setViewControllers(viewControllers as [AnyObject] as [AnyObject], direction: UIPageViewControllerNavigationDirection.Forward, animated: false, completion: nil)
         
         
         // Change the size of page view controller
@@ -337,7 +337,7 @@ class RootViewController: UIViewController, UIPageViewControllerDataSource {
     
     @IBAction func returnHomeTapped(sender: AnyObject) {
         self.info.setUp = false
-        let realm = Realm()
+        let realm = Realm
         
         let oldUser = realm.objects(User).first!
         var newUser: User = User()
@@ -427,7 +427,7 @@ class RootViewController: UIViewController, UIPageViewControllerDataSource {
         for (i = 0; i < user!.posts.count; i++) {
             let post = user!.posts[i]
             let date = dates[i]
-            let rangeOfHour = Range(start: (advance(date.startIndex, 11)), end: (advance(date.startIndex, 13)))
+            let rangeOfHour = Range(start: (date.startIndex.advancedBy(11)), end: (date.startIndex.advancedBy(13)))
             let hour = date.substringWithRange(rangeOfHour)
             let numOfLikes = post.numOfLikes
             totLikesPerHour[hour]!.append(numOfLikes)
@@ -458,13 +458,13 @@ class RootViewController: UIViewController, UIPageViewControllerDataSource {
     
     func sortTimes() {
         var averageLikesSorted : [Double] = aveLikesPerHour.values.array
-        averageLikesSorted.sort({ $0 > $1 })
+        averageLikesSorted.sortInPlace({ $0 > $1 })
 
         var i: Int
         var count: Int = 1
         for (i = 0; i < aveLikesPerHour.count; i++) {
-            var likes: Double = averageLikesSorted[i]
-            var ts = (aveLikesPerHour as NSDictionary).allKeysForObject(likes) as! [String]
+            let likes: Double = averageLikesSorted[i]
+            let ts = (aveLikesPerHour as NSDictionary).allKeysForObject(likes) as! [String]
             for t in ts {
                 var (timeName, timePhoto) : (String, String) = getTimeName(t)
                 var likesName: String = ""
@@ -477,7 +477,7 @@ class RootViewController: UIViewController, UIPageViewControllerDataSource {
                     postName = "# of posts: 0"
                 }
 
-                var rankName: String = "\(count)"
+                let rankName: String = "\(count)"
                 info.times.append(Label(n: timeName, l: likesName, p: postName, r: rankName, ph: timePhoto))
                 count++
             }
@@ -651,7 +651,7 @@ class RootViewController: UIViewController, UIPageViewControllerDataSource {
         for (i = 0; i < user!.posts.count; i++) {
             let post = user!.posts[i]
             let date = dates[i]
-            let rangeOfDate = Range(start: (advance(date.startIndex, 0)), end: (advance(date.startIndex, 10)))
+            let rangeOfDate = Range(start: (date.startIndex.advancedBy(0)), end: (date.startIndex.advancedBy(10)))
             let dateString = date.substringWithRange(rangeOfDate)
             let dayOfWeek: Int = getDayOfWeek(dateString)
             let numOfLikes = post.numOfLikes
@@ -676,12 +676,12 @@ class RootViewController: UIViewController, UIPageViewControllerDataSource {
     
     func sortDays() {
         var averageLikesSorted : [Double] = aveLikesPerDay.values.array
-        averageLikesSorted.sort({ $0 > $1 })
+        averageLikesSorted.sortInPlace({ $0 > $1 })
         var i: Int
         var count: Int = 1
         for (i = 0; i < aveLikesPerDay.count; i++) {
-            var likes: Double = averageLikesSorted[i]
-            var ds = (aveLikesPerDay as NSDictionary).allKeysForObject(likes) as! [String]
+            let likes: Double = averageLikesSorted[i]
+            let ds = (aveLikesPerDay as NSDictionary).allKeysForObject(likes) as! [String]
             for d in ds {
                 var (dayName, dayPhoto): (String, String) = getDayName(d)
                 var likesName: String = ""
@@ -693,7 +693,7 @@ class RootViewController: UIViewController, UIPageViewControllerDataSource {
                     likesName = "average likes: n/a"
                     postName = "# of posts: 0"
                 }
-                var rankName: String = "\(count)"
+                let rankName: String = "\(count)"
                 info.days.append(Label(n: dayName, l: likesName, p: postName, r: rankName, ph: dayPhoto))
                 count++
             }
@@ -726,7 +726,7 @@ class RootViewController: UIViewController, UIPageViewControllerDataSource {
         formatter.dateFormat = "yyyy-MM-dd"
         let todayDate = formatter.dateFromString(date)!
         let myCalendar = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)!
-        let myComponents = myCalendar.components(.CalendarUnitWeekday, fromDate: todayDate)
+        let myComponents = myCalendar.components(.Weekday, fromDate: todayDate)
         let weekDay = myComponents.weekday
         return weekDay
         
@@ -790,7 +790,7 @@ class RootViewController: UIViewController, UIPageViewControllerDataSource {
         for (i = 0; i < user!.posts.count; i++) {
             let post = user!.posts[i]
             let date = dates[i]
-            let rangeOfMonth = Range(start: (advance(date.startIndex, 5)), end: (advance(date.startIndex, 7)))
+            let rangeOfMonth = Range(start: (date.startIndex.advancedBy(5)), end: (date.startIndex.advancedBy(7)))
             let month = date.substringWithRange(rangeOfMonth)
             let numOfLikes = post.numOfLikes
             totLikesPerMonth[month]!.append(numOfLikes)
@@ -821,13 +821,13 @@ class RootViewController: UIViewController, UIPageViewControllerDataSource {
     
     func sortMonths() {
         var averageLikesSorted : [Double] = aveLikesPerMonth.values.array
-        averageLikesSorted.sort({ $0 > $1 })
+        averageLikesSorted.sortInPlace({ $0 > $1 })
         
         var i: Int
         var count: Int = 1
         for (i = 0; i < aveLikesPerMonth.count; i++) {
-            var likes: Double = averageLikesSorted[i]
-            var ms = (aveLikesPerMonth as NSDictionary).allKeysForObject(likes) as! [String]
+            let likes: Double = averageLikesSorted[i]
+            let ms = (aveLikesPerMonth as NSDictionary).allKeysForObject(likes) as! [String]
             for m in ms {
                 var (monthName, monthPhoto): (String, String) = getMonthName(m)
                 var likesName: String = ""
@@ -839,7 +839,7 @@ class RootViewController: UIViewController, UIPageViewControllerDataSource {
                     likesName = "average likes: n/a"
                     postName = "# of posts: 0"
                 }
-                var rankName: String = "\(count)"
+                let rankName: String = "\(count)"
                 info.months.append(Label(n: monthName, l: likesName, p: postName, r: rankName, ph: monthPhoto))
                 count++
             }
@@ -914,7 +914,7 @@ class RootViewController: UIViewController, UIPageViewControllerDataSource {
             return PageContentViewController()
         }
         // Create a new view controller and pass suitable data.
-        var pageContentViewController: PageContentViewController = self.storyboard!.instantiateViewControllerWithIdentifier("PageContentViewController") as! PageContentViewController
+        let pageContentViewController: PageContentViewController = self.storyboard!.instantiateViewControllerWithIdentifier("PageContentViewController") as! PageContentViewController
         pageContentViewController.imageFile = self.pageImages[index] as! String
         pageContentViewController.dataType = self.pageDataTypes[index] as! String
         pageContentViewController.dataTypeString = self.pageDataTypeLabels[index] as! String

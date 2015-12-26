@@ -53,7 +53,7 @@ the `objects(_:)` instance method on `Realm`.
 
 See our [Cocoa guide](http://realm.io/docs/cocoa) for more details.
 */
-public class Object: RLMObjectBase, Equatable, Printable {
+public class Object: RLMObjectBase, Equatable, CustomStringConvertible {
 
     // MARK: Initializers
 
@@ -71,7 +71,7 @@ public class Object: RLMObjectBase, Equatable, Printable {
     Initialize a standalone (unpersisted) `Object` with values from an `Array<AnyObject>` or `Dictionary<String, AnyObject>`.
     Call `add(_:)` on a `Realm` to add standalone objects to a realm.
 
-    :param: value   The value used to populate the object. This can be any key/value coding compliant
+    - parameter value:   The value used to populate the object. This can be any key/value coding compliant
                     object, or a JSON object such as those returned from the methods in `NSJSONSerialization`,
                     or an `Array` with one object for each persisted property. An exception will be
                     thrown if any required properties are not present and no default is set.
@@ -111,7 +111,7 @@ public class Object: RLMObjectBase, Equatable, Printable {
     type String and Int can be designated as the primary key. Primary key
     properties enforce uniqueness for each value whenever the property is set which incurs some overhead.
     Indexes are created automatically for primary key properties.
-    :returns: Name of the property designated as the primary key, or `nil` if the model has no primary key.
+    - returns: Name of the property designated as the primary key, or `nil` if the model has no primary key.
     */
     public class func primaryKey() -> String? { return nil }
 
@@ -119,14 +119,14 @@ public class Object: RLMObjectBase, Equatable, Printable {
     Override to return an array of property names to ignore. These properties will not be persisted
     and are treated as transient.
 
-    :returns: `Array` of property names to ignore.
+    - returns: `Array` of property names to ignore.
     */
     public class func ignoredProperties() -> [String] { return [] }
 
     /**
     Return an array of property names for properties which should be indexed. Only supported
     for string and int properties.
-    :returns: `Array` of property names to index.
+    - returns: `Array` of property names to index.
     */
     public class func indexedProperties() -> [String] { return [] }
 
@@ -136,9 +136,9 @@ public class Object: RLMObjectBase, Equatable, Printable {
     /**
     Get an `Array` of objects of type `className` which have this object as the given property value. This can
     be used to get the inverse relationship value for `Object` and `List` properties.
-    :param: className The type of object on which the relationship to query is defined.
-    :param: property  The name of the property which defines the relationship.
-    :returns: An `Array` of objects of type `className` which have this object as their value for the `propertyName` property.
+    - parameter className: The type of object on which the relationship to query is defined.
+    - parameter property:  The name of the property which defines the relationship.
+    - returns: An `Array` of objects of type `className` which have this object as their value for the `propertyName` property.
     */
     public func linkingObjects<T: Object>(type: T.Type, forProperty propertyName: String) -> [T] {
         return RLMObjectBaseLinkingObjectsOfClass(self, T.className(), propertyName) as! [T]
@@ -167,8 +167,8 @@ public class Object: RLMObjectBase, Equatable, Printable {
 
     /**
     Returns the value for the property identified by the given key.
-    :param: key The name of one of the receiver's properties.
-    :returns: The value for the property identified by `key`.
+    - parameter key: The name of one of the receiver's properties.
+    - returns: The value for the property identified by `key`.
     */
     public override func valueForKey(key: String) -> AnyObject? {
         if let list = listProperty(key) {
@@ -179,8 +179,8 @@ public class Object: RLMObjectBase, Equatable, Printable {
 
     /**
     Sets the property of the receiver specified by the given key to the given value.
-    :param: value The value for the property identified by `key`.
-    :param: key   The name of one of the receiver's properties.
+    - parameter value: The value for the property identified by `key`.
+    - parameter key:   The name of one of the receiver's properties.
     */
     public override func setValue(value: AnyObject?, forKey key: String) {
         if let list = listProperty(key) {
@@ -258,7 +258,7 @@ public final class DynamicObject : Object {
     }
 
     /// :nodoc:
-    public override func setValue(value: AnyObject?, forUndefinedKey key: String) {
+    public override func setValue(value: AnyObject?, forKey key: String) {
         self[key] = value
     }
 

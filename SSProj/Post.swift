@@ -27,8 +27,8 @@ class Post : Object {
     
     func getDate() -> String {
         
-        var gmtTimeInterval : NSTimeInterval = (createdTime as NSString).doubleValue
-        var gmtDate = NSDate(timeIntervalSince1970: gmtTimeInterval)
+        let gmtTimeInterval : NSTimeInterval = (createdTime as NSString).doubleValue
+        let gmtDate = NSDate(timeIntervalSince1970: gmtTimeInterval)
         
         let dateFormatter: NSDateFormatter = NSDateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
